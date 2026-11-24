@@ -10,5 +10,6 @@ node scripts/parse-story.mjs --script="$SCRIPT_PATH" --mode="$MODE" --output=tem
 cd template
 npm ci
 mkdir -p out
+npx remotion render src/index.ts IllustratedStoryFilm out/story-film.mp4 --props=out/story-props.json --codec=h264
 npx remotion render src/index.ts StoryAnimatic out/story-animatic.mp4 --props=out/story-props.json --codec=h264
-echo "Rendered: template/out/story-animatic.mp4"
+echo "Rendered: template/out/story-film.mp4 and template/out/story-animatic.mp4"
