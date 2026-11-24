@@ -55,9 +55,8 @@ jobs:
       - name: Validate and prepare story props
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
-          # PRs render every scene so the full episode is validated before merge.
-          # Manual runs keep the user-selected test/full mode.
-          RENDER_MODE: ${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}
+          # This workflow is manual-only; respect the selected render mode.
+          RENDER_MODE: ${{ inputs.mode || 'full' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
       - name: Setup Python for free local TTS
         if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
