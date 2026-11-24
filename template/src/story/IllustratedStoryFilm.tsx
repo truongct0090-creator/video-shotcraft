@@ -10,6 +10,7 @@ const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene
  const exit=interpolate(frame,[Math.max(0,duration-8),duration],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const opacity=1-exit;
  const transitionSound=scene.number%2===0?'audio/transition-snap.mp3':'audio/transition-soft.mp3';
+ // Reuse the repository's iris, wipe, and whip-pan transition language (references/shots/transition/).
  const reveal=scene.number%3===0?{clipPath:'circle('+Math.max(0,enter)*150+'% at 52% 48%)'}:scene.number%3===1?{clipPath:'inset(0 '+((1-enter)*100)+'% 0 0)'}:{transform:'translateX('+((1-enter)*110)+'px) scale('+(0.985+enter*0.015)+')'};
  return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.10}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<AbsoluteFill style={reveal}><SceneStage scene={scene}/></AbsoluteFill></AbsoluteFill>;
 };
