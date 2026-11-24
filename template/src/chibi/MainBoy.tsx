@@ -84,23 +84,49 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         <g transform={`rotate(${headTilt} 300 245)`}>
           <ellipse cx="300" cy="245" rx="151" ry="157" fill={skin} stroke={outline} strokeWidth="10"/>
 
-          {/* Neat red crew cut: close to the scalp, short textured crown, absolutely no fringe. */}
-          <path d="M153 238
-            Q143 193 158 154
-            Q174 111 216 94
-            Q254 76 300 78
-            Q346 76 384 94
-            Q426 111 442 154
-            Q457 193 447 238
-            Q434 215 430 189
-            Q424 151 394 132
-            Q360 108 300 108
-            Q240 108 206 132
-            Q176 151 170 189
-            Q166 215 153 238Z"
+          {/* Korean 7:3 side-part hairstyle: tidy volume, a clean part, and a soft swept fringe. */}
+          <path d="M151 239
+            Q137 190 158 146
+            Q179 101 229 84
+            Q276 65 326 79
+            Q379 67 419 103
+            Q454 134 451 190
+            Q449 218 438 239
+            Q428 214 425 190
+            Q420 163 402 145
+            Q383 126 359 122
+            Q339 119 322 126
+            Q303 133 286 151
+            Q271 169 254 171
+            Q235 173 222 157
+            Q209 143 191 151
+            Q171 164 166 195
+            Q161 220 151 239Z"
             fill={red} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          <path d="M205 119 Q248 91 300 94 Q352 91 395 119" fill="none" stroke="#F27670" strokeWidth="7" strokeLinecap="round"/>
-          <path d="M174 184 Q180 155 198 139 M426 184 Q420 155 402 139 M247 99 l-5 13 M282 91 l-2 12 M318 91 l2 12 M353 99 l5 13" fill="none" stroke="#E96A68" strokeWidth="5" strokeLinecap="round"/>
+          {/* Larger 7-side sweep, lifted softly from the part. */}
+          <path d="M169 165
+            Q190 108 250 91
+            Q303 75 345 97
+            Q365 108 375 128
+            Q350 116 328 126
+            Q304 137 286 158
+            Q266 181 242 183
+            Q211 185 194 163
+            Q181 151 169 165Z"
+            fill={red} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+          {/* Narrow 3-side, combed neatly toward the temple. */}
+          <path d="M345 91 Q392 89 422 123 Q442 148 438 184
+            Q422 160 404 151 Q385 140 365 145 Q350 148 337 159
+            Q347 133 345 91Z"
+            fill={red} stroke={outline} strokeWidth="6" strokeLinejoin="round"/>
+          {/* Visible side part and restrained hair texture. */}
+          <path d="M345 91 Q337 116 322 137" fill="none" stroke="#8F252F" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M190 145 Q229 99 286 99 Q314 99 335 112
+            M203 158 Q235 139 263 126
+            M366 111 Q398 119 416 145"
+            fill="none" stroke="#F27670" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M177 191 Q184 168 199 156 M411 157 Q426 176 427 198"
+            fill="none" stroke="#E96A68" strokeWidth="5" strokeLinecap="round"/>
 
           {expression === 'angry' ? (
             <>
