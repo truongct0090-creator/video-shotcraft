@@ -66,12 +66,12 @@ Mỗi cảnh nên khai báo:
 - tùy chọn `**Loại cảnh:**` một trong `alley`, `archive`, `map`, `teahouse`, `historic`, `countryside`, `modern`, `interior`, `generic`
 - tùy chọn `**Nhân vật:**` là `main-boy` hoặc `none`
 - tùy chọn `**Thời lượng:**` như `6s`, `180f`, `1 phút`
-- tùy chọn: `**Nhân vật:**`, `**Đạo cụ:**`, `**Shot:**`, `**Thời lượng:**`
+- tùy chọn: `**Đạo cụ:**`, `**Shot:**`
 
 Shot phải là tên card hoặc style key có thật trong `gallery/api/library.json`. Không ghi tên shot tự nghĩ rồi coi là tài nguyên có sẵn.
 
 ### 4. Duyệt animatic và dựng phim
-Dùng workflow **Story animatic**. Chạy `test` để xem 10 cảnh đầu, sau đó `full` để xuất toàn bộ tập. Mỗi lần chạy tạo hai MP4: `story-animatic.mp4` để duyệt nhịp và `story-film.mp4` là bản phim hoạt hình minh họa. Bản phim sử dụng sân khấu vector tái sử dụng (hẻm, hồ sơ, bản đồ, quán trà, phố lịch sử, đồng quê, đô thị hiện đại, nội thất, trung tính), nhân vật MainBoy có sẵn, camera drift và hiệu ứng chuyển cảnh. Có thể chọn sân khấu bằng `**Loại cảnh:**` và ẩn nhân vật bằng `**Nhân vật:** none`. Đây là phim minh họa vector, không phải tư liệu lịch sử hoặc footage thật.
+Dùng workflow **Story animatic**. Mặc định workflow thủ công và `npm run render:film` đều chạy `full`; chọn `test` nếu chỉ muốn render 10 cảnh đầu. Lệnh local: `cd template && npm run render:film` (cần Node.js, npm và ffprobe/FFmpeg). `npm run render:story:test` dùng cho bản thử nhanh. Mỗi lần chạy tạo hai MP4: `story-animatic.mp4` để duyệt nhịp và `story-film.mp4` là bản phim hoạt hình minh họa. Bản phim sử dụng sân khấu vector tái sử dụng (hẻm, hồ sơ, bản đồ, quán trà, phố lịch sử, đồng quê, đô thị hiện đại, nội thất, trung tính), nhân vật MainBoy có sẵn, camera drift và hiệu ứng chuyển cảnh. Có thể chọn sân khấu bằng `**Loại cảnh:**` và ẩn nhân vật bằng `**Nhân vật:** none`. Đây là phim minh họa vector, không phải tư liệu lịch sử hoặc footage thật.
 
 ### 5. Dựng hình và hoạt họa
 Dùng Remotion hiện có, 1920×1080, 30fps. Tái sử dụng character components, motion cards, camera/effects, theme assets. Mỗi cảnh có continuity notes cho nhân vật, trang phục, vị trí, thời gian và đạo cụ. Không dùng một demo chuyển động như thể nó là toàn bộ bối cảnh.
@@ -87,11 +87,13 @@ Tách narration, BGM, SFX và subtitles. SFX chuyển cảnh dùng hai file Mixk
 Parser xác minh đường dẫn và file tồn tại. Không có voiceover thì lời dẫn hiển thị dưới dạng phụ đề, không giả lập giọng nói. Hiện chưa có lip-sync âm vị tiếng Việt; không tuyên bố miệng nhân vật khớp lời đọc.
 
 ### 7. QA và xuất bản
+Sau khi render, `scripts/qa-rendered-film.mjs` dùng `ffprobe` kiểm tra file tồn tại, dung lượng, video stream, 1920×1080, 30fps, thời lượng và audio stream của phim. Báo cáo `template/out/render-qa.json` được đính kèm artifact. Đây là QA kỹ thuật đầu ra; vẫn cần người duyệt nội dung, bố cục, continuity và âm thanh thực tế.
+
 Kiểm tra toàn bộ cảnh: không mất chữ, không tràn khung, không nhảy nhân vật, không sai continuity, âm thanh không clipping, phụ đề đúng lời và đúng thời gian. Lưu metadata gồm commit SHA, script hash, asset map, fps, độ phân giải, thời lượng và nguồn/giấy phép. Xuất H.264 MP4 qua GitHub Actions.
 
 ## Ranh giới hiện trạng
 
-- Đã có: Remotion renderer; 124 shot cards/150 styles; gallery; reusable motion helpers; Workbench; JianYing export; MainBoy chibi; Markdown parser; asset audit; StoryAnimatic; IllustratedStoryFilm; 9 sân khấu vector; phụ đề lời dẫn; SFX chuyển cảnh; voiceover/BGM tùy chọn; xuất hai MP4 qua GitHub Actions.
+- Đã có: Remotion renderer; technical MP4 QA bằng ffprobe; 124 shot cards/150 styles; gallery; reusable motion helpers; Workbench; JianYing export; MainBoy chibi; Markdown parser; asset audit; StoryAnimatic; IllustratedStoryFilm; 9 sân khấu vector; phụ đề lời dẫn; SFX chuyển cảnh; voiceover/BGM tùy chọn; xuất hai MP4 qua GitHub Actions.
 - Còn thiếu để thành studio sản xuất hoạt hình chuyên nghiệp: nhiều nhân vật/rig và góc nhìn; thư viện bối cảnh/đạo cụ lịch sử có metadata; scene/asset browser chuyên dụng; timeline biên tập nhiều track; lip-sync tiếng Việt theo âm vị; ghi âm/thu giọng tích hợp; sound mixer/mastering; kiểm tra continuity và QA tự động theo từng khung hình.
 - Kết luận hiện trạng: đã có dây chuyền tối thiểu xuất được phim hoạt hình minh họa từ kịch bản; chưa phải studio nhiều nhân vật với hoạt họa chi tiết và hậu kỳ âm thanh hoàn chỉnh.
 - Những mục thiếu này phải được triển khai theo từng lớp và kiểm thử. Không đánh đồng tài liệu hướng dẫn hoặc animatic với tính năng đã chạy.
