@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { AbsoluteFill, continueRender, delayRender, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 
 type Scene = {
@@ -24,8 +24,8 @@ type Props = {
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
 export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, scenes}) => {
-  const fontHandle = delayRender('Loading Be Vietnam Pro');
-  useEffect(() => { document.fonts.load('700 58px "Be Vietnam Pro"').then(() => document.fonts.ready).then(() => continueRender(fontHandle)).catch(() => continueRender(fontHandle)); }, []);
+  const [fontHandle] = useState(() => delayRender('Loading Be Vietnam Pro'));
+  useEffect(() => { document.fonts.load('700 58px "Be Vietnam Pro"').then(() => document.fonts.ready).then(() => continueRender(fontHandle)).catch(() => continueRender(fontHandle)); }, [fontHandle]);
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const sceneStarts = scenes.map((_, index) => scenes.slice(0, index).reduce((sum, item) => sum + (item.durationInFrames || framesPerScene), 0));
