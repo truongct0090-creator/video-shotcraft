@@ -73,6 +73,7 @@ const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*\s*(.+)$/m)?.[1]?.trim
 const music = markdown.match(/^\*\*Nhạc nền:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
 for (const [label, file] of [['Giọng đọc', voiceover], ['Nhạc nền', music]]) {
   if (file && (!file.startsWith('audio/') || file.includes('..') || !/\.(mp3|wav|m4a|aac|ogg)$/i.test(file))) throw new Error(label + ' must be a safe audio/<filename> path inside template/public/.');
+  if (file && !fs.existsSync(path.resolve('template/public', file))) throw new Error(label + ' file not found: template/public/' + file);
 }
 const props = {
   title,
