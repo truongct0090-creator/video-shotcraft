@@ -1,23 +1,7 @@
 name: Story animatic
 
+# Rendering is intentionally manual only. PR checks remain in the separate PR workflow.
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'story_scripts/**'
-      - 'scripts/parse-story.mjs'
-      - 'scripts/validate-animation-workshop.mjs'
-      - 'scripts/qa-rendered-film.mjs'
-      - 'scripts/validate-rendered-film.mjs'
-      - 'ANIMATION_WORKSHOP.md'
-      - 'template/src/story/**'
-      - 'template/src/Root.tsx'
-      - 'template/src/index.ts'
-      - 'template/package.json'
-      - 'template/package-lock.json'
-      - 'scripts/generate-voiceover.py'
-      - 'scripts/requirements-tts.txt'
-      - '.github/workflows/story-animatic.yml'
   workflow_dispatch:
     inputs:
       script:
@@ -42,9 +26,10 @@ on:
 permissions:
   contents: read
 
+# A new manual render for the same script supersedes an older one.
 concurrency:
-  group: story-animatic-${{ github.ref }}-${{ inputs.script }}-${{ github.sha }}
-  cancel-in-progress: false
+  group: story-animatic-${{ github.workflow }}-${{ inputs.script || 'default' }}
+  cancel-in-progress: true
 
 jobs:
   render:
