@@ -84,7 +84,7 @@ Tách narration, BGM, SFX và subtitles. SFX chuyển cảnh dùng hai file Mixk
 **Nhạc nền:** audio/episode-music.mp3
 ```
 
-Parser xác minh đường dẫn và file tồn tại. Không có voiceover thì lời dẫn hiển thị dưới dạng phụ đề, không giả lập giọng nói. Hiện chưa có lip-sync âm vị tiếng Việt; không tuyên bố miệng nhân vật khớp lời đọc.
+Parser xác minh đường dẫn và file tồn tại. Nếu không khai báo `**Thời lượng:**`, thời lượng cảnh tự tính theo số từ lời dẫn (tốc độ mặc định khoảng 2,6 từ/giây cộng 2 giây đệm) để phụ đề không bị lướt quá nhanh; có thể ghi thời lượng cụ thể để ghi đè. Không có voiceover thì lời dẫn hiển thị dưới dạng phụ đề, không giả lập giọng nói. Hiện chưa có lip-sync âm vị tiếng Việt; không tuyên bố miệng nhân vật khớp lời đọc.
 
 ### 7. QA và xuất bản
 Sau khi render, `scripts/qa-rendered-film.mjs` dùng `ffprobe` kiểm tra file tồn tại, dung lượng, video stream, 1920×1080, 30fps, thời lượng và audio stream của phim. Báo cáo `template/out/render-qa.json` được đính kèm artifact. Đây là QA kỹ thuật đầu ra; vẫn cần người duyệt nội dung, bố cục, continuity và âm thanh thực tế.
