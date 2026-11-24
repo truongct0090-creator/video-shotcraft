@@ -23,6 +23,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Con hẻm Sài Gòn về đêm, ánh đèn vàng. Máy quay lướt qua cánh cửa khép hờ, trên cửa có tấm giấy “Buổi sinh hoạt đặc biệt”.
 **Loại cảnh:** alley
 **Hành động:** Nhân vật chính bước tới. Một bàn tay từ trong hé cửa đưa ra tờ giấy, trên đó ghi “Chỉ dành cho người được chọn”. Nhân vật nhìn camera, nhướng mày.
+**Đạo cụ:** cánh cửa gỗ khép hờ; tấm giấy mời; bàn tay hé cửa; ánh đèn vàng
 **Lời dẫn:** “Trong lịch sử Việt Nam, từng có những hội kín khiến chính quyền thuộc địa đau đầu, có tổ chức hoạt động bí mật để chống áp bức, và cũng có những nhóm khiến dư luận tranh cãi vì cách lôi kéo người tham gia. Điểm chung? Càng bí mật, người ngoài càng tò mò. Mà tò mò thì… rất dễ được mời vào họp.”
 **Âm thanh/Chữ:** Tiếng cửa kẽo kẹt; chữ lớn: “HỘI KÍN — BÍ MẬT THẬT HAY CHỈ LÀ CHIÊU?”
 
@@ -30,6 +31,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Phòng hồ sơ kiểu trinh thám, bảng ghim có ba nhánh: yêu nước, hội đoàn cộng đồng, nhóm tôn giáo hiện đại.
 **Loại cảnh:** archive
 **Hành động:** Nhân vật chính dán ba nhãn khác màu; một nhãn “đừng gom chung!” rơi xuống đầu.
+**Đạo cụ:** bảng ghim; ba thẻ màu yêu nước, cộng đồng, tôn giáo; nhãn đừng gom chung
 **Lời dẫn:** “Có hội kín trong bối cảnh chống thực dân; có tổ chức chính trị bí mật; có hội đoàn cộng đồng; và có nhóm tôn giáo hiện đại gây tranh luận. Khác thời đại, khác mục tiêu, khác bản chất. Gom hết vào một rổ thì nhanh thật — nhưng lịch sử sẽ phản đối.”
 **Âm thanh/Chữ:** Tiếng đóng dấu “PHÂN BIỆT TRƯỚC ĐÃ”.
 
@@ -37,6 +39,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Bản đồ Nam Kỳ thời Pháp thuộc, chuyển sang làng quê, bến sông, chợ và phố.
 **Loại cảnh:** map
 **Hành động:** Các đường dây nối những địa danh trên bản đồ; nhân vật chính dùng kính lúp lần theo.
+**Đạo cụ:** bản đồ Nam Kỳ; các điểm địa danh; đường nối; kính lúp
 **Lời dẫn:** “Đầu thế kỷ XX, Nam Kỳ xuất hiện nhiều hội kín với tên gọi và cách tổ chức khác nhau. Bối cảnh là xã hội thuộc địa, đời sống người dân nhiều khó khăn và tinh thần chống Pháp lan rộng. Không có một ‘tổng công ty hội kín’ duy nhất điều hành tất cả.”
 **Âm thanh/Chữ:** Nhạc điều tra; “Nam Kỳ — đầu thế kỷ XX”.
 
@@ -44,6 +47,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Một quán trà người Hoa xưa, ánh đèn dầu, bàn gỗ, người ngồi trao đổi nhỏ tiếng.
 **Loại cảnh:** teahouse
 **Hành động:** Nhân vật chính mở bản đồ, những điểm hoạt động hiện lên rải rác, không nối thành một bộ chỉ huy thống nhất.
+**Đạo cụ:** ấm trà; chén trà; bàn gỗ; bản đồ giấy
 **Lời dẫn:** “Thiên Địa Hội có nguồn gốc từ Trung Hoa và dấu vết ảnh hưởng ở Nam Kỳ. Nhưng khi nói về các hội kín tại Việt Nam, cần nhớ rằng nhiều nhóm địa phương không có tên gọi, hệ thống hay chỉ huy thống nhất. Cái tên nghe rất ‘tập đoàn xuyên biên giới’, còn thực tế lịch sử phức tạp hơn nhiều.”
 **Âm thanh/Chữ:** Tiếng gõ bàn ba nhịp; “Không phải một tổ chức duy nhất”.
 
@@ -51,6 +55,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Bảng hồ sơ với các thẻ tên tổ chức và địa danh Mỹ Tho, Sa Đéc, Thủ Dầu Một.
 **Loại cảnh:** archive
 **Hành động:** Nhân vật chính cố xếp các thẻ vào một sơ đồ; chúng liên tục tách thành những nhánh riêng.
+**Đạo cụ:** thẻ hồ sơ Nghĩa Hòa Hội, Ái Chưởng, Phục Hưng Hội; ghim màu; sơ đồ nhánh
 **Lời dẫn:** “Tư liệu về Nam Kỳ ghi nhận nhiều tên gọi như Nghĩa Hòa Hội, Ái Chưởng, Phục Hưng Hội và những nhóm địa phương khác. Có nhóm vài chục người, có nhóm đông hơn. Vì vậy, nói ‘hội kín’ là nói về một bức tranh nhiều mảnh, chứ không phải một tổ chức duy nhất.”
 **Âm thanh/Chữ:** Tiếng giấy lật; “Nhiều nhóm — nhiều mục tiêu”.
 
@@ -58,6 +63,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Sài Gòn đầu thế kỷ XX; minh họa Phan Xích Long bằng tạo hình lịch sử, có nhãn “tái hiện”.
 **Loại cảnh:** historic
 **Hành động:** Nhân vật chính đặt chân dung minh họa lên bảng; phía sau là những tờ truyền đơn được tái hiện.
+**Đạo cụ:** khung chân dung Phan Xích Long minh họa; truyền đơn; nhãn tái hiện
 **Lời dẫn:** “Một cái tên nổi bật trong phong trào hội kín Nam Kỳ là Phan Xích Long, còn gọi Phan Phát Sanh. Một bộ phận hội viên tôn ông làm hoàng đế, hướng tới việc lật đổ chính quyền thực dân. Câu chuyện pha trộn niềm tin, khát vọng phản kháng và những toan tính chính trị.”
 **Âm thanh/Chữ:** “Phan Xích Long — phong trào hội kín Nam Kỳ”.
 
@@ -65,6 +71,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Bản đồ Sài Gòn năm 1916, vị trí Khám Lớn và bến sông được đánh dấu.
 **Loại cảnh:** map
 **Hành động:** Các nhóm người được minh họa di chuyển trên bản đồ; không tái hiện bạo lực cận cảnh.
+**Đạo cụ:** Khám Lớn Sài Gòn; bến sông; tuyến đường năm 1916; dấu mốc ngày tháng
 **Lời dẫn:** “Ngày 15 tháng 2 năm 1916, hàng trăm người tham gia cuộc tấn công Khám Lớn Sài Gòn với ý định giải cứu Phan Xích Long và tù nhân. Cuộc nổi dậy bị đàn áp; nhiều người chết, bị thương hoặc bị bắt. Đây là một biến cố lịch sử, không phải màn phiêu lưu bí mật như phim hành động.”
 **Âm thanh/Chữ:** Nhạc trầm; “15.02.1916”.
 
@@ -72,6 +79,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Làng quê, ruộng đồng, cảnh sưu thuế và đời sống người lao động được tái hiện.
 **Loại cảnh:** countryside
 **Hành động:** Người dân nghe lời kêu gọi, bàn bạc trong căn nhà nhỏ; nhân vật chính quan sát từ xa.
+**Đạo cụ:** ruộng lúa; căn nhà làng; sổ thuế; người nông dân
 **Lời dẫn:** “Không thể giải thích phong trào chỉ bằng chuyện thần bí hay lời đồn. Bối cảnh áp bức thuộc địa, sưu thuế, bất công và khát vọng đổi đời là những yếu tố cần được đặt vào câu chuyện. Người tham gia có thể mang nhiều động cơ khác nhau.”
 **Âm thanh/Chữ:** “Bối cảnh xã hội là chìa khóa”.
 
@@ -79,6 +87,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Màn hình chia đôi: một bên là hoạt động chống thực dân, bên kia là các nhóm bị ghi nhận có hành vi cướp bóc hoặc bạo lực.
 **Loại cảnh:** archive
 **Hành động:** Nhân vật chính đặt hai hồ sơ cạnh nhau, gạch chân “phải xét từng nhóm”.
+**Đạo cụ:** hai hồ sơ đối chiếu; biểu tượng dấu hỏi; dấu gạch chân
 **Lời dẫn:** “Tư liệu lịch sử cho thấy các hội kín rất đa dạng. Có nhóm theo đuổi mục tiêu chính trị, có nhóm tham gia phong trào chống Pháp, nhưng cũng có nhóm bị ghi nhận liên quan đến cướp bóc hoặc bạo lực. Không thể lấy hành vi của một nhóm để kết luận cho tất cả.”
 **Âm thanh/Chữ:** “Đừng đánh đồng”.
 
@@ -86,6 +95,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Sài Gòn thập niên 1920, tiệm sách, nhà in và những cuộc gặp kín.
 **Loại cảnh:** historic
 **Hành động:** Nhân vật chính mở một cuốn sách; từ trang sách hiện ra mạng lưới thanh niên và người lao động.
+**Đạo cụ:** tiệm sách; máy in tay; sách mở; sơ đồ mạng lưới người lao động
 **Lời dẫn:** “Giữa thập niên 1920, Nguyễn An Ninh gắn với tổ chức Thanh niên Cao vọng, một tổ chức chính trị bí mật có hoạt động ở Nam Kỳ. Đây không đơn giản là một hội kín kiểu bang hội; nó gắn với hoạt động vận động quần chúng và mục tiêu giải phóng dân tộc.”
 **Âm thanh/Chữ:** “Thanh niên Cao vọng — tổ chức chính trị bí mật”.
 
@@ -93,6 +103,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Phòng họp nhỏ, cửa đóng, bản tin và tài liệu được chuyền tay.
 **Loại cảnh:** interior
 **Hành động:** Nhân vật chính kéo tấm màn, phía sau là câu hỏi “Tổ chức vì điều gì?”.
+**Đạo cụ:** cửa phòng họp; rèm kéo; tài liệu chuyền tay; bảng câu hỏi
 **Lời dẫn:** “Một tổ chức có thể hoạt động bí mật vì bị đàn áp hoặc vì muốn che giấu hoạt động. Nhưng bí mật tự nó không chứng minh tổ chức tốt hay xấu. Muốn đánh giá, phải xem mục tiêu, phương thức và hành vi cụ thể.”
 **Âm thanh/Chữ:** “Xem việc họ làm, không chỉ nghe tên”.
 
@@ -100,6 +111,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Thành phố hiện đại, quán cà phê, điện thoại có tin nhắn mời “tham gia buổi học đặc biệt”.
 **Loại cảnh:** modern
 **Hành động:** Nhân vật chính nhìn tin nhắn, phóng to dòng “đừng kể với ai”; sau đó đặt điện thoại xuống và kiểm tra nguồn.
+**Đạo cụ:** điện thoại thông minh; tin nhắn mời; dòng chữ đừng kể với ai
 **Lời dẫn:** “Ngày nay, không phải nhóm nào sinh hoạt riêng tư cũng là hội kín. Nhưng khi một nhóm tuyển người bằng lời hứa đặc biệt, thông tin thiếu minh bạch hoặc gây áp lực phải giữ bí mật, đó là lúc cần tỉnh táo và đặt câu hỏi.”
 **Âm thanh/Chữ:** “Riêng tư không đồng nghĩa mờ ám”.
 
@@ -107,6 +119,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Bản đồ thế giới chuyển tới Hàn Quốc rồi Việt Nam; chỉ dùng đồ họa trung tính, không dùng hình ảnh tín đồ đời thực.
 **Loại cảnh:** map
 **Hành động:** Nhân vật chính gắn thẻ tên đầy đủ: “World Mission Society Church of God”; bên cạnh là mốc 1964.
+**Đạo cụ:** bản đồ thế giới; điểm Hàn Quốc; điểm Việt Nam; mốc năm 1964; thẻ tên tổ chức
 **Lời dẫn:** “Một trường hợp thường được nhắc đến trong tranh luận xã hội ở Việt Nam là tổ chức có tên đầy đủ World Mission Society Church of God, thường được gọi là Hội thánh của Đức Chúa Trời Mẹ. Theo văn bản Bộ Nội vụ năm 2023, tổ chức này do Ahn Sahng-hong sáng lập tại Hàn Quốc năm 1964 và hiện do Jang Gil-ja điều hành. Đây là tổ chức tôn giáo hiện đại, không phải hội kín Nam Kỳ đầu thế kỷ XX.”
 **Âm thanh/Chữ:** “Hàn Quốc — 1964”; chú thích “Theo văn bản Bộ Nội vụ 09/2023”.
 
@@ -114,6 +127,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Bàn làm việc có văn bản chính thức, báo chí và các mốc thời gian; không dùng hình ảnh giật gân.
 **Loại cảnh:** archive
 **Hành động:** Nhân vật chính dùng bút đánh dấu các nội dung trong văn bản, đồng thời đặt biểu tượng dấu hỏi cạnh những cáo buộc chưa được kiểm chứng độc lập.
+**Đạo cụ:** văn bản chính thức; báo chí; bút đánh dấu; kính lúp; biểu tượng dấu hỏi
 **Lời dẫn:** “Cơ quan quản lý Việt Nam từng có văn bản hướng dẫn xử lý hoạt động liên quan đến tổ chức này; một số địa phương cũng công bố vụ việc cụ thể. Khi kể lại, cần ghi rõ văn bản nào, địa phương nào, thời điểm nào — không biến một vụ việc thành kết luận cho mọi người tham gia.”
 **Âm thanh/Chữ:** “Cáo buộc phải có nguồn và phạm vi”.
 
@@ -121,6 +135,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Một buổi trò chuyện được hư cấu, không tái hiện nghi lễ thật; phông nền tối giản.
 **Loại cảnh:** interior
 **Hành động:** Người mời nói bằng bong bóng thoại: “Bạn sắp biết bí mật mà cả thế giới chưa biết!” Nhân vật chính nhìn camera: “Nghe giống quảng cáo ‘mua một được cả vũ trụ’ quá.”
+**Đạo cụ:** bong bóng thoại lời mời hư cấu; biểu tượng quảng cáo; nhân vật nhìn camera
 **Lời dẫn:** “Một lời mời hấp dẫn không tự động là sai. Nhưng nếu người mời né câu hỏi, thúc ép quyết định nhanh, yêu cầu giữ bí mật hoặc hứa hẹn điều không thể kiểm chứng, hãy chậm lại. Niềm tin không nên bị bán bằng áp lực.”
 **Âm thanh/Chữ:** Tiếng record scratch; “Hỏi kỹ trước khi tin”.
 
@@ -128,6 +143,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Sơ đồ phễu marketing được vẽ như bảng điều tra: làm quen → tạo tin tưởng → mời sinh hoạt → tăng cam kết.
 **Loại cảnh:** archive
 **Hành động:** Nhân vật chính soi từng bước bằng kính lúp; ở bước “đóng góp tiền”, bật bảng “minh bạch tài chính?”.
+**Đạo cụ:** phễu tuyển thành viên; các bước làm quen, tạo tin tưởng, tăng cam kết; kính lúp; sổ thu chi
 **Lời dẫn:** “Trong bất kỳ tổ chức nào, từ câu lạc bộ nuôi cá đến nhóm học ngoại ngữ, minh bạch vẫn là điều cơ bản. Nếu một nơi biến mọi câu hỏi thành ‘thiếu đức tin’, còn chuyện tiền bạc thì luôn cần niềm tin tuyệt đối… có lẽ đã đến lúc niềm tin cần một cuốn sổ thu chi.”
 **Âm thanh/Chữ:** Nhạc hài nhẹ; “Niềm tin không thay thế được minh bạch”.
 
@@ -135,6 +151,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Một bên là gia đình và cộng đồng tôn giáo sinh hoạt bình thường; bên kia là biểu tượng cảnh báo về ép buộc, đe dọa, lừa đảo.
 **Loại cảnh:** generic
 **Hành động:** Nhân vật chính kéo hai hình ảnh ra xa, đặt bảng “không đánh đồng”.
+**Đạo cụ:** khung gia đình và cộng đồng; biểu tượng cảnh báo ép buộc; vạch phân biệt
 **Lời dẫn:** “Tôn trọng quyền tự do tín ngưỡng cũng đồng nghĩa với việc không chấp nhận hành vi ép buộc, lừa đảo hay xâm phạm quyền của người khác. Phê bình hành vi sai trái không phải là chế giễu người có đức tin.”
 **Âm thanh/Chữ:** “Phê bình hành vi — tôn trọng con người”.
 
@@ -142,6 +159,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Nhân vật chính đứng trước bảng checklist lớn.
 **Loại cảnh:** archive
 **Hành động:** Từng câu hỏi xuất hiện: “Ai tổ chức?”, “Tiền bạc và quy định có công khai?”, “Mình có được quyền từ chối/rời đi?”.
+**Đạo cụ:** bảng checklist; ba ô đánh dấu; biểu tượng quyền từ chối
 **Lời dẫn:** “Trước khi tham gia, hãy tìm hiểu ai đứng sau tổ chức, hoạt động và tài chính có minh bạch không, và bạn có quyền từ chối hay rời đi mà không bị đe dọa không. Một cộng đồng lành mạnh không cần tước quyền đặt câu hỏi của bạn.”
 **Âm thanh/Chữ:** Ba tiếng tick rõ ràng.
 
@@ -149,6 +167,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Dòng thời gian từ Nam Kỳ đầu thế kỷ XX tới xã hội hiện đại.
 **Loại cảnh:** map
 **Hành động:** Các hồ sơ lịch sử xếp thành từng lớp; nhân vật chính đóng dấu “bối cảnh khác nhau”.
+**Đạo cụ:** dòng thời gian; các mốc lịch sử; hồ sơ xếp lớp
 **Lời dẫn:** “Từ các hội kín chống thực dân đến những tổ chức chính trị bí mật và các nhóm tôn giáo hiện đại gây tranh luận, mỗi câu chuyện phản ánh một thời đại. Điều đáng học không phải là săn tìm điều bí mật bằng mọi giá, mà là biết kiểm chứng thông tin và hiểu đúng bối cảnh.”
 **Âm thanh/Chữ:** “Lịch sử cần tỉnh táo”.
 
@@ -156,6 +175,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Bối cảnh:** Trở lại con hẻm mở đầu. Cánh cửa nay mở ra, bên trong chỉ là một phòng họp bình thường với bảng thông tin công khai.
 **Loại cảnh:** alley
 **Hành động:** Nhân vật chính quay sang camera, giơ tấm bảng “Cứ hỏi cho rõ”.
+**Đạo cụ:** cánh cửa mở; phòng họp bình thường; bảng thông tin công khai; tấm bảng cứ hỏi rõ
 **Lời dẫn:** “Hội kín có thể là một chương lịch sử đầy biến động. Nhưng trong đời sống hôm nay, đừng để vẻ bí ẩn thay thế cho sự thật. Bạn muốn tập tiếp theo khám phá tổ chức bí mật nào trong lịch sử Việt Nam?”
 **Âm thanh/Chữ:** Nhạc kết; “KEY — Bí ẩn thì hấp dẫn, kiểm chứng mới đáng tin”.
 
