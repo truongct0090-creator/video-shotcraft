@@ -3,6 +3,8 @@ import { AIFL_TOTAL } from './aifl/Main';
 import { ThemedFilm } from './themes/ThemedFilm';
 import { ChibiDemo } from './chibi/ChibiDemo';
 import { MainBoyDemo } from './chibi/MainBoyDemo';
+import { StoryAnimatic, STORY_ANIMATIC_DEFAULTS } from './story/StoryAnimatic';
+import { IllustratedStoryFilm } from './story/IllustratedStoryFilm';
 
 export const Root: React.FC = () => {
   return (
@@ -12,6 +14,26 @@ export const Root: React.FC = () => {
         component={ThemedFilm}
         defaultProps={{theme: 'ink-press'}}
         durationInFrames={AIFL_TOTAL}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="StoryAnimatic"
+        component={StoryAnimatic}
+        defaultProps={STORY_ANIMATIC_DEFAULTS}
+        durationInFrames={150}
+        calculateMetadata={({props}) => ({durationInFrames: props.totalFrames ?? props.scenes.reduce((sum, scene) => sum + (scene.durationInFrames ?? props.framesPerScene), 0)})}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="IllustratedStoryFilm"
+        component={IllustratedStoryFilm}
+        defaultProps={STORY_ANIMATIC_DEFAULTS}
+        durationInFrames={150}
+        calculateMetadata={({props}) => ({durationInFrames: props.totalFrames ?? props.scenes.reduce((sum, scene) => sum + (scene.durationInFrames ?? props.framesPerScene), 0)})}
         fps={30}
         width={1920}
         height={1080}

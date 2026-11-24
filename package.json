@@ -4,7 +4,8 @@
   "description": "Unit tests for assets/lib/helpers pure functions",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "animation:audit": "node scripts/validate-animation-workshop.mjs"
   },
   "devDependencies": {
     "vitest": "^3.2.4"

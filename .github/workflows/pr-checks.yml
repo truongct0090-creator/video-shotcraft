@@ -13,6 +13,11 @@ on:
       - 'demos/**'
       - 'assets/lib/**'
       - 'assets/scripts/**'
+      - 'scripts/validate-animation-workshop.mjs'
+      - 'scripts/validate-rendered-film.mjs'
+      - 'scripts/qa-rendered-film.mjs'
+      - 'story_scripts/**'
+      - 'ANIMATION_WORKSHOP.md'
       - 'template/src/**'
       - 'workbench/**'
       - 'package.json'
@@ -67,10 +72,20 @@ jobs:
             exit 1
           fi
 
+      - name: Asset-first animation workshop inventory
+        run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
+
       - name: Every library.json preview exists on the gallery-media release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # The gallery preview release is an optional, separately maintained asset bundle.
+          # Keep validating every asset when the release exists, but don't block unrelated
+          # source/template PRs when this repository has not published that bundle yet.
+          if ! gh release view gallery-media --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "::warning::gallery-media release is not published; preview-file verification was skipped. Publish the release before deploying the gallery."
+            exit 0
+          fi
           # 与 deploy-pages 同一套组装（整包 zip + 晚于它的单个 mp4），查的是部署时真正拿到的文件
           python3 gallery/assemble-media.py /tmp/gallery-media
           python3 - <<'EOF'

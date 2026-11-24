@@ -29,6 +29,14 @@
 
 </div>
 
+## Animation film workshop mode
+
+This fork adds an asset-first animation production workflow. It reuses the repository's 124 shot recipes, demo implementations, Remotion helpers, themes, audio references and existing chibi character before adding fallback scene artwork.
+
+The production workflow exports both an illustrated 1920×1080/30fps MP4 (`story-film.mp4`) and a script/timing review animatic (`story-animatic.mp4`). It includes reusable vector scene stages, Vietnamese narration subtitles, licensed transition SFX and optional user-supplied voiceover/music.
+
+See [ANIMATION_WORKSHOP.md](ANIMATION_WORKSHOP.md) for the Vietnamese production guide. Run `npm run animation:audit` to inventory assets for an episode. Candidate matches require human review; the audit never downloads or generates external media.
+
 ## What it does
 
 Tell Claude Code or Codex "make a promo for my product". The agent captures your real pages, picks shots

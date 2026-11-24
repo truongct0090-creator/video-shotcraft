@@ -1,0 +1,115 @@
+name: Story animatic
+
+# Rendering is intentionally manual only. PR checks remain in the separate PR workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: Markdown script inside story_scripts/
+        required: true
+        default: story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md
+        type: string
+      mode:
+        description: Render first 10 scenes or all scenes
+        required: true
+        default: full
+        type: choice
+        options:
+          - test
+          - full
+      voiceover:
+        description: Generate Vietnamese Southern male narration with VieNeu-TTS Adam
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+# A new manual render for the same script supersedes an older one.
+concurrency:
+  group: story-animatic-${{ github.workflow }}-${{ inputs.script || 'default' }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: template/package-lock.json
+      # Install and verify ffprobe BEFORE spending time rendering. The runner image
+      # does not guarantee that FFmpeg is preinstalled.
+      - name: Install and verify FFmpeg tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y ffmpeg
+          command -v ffprobe
+          ffprobe -version
+      - name: Validate and prepare story props
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
+          # This workflow is manual-only; respect the selected render mode.
+          RENDER_MODE: ${{ inputs.mode || 'full' }}
+        run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
+      - name: Setup Python for free local TTS
+        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements-tts.txt
+      - name: Cache VieNeu model files
+        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/hf-home
+          key: vieneu-v3.3.0-${{ runner.os }}
+      - name: Install VieNeu-TTS CPU engine
+        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        run: python -m pip install -r scripts/requirements-tts.txt
+      - name: Generate Adam Southern Vietnamese narration
+        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-home
+        run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
+      - name: Inventory reusable assets and motion recipes
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
+        run: node scripts/validate-animation-workshop.mjs --script="$STORY_SCRIPT" --output=template/out/animation-asset-audit.json
+      - name: Install renderer
+        working-directory: template
+        run: npm ci
+      - name: Render illustrated film
+        working-directory: template
+        run: npx remotion render src/index.ts IllustratedStoryFilm out/story-film.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
+      - name: Render MP4 animatic
+        working-directory: template
+        run: npx remotion render src/index.ts StoryAnimatic out/story-animatic.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
+      - name: Validate rendered MP4 technical specs
+        run: |
+          node scripts/validate-rendered-film.mjs --file=template/out/story-film.mp4 --props=template/out/story-props.json --output=template/out/story-film-qa.json
+          node scripts/validate-rendered-film.mjs --file=template/out/story-animatic.mp4 --props=template/out/story-props.json --output=template/out/story-animatic-qa.json
+      - name: Verify rendered MP4 outputs
+        run: node scripts/qa-rendered-film.mjs template/out/story-film.mp4 template/out/story-animatic.mp4
+      - name: Upload MP4 and render props
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-animatic-${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
+          path: |
+            template/out/story-film.mp4
+            template/out/story-animatic.mp4
+            template/out/story-props.json
+            template/public/voiceover/*.wav
+            template/out/animation-asset-audit.json
+            template/out/render-qa.json
+            template/out/story-film-qa.json
+            template/out/story-animatic-qa.json
+          if-no-files-found: error
+          retention-days: 14
