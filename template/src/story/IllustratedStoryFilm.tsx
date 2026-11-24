@@ -3,12 +3,15 @@ import {AbsoluteFill, Audio, Sequence, continueRender, delayRender, interpolate,
 import {SceneStage, type FilmSceneData} from './SceneStage';
 
 type Props={title:string;mode:'test'|'full';framesPerScene:number;scenes:FilmSceneData[];source:string;totalScenes:number;totalFrames:number;voiceover?:string;music?:string;};
-const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene,title}) => {
+const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene}) => {
  const frame=useCurrentFrame();
  const duration=scene.durationInFrames;
- const opacity=interpolate(frame,[0,12,Math.max(13,duration-12),duration],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const enter=interpolate(frame,[0,18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const exit=interpolate(frame,[Math.max(0,duration-8),duration],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const opacity=1-exit;
  const transitionSound=scene.number%2===0?'audio/transition-snap.mp3':'audio/transition-soft.mp3';
- return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.14}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<SceneStage scene={scene}/><div style={{position:'absolute',left:70,bottom:18,color:'rgba(255,255,255,.55)',fontSize:14,letterSpacing:2}}>{title}</div></AbsoluteFill>;
+ const reveal=scene.number%3===0?{clipPath:'circle('+Math.max(0,enter)*150+'% at 52% 48%)'}:scene.number%3===1?{clipPath:'inset(0 '+((1-enter)*100)+'% 0 0)'}:{transform:'translateX('+((1-enter)*110)+'px) scale('+(0.985+enter*0.015)+')'};
+ return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.10}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<AbsoluteFill style={reveal}><SceneStage scene={scene}/></AbsoluteFill></AbsoluteFill>;
 };
 export const IllustratedStoryFilm:React.FC<Props> = ({title,scenes,voiceover,music}) => {
  const [fontHandle]=useState(()=>delayRender('Loading Be Vietnam Pro'));
