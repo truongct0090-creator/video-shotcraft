@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Audio, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {SceneStage, type FilmSceneData} from './SceneStage';
+import {FlashCut} from '../../../assets/lib/FlashCut';
 
 type Props={title:string;mode:'test'|'full';framesPerScene:number;scenes:FilmSceneData[];source:string;totalScenes:number;totalFrames:number;voiceover?:string;music?:string;};
 const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene}) => {
@@ -10,9 +11,10 @@ const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene
  const exit=interpolate(frame,[Math.max(0,duration-8),duration],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const opacity=1-exit;
  const transitionSound=scene.number%2===0?'audio/transition-snap.mp3':'audio/transition-soft.mp3';
- // Reuse the repository's iris, wipe, and whip-pan transition language (references/shots/transition/).
- const reveal=scene.number%3===0?{clipPath:'circle('+Math.max(0,enter)*150+'% at 52% 48%)'}:scene.number%3===1?{clipPath:'inset(0 '+((1-enter)*100)+'% 0 0)'}:{transform:'translateX('+((1-enter)*110)+'px) scale('+(0.985+enter*0.015)+')'};
- return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.10}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<AbsoluteFill style={reveal}><SceneStage scene={scene}/></AbsoluteFill></AbsoluteFill>;
+ // One transition per seam: iris, geometric wipe, whip-pan, or the repository's real FlashCut component.
+ const kind=scene.number%4;
+ const reveal=kind===0?{clipPath:'circle('+Math.max(0,enter)*150+'% at 52% 48%)'}:kind===1?{clipPath:'inset(0 '+((1-enter)*100)+'% 0 0)'}:kind===2?{transform:'translateX('+((1-enter)*110)+'px) scale('+(0.985+enter*0.015)+')',filter:'blur('+((1-enter)*7)+'px)'}:{};
+ return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.10}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<AbsoluteFill style={reveal}><SceneStage scene={scene}/></AbsoluteFill>{kind===3?<FlashCut duration={8}/>:null}</AbsoluteFill>;
 };
 export const IllustratedStoryFilm:React.FC<Props> = ({title,scenes,voiceover,music}) => {
  const [fontHandle]=useState(()=>delayRender('Loading Be Vietnam Pro'));
