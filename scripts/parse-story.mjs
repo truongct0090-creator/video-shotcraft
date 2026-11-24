@@ -20,27 +20,27 @@ if (!['test', 'full'].includes(mode)) throw new Error('Mode must be test or full
 const absolute = path.resolve(script);
 const root = path.resolve('story_scripts') + path.sep;
 if (!absolute.startsWith(root)) throw new Error('Script path escapes story_scripts/.');
-if (!fs.existsSync(absolute)) throw new Error(`Script not found: ${script}`);
+if (!fs.existsSync(absolute)) throw new Error('Script not found: ' + script);
 
 const markdown = fs.readFileSync(absolute, 'utf8').replace(/^\uFEFF/, '');
 const title = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? path.basename(script, '.md');
-const headings = [...markdown.matchAll(/^###\\s+(\\d{1,2})\\.\\s+(.+?)\\s*$/gm)];
+const headings = [...markdown.matchAll(/^###\s+(\d{1,2})\.\s+(.+?)\s*$/gm)];
+
 const clean = (value = '') => value
-  .replace(/\\r/g, '')
-  .replace(/^\\*\\*[^*]+:\\*\\*\\s*/gm, '')
-  .replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1')
-  .replace(/[*_`]/g, '')
-  .replace(/\\n{3,}/g, '\\n\\n')
+  .replace(/\r/g, '')
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+  .replace(/[*_\`]/g, '')
+  .replace(/\n{3,}/g, '\n\n')
   .trim();
 
 const scenes = headings.map((match, index) => {
   const start = match.index + match[0].length;
   const end = headings[index + 1]?.index ?? markdown.length;
-  const body = markdown.slice(start, end).split(/^##\\s+/m)[0];
+  const body = markdown.slice(start, end).split(/^##\s+/m)[0];
   const field = (label) => {
-    const escaped = label.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-    const found = body.match(new RegExp('^\\\\*\\\\*' + escaped + ':\\\\*\\\\*\\\\s*([\\\\s\\\\S]*?)(?=^\\\\*\\\\*[^*]+:\\\\*\\\\*|(?![\\\\s\\\\S]))', 'm'));
-    return clean(found?.[1] ?? '');
+    const escaped = label.replaceAll('/', '\\/');
+    const pattern = new RegExp('^\\*\\*' + escaped + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
+    return clean(body.match(pattern)?.[1] ?? '');
   };
   return {
     number: Number(match[1]),
@@ -54,7 +54,7 @@ const scenes = headings.map((match, index) => {
 
 if (scenes.length === 0) throw new Error('No scenes found. Expected headings like ### 01. Scene title.');
 for (const scene of scenes) {
-  if (!scene.narration) throw new Error(`Scene ${scene.number} is missing **Lời dẫn:**.`);
+  if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
 }
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
 const props = {
@@ -67,4 +67,4 @@ const props = {
 };
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, JSON.stringify(props, null, 2) + '\n');
-console.log(`Validated ${selected.length}/${scenes.length} scenes from ${script}; wrote ${output}`);
+console.log('Validated ' + selected.length + '/' + scenes.length + ' scenes from ' + script + '; wrote ' + output);
