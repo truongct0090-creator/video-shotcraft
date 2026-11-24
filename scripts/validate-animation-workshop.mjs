@@ -27,7 +27,7 @@ const clean = (v = '') => v.replace(/\r/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g,
 const scenes = headings.map((m, i) => {
   const body = markdown.slice(m.index + m[0].length, headings[i + 1]?.index ?? markdown.length).split(/^##\s+/m)[0];
   const field = (label) => {
-    const rx = new RegExp('^\\*\\*' + label.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&') + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
+    const rx = new RegExp('^\\*\\*' + label.replaceAll('/', '\\/') + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
     return clean(body.match(rx)?.[1] ?? '');
   };
   return {number: Number(m[1]), title: clean(m[2]), setting: field('Bối cảnh'), action: field('Hành động'), narration: field('Lời dẫn'), character: field('Nhân vật'), props: field('Đạo cụ'), shot: field('Shot'), duration: field('Thời lượng')};
