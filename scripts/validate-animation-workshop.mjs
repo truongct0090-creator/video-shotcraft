@@ -56,6 +56,18 @@ const walk = (dir, base = dir, out = []) => {
 const allPaths = [...new Set(['assets','template/public','template/src','demos','videos'].flatMap((d)=>walk(d)))].sort();
 const media = allPaths.filter((p)=>/\.(png|jpe?g|webp|gif|mp4|mov|mp3|wav|ogg|svg)$/i.test(p));
 const characterSources = allPaths.filter((p)=>/(character|chibi|avatar|puppet|rig)/i.test(p) && /\.(tsx?|json|svg|png|webp)$/i.test(p));
+const chooseSceneTemplate = (scene) => {
+  const s = [scene.setting, scene.action, scene.title].join(' ').toLowerCase();
+  if (/bản đồ|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
+  if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
+  if (/quán trà|đèn dầu|bàn gỗ|người hoa/.test(s)) return 'teahouse';
+  if (/hẻm|con hẻm|cửa khép|cánh cửa|đêm/.test(s)) return 'alley';
+  if (/điện thoại|cà phê|thành phố hiện đại|tin nhắn|mạng xã hội/.test(s)) return 'modern';
+  if (/ruộng|đồng|làng|cây|sông|vườn|nông thôn/.test(s)) return 'countryside';
+  if (/sài gòn|nam kỳ|pháp thuộc|1916|thập niên 1920|khám lớn|phố xưa|lịch sử/.test(s)) return 'historic';
+  if (/phòng|buổi họp|cuộc gặp|nhà|nội thất/.test(s)) return 'interior';
+  return 'generic';
+};
 const sceneResults = scenes.map((scene) => {
   const candidates = ranked(scene);
   const explicit = scene.shot ? cards.find((c)=>c.name === scene.shot || c.styles?.some((s)=>s.key===scene.shot)) : null;
@@ -87,6 +99,8 @@ const report = {
   scenes: sceneResults,
   policy: {
     noNewMediaGenerated: true,
+    noMediaDownloaded: true,
+    sceneTemplateSelectionIsReusable: true,
     noMediaDownloaded: true,
     candidatesRequireHumanReview: true,
     unmatchedScenesAreNotAutomaticallyApprovedForNewArtwork: true,
