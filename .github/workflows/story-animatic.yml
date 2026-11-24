@@ -49,7 +49,9 @@ jobs:
       - name: Validate and prepare story props
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
-          RENDER_MODE: ${{ inputs.mode || 'test' }}
+          # PRs render every scene so the full episode is validated before merge.
+          # Manual runs keep the user-selected test/full mode.
+          RENDER_MODE: ${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
       - name: Install renderer
         working-directory: template
@@ -60,7 +62,7 @@ jobs:
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
-          name: story-animatic-${{ inputs.mode || 'test' }}-${{ github.run_number }}
+          name: story-animatic-${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-animatic.mp4
             template/out/story-props.json
