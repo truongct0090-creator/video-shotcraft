@@ -13,7 +13,7 @@ const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene
  const reveal=scene.number%3===0?{clipPath:'circle('+Math.max(0,enter)*150+'% at 52% 48%)'}:scene.number%3===1?{clipPath:'inset(0 '+((1-enter)*100)+'% 0 0)'}:{transform:'translateX('+((1-enter)*110)+'px) scale('+(0.985+enter*0.015)+')'};
  return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.10}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<AbsoluteFill style={reveal}><SceneStage scene={scene}/></AbsoluteFill></AbsoluteFill>;
 };
-export const IllustratedStoryFilm:React.FC<Props> = ({title,scenes,voiceover,music}) => {
+export const IllustratedStoryFilm:React.FC<Props> = ({scenes,voiceover,music}) => {
  const [fontHandle]=useState(()=>delayRender('Loading Be Vietnam Pro'));
  useEffect(()=>{document.fonts.load('800 54px "Be Vietnam Pro"').then(()=>document.fonts.ready).then(()=>continueRender(fontHandle)).catch(()=>continueRender(fontHandle));},[fontHandle]);
  let cursor=0;
