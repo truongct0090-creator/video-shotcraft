@@ -30,7 +30,7 @@ const scenes = headings.map((m, i) => {
     const rx = new RegExp('^\\*\\*' + label.replaceAll('/', '\\/') + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
     return clean(body.match(rx)?.[1] ?? '');
   };
-  return {number: Number(m[1]), title: clean(m[2]), setting: field('Bối cảnh'), action: field('Hành động'), narration: field('Lời dẫn'), character: field('Nhân vật'), props: field('Đạo cụ'), shot: field('Shot'), duration: field('Thời lượng')};
+  return {number: Number(m[1]), title: clean(m[2]), setting: field('Bối cảnh'), action: field('Hành động'), narration: field('Lời dẫn'), character: field('Nhân vật'), props: field('Đạo cụ'), shot: field('Shot'), duration: field('Thời lượng'), world: field('Loại cảnh').toLowerCase()};
 });
 const library = readJson('gallery/api/library.json');
 const cards = library.cards ?? [];
@@ -57,6 +57,7 @@ const allPaths = [...new Set(['assets','template/public','template/src','demos',
 const media = allPaths.filter((p)=>/\.(png|jpe?g|webp|gif|mp4|mov|mp3|wav|ogg|svg)$/i.test(p));
 const characterSources = allPaths.filter((p)=>/(character|chibi|avatar|puppet|rig)/i.test(p) && /\.(tsx?|json|svg|png|webp)$/i.test(p));
 const chooseSceneTemplate = (scene) => {
+  if (['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(scene.world)) return scene.world;
   const s = [scene.setting, scene.action, scene.title].join(' ').toLowerCase();
   if (/bản đồ|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
@@ -94,14 +95,13 @@ const report = {
       {id:'chibi-demo', source:'template/src/chibi/ChibiDemo.tsx', kind:'existing character demo composition'},
     ],
     knownReusableMotionLibrary: 'references/shots/ (124 recipe cards; source implementations in demos/ and assets/lib/)',
-    knownReusableAudio: media.filter((p)=>p.startsWith('assets/audio/')),
+    knownReusableAudio: media.filter((p)=>p.startsWith('assets/audio/') || p.startsWith('template/public/audio/')),
   },
   scenes: sceneResults,
   policy: {
     noNewMediaGenerated: true,
     noMediaDownloaded: true,
     sceneTemplateSelectionIsReusable: true,
-    noMediaDownloaded: true,
     candidatesRequireHumanReview: true,
     unmatchedScenesAreNotAutomaticallyApprovedForNewArtwork: true,
     createNewSceneOnlyWhenNoSuitableLibrarySceneExists: true,
