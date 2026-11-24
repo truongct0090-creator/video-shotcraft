@@ -74,14 +74,10 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         <g transform={`rotate(${leftArmAngle} 222 420)`}>
           <path d="M222 420 Q181 444 171 510" fill="none" stroke={navy} strokeWidth="45" strokeLinecap="round"/>
           <circle cx="169" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
-          {gesture === 'point-left' && <path d="M169 523 Q150 560 132 590" fill="none" stroke={skin} strokeWidth="17" strokeLinecap="round"/>}
-          {gesture === 'point-left' && <path d="M169 523 Q150 560 132 590" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>}
         </g>
         <g transform={`rotate(${rightArmAngle} 378 420)`}>
           <path d="M378 420 Q419 445 429 510" fill="none" stroke={navy} strokeWidth="46" strokeLinecap="round"/>
           <circle cx="431" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
-          {gesture === 'point-right' && <path d="M431 523 Q450 560 468 590" fill="none" stroke={skin} strokeWidth="17" strokeLinecap="round"/>}
-          {gesture === 'point-right' && <path d="M431 523 Q450 560 468 590" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>}
         </g>
 
         {/* Head is a single, proportioned shape; no non-uniform scaling. */}
