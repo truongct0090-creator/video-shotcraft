@@ -6,7 +6,8 @@
     "dev": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts AiflPromo out/promo.mp4",
     "still": "remotion still src/index.ts AiflPromo",
-    "render:story": "bash scripts/render-story.sh"
+    "render:story": "bash scripts/render-story.sh",
+    "render:film": "bash scripts/render-story.sh"
   },
   "dependencies": {
     "@remotion/cli": "4.0.484",
