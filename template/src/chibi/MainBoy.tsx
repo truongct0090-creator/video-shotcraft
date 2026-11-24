@@ -11,6 +11,7 @@ export type MainBoyProps = {
   gesture?: BoyGesture;
   blink?: boolean;
   speaking?: boolean;
+  speakingLevel?: number;
 };
 
 const skin = '#F7D5C8';
@@ -24,9 +25,12 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   gesture = 'rest',
   blink = false,
   speaking = false,
+  speakingLevel,
 }) => {
   const frame = useCurrentFrame();
-  const mouthShape = speaking ? (frame % 12 < 4 ? 'open' : frame % 12 < 8 ? 'small-o' : 'closed') : mouth;
+  const mouthShape = speakingLevel !== undefined
+    ? (speakingLevel < 0.16 ? 'closed' : speakingLevel < 0.48 ? 'small-o' : 'open')
+    : speaking ? (frame % 12 < 4 ? 'open' : frame % 12 < 8 ? 'small-o' : 'closed') : mouth;
   const idleBob = Math.sin(frame / 18) * 2;
   const headTilt = Math.sin(frame / 38) * 0.7;
   const leftArmAngle = gesture === 'point-left' ? 63 : gesture === 'wave' ? -8 + Math.sin(frame / 7) * 9 : interpolate(frame % 90, [0, 45, 90], [-1, 1, -1]);
