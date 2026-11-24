@@ -22,7 +22,7 @@ export const Root: React.FC = () => {
         component={StoryAnimatic}
         defaultProps={STORY_ANIMATIC_DEFAULTS}
         durationInFrames={150}
-        calculateMetadata={({props}) => ({durationInFrames: props.scenes.length * props.framesPerScene})}
+        calculateMetadata={({props}) => ({durationInFrames: props.totalFrames ?? props.scenes.reduce((sum, scene) => sum + (scene.durationInFrames ?? props.framesPerScene), 0)})}
         fps={30}
         width={1920}
         height={1080}
