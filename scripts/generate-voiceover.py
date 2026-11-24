@@ -104,7 +104,8 @@ def main():
         else:
             scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
-        print("Scene %02d: %.2fs -> %.2fs; trimmed %.2fs trailing silence; scene %.2fs"%(number,before,trimmed,max(int(scene.get("durationInFrames",0)),1)/FPS))
+        scene_duration=max(int(scene.get("durationInFrames",0)),1)/FPS
+        print(f"Scene {number:02d}: {before:.2f}s -> {trimmed:.2f}s; trimmed {max(original-trimmed, 0):.2f}s trailing silence; scene {scene_duration:.2f}s")
     props["voiceover"]=""
     props["totalFrames"]=sum(int(s["durationInFrames"]) for s in scenes)
     props_path.write_text(json.dumps(props,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
