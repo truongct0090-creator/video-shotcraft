@@ -29,7 +29,7 @@
 
 </div>
 
-## What it does
+## Animation film workshop mode\n\nThis fork also maintains an asset-first animation production workflow. It reuses the existing 124 shot recipes, demo implementations, Remotion components, themes, audio references and the existing chibi character before any new scene artwork is considered. Start with [ANIMATION_WORKSHOP.md](ANIMATION_WORKSHOP.md) for the Vietnamese production workflow and run `npm run animation:audit` to inventory reusable assets for an episode. The audit proposes candidates only; it never generates or downloads media and never approves new artwork without review.\n\n## What it does
 
 Tell Claude Code or Codex "make a promo for my product". The agent captures your real pages, picks shots
 from a library of tuned motion recipes, storyboards the film, animates it with
