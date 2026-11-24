@@ -43,7 +43,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   };
 
   return (
-    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc đỏ đầu đinh, áo polo xanh than, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
+    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc đỏ kiểu Hàn Quốc rẽ ngôi 7/3, áo polo xanh than, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
       <g transform={`translate(0 ${idleBob})`}>
         <ellipse cx="300" cy="758" rx="145" ry="18" fill="#6E8D78" opacity=".16" />
 
@@ -84,49 +84,16 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         <g transform={`rotate(${headTilt} 300 245)`}>
           <ellipse cx="300" cy="245" rx="151" ry="157" fill={skin} stroke={outline} strokeWidth="10"/>
 
-          {/* Korean 7:3 side-part hairstyle: tidy volume, a clean part, and a soft swept fringe. */}
-          <path d="M151 239
-            Q137 190 158 146
-            Q179 101 229 84
-            Q276 65 326 79
-            Q379 67 419 103
-            Q454 134 451 190
-            Q449 218 438 239
-            Q428 214 425 190
-            Q420 163 402 145
-            Q383 126 359 122
-            Q339 119 322 126
-            Q303 133 286 151
-            Q271 169 254 171
-            Q235 173 222 157
-            Q209 143 191 151
-            Q171 164 166 195
-            Q161 220 151 239Z"
-            fill={red} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          {/* Larger 7-side sweep, lifted softly from the part. */}
-          <path d="M169 165
-            Q190 108 250 91
-            Q303 75 345 97
-            Q365 108 375 128
-            Q350 116 328 126
-            Q304 137 286 158
-            Q266 181 242 183
-            Q211 185 194 163
-            Q181 151 169 165Z"
-            fill={red} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
-          {/* Narrow 3-side, combed neatly toward the temple. */}
-          <path d="M345 91 Q392 89 422 123 Q442 148 438 184
-            Q422 160 404 151 Q385 140 365 145 Q350 148 337 159
-            Q347 133 345 91Z"
-            fill={red} stroke={outline} strokeWidth="6" strokeLinejoin="round"/>
-          {/* Visible side part and restrained hair texture. */}
-          <path d="M345 91 Q337 116 322 137" fill="none" stroke="#8F252F" strokeWidth="7" strokeLinecap="round"/>
-          <path d="M190 145 Q229 99 286 99 Q314 99 335 112
-            M203 158 Q235 139 263 126
-            M366 111 Q398 119 416 145"
-            fill="none" stroke="#F27670" strokeWidth="7" strokeLinecap="round"/>
-          <path d="M177 191 Q184 168 199 156 M411 157 Q426 176 427 198"
-            fill="none" stroke="#E96A68" strokeWidth="5" strokeLinecap="round"/>
+          {/* Korean 7:3 side-part: lifted crown, deep side part, and a clear swept fringe. */}
+          <path d="M151 239 Q137 190 158 145 Q180 99 232 80 Q282 60 331 77 Q385 67 424 108 Q455 142 451 192 Q449 220 438 239 Q431 214 414 199 Q396 183 375 178 Q356 174 338 181 Q315 192 294 207 Q270 224 246 230 Q220 237 198 222 Q180 211 166 224 Q158 232 151 239Z" fill={red} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          {/* Larger 7-side: raised volume swept diagonally across the forehead. */}
+          <path d="M166 158 Q188 108 241 88 Q291 69 333 88 Q351 96 365 113 Q346 108 327 118 Q305 130 286 149 Q264 172 244 190 Q222 209 202 211 Q187 210 176 197 Q195 191 207 174 Q221 153 240 137 Q207 143 184 176 Q174 189 165 204 Q157 184 166 158Z" fill={red} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+          {/* Smaller 3-side follows the right temple neatly. */}
+          <path d="M349 91 Q395 91 425 126 Q445 153 438 194 Q427 178 411 169 Q392 157 372 160 Q354 163 338 179 Q349 148 349 91Z" fill={red} stroke={outline} strokeWidth="6" strokeLinejoin="round"/>
+          {/* Defined part line and curved comb marks. */}
+          <path d="M350 91 Q343 119 326 145" fill="none" stroke="#8F252F" strokeWidth="8" strokeLinecap="round"/>
+          <path d="M184 143 Q222 100 273 96 Q305 94 328 109 M193 166 Q220 143 250 128 M211 188 Q239 168 264 145 M374 111 Q405 124 420 151" fill="none" stroke="#F27670" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M174 195 Q185 171 204 157 M407 166 Q423 181 429 201" fill="none" stroke="#E96A68" strokeWidth="5" strokeLinecap="round"/>
 
           {expression === 'angry' ? (
             <>
