@@ -123,10 +123,10 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const [driftX,driftY]=handheld(frame,1.1);
  const progress=Math.min(1,Math.max(0,frame/Math.max(1,scene.durationInFrames-1)));
  const characterEntrance=interpolate(frame,[0,26],[150,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const characterWalk=interpolate(progress,[0,.16,.42,.68,1],[0,24,-58,22,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})*(characterOnLeft?1:-1);
+ const characterWalk=interpolate(progress,[0,.16,.42,.68,1],[0,40,-115,55,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})*(characterOnLeft?1:-1);
  const characterDepth=1+Math.sin(frame/45)*.018;
  const characterBob=Math.abs(Math.sin(frame/13))*7+interpolate(progress,[0,.25,.48,.72,1],[0,0,-22,6,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const characterLean=interpolate(progress,[0,.3,.5,.72,1],[0,0,characterOnLeft?3:-3,characterOnLeft?-1:1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const characterLean=interpolate(progress,[0,.3,.5,.72,1],[0,0,characterOnLeft?5:-5,characterOnLeft?-2:2,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const captionSource=scene.audio||'';
  const captionText=captionSource.match(/(?:chữ lớn|chữ trên màn hình|chữ|caption)\s*:\s*([^;]+)/i)?.[1]?.replace(/[“”"]/g,'').trim() || captionSource.match(/[“]([^”]{4,100})[”]/)?.[1] || scene.heading;
  const captionTop=/điện thoại|tin nhắn/i.test(scene.props||'')?'24%':/bản đồ|dòng thời gian/i.test(scene.props||'')?'19%':/phễu|checklist/i.test(scene.props||'')?'58%':'27%';
