@@ -75,7 +75,7 @@ export const STORY_ANIMATIC_DEFAULTS: Props = {
   title: 'HỒ SƠ NHỮNG HỘI NHÓM BÍ ẨN',
   mode: 'test',
   framesPerScene: 150,
-  scenes: [{number: 1, heading: 'Cảnh mẫu', setting: '', action: '', narration: 'Bản xem trước kịch bản.', audio: ''}],
+  scenes: [{number: 1, heading: 'Cảnh mẫu', setting: '', action: '', narration: 'Bản xem trước kịch bản.', audio: '', durationInFrames: 150}],
   source: '',
   totalScenes: 1,
   totalFrames: 150,
