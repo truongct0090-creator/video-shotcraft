@@ -23,7 +23,7 @@ on:
       mode:
         description: Render first 10 scenes or all scenes
         required: true
-        default: test
+        default: full
         type: choice
         options:
           - test
