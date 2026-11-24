@@ -27,78 +27,106 @@ export const MainBoy: React.FC<MainBoyProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const mouthShape = speaking ? (frame % 10 < 5 ? 'open' : 'closed') : mouth;
-  const idleBob = Math.sin(frame / 18) * 3.5;
-  const headTilt = Math.sin(frame / 38) * 1.2;
-  const waveAngle = gesture === 'wave' ? -24 + Math.sin(frame / 7) * 12 : 0;
-  const pointAngle = gesture === 'point' ? -12 : 0;
-  const armAngle = interpolate(frame % 90, [0, 45, 90], [-2, 2, -2]);
+  const idleBob = Math.sin(frame / 18) * 2;
+  const headTilt = Math.sin(frame / 38) * 0.7;
+  const leftArmAngle = gesture === 'wave' ? -8 + Math.sin(frame / 7) * 9 : interpolate(frame % 90, [0, 45, 90], [-1, 1, -1]);
+  const rightArmAngle = gesture === 'point' ? -13 : gesture === 'wave' ? -25 + Math.sin(frame / 7) * 11 : 1;
 
   const eye = (x: number) => {
-    if (blink) return <path d={`M${x - 13} 300 q13 10 26 0`} fill="none" stroke={outline} strokeWidth="8" strokeLinecap="round" />;
-    if (expression === 'surprised') return <ellipse cx={x} cy="300" rx="15" ry="22" fill={outline} />;
-    return <ellipse cx={x} cy="300" rx="13" ry={expression === 'worried' ? 17 : 19} fill={outline} />;
+    if (blink) {
+      return <path d={`M${x - 12} 246 q12 9 24 0`} fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round" />;
+    }
+    if (expression === 'surprised') {
+      return <ellipse cx={x} cy="246" rx="13" ry="19" fill={outline} />;
+    }
+    return <ellipse cx={x} cy="246" rx="12" ry={expression === 'worried' ? 16 : 17} fill={outline} />;
   };
 
   return (
-    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi da trắng hồng, tóc đỏ ngắn gọn, áo polo xanh than, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
+    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc đỏ đầu đinh, áo polo xanh than, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
       <g transform={`translate(0 ${idleBob})`}>
-        <ellipse cx="300" cy="760" rx="155" ry="20" fill="#6E8D78" opacity=".16" />
+        <ellipse cx="300" cy="758" rx="145" ry="18" fill="#6E8D78" opacity=".16" />
 
-        {/* Lower body remains rigid during gestures. */}
+        {/* Legs, shorts and shoes: stable shapes, independent from upper-body motion. */}
         <g>
-          <path d="M250 565 Q245 625 242 690 L286 690 L292 575Z M310 575 L315 690 L359 690 L350 565Z" fill={skin} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
-          <path d="M215 535 Q300 520 385 535 L375 635 Q340 650 305 630 Q270 650 225 635Z" fill="#FFFDF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          <path d="M300 545 L300 632" stroke="#D9D9D4" strokeWidth="5"/>
-          <path d="M230 685 Q255 672 288 688 Q300 711 284 730 L205 730 Q190 720 202 701Z" fill="#F9FAF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          <path d="M312 688 Q345 672 374 685 L402 703 Q412 720 396 730 L316 730 Q300 716 312 688Z" fill="#F9FAF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          <path d="M210 711 Q247 719 287 711 M318 711 Q357 719 398 711" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
-          <path d="M245 690 l24 15 M338 690 l24 15" stroke="#6C9CCB" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M250 566 Q246 620 244 686 L287 686 L294 570Z M306 570 L313 686 L356 686 L350 566Z" fill={skin} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
+          <path d="M216 531 Q300 518 384 531 L375 632 Q341 646 305 628 Q269 646 225 632Z" fill="#FFFDF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          <path d="M300 543 L300 628" stroke="#D9D9D4" strokeWidth="5"/>
+          <path d="M232 681 Q257 670 288 685 Q300 706 284 727 L207 727 Q192 718 204 699Z" fill="#F9FAF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          <path d="M312 685 Q343 670 373 681 L399 700 Q410 717 394 727 L316 727 Q301 713 312 685Z" fill="#F9FAF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          <path d="M210 709 Q248 717 287 709 M319 709 Q357 717 396 709" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
+          <path d="M245 686 l24 14 M338 686 l24 14" stroke="#6C9CCB" strokeWidth="7" strokeLinecap="round"/>
         </g>
 
-        {/* Shirt and jointed arms. Hands are simple round mittens with no fingers. */}
-        <g>
-          <path d="M220 385 Q245 355 275 350 L325 350 Q355 355 380 385 L410 535 Q300 570 190 535Z" fill={navy} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
-          <path d="M265 355 L300 405 L335 355 L320 430 L280 430Z" fill="#F7F8F6" stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
-          <path d="M300 407 L300 535" stroke="#31577C" strokeWidth="5"/>
-          <circle cx="312" cy="453" r="5" fill="#E7EDF2"/><circle cx="312" cy="480" r="5" fill="#E7EDF2"/>
-          <g transform={`rotate(${armAngle} 215 405)`}>
-            <path d="M215 405 Q175 425 168 500" fill="none" stroke={navy} strokeWidth="47" strokeLinecap="round"/>
-            <circle cx="166" cy="510" r="25" fill={skin} stroke={outline} strokeWidth="8"/>
-          </g>
-          <g transform={`rotate(${waveAngle + pointAngle} 380 405)`}>
-            <path d="M380 405 Q420 440 426 500" fill="none" stroke={navy} strokeWidth="48" strokeLinecap="round"/>
-            <circle cx="428" cy="510" r="25" fill={skin} stroke={outline} strokeWidth="8"/>
-          </g>
+        {/* Torso first; the neck is layered above the shirt and below the head. */}
+        <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={navy} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
+
+        {/* Short, anatomically placed neck joining the jaw to the collar. */}
+        <path d="M273 357 Q278 350 286 350 L314 350 Q322 350 327 357 L327 425 Q300 440 273 425Z" fill={skin} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+
+        {/* Polo collar sits in front of the neck at shoulder level. */}
+        <path d="M264 384 L300 425 L336 384 L323 450 L277 450Z" fill="#F7F8F6" stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+        <path d="M300 425 L300 538" stroke="#31577C" strokeWidth="5"/>
+        <circle cx="312" cy="469" r="5" fill="#E7EDF2"/>
+        <circle cx="312" cy="493" r="5" fill="#E7EDF2"/>
+
+        {/* Arms rotate at the shoulders. Mittens are round and have no fingers. */}
+        <g transform={`rotate(${leftArmAngle} 222 420)`}>
+          <path d="M222 420 Q181 444 171 510" fill="none" stroke={navy} strokeWidth="45" strokeLinecap="round"/>
+          <circle cx="169" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
+        </g>
+        <g transform={`rotate(${rightArmAngle} 378 420)`}>
+          <path d="M378 420 Q419 445 429 510" fill="none" stroke={navy} strokeWidth="46" strokeLinecap="round"/>
+          <circle cx="431" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
         </g>
 
-        {/* Head and facial features rotate together as one rigid group. */}
-        <g transform={`rotate(${headTilt} 300 400)`}>
-          {/* Short neck, visible between the head and polo collar. */}
-          <path d="M278 355 L278 408 Q300 427 322 408 L322 355Z" fill={skin} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
-          <g transform="translate(300 270) scale(0.85) translate(-300 -270)">
-            <ellipse cx="300" cy="270" rx="174" ry="177" fill={skin} stroke={outline} strokeWidth="10"/>
+        {/* Head is a single, proportioned shape; no non-uniform scaling. */}
+        <g transform={`rotate(${headTilt} 300 245)`}>
+          <ellipse cx="300" cy="245" rx="151" ry="157" fill={skin} stroke={outline} strokeWidth="10"/>
 
-            {/* Close-cropped red crew cut: smooth scalp silhouette, no fringe or hanging hair. */}
-            <path d="M132 267 Q118 211 140 158 Q161 111 207 91 Q249 68 300 72 Q351 68 393 91 Q439 111 460 158 Q482 211 468 267
-              Q451 239 440 217 Q433 192 425 175 Q405 137 378 124 Q342 104 300 105 Q258 104 222 124 Q195 139 176 175 Q167 192 160 217 Q149 239 132 267Z"
-              fill={red} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
-            <path d="M207 112 Q250 83 300 88 Q350 83 393 112" fill="none" stroke="#F27670" strokeWidth="8" strokeLinecap="round"/>
-            <path d="M157 198 Q165 168 181 148 M443 198 Q435 168 419 148 M236 103 l-8 17 M270 91 l-3 15 M330 91 l3 15 M364 103 l8 17"
-              fill="none" stroke="#E96A68" strokeWidth="6" strokeLinecap="round"/>
+          {/* Neat red crew cut: close to the scalp, short textured crown, absolutely no fringe. */}
+          <path d="M153 238
+            Q143 193 158 154
+            Q174 111 216 94
+            Q254 76 300 78
+            Q346 76 384 94
+            Q426 111 442 154
+            Q457 193 447 238
+            Q434 215 430 189
+            Q424 151 394 132
+            Q360 108 300 108
+            Q240 108 206 132
+            Q176 151 170 189
+            Q166 215 153 238Z"
+            fill={red} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          <path d="M205 119 Q248 91 300 94 Q352 91 395 119" fill="none" stroke="#F27670" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M174 184 Q180 155 198 139 M426 184 Q420 155 402 139 M247 99 l-5 13 M282 91 l-2 12 M318 91 l2 12 M353 99 l5 13" fill="none" stroke="#E96A68" strokeWidth="5" strokeLinecap="round"/>
 
-          <path d={expression === 'angry' ? 'M220 266 l45 12 M335 278 l45 -12' : expression === 'worried' ? 'M220 257 q25 -18 48 0 M332 257 q25 -18 48 0' : 'M220 267 q23 -12 45 0 M335 267 q23 -12 45 0'} fill="none" stroke={outline} strokeWidth="8" strokeLinecap="round"/>
-          {eye(244)}{eye(356)}
-          <ellipse cx="190" cy="345" rx="28" ry="15" fill="#F29B9B" opacity=".72"/>
-          <ellipse cx="410" cy="345" rx="28" ry="15" fill="#F29B9B" opacity=".72"/>
-          <path d="M292 326 q8 8 16 0" fill="none" stroke="#D59A86" strokeWidth="5" strokeLinecap="round"/>
+          {expression === 'angry' ? (
+            <>
+              <path d="M218 216 l42 11 M340 227 l42 -11" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>
+            </>
+          ) : expression === 'worried' ? (
+            <>
+              <path d="M218 214 q22 -15 44 0 M338 214 q22 -15 44 0" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>
+            </>
+          ) : (
+            <>
+              <path d="M218 222 q22 -9 44 0 M338 222 q22 -9 44 0" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>
+            </>
+          )}
 
-          {mouthShape === 'closed' && <path d="M280 375 Q300 385 320 375" fill="none" stroke="#9E5756" strokeWidth="8" strokeLinecap="round"/>}
-          {mouthShape === 'smile' && <path d="M270 370 Q300 410 330 370" fill="#A94F55" stroke={outline} strokeWidth="6" strokeLinecap="round"/>}
-          {mouthShape === 'open' && <ellipse cx="300" cy="382" rx="22" ry="30" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
-          {mouthShape === 'wide' && <path d="M266 370 Q300 430 334 370 Q300 398 266 370Z" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
-          {mouthShape === 'small-o' && <ellipse cx="300" cy="380" rx="14" ry="19" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
-          {/* No blue tear marks or decorative strokes on the face. */}
-          </g>
+          {eye(244)}
+          {eye(356)}
+          <ellipse cx="190" cy="292" rx="25" ry="13" fill="#F29B9B" opacity=".72"/>
+          <ellipse cx="410" cy="292" rx="25" ry="13" fill="#F29B9B" opacity=".72"/>
+          <path d="M292 278 q8 7 16 0" fill="none" stroke="#D59A86" strokeWidth="5" strokeLinecap="round"/>
+
+          {mouthShape === 'closed' && <path d="M281 330 Q300 338 319 330" fill="none" stroke="#9E5756" strokeWidth="7" strokeLinecap="round"/>}
+          {mouthShape === 'smile' && <path d="M273 324 Q300 361 327 324" fill="#A94F55" stroke={outline} strokeWidth="6" strokeLinecap="round"/>}
+          {mouthShape === 'open' && <ellipse cx="300" cy="338" rx="19" ry="25" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
+          {mouthShape === 'wide' && <path d="M270 325 Q300 380 330 325 Q300 350 270 325Z" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
+          {mouthShape === 'small-o' && <ellipse cx="300" cy="337" rx="13" ry="17" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
         </g>
       </g>
     </svg>
