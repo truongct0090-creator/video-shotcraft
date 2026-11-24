@@ -48,8 +48,8 @@ jobs:
           cache-dependency-path: template/package-lock.json
       - name: Validate and prepare story props
         env:
-          STORY_SCRIPT: ${{ inputs.script }}
-          RENDER_MODE: ${{ inputs.mode }}
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
+          RENDER_MODE: ${{ inputs.mode || 'test' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
       - name: Install renderer
         working-directory: template
