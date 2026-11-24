@@ -12,6 +12,7 @@ on:
       - 'ANIMATION_WORKSHOP.md'
       - 'template/src/story/**'
       - 'template/src/Root.tsx'
+      - 'template/src/index.ts'
       - 'template/package.json'
       - 'template/package-lock.json'
       - 'scripts/generate-voiceover.py'
@@ -42,7 +43,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: story-animatic-${{ github.ref }}-${{ inputs.script }}
+  group: story-animatic-${{ github.ref }}-${{ inputs.script }}-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -121,6 +122,7 @@ jobs:
             template/out/story-film.mp4
             template/out/story-animatic.mp4
             template/out/story-props.json
+            template/public/voiceover/*.wav
             template/out/animation-asset-audit.json
             template/out/render-qa.json
             template/out/story-film-qa.json
