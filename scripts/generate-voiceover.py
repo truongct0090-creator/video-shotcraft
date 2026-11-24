@@ -76,10 +76,11 @@ def frame_mouth_envelope(path: Path):
     values = sample_values(raw, params.sampwidth)
     channels = params.nchannels
     total_frames = len(values) // channels
-    frames_per_video_frame = max(1, round(params.framerate / FPS))
+    video_frame_count = math.ceil(total_frames * FPS / params.framerate)
     envelope = []
-    for start in range(0, total_frames, frames_per_video_frame):
-        end = min(total_frames, start + frames_per_video_frame)
+    for video_frame in range(video_frame_count):
+        start = round(video_frame * params.framerate / FPS)
+        end = min(total_frames, round((video_frame + 1) * params.framerate / FPS))
         block = values[start * channels:end * channels]
         if not block:
             envelope.append(0.0)
