@@ -60,7 +60,7 @@ jobs:
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
-          name: story-animatic-${{ inputs.mode }}-${{ github.run_number }}
+          name: story-animatic-${{ inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-animatic.mp4
             template/out/story-props.json
