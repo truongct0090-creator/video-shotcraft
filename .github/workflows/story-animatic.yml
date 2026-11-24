@@ -65,6 +65,7 @@ jobs:
       - name: Render illustrated film
         working-directory: template
         run: npx remotion render src/index.ts IllustratedStoryFilm out/story-film.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
+      - name: Render MP4 animatic
         working-directory: template
         run: npx remotion render src/index.ts StoryAnimatic out/story-animatic.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
       - name: Upload MP4 and render props
@@ -73,6 +74,7 @@ jobs:
           name: story-animatic-${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-film.mp4
+            template/out/story-animatic.mp4
             template/out/story-props.json
             template/out/animation-asset-audit.json
           if-no-files-found: error
