@@ -57,8 +57,14 @@ const allPaths = [...new Set(['assets','template/public','template/src','demos',
 const media = allPaths.filter((p)=>/\.(png|jpe?g|webp|gif|mp4|mov|mp3|wav|ogg|svg)$/i.test(p));
 const characterSources = allPaths.filter((p)=>/(character|chibi|avatar|puppet|rig)/i.test(p) && /\.(tsx?|json|svg|png|webp)$/i.test(p));
 const chooseSceneTemplate = (scene) => {
-  if (['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(scene.world)) return scene.world;
+  if (['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) return scene.world;
   const s = [scene.setting, scene.action, scene.title].join(' ').toLowerCase();
+  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';
+  if (/bảng checklist|ba câu hỏi|không gian tư vấn/.test(s)) return 'checklist';
+  if (/dòng thời gian|phòng trưng bày lịch sử/.test(s)) return 'timeline';
+  if (/xưởng in|máy in|sắp chữ/.test(s)) return 'printing';
+  if (/phòng điều tra|bảng ghim|hồ sơ/.test(s)) return 'investigation';
+  if (/hội trường cộng đồng|gia đình|cộng đồng/.test(s)) return 'community';
   if (/bản đồ|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
   if (/quán trà|đèn dầu|bàn gỗ|người hoa/.test(s)) return 'teahouse';
