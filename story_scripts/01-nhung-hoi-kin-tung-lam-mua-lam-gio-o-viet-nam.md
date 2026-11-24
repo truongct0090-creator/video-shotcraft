@@ -100,7 +100,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Âm thanh/Chữ:** “Thanh niên Cao vọng — tổ chức chính trị bí mật”.
 
 ### 11. Bí mật là phương thức, không phải mục tiêu
-**Bối cảnh:** Phòng họp nhỏ, cửa đóng, bản tin và tài liệu được chuyền tay.
+**Bối cảnh:** Phòng họp nhóm kín kiểu sinh hoạt cộng đồng, cửa đóng, ghế xếp thành vòng cung, bàn chủ tọa, bảng thông tin và tài liệu được chuyền tay; không tái hiện nghi lễ hay biểu tượng của một tôn giáo cụ thể.
 **Loại cảnh:** interior
 **Hành động:** Nhân vật chính kéo tấm màn, phía sau là câu hỏi “Tổ chức vì điều gì?”.
 **Đạo cụ:** cửa phòng họp; rèm kéo; tài liệu chuyền tay; bảng câu hỏi
@@ -132,7 +132,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Âm thanh/Chữ:** “Cáo buộc phải có nguồn và phạm vi”.
 
 ### 15. Màn chào mời — khi lời giới thiệu nghe như quảng cáo siêu giảm giá
-**Bối cảnh:** Một buổi trò chuyện được hư cấu, không tái hiện nghi lễ thật; phông nền tối giản.
+**Bối cảnh:** Phòng sinh hoạt nhóm kín được hư cấu, bố trí ghế thành vòng cung, bàn tiếp khách và bảng thông tin; không tái hiện nghi lễ thật hay gán hành vi cho tín đồ ngoài đời.
 **Loại cảnh:** interior
 **Hành động:** Người mời nói bằng bong bóng thoại: “Bạn sắp biết bí mật mà cả thế giới chưa biết!” Nhân vật chính nhìn camera: “Nghe giống quảng cáo ‘mua một được cả vũ trụ’ quá.”
 **Đạo cụ:** bong bóng thoại lời mời hư cấu; biểu tượng quảng cáo; nhân vật nhìn camera
