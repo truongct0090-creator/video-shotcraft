@@ -47,6 +47,8 @@ const scenes = headings.map((match, index) => {
     heading: clean(match[2]),
     setting: field('Bối cảnh'),
     action: field('Hành động'),
+    props: field('Đạo cụ'),
+    shot: field('Shot'),
     narration: field('Lời dẫn'),
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
     world: field('Loại cảnh').toLowerCase(),
