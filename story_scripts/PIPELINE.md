@@ -17,7 +17,7 @@ Từ thư mục gốc repository:
 bash template/scripts/render-story.sh story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md full
 ```
 
-Đổi `test` thành `full` để dựng tất cả cảnh.
+Thay `full` bằng `test` để dựng 10 cảnh đầu. Script local tự chạy QA kỹ thuật sau khi render.
 
 ## Định dạng Markdown
 
