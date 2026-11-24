@@ -6,6 +6,13 @@ MODE="${2:-full}"
 ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT_DIR"
 
+# Fail before npm install or any expensive render if the media QA dependency is absent.
+if ! command -v ffprobe >/dev/null 2>&1; then
+  echo "ERROR: ffprobe is required for MP4 QA but was not found on PATH." >&2
+  echo "Install FFmpeg first (macOS: brew install ffmpeg; Ubuntu/Debian: sudo apt-get install ffmpeg)." >&2
+  exit 1
+fi
+
 node scripts/parse-story.mjs --script="$SCRIPT_PATH" --mode="$MODE" --output=template/out/story-props.json
 cd template
 npm ci
