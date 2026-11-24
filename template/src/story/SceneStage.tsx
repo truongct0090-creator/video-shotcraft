@@ -12,8 +12,8 @@ export type FilmSceneData = {
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';
 const chooseWorld = (text:string, preferred?:string):World => {
   const s=text.toLowerCase();
-  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';
   if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(preferred)) return preferred as World;
+  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';
   if (/bản đồ|map|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
   if (/quán trà|đèn dầu|bàn gỗ|người hoa/.test(s)) return 'teahouse';
