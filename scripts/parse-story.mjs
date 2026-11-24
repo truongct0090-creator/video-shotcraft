@@ -49,6 +49,8 @@ const scenes = headings.map((match, index) => {
     action: field('Hành động'),
     narration: field('Lời dẫn'),
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
+    world: field('Loại cảnh').toLowerCase(),
+    character: field('Nhân vật').toLowerCase() || 'main-boy',
     duration: field('Thời lượng'),
   };
 }).filter((scene) => scene.heading);
@@ -56,6 +58,8 @@ const scenes = headings.map((match, index) => {
 if (scenes.length === 0) throw new Error('No scenes found. Expected headings like ### 01. Scene title.');
 for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
+  if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
+  if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
 }
 const parseDuration = (value) => {
   if (!value) return 150;
