@@ -38,7 +38,7 @@ export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, sce
   const label = String(scene.number).padStart(2, '0');
 
   return (
-    <AbsoluteFill style={{backgroundColor: '#101216', color: '#f4f0e8', fontFamily: 'Arial, sans-serif', padding: 84, opacity: 1}}>
+    <AbsoluteFill style={{backgroundColor: '#101216', color: '#f4f0e8', fontFamily: 'Be Vietnam Pro, sans-serif', padding: 84, opacity: 1}}>
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 78% 20%, #33302a 0%, #17191d 42%, #101216 78%)'}} />
       <div style={{position: 'absolute', top: 56, left: 84, right: 84, display: 'flex', justifyContent: 'space-between', color: '#c4a36a', fontSize: 22, letterSpacing: 5, textTransform: 'uppercase'}}>
         <span>HỒ SƠ · STORY ANIMATIC</span>

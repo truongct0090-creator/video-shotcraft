@@ -6,7 +6,7 @@ import {handheld} from '../../../assets/lib/helpers/shake';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
-  audio:string; durationInFrames:number; world?:string; character?:string;
+  audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'generic';
@@ -60,7 +60,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const [driftX,driftY]=handheld(frame,1.4);
  const characterEntrance=/bước tới|tiến đến|đi tới|bước vào|tiến lại/i.test(actionText)?interpolate(frame,[0,24],[180,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}):0;
  const characterBob=Math.sin(frame/18)*4;
- return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b'}}>
+ return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   <div style={{position:'absolute',inset:-30,transform:`translate(${driftX}px,${driftY}px) scale(${zoom})`}}><Backdrop world={world} frame={frame}/></div>
   <div style={{position:'absolute',left:70,top:72,color:'#f4e8d1',fontSize:22,letterSpacing:5,fontWeight:700,textShadow:'0 2px 8px #111'}}>XƯỞNG PHIM · TÁI HIỆN MINH HỌA</div>
   <div style={{position:'absolute',right:68,top:62,padding:'12px 22px',borderRadius:30,background:'rgba(20,24,29,.72)',color:'#f4e8d1',fontSize:22}}>CẢNH {String(scene.number).padStart(2,'0')}</div>
