@@ -127,6 +127,8 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const characterDepth=1+Math.sin(frame/45)*.018;
  const characterBob=Math.abs(Math.sin(frame/13))*7+interpolate(progress,[0,.25,.48,.72,1],[0,0,-22,6,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const characterLean=interpolate(progress,[0,.3,.5,.72,1],[0,0,characterOnLeft?5:-5,characterOnLeft?-2:2,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const mouthFrames=scene.mouthFrames||[];
+ const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
  const captionSource=scene.audio||'';
  const captionText=captionSource.match(/(?:chữ lớn|chữ trên màn hình|chữ|caption)\s*:\s*([^;]+)/i)?.[1]?.replace(/[“”"]/g,'').trim() || captionSource.match(/[“]([^”]{4,100})[”]/)?.[1] || scene.heading;
  const captionTop=/điện thoại|tin nhắn/i.test(scene.props||'')?'24%':/bản đồ|dòng thời gian/i.test(scene.props||'')?'19%':/phễu|checklist/i.test(scene.props||'')?'58%':'27%';
@@ -135,6 +137,6 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   <div style={{position:'absolute',inset:-30,transform:'translate('+driftX+'px,'+driftY+'px) scale('+zoom+')'}}><Backdrop world={world} frame={frame}/></div>
   <SceneObjects scene={scene} frame={frame}/>
   <div style={{position:'absolute',left:captionLeft,top:captionTop,maxWidth:560,padding:'12px 18px',background:'rgba(20,25,30,.78)',borderLeft:'5px solid #e0b56f',borderRadius:9,color:'#fff7e8',fontSize:31,lineHeight:1.15,fontWeight:800,textShadow:'0 3px 6px rgba(0,0,0,.95)',boxShadow:'0 7px 20px rgba(0,0,0,.38)',opacity:interpolate(frame,[0,12],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{captionText}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+(characterEntrance*(characterOnLeft?-1:1)+characterWalk)+'px,'+characterBob+'px) rotate('+characterLean+'deg) scale('+characterDepth+')'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={scene.mouthFrames?.[Math.min(frame,Math.max(0,scene.mouthFrames.length-1))]} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+(characterEntrance*(characterOnLeft?-1:1)+characterWalk)+'px,'+characterBob+'px) rotate('+characterLean+'deg) scale('+characterDepth+')'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
  </div>;
 };
