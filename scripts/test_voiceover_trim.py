@@ -42,6 +42,22 @@ class VoiceoverTrimTests(unittest.TestCase):
             with wave.open(str(path), "rb") as wav:
                 self.assertAlmostEqual(wav.getnframes() / rate, after, delta=0.001)
 
+    def test_mouth_envelope_tracks_voiced_frames(self):
+        rate = 16000
+        voiced = [int(9000 * math.sin(2 * math.pi * 220 * i / rate)) for i in range(rate // 2)]
+        samples = voiced + [0] * (rate // 2)
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "voice.wav"
+            with wave.open(str(path), "wb") as wav:
+                wav.setnchannels(1)
+                wav.setsampwidth(2)
+                wav.setframerate(rate)
+                wav.writeframes(struct.pack("<" + "h" * len(samples), *samples))
+            envelope = MODULE.frame_mouth_envelope(path)
+            self.assertEqual(len(envelope), 30)
+            self.assertGreater(max(envelope[:15]), 0.8)
+            self.assertLess(max(envelope[20:]), 0.05)
+
     def test_keeps_audio_when_it_is_all_quiet(self):
         rate = 8000
         with tempfile.TemporaryDirectory() as folder:
