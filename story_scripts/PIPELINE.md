@@ -28,7 +28,7 @@ Mỗi cảnh cần tiêu đề `### 01. Tên cảnh` và các trường:
 - `**Lời dẫn:**` (bắt buộc)
 - `**Âm thanh/Chữ:**` (không bắt buộc)
 
-Đây là **animatic phân cảnh** để kiểm tra thứ tự, nội dung lời dẫn và nhịp thời lượng. Chưa phải bản phim minh họa hoàn chỉnh; không tự tạo ảnh tư liệu, giọng đọc hay nhạc. Khi kịch bản được duyệt, mới phát triển hình minh họa, lời thoại/voice-over và thiết kế âm thanh.
+Workflow hiện xuất song song hai sản phẩm: **StoryAnimatic** để duyệt bố cục/lời dẫn và **IllustratedStoryFilm** là bản phim hoạt hình minh họa có bối cảnh vector chuyển động, nhân vật chibi tái sử dụng, chuyển cảnh và phụ đề lời kể. Cảnh nền được chọn từ thư viện bối cảnh dựng sẵn theo nội dung; nếu chưa có bối cảnh phù hợp, dùng sân khấu minh họa trung tính và ghi nhận cần bổ sung asset.\n\nCó thể thêm hai dòng metadata ở đầu Markdown để ghép âm thanh do bạn cung cấp (đặt file trong `template/public/audio/`):\n\n```md\n**Giọng đọc:** audio/episode-voice.mp3\n**Nhạc nền:** audio/episode-music.mp3\n```\n\nNếu không có giọng đọc, phim vẫn xuất được với phụ đề lời kể; không giả lập giọng đọc. Chỉ dùng audio mà bạn có quyền sử dụng và ghi attribution khi cần. Phim minh họa là tái hiện đồ họa, không phải footage tư liệu.
 
 ## Quyền riêng tư và chi phí
 
