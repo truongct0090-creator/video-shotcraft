@@ -1,6 +1,8 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
 import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
+import {dampedSettle} from '../../../assets/lib/helpers/motion';
+import {handheld} from '../../../assets/lib/helpers/shake';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
@@ -52,9 +54,11 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const expression:BoyExpression=/nguy|cảnh báo|đáng ngờ|tranh cãi|bí mật/i.test(scene.action+' '+scene.heading)?'worried':/bất ngờ|nhướng mày|hé cửa/i.test(scene.action+' '+scene.heading)?'surprised':'neutral';
  const gesture:BoyGesture=/chỉ|đánh dấu|giới thiệu|dán nhãn|mở bản đồ/i.test(scene.action)?'point':/vẫy|chào/i.test(scene.action)?'wave':'rest';
- const zoom=1+Math.sin(frame/90)*.025;
+ const settle=dampedSettle(frame-8,0.075,0.16);
+ const zoom=1+Math.sin(frame/90)*.018+settle*.025;
+ const [driftX,driftY]=handheld(frame,1.4);
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b'}}>
-  <div style={{position:'absolute',inset:-30,transform:`scale(${zoom})`}}><Backdrop world={world} frame={frame}/></div>
+  <div style={{position:'absolute',inset:-30,transform:`translate(${driftX}px,${driftY}px) scale(${zoom})`}}><Backdrop world={world} frame={frame}/></div>
   <div style={{position:'absolute',left:70,top:72,color:'#f4e8d1',fontSize:22,letterSpacing:5,fontWeight:700,textShadow:'0 2px 8px #111'}}>XƯỞNG PHIM · TÁI HIỆN MINH HỌA</div>
   <div style={{position:'absolute',right:68,top:62,padding:'12px 22px',borderRadius:30,background:'rgba(20,24,29,.72)',color:'#f4e8d1',fontSize:22}}>CẢNH {String(scene.number).padStart(2,'0')}</div>
   {scene.character !== 'none' ? <div style={{position:'absolute',right:90,bottom:90,width:390,height:540,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.25))'}}><MainBoy expression={expression} gesture={gesture} speaking={false} mouth="closed" blink={frame%112>104&&frame%112<109}/></div> : null}
