@@ -80,6 +80,19 @@ jobs:
       - name: Asset-first animation workshop inventory
         run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
 
+      - name: Parse and validate all story scene props
+        run: |
+          node scripts/parse-story.mjs --script=story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md --mode=full --output=/tmp/story-props.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open('/tmp/story-props.json', encoding='utf-8'))
+          scenes = data.get('scenes', [])
+          assert len(scenes) == 20, f'expected 20 scenes, got {len(scenes)}'
+          missing = [s.get('number') for s in scenes if not s.get('props')]
+          assert not missing, f'missing scene props: {missing}'
+          print(f'validated {len(scenes)} scenes with explicit visual props')
+          PY
+
       - name: Every library.json preview exists on the gallery-media release
         env:
           GH_TOKEN: ${{ github.token }}
