@@ -50,6 +50,14 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: template/package-lock.json
+      # Install and verify ffprobe BEFORE spending time rendering. The runner image
+      # does not guarantee that FFmpeg is preinstalled.
+      - name: Install and verify FFmpeg tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y ffmpeg
+          command -v ffprobe
+          ffprobe -version
       - name: Validate and prepare story props
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
