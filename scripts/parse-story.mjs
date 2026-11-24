@@ -61,8 +61,12 @@ for (const scene of scenes) {
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
 }
-const parseDuration = (value) => {
-  if (!value) return 150;
+const parseDuration = (value, narration = '') => {
+  if (!value) {
+    const words = narration.trim().split(/\\s+/).filter(Boolean).length;
+    const seconds = Math.max(5, Math.ceil(words / 2.6 + 2));
+    return seconds * 30;
+  }
   const seconds = value.match(/(\d+(?:[.,]\d+)?)\s*(?:s|giây|seconds?)\b/i);
   const frames = value.match(/(\d+)\s*(?:f|frame|frames)\b/i);
   const minutes = value.match(/(\d+(?:[.,]\d+)?)\s*(?:phút|minutes?)\b/i);
@@ -72,7 +76,7 @@ const parseDuration = (value) => {
   throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
 };
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
-const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration)}));
+const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration, scene.narration)}));
 const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
 const music = markdown.match(/^\*\*Nhạc nền:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
 for (const [label, file] of [['Giọng đọc', voiceover], ['Nhạc nền', music]]) {
