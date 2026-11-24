@@ -28,8 +28,8 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Âm thanh/Chữ:** Tiếng cửa kẽo kẹt; chữ lớn: “HỘI KÍN — BÍ MẬT THẬT HAY CHỈ LÀ CHIÊU?”
 
 ### 02. Trước khi vào chuyện: không phải hội kín nào cũng giống nhau
-**Bối cảnh:** Phòng hồ sơ kiểu trinh thám, bảng ghim có ba nhánh: yêu nước, hội đoàn cộng đồng, nhóm tôn giáo hiện đại.
-**Loại cảnh:** archive
+**Bối cảnh:** Phòng điều tra lịch sử với bảng ghim, hồ sơ, ảnh tư liệu minh họa và các đường nối phân loại.
+**Loại cảnh:** investigation
 **Hành động:** Nhân vật chính dán ba nhãn khác màu; một nhãn “đừng gom chung!” rơi xuống đầu.
 **Đạo cụ:** bảng ghim; ba thẻ màu yêu nước, cộng đồng, tôn giáo; nhãn đừng gom chung
 **Lời dẫn:** “Có hội kín trong bối cảnh chống thực dân; có tổ chức chính trị bí mật; có hội đoàn cộng đồng; và có nhóm tôn giáo hiện đại gây tranh luận. Khác thời đại, khác mục tiêu, khác bản chất. Gom hết vào một rổ thì nhanh thật — nhưng lịch sử sẽ phản đối.”
@@ -92,8 +92,8 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Âm thanh/Chữ:** “Đừng đánh đồng”.
 
 ### 10. Thanh niên Cao vọng — bí mật để vận động chính trị
-**Bối cảnh:** Sài Gòn thập niên 1920, tiệm sách, nhà in và những cuộc gặp kín.
-**Loại cảnh:** historic
+**Bối cảnh:** Xưởng in Sài Gòn thập niên 1920, máy in tay, khu sắp chữ, chồng báo và sách đang in.
+**Loại cảnh:** printing
 **Hành động:** Nhân vật chính mở một cuốn sách; từ trang sách hiện ra mạng lưới thanh niên và người lao động.
 **Đạo cụ:** tiệm sách; máy in tay; sách mở; sơ đồ mạng lưới người lao động
 **Lời dẫn:** “Giữa thập niên 1920, Nguyễn An Ninh gắn với tổ chức Thanh niên Cao vọng, một tổ chức chính trị bí mật có hoạt động ở Nam Kỳ. Đây không đơn giản là một hội kín kiểu bang hội; nó gắn với hoạt động vận động quần chúng và mục tiêu giải phóng dân tộc.”
@@ -101,7 +101,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 
 ### 11. Bí mật là phương thức, không phải mục tiêu
 **Bối cảnh:** Phòng họp nhóm kín kiểu sinh hoạt cộng đồng, cửa đóng, ghế xếp thành vòng cung, bàn chủ tọa, bảng thông tin và tài liệu được chuyền tay; không tái hiện nghi lễ hay biểu tượng của một tôn giáo cụ thể.
-**Loại cảnh:** interior
+**Loại cảnh:** meeting
 **Hành động:** Nhân vật chính kéo tấm màn, phía sau là câu hỏi “Tổ chức vì điều gì?”.
 **Đạo cụ:** cửa phòng họp; rèm kéo; tài liệu chuyền tay; bảng câu hỏi
 **Lời dẫn:** “Một tổ chức có thể hoạt động bí mật vì bị đàn áp hoặc vì muốn che giấu hoạt động. Nhưng bí mật tự nó không chứng minh tổ chức tốt hay xấu. Muốn đánh giá, phải xem mục tiêu, phương thức và hành vi cụ thể.”
@@ -133,7 +133,7 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 
 ### 15. Màn chào mời — khi lời giới thiệu nghe như quảng cáo siêu giảm giá
 **Bối cảnh:** Phòng sinh hoạt nhóm kín được hư cấu, bố trí ghế thành vòng cung, bàn tiếp khách và bảng thông tin; không tái hiện nghi lễ thật hay gán hành vi cho tín đồ ngoài đời.
-**Loại cảnh:** interior
+**Loại cảnh:** meeting
 **Hành động:** Người mời nói bằng bong bóng thoại: “Bạn sắp biết bí mật mà cả thế giới chưa biết!” Nhân vật chính nhìn camera: “Nghe giống quảng cáo ‘mua một được cả vũ trụ’ quá.”
 **Đạo cụ:** bong bóng thoại lời mời hư cấu; biểu tượng quảng cáo; nhân vật nhìn camera
 **Lời dẫn:** “Một lời mời hấp dẫn không tự động là sai. Nhưng nếu người mời né câu hỏi, thúc ép quyết định nhanh, yêu cầu giữ bí mật hoặc hứa hẹn điều không thể kiểm chứng, hãy chậm lại. Niềm tin không nên bị bán bằng áp lực.”
@@ -148,24 +148,24 @@ Từ “hội kín” trong tập này được dùng như một **chủ đề k
 **Âm thanh/Chữ:** Nhạc hài nhẹ; “Niềm tin không thay thế được minh bạch”.
 
 ### 17. Phân biệt đức tin với hành vi lợi dụng đức tin
-**Bối cảnh:** Một bên là gia đình và cộng đồng tôn giáo sinh hoạt bình thường; bên kia là biểu tượng cảnh báo về ép buộc, đe dọa, lừa đảo.
-**Loại cảnh:** generic
+**Bối cảnh:** Hội trường cộng đồng trung tính, hai khu vực được phân tách bằng vạch rõ ràng: sinh hoạt gia đình bình thường và bảng cảnh báo hành vi ép buộc; không dùng biểu tượng tôn giáo cụ thể.
+**Loại cảnh:** community
 **Hành động:** Nhân vật chính kéo hai hình ảnh ra xa, đặt bảng “không đánh đồng”.
 **Đạo cụ:** khung gia đình và cộng đồng; biểu tượng cảnh báo ép buộc; vạch phân biệt
 **Lời dẫn:** “Tôn trọng quyền tự do tín ngưỡng cũng đồng nghĩa với việc không chấp nhận hành vi ép buộc, lừa đảo hay xâm phạm quyền của người khác. Phê bình hành vi sai trái không phải là chế giễu người có đức tin.”
 **Âm thanh/Chữ:** “Phê bình hành vi — tôn trọng con người”.
 
 ### 18. Ba câu hỏi trước khi tham gia bất kỳ nhóm kín nào
-**Bối cảnh:** Nhân vật chính đứng trước bảng checklist lớn.
-**Loại cảnh:** archive
+**Bối cảnh:** Không gian tư vấn công cộng với bảng thông tin lớn, kệ tài liệu và ba mục kiểm tra rõ ràng.
+**Loại cảnh:** checklist
 **Hành động:** Từng câu hỏi xuất hiện: “Ai tổ chức?”, “Tiền bạc và quy định có công khai?”, “Mình có được quyền từ chối/rời đi?”.
 **Đạo cụ:** bảng checklist; ba ô đánh dấu; biểu tượng quyền từ chối
 **Lời dẫn:** “Trước khi tham gia, hãy tìm hiểu ai đứng sau tổ chức, hoạt động và tài chính có minh bạch không, và bạn có quyền từ chối hay rời đi mà không bị đe dọa không. Một cộng đồng lành mạnh không cần tước quyền đặt câu hỏi của bạn.”
 **Âm thanh/Chữ:** Ba tiếng tick rõ ràng.
 
 ### 19. Những hội kín đã để lại điều gì?
-**Bối cảnh:** Dòng thời gian từ Nam Kỳ đầu thế kỷ XX tới xã hội hiện đại.
-**Loại cảnh:** map
+**Bối cảnh:** Phòng trưng bày lịch sử với tường mốc thời gian, khung tư liệu và các giai đoạn từ Nam Kỳ đầu thế kỷ XX đến xã hội hiện đại.
+**Loại cảnh:** timeline
 **Hành động:** Các hồ sơ lịch sử xếp thành từng lớp; nhân vật chính đóng dấu “bối cảnh khác nhau”.
 **Đạo cụ:** dòng thời gian; các mốc lịch sử; hồ sơ xếp lớp
 **Lời dẫn:** “Từ các hội kín chống thực dân đến những tổ chức chính trị bí mật và các nhóm tôn giáo hiện đại gây tranh luận, mỗi câu chuyện phản ánh một thời đại. Điều đáng học không phải là săn tìm điều bí mật bằng mọi giá, mà là biết kiểm chứng thông tin và hiểu đúng bối cảnh.”
