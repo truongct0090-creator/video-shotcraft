@@ -79,7 +79,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           <path d="M378 420 Q419 445 429 510" fill="none" stroke={navy} strokeWidth="46" strokeLinecap="round"/>
           <circle cx="431" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
           {gesture === 'point' && <path d="M431 523 Q447 566 474 590" fill="none" stroke={skin} strokeWidth="17" strokeLinecap="round"/>}
-          {gesture === 'point' && <path d="M431 523 Q447 566 474 590" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>
+          {gesture === 'point' && <path d="M431 523 Q447 566 474 590" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>}
         </g>
 
         {/* Head is a single, proportioned shape; no non-uniform scaling. */}
