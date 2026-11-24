@@ -16,10 +16,10 @@ const chooseWorld = (text:string, preferred?:string):World => {
   if (/bản đồ|map|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
   if (/quán trà|đèn dầu|bàn gỗ|người hoa/.test(s)) return 'teahouse';
-  if (/sài gòn|nam kỳ|pháp thuộc|1916|thập niên 1920|khám lớn|làng quê|phố xưa|lịch sử/.test(s)) return 'historic';
-  if (/ruộng|đồng|làng|cây|sông|vườn|nông thôn/.test(s)) return 'countryside';
-  if (/điện thoại|cà phê|thành phố hiện đại|tin nhắn|mạng xã hội/.test(s)) return 'modern';
   if (/hẻm|con hẻm|cửa khép|cánh cửa|đêm/.test(s)) return 'alley';
+  if (/điện thoại|cà phê|thành phố hiện đại|tin nhắn|mạng xã hội/.test(s)) return 'modern';
+  if (/ruộng|đồng|làng|cây|sông|vườn|nông thôn/.test(s)) return 'countryside';
+  if (/sài gòn|nam kỳ|pháp thuộc|1916|thập niên 1920|khám lớn|làng quê|phố xưa|lịch sử/.test(s)) return 'historic';
   if (/phòng|buổi họp|cuộc gặp|nhà|nội thất/.test(s)) return 'interior';
   return 'generic';
 };
