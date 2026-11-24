@@ -56,7 +56,7 @@ const report = {
   outputs: results,
   status: 'passed',
 };
-const out = path.resolve('template/out/render-qa.json');
+const out = path.resolve(path.dirname(files[0]), 'render-qa.json');
 fs.mkdirSync(path.dirname(out), {recursive: true});
 fs.writeFileSync(out, JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify(report, null, 2));
