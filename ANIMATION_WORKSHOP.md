@@ -1,6 +1,6 @@
 # Xưởng sản xuất phim hoạt hình
 
-Tài liệu vận hành cho nhánh sản xuất phim hoạt hình của video-shotcraft. Mục tiêu là biến repo thành một dây chuyền có thể kiểm kê tài nguyên, viết kịch bản, phân cảnh, dựng animatic, hoàn thiện hình ảnh/chuyển động, âm thanh, kiểm tra và xuất phim — ưu tiên tài nguyên sẵn có.
+Tài liệu vận hành cho nhánh sản xuất phim hoạt hình của video-shotcraft. Mục tiêu là biến repo thành một dây chuyền có thể kiểm kê tài nguyên, viết kịch bản, phân cảnh, dựng animatic duyệt nhịp, dựng phim hoạt hình minh họa, ghép âm thanh/phụ đề và xuất MP4 — ưu tiên tài nguyên sẵn có.
 
 ## Nguyên tắc bắt buộc: asset-first
 
@@ -23,7 +23,8 @@ Không tạo lại thứ repo đã có. Mỗi cảnh phải đi qua thứ tự:
 | Bối cảnh/visual template | `template/src/aifl/`, `template/src/themes/` | Layout, texture, màu, scene template; không mặc định là bối cảnh lịch sử |
 | Nhạc nền | `assets/audio/bgm/` | Chỉ dùng sau khi kiểm tra attribution và phù hợp tông phim |
 | SFX | `references/sfx-sourcing.md`, `assets/scripts/sfx-source.py` | Tìm/ghi nguồn và giấy phép; không tải tự động |
-| Story animatic | `template/src/story/StoryAnimatic.tsx` | Duyệt nhịp, thứ tự cảnh, bối cảnh, hành động và lời dẫn |
+| Story animatic | `template/src/story/StoryAnimatic.tsx` | Bản xem trước kịch bản và nhịp cảnh |
+| Illustrated film | `template/src/story/IllustratedStoryFilm.tsx`, `SceneStage.tsx` | Dựng phim minh họa 1920×1080/30fps từ toàn bộ cảnh; 9 sân khấu vector tái sử dụng; phụ đề lời kể; chuyển cảnh và SFX có nguồn |
 
 **Giới hạn thư viện hiện tại:** repo có thư viện motion phong phú và một nhân vật chibi mẫu, nhưng chưa có thư viện hoàn chỉnh gồm nhân vật phụ, rig nhiều góc, bối cảnh lịch sử/đời sống Việt Nam, đạo cụ theo thời kỳ, khẩu hình tiếng Việt đồng bộ âm vị, giọng đọc tiếng Việt và phụ đề được căn thời gian. Không được quảng bá các phần này là đã hoàn thiện.
 
@@ -62,26 +63,37 @@ Mỗi cảnh nên khai báo:
 - `**Hành động:**`
 - `**Lời dẫn:**`
 - `**Âm thanh/Chữ:**`
+- tùy chọn `**Loại cảnh:**` một trong `alley`, `archive`, `map`, `teahouse`, `historic`, `countryside`, `modern`, `interior`, `generic`
+- tùy chọn `**Nhân vật:**` là `main-boy` hoặc `none`
+- tùy chọn `**Thời lượng:**` như `6s`, `180f`, `1 phút`
 - tùy chọn: `**Nhân vật:**`, `**Đạo cụ:**`, `**Shot:**`, `**Thời lượng:**`
 
 Shot phải là tên card hoặc style key có thật trong `gallery/api/library.json`. Không ghi tên shot tự nghĩ rồi coi là tài nguyên có sẵn.
 
-### 4. Animatic và duyệt nhịp
-Dùng workflow **Story animatic**. Chạy test trước, sau đó full. Animatic hiện là bản duyệt kịch bản/nhịp, không phải phim hoạt hình hoàn thiện. Xem MP4 artifact, sửa kịch bản rồi chạy lại.
+### 4. Duyệt animatic và dựng phim
+Dùng workflow **Story animatic**. Chạy `test` để xem 10 cảnh đầu, sau đó `full` để xuất toàn bộ tập. Mỗi lần chạy tạo hai MP4: `story-animatic.mp4` để duyệt nhịp và `story-film.mp4` là bản phim hoạt hình minh họa. Bản phim sử dụng sân khấu vector tái sử dụng (hẻm, hồ sơ, bản đồ, quán trà, phố lịch sử, đồng quê, đô thị hiện đại, nội thất, trung tính), nhân vật MainBoy có sẵn, camera drift và hiệu ứng chuyển cảnh. Có thể chọn sân khấu bằng `**Loại cảnh:**` và ẩn nhân vật bằng `**Nhân vật:** none`. Đây là phim minh họa vector, không phải tư liệu lịch sử hoặc footage thật.
 
 ### 5. Dựng hình và hoạt họa
 Dùng Remotion hiện có, 1920×1080, 30fps. Tái sử dụng character components, motion cards, camera/effects, theme assets. Mỗi cảnh có continuity notes cho nhân vật, trang phục, vị trí, thời gian và đạo cụ. Không dùng một demo chuyển động như thể nó là toàn bộ bối cảnh.
 
 ### 6. Âm thanh và phụ đề
-Tách narration, BGM, SFX và subtitles thành track riêng. Kiểm tra giấy phép từng file. Không tự tạo/giả giọng đọc. Khi chưa có voiceover, chỉ render animatic hoặc bản hình không lời; ghi rõ trạng thái. Khẩu hình chỉ được đánh dấu đồng bộ khi có alignment theo timestamp/âm vị thực tế.
+Tách narration, BGM, SFX và subtitles. SFX chuyển cảnh dùng hai file Mixkit có ghi attribution trong `template/public/audio/ATTRIBUTION.md`. Có thể thêm voiceover và BGM do người dùng cung cấp trong `template/public/audio/`, rồi khai báo ở đầu kịch bản:
+
+```md
+**Giọng đọc:** audio/episode-voice.mp3
+**Nhạc nền:** audio/episode-music.mp3
+```
+
+Parser xác minh đường dẫn và file tồn tại. Không có voiceover thì lời dẫn hiển thị dưới dạng phụ đề, không giả lập giọng nói. Hiện chưa có lip-sync âm vị tiếng Việt; không tuyên bố miệng nhân vật khớp lời đọc.
 
 ### 7. QA và xuất bản
 Kiểm tra toàn bộ cảnh: không mất chữ, không tràn khung, không nhảy nhân vật, không sai continuity, âm thanh không clipping, phụ đề đúng lời và đúng thời gian. Lưu metadata gồm commit SHA, script hash, asset map, fps, độ phân giải, thời lượng và nguồn/giấy phép. Xuất H.264 MP4 qua GitHub Actions.
 
 ## Ranh giới hiện trạng
 
-- Đã có: Remotion renderer, 124 shot cards, gallery, reusable motion components, Workbench, JianYing export, một nhân vật chibi mẫu, story Markdown parser, story animatic và workflow iPhone/GitHub Actions.
-- Đang thiếu để gọi là xưởng phim hoạt hình hoàn chỉnh: scene/asset browser chuyên cho hoạt hình, thư viện nhân vật và rig nhiều góc, bối cảnh/đạo cụ có metadata, scene compositor tích hợp, timeline/continuity manager, narration/subtitle timing, lip-sync tiếng Việt, sound mixer và full-film QA.
+- Đã có: Remotion renderer; 124 shot cards/150 styles; gallery; reusable motion helpers; Workbench; JianYing export; MainBoy chibi; Markdown parser; asset audit; StoryAnimatic; IllustratedStoryFilm; 9 sân khấu vector; phụ đề lời dẫn; SFX chuyển cảnh; voiceover/BGM tùy chọn; xuất hai MP4 qua GitHub Actions.
+- Còn thiếu để thành studio sản xuất hoạt hình chuyên nghiệp: nhiều nhân vật/rig và góc nhìn; thư viện bối cảnh/đạo cụ lịch sử có metadata; scene/asset browser chuyên dụng; timeline biên tập nhiều track; lip-sync tiếng Việt theo âm vị; ghi âm/thu giọng tích hợp; sound mixer/mastering; kiểm tra continuity và QA tự động theo từng khung hình.
+- Kết luận hiện trạng: đã có dây chuyền tối thiểu xuất được phim hoạt hình minh họa từ kịch bản; chưa phải studio nhiều nhân vật với hoạt họa chi tiết và hậu kỳ âm thanh hoàn chỉnh.
 - Những mục thiếu này phải được triển khai theo từng lớp và kiểm thử. Không đánh đồng tài liệu hướng dẫn hoặc animatic với tính năng đã chạy.
 
 ## Chi phí và vận hành
