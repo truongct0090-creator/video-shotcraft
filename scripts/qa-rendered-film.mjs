@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import {execFileSync} from 'node:child_process';
+import {execFileSync, spawnSync} from 'node:child_process';
 
 const files = process.argv.slice(2);
 if (files.length < 2) {
   throw new Error('Usage: node scripts/qa-rendered-film.mjs <film.mp4> <animatic.mp4>');
+}
+const availability = spawnSync('ffprobe', ['-version'], {encoding: 'utf8'});
+if (availability.error?.code === 'ENOENT' || availability.status !== 0) {
+  throw new Error('ffprobe is required for MP4 QA but is unavailable. Install FFmpeg and ensure ffprobe is on PATH before rendering.');
 }
 const parseRate = (value = '0/1') => {
   const [n, d] = value.split('/').map(Number);
