@@ -49,6 +49,7 @@ const scenes = headings.map((match, index) => {
     action: field('Hành động'),
     narration: field('Lời dẫn'),
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
+    duration: field('Thời lượng'),
   };
 }).filter((scene) => scene.heading);
 
@@ -56,12 +57,24 @@ if (scenes.length === 0) throw new Error('No scenes found. Expected headings lik
 for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
 }
+const parseDuration = (value) => {
+  if (!value) return 150;
+  const seconds = value.match(/(\\d+(?:[.,]\\d+)?)\\s*(?:s|giây|seconds?)\\b/i);
+  const frames = value.match(/(\\d+)\\s*(?:f|frame|frames)\\b/i);
+  const minutes = value.match(/(\\d+(?:[.,]\\d+)?)\\s*(?:phút|minutes?)\\b/i);
+  if (frames) return Math.max(30, Number(frames[1]));
+  if (minutes) return Math.max(30, Math.round(Number(minutes[1].replace(',', '.')) * 60 * 30));
+  if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
+  throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
+};
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
+const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration)}));
 const props = {
   title,
   mode,
   framesPerScene: 150,
-  scenes: selected,
+  scenes: withTiming,
+  totalFrames: withTiming.reduce((sum, scene) => sum + scene.durationInFrames, 0),
   source: script,
   totalScenes: scenes.length,
 };
