@@ -84,7 +84,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
         uses: actions/cache@v4
         with:
-          path: ~/.cache/huggingface/hub
+          path: ${{ runner.temp }}/hf-home
           key: vieneu-v3.3.0-${{ runner.os }}
       - name: Install VieNeu-TTS CPU engine
         if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
