@@ -68,6 +68,11 @@ def trim_trailing_silence(path: Path):
         wav.writeframes(output)
     return frames/params.framerate,keep/params.framerate
 
+def format_scene_report(number: int, before: float, original: float, trimmed: float, scene_duration: float) -> str:
+    """Format one scene progress line without fragile percent-placeholder counts."""
+    removed = max(original - trimmed, 0.0)
+    return f"Scene {number:02d}: {before:.2f}s -> {trimmed:.2f}s; trimmed {removed:.2f}s trailing silence; scene {scene_duration:.2f}s"
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--props",required=True)
@@ -105,7 +110,7 @@ def main():
             scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
         scene_duration=max(int(scene.get("durationInFrames",0)),1)/FPS
-        print(f"Scene {number:02d}: {before:.2f}s -> {trimmed:.2f}s; trimmed {max(original-trimmed, 0):.2f}s trailing silence; scene {scene_duration:.2f}s")
+        print(format_scene_report(number, before, original, trimmed, scene_duration))
     props["voiceover"]=""
     props["totalFrames"]=sum(int(s["durationInFrames"]) for s in scenes)
     props_path.write_text(json.dumps(props,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
