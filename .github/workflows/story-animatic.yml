@@ -1,6 +1,15 @@
 name: Story animatic
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'story_scripts/**'
+      - 'scripts/parse-story.mjs'
+      - 'template/src/story/**'
+      - 'template/src/Root.tsx'
+      - 'template/package.json'
+      - '.github/workflows/story-animatic.yml'
   workflow_dispatch:
     inputs:
       script:
