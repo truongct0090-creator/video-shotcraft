@@ -69,6 +69,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
    <div style={{fontSize:18,letterSpacing:4,color:'#e9c47f',marginBottom:18}}>PHÂN CẢNH {String(scene.number).padStart(2,'0')}</div>
    <div style={{fontSize:54,lineHeight:1.12,fontWeight:800}}>{scene.heading}</div>
    <div style={{fontSize:27,lineHeight:1.38,marginTop:24,color:'#e7dfd1'}}>{scene.setting}</div>
+   <div style={{fontSize:21,lineHeight:1.35,marginTop:20,color:'#f2d7a7',maxHeight:150,overflow:'hidden'}}><span style={{fontSize:15,letterSpacing:3,color:'#e9c47f',display:'block',marginBottom:8}}>DIỄN BIẾN HÌNH ẢNH</span>{scene.action}</div>
   </div>
   <div style={{position:'absolute',left:0,right:0,bottom:0,padding:'30px 90px 42px',background:'linear-gradient(0deg,rgba(10,13,17,.96),rgba(10,13,17,.82))',color:'#fff',minHeight:185}}>
    <div style={{fontSize:18,letterSpacing:4,color:'#e9c47f',marginBottom:12}}>LỜI KỂ · PHỤ ĐỀ</div>
