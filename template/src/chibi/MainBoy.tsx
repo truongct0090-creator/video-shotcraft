@@ -30,7 +30,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   const idleBob = Math.sin(frame / 18) * 2;
   const headTilt = Math.sin(frame / 38) * 0.7;
   const leftArmAngle = gesture === 'wave' ? -8 + Math.sin(frame / 7) * 9 : interpolate(frame % 90, [0, 45, 90], [-1, 1, -1]);
-  const rightArmAngle = gesture === 'point' ? -13 : gesture === 'wave' ? -25 + Math.sin(frame / 7) * 11 : 1;
+  const rightArmAngle = gesture === 'point' ? 150 : gesture === 'wave' ? -25 + Math.sin(frame / 7) * 11 : 1;
 
   const eye = (x: number) => {
     if (blink) {
@@ -78,6 +78,8 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         <g transform={`rotate(${rightArmAngle} 378 420)`}>
           <path d="M378 420 Q419 445 429 510" fill="none" stroke={navy} strokeWidth="46" strokeLinecap="round"/>
           <circle cx="431" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
+          {gesture === 'point' && <path d="M431 523 Q447 566 474 590" fill="none" stroke={skin} strokeWidth="17" strokeLinecap="round"/>}
+          {gesture === 'point' && <path d="M431 523 Q447 566 474 590" fill="none" stroke={outline} strokeWidth="7" strokeLinecap="round"/>
         </g>
 
         {/* Head is a single, proportioned shape; no non-uniform scaling. */}
