@@ -73,18 +73,18 @@ export const MainBoy: React.FC<MainBoyProps> = ({
 
         {/* Head and facial features rotate together as one rigid group. */}
         <g transform={`rotate(${headTilt} 300 400)`}>
-          <path d="M270 365 L270 390 Q300 415 330 390 L330 365Z" fill={skin} stroke={outline} strokeWidth="7"/>
-          <ellipse cx="300" cy="270" rx="174" ry="177" fill={skin} stroke={outline} strokeWidth="10"/>
+          {/* Short neck, visible between the head and polo collar. */}
+          <path d="M278 355 L278 408 Q300 427 322 408 L322 355Z" fill={skin} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+          <g transform="translate(300 270) scale(0.85) translate(-300 -270)">
+            <ellipse cx="300" cy="270" rx="174" ry="177" fill={skin} stroke={outline} strokeWidth="10"/>
 
-          {/* Neat short red haircut: close rounded sides and a compact, lightly side-parted top. */}
-          <path d="M132 267 Q118 205 145 151 Q171 99 226 91 Q261 57 310 76 Q353 58 397 91 Q452 109 472 166 Q487 215 466 267
-            Q447 237 431 226 Q422 197 401 184 Q376 206 350 207 Q326 191 303 174 Q277 202 246 205 Q216 191 190 222 Q160 226 132 267Z"
-            fill={red} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
-          <path d="M303 88 Q349 76 389 111 Q365 111 346 131 Q328 150 309 174 Q285 193 258 199
-            Q275 167 274 143 Q278 111 303 88Z"
-            fill="#D94345" stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
-          <path d="M305 96 Q291 126 294 151 Q286 174 266 190 M365 105 Q402 112 425 148 M158 207 Q177 177 207 170"
-            fill="none" stroke="#F27670" strokeWidth="9" strokeLinecap="round"/>
+            {/* Close-cropped red crew cut: smooth scalp silhouette, no fringe or hanging hair. */}
+            <path d="M132 267 Q118 211 140 158 Q161 111 207 91 Q249 68 300 72 Q351 68 393 91 Q439 111 460 158 Q482 211 468 267
+              Q451 239 440 217 Q433 192 425 175 Q405 137 378 124 Q342 104 300 105 Q258 104 222 124 Q195 139 176 175 Q167 192 160 217 Q149 239 132 267Z"
+              fill={red} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
+            <path d="M207 112 Q250 83 300 88 Q350 83 393 112" fill="none" stroke="#F27670" strokeWidth="8" strokeLinecap="round"/>
+            <path d="M157 198 Q165 168 181 148 M443 198 Q435 168 419 148 M236 103 l-8 17 M270 91 l-3 15 M330 91 l3 15 M364 103 l8 17"
+              fill="none" stroke="#E96A68" strokeWidth="6" strokeLinecap="round"/>
 
           <path d={expression === 'angry' ? 'M220 266 l45 12 M335 278 l45 -12' : expression === 'worried' ? 'M220 257 q25 -18 48 0 M332 257 q25 -18 48 0' : 'M220 267 q23 -12 45 0 M335 267 q23 -12 45 0'} fill="none" stroke={outline} strokeWidth="8" strokeLinecap="round"/>
           {eye(244)}{eye(356)}
@@ -98,6 +98,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           {mouthShape === 'wide' && <path d="M266 370 Q300 430 334 370 Q300 398 266 370Z" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
           {mouthShape === 'small-o' && <ellipse cx="300" cy="380" rx="14" ry="19" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
           {/* No blue tear marks or decorative strokes on the face. */}
+          </g>
         </g>
       </g>
     </svg>
