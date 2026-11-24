@@ -63,7 +63,7 @@ for (const scene of scenes) {
 }
 const parseDuration = (value, narration = '') => {
   if (!value) {
-    const words = narration.trim().split(/\\s+/).filter(Boolean).length;
+    const words = narration.trim().split(/\s+/).filter(Boolean).length;
     const seconds = Math.max(5, Math.ceil(words / 2.6 + 2));
     return seconds * 30;
   }
