@@ -60,8 +60,6 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
         run: node scripts/validate-animation-workshop.mjs --script="$STORY_SCRIPT" --output=template/out/animation-asset-audit.json
-            template/out/story-film-qa.json
-            template/out/story-animatic-qa.json
       - name: Install renderer
         working-directory: template
         run: npm ci
@@ -84,5 +82,7 @@ jobs:
             template/out/story-animatic.mp4
             template/out/story-props.json
             template/out/animation-asset-audit.json
+            template/out/story-film-qa.json
+            template/out/story-animatic-qa.json
           if-no-files-found: error
           retention-days: 14
