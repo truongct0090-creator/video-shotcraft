@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import {execFileSync} from 'node:child_process';
+import {execFileSync, spawnSync} from 'node:child_process';
 
 const args=Object.fromEntries(process.argv.slice(2).map((arg)=>{const i=arg.indexOf('=');return i<0?[arg.replace(/^--/,''),'true']:[arg.slice(2,i),arg.slice(i+1)];}));
 const file=path.resolve(args.file??'template/out/story-film.mp4');
@@ -9,6 +9,10 @@ const propsPath=path.resolve(args.props??'template/out/story-props.json');
 const output=path.resolve(args.output??'template/out/story-film-qa.json');
 if(!fs.existsSync(file)) throw new Error('Rendered MP4 not found: '+file);
 if(!fs.existsSync(propsPath)) throw new Error('Story props not found: '+propsPath);
+const availability=spawnSync('ffprobe',['-version'],{encoding:'utf8'});
+if(availability.error?.code==='ENOENT'||availability.status!==0) {
+  throw new Error('ffprobe is required for MP4 validation but is unavailable. Install FFmpeg and ensure ffprobe is on PATH before rendering.');
+}
 const props=JSON.parse(fs.readFileSync(propsPath,'utf8'));
 const probe=JSON.parse(execFileSync('ffprobe',['-v','error','-show_entries','stream=codec_type,codec_name,width,height,avg_frame_rate','-show_entries','format=duration,size','-of','json',file],{encoding:'utf8'}));
 const video=probe.streams?.find((s)=>s.codec_type==='video');
