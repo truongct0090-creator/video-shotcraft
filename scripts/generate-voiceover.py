@@ -68,6 +68,35 @@ def trim_trailing_silence(path: Path):
         wav.writeframes(output)
     return frames/params.framerate,keep/params.framerate
 
+def frame_mouth_envelope(path: Path):
+    """Return one normalized RMS mouth-opening value per 30fps video frame."""
+    with wave.open(str(path), "rb") as wav:
+        params = wav.getparams()
+        raw = wav.readframes(params.nframes)
+    values = sample_values(raw, params.sampwidth)
+    channels = params.nchannels
+    total_frames = len(values) // channels
+    frames_per_video_frame = max(1, round(params.framerate / FPS))
+    envelope = []
+    for start in range(0, total_frames, frames_per_video_frame):
+        end = min(total_frames, start + frames_per_video_frame)
+        block = values[start * channels:end * channels]
+        if not block:
+            envelope.append(0.0)
+            continue
+        rms = math.sqrt(sum(float(v) * float(v) for v in block) / len(block))
+        envelope.append(rms)
+    peak = max(envelope, default=0.0)
+    if peak <= 0:
+        return [0.0 for _ in envelope]
+    normalized = [min(1.0, value / peak) for value in envelope]
+    # A short moving average avoids one-frame mouth flicker while preserving pauses.
+    smoothed = []
+    for index in range(len(normalized)):
+        window = normalized[max(0, index - 1):min(len(normalized), index + 2)]
+        smoothed.append(round(sum(window) / len(window), 3))
+    return smoothed
+
 def format_scene_report(number: int, before: float, original: float, trimmed: float, scene_duration: float) -> str:
     """Format one scene progress line without fragile percent-placeholder counts."""
     removed = max(original - trimmed, 0.0)
@@ -109,6 +138,7 @@ def main():
         else:
             scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
+        scene["mouthFrames"]=frame_mouth_envelope(target)
         scene_duration=max(int(scene.get("durationInFrames",0)),1)/FPS
         print(format_scene_report(number, before, original, trimmed, scene_duration))
     props["voiceover"]=""
