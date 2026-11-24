@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {MainBoy, BoyExpression, BoyGesture, BoyMouth} from './MainBoy';
 
 const beats: {from: number; expression: BoyExpression; mouth: BoyMouth; gesture: BoyGesture; caption: string}[] = [
@@ -11,19 +11,17 @@ const beats: {from: number; expression: BoyExpression; mouth: BoyMouth; gesture:
 
 export const MainBoyDemo: React.FC = () => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
   const beat = [...beats].reverse().find((item) => frame >= item.from) ?? beats[0];
   const blink = frame % 92 > 84 && frame % 92 < 89;
-  const entrance = spring({frame, fps, config: {damping: 14, stiffness: 90}});
-  const bob = Math.sin(frame / 8) * 7;
-  const talking = frame % 12 < 7;
+  const entranceY = interpolate(frame, [0, 24], [36, 0], {extrapolateRight: 'clamp'});
+  const entranceOpacity = interpolate(frame, [0, 18], [0, 1], {extrapolateRight: 'clamp'});
   const captionIn = interpolate(frame % 55, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{backgroundColor: '#F8F2E9', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}}>
-      <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH</div>
-      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Bản mẫu nhân vật chibi cố định · phiên bản 1</div>
-      <div style={{height: 700, width: 525, marginTop: 125, transform: `translateY(${bob}px) scale(${entrance})`}}>
-        <MainBoy expression={beat.expression} mouth={beat.mouth} gesture={beat.gesture} blink={blink} speaking={talking}/>
+      <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH · PHIÊN BẢN 2</div>
+      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Mái tóc 7/3 rủ mềm · chuyển động theo khớp, không kéo giãn cơ thể</div>
+      <div style={{height: 700, width: 525, marginTop: 125, opacity: entranceOpacity, transform: `translateY(${entranceY}px)`}}>
+        <MainBoy expression={beat.expression} mouth={beat.mouth} gesture={beat.gesture} blink={blink} speaking={frame % 12 < 7}/>
       </div>
       <div style={{position: 'absolute', bottom: 54, padding: '16px 34px', borderRadius: 24, backgroundColor: 'rgba(255,255,255,.82)', color: '#294665', fontSize: 34, fontWeight: 700, fontFamily: 'Arial', opacity: captionIn}}>
         {beat.caption}
