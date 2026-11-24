@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""Regression test: only trailing silence is trimmed; internal pauses remain."""
+import importlib.util
+import math
+import struct
+import tempfile
+import unittest
+import wave
+from pathlib import Path
+
+SOURCE = Path(__file__).with_name("generate-voiceover.py")
+SPEC = importlib.util.spec_from_file_location("generate_voiceover", SOURCE)
+MODULE = importlib.util.module_from_spec(SPEC)
+assert SPEC and SPEC.loader
+SPEC.loader.exec_module(MODULE)
+
+class VoiceoverTrimTests(unittest.TestCase):
+    def test_trims_only_the_tail_and_preserves_internal_pause(self):
+        rate = 16000
+        def tone(seconds, frequency=220, amplitude=9000):
+            count = int(rate * seconds)
+            return [int(amplitude * math.sin(2 * math.pi * frequency * i / rate)) for i in range(count)]
+        samples = tone(0.20) + [0] * int(rate * 0.15) + tone(0.20, 330) + [0] * int(rate * 1.0)
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "voice.wav"
+            with wave.open(str(path), "wb") as wav:
+                wav.setnchannels(1)
+                wav.setsampwidth(2)
+                wav.setframerate(rate)
+                wav.writeframes(struct.pack("<" + "h" * len(samples), *samples))
+            before, after = MODULE.trim_trailing_silence(path)
+            self.assertAlmostEqual(before, 1.55, delta=0.01)
+            self.assertGreaterEqual(after, 0.73)
+            self.assertLessEqual(after, 0.78)
+            with wave.open(str(path), "rb") as wav:
+                self.assertAlmostEqual(wav.getnframes() / rate, after, delta=0.001)
+
+    def test_keeps_audio_when_it_is_all_quiet(self):
+        rate = 8000
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "quiet.wav"
+            with wave.open(str(path), "wb") as wav:
+                wav.setnchannels(1)
+                wav.setsampwidth(2)
+                wav.setframerate(rate)
+                wav.writeframes(struct.pack("<" + "h" * 8000, *([0] * 8000)))
+            before, after = MODULE.trim_trailing_silence(path)
+            self.assertEqual(before, after)
+            self.assertEqual(after, 1.0)
+
+if __name__ == "__main__":
+    unittest.main()
