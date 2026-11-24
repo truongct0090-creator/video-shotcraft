@@ -15,6 +15,13 @@ assert SPEC and SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
 class VoiceoverTrimTests(unittest.TestCase):
+    def test_scene_progress_report_formats_all_values(self):
+        report = MODULE.format_scene_report(3, 4.20, 4.20, 3.75, 3.80)
+        self.assertEqual(
+            report,
+            "Scene 03: 4.20s -> 3.75s; trimmed 0.45s trailing silence; scene 3.80s",
+        )
+
     def test_trims_only_the_tail_and_preserves_internal_pause(self):
         rate = 16000
         def tone(seconds, frequency=220, amplitude=9000):
