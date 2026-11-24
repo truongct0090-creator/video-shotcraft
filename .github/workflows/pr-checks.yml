@@ -72,6 +72,9 @@ jobs:
             exit 1
           fi
 
+      - name: Voiceover tail-trim regression tests
+        run: python3 scripts/test_voiceover_trim.py -v
+
       - name: Asset-first animation workshop inventory
         run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
 
