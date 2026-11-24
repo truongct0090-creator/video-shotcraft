@@ -106,7 +106,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
- const points=/chỉ|đánh dấu|dán|gắn|mở bản đồ|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi/i.test(actionText);
+ const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
  const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.84?'point':'rest';
