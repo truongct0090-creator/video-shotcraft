@@ -24,21 +24,22 @@ if (!fs.existsSync(absolute)) throw new Error(`Script not found: ${script}`);
 
 const markdown = fs.readFileSync(absolute, 'utf8').replace(/^\uFEFF/, '');
 const title = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? path.basename(script, '.md');
-const blocks = [...markdown.matchAll(/^###\s+(\d{1,2})\.\s+(.+?)\s*\n([\s\S]*?)(?=^###\s+\d{1,2}\.\s+|^##\s+|\Z)/gm)];
-
+const headings = [...markdown.matchAll(/^###\\s+(\\d{1,2})\\.\\s+(.+?)\\s*$/gm)];
 const clean = (value = '') => value
-  .replace(/\r/g, '')
-  .replace(/^\*\*[^*]+:\*\*\s*/gm, '')
-  .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+  .replace(/\\r/g, '')
+  .replace(/^\\*\\*[^*]+:\\*\\*\\s*/gm, '')
+  .replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1')
   .replace(/[*_`]/g, '')
-  .replace(/\n{3,}/g, '\n\n')
+  .replace(/\\n{3,}/g, '\\n\\n')
   .trim();
 
-const scenes = blocks.map((match) => {
-  const body = match[3];
+const scenes = headings.map((match, index) => {
+  const start = match.index + match[0].length;
+  const end = headings[index + 1]?.index ?? markdown.length;
+  const body = markdown.slice(start, end).split(/^##\\s+/m)[0];
   const field = (label) => {
-    const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const found = body.match(new RegExp('^\\*\\*' + escaped + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|$)', 'm'));
+    const escaped = label.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+    const found = body.match(new RegExp('^\\\\*\\\\*' + escaped + ':\\\\*\\\\*\\\\s*([\\\\s\\\\S]*?)(?=^\\\\*\\\\*[^*]+:\\\\*\\\\*|(?![\\\\s\\\\S]))', 'm'));
     return clean(found?.[1] ?? '');
   };
   return {
