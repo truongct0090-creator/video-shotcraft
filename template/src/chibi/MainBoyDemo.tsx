@@ -18,8 +18,8 @@ export const MainBoyDemo: React.FC = () => {
   const captionIn = interpolate(frame % 55, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{backgroundColor: '#F8F2E9', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}}>
-      <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH · PHIÊN BẢN 3</div>
-      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Tóc đỏ ngắn gọn · bàn tay tròn không ngón · chuyển động theo khớp</div>
+      <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH · PHIÊN BẢN 4</div>
+      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Tóc đỏ đầu đinh · đầu nhỏ hơn 15% · cổ ngắn</div>
       <div style={{height: 700, width: 525, marginTop: 125, opacity: entranceOpacity, transform: `translateY(${entranceY}px)`}}>
         <MainBoy expression={beat.expression} mouth={beat.mouth} gesture={beat.gesture} blink={blink} speaking={frame % 12 < 7}/>
       </div>
