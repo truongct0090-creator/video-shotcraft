@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   AbsoluteFill,
-  Easing,
   interpolate,
   spring,
   useCurrentFrame,
@@ -82,7 +81,7 @@ const ChibiCharacter: React.FC<{x: number; delay?: number; scale?: number}> = ({
 export const ChibiDemo: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const titleIn = spring({frame: frame - 12, fps, config: {damping: 14, stiffness: 110}});
+  const titleIn = spring({frame: Math.max(0, frame - 12), fps, config: {damping: 14, stiffness: 110}});
   const titleY = interpolate(titleIn, [0, 1], [70, 0]);
   const sparkle = 0.55 + Math.sin(frame / 7) * 0.25;
 
