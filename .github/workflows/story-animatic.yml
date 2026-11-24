@@ -68,6 +68,10 @@ jobs:
       - name: Render MP4 animatic
         working-directory: template
         run: npx remotion render src/index.ts StoryAnimatic out/story-animatic.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
+      - name: Validate rendered MP4 technical specs
+        run: |
+          node scripts/validate-rendered-film.mjs --file=template/out/story-film.mp4 --props=template/out/story-props.json --output=template/out/story-film-qa.json
+          node scripts/validate-rendered-film.mjs --file=template/out/story-animatic.mp4 --props=template/out/story-props.json --output=template/out/story-animatic-qa.json
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
