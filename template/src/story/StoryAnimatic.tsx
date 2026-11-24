@@ -8,6 +8,8 @@ type Scene = {
   action: string;
   narration: string;
   audio: string;
+  duration?: string;
+  durationInFrames: number;
 };
 type Props = {
   title: string;
@@ -16,6 +18,7 @@ type Props = {
   scenes: Scene[];
   source: string;
   totalScenes: number;
+  totalFrames: number;
 };
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
@@ -23,11 +26,13 @@ const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as c
 export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, scenes}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const sceneIndex = Math.min(scenes.length - 1, Math.floor(frame / framesPerScene));
-  const local = frame - sceneIndex * framesPerScene;
-  const scene = scenes[sceneIndex];
-  const enter = interpolate(local, [0, 18], [0, 1], clamp);
-  const fade = interpolate(local, [framesPerScene - 12, framesPerScene], [1, 0], clamp);
+  const sceneStarts = scenes.map((_, index) => scenes.slice(0, index).reduce((sum, item) => sum + (item.durationInFrames || framesPerScene), 0));
+  const sceneIndex = Math.max(0, scenes.findIndex((scene, index) => frame < sceneStarts[index] + (scene.durationInFrames || framesPerScene)));
+  const scene = scenes[sceneIndex] ?? scenes[scenes.length - 1];
+  const local = frame - (sceneStarts[sceneIndex] ?? 0);
+  const sceneFrames = scene.durationInFrames || framesPerScene;
+  const enter = interpolate(local, [0, Math.min(18, sceneFrames / 3)], [0, 1], clamp);
+  const fade = interpolate(local, [Math.max(0, sceneFrames - 12), sceneFrames], [1, 0], clamp);
   const opacity = Math.min(enter, fade);
   const seconds = Math.floor(frame / fps);
   const label = String(scene.number).padStart(2, '0');
@@ -58,7 +63,7 @@ export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, sce
         {scene.audio ? <div style={{position: 'absolute', top: 570, color: '#a9a39a', fontSize: 17, lineHeight: 1.4}}>ÂM THANH / CHỮ: {scene.audio}</div> : null}
       </div>
       <div style={{position: 'absolute', bottom: 58, left: 84, right: 84, height: 3, background: '#3b3a36'}}>
-        <div style={{height: 3, width: `${((sceneIndex + local / framesPerScene) / scenes.length) * 100}%`, background: '#c4a36a'}} />
+        <div style={{height: 3, width: `${((sceneStarts[sceneIndex] + local) / (scenes.reduce((sum, item) => sum + (item.durationInFrames || framesPerScene), 0))) * 100}%`, background: '#c4a36a'}} />
       </div>
       <div style={{position: 'absolute', bottom: 78, left: 84, color: '#8c8982', fontSize: 16, letterSpacing: 2}}>{title}</div>
       <div style={{position: 'absolute', bottom: 78, right: 84, color: '#8c8982', fontSize: 16}}>{String(seconds).padStart(2, '0')}s</div>
@@ -73,4 +78,5 @@ export const STORY_ANIMATIC_DEFAULTS: Props = {
   scenes: [{number: 1, heading: 'Cảnh mẫu', setting: '', action: '', narration: 'Bản xem trước kịch bản.', audio: ''}],
   source: '',
   totalScenes: 1,
+  totalFrames: 150,
 };
