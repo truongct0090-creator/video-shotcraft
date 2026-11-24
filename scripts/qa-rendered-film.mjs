@@ -27,6 +27,7 @@ const inspect = (file, requireAudio) => {
   const fps = parseRate(video?.avg_frame_rate || video?.r_frame_rate);
   const errors = [];
   if (!video) errors.push('no video stream');
+  if (video && video.codec_name !== 'h264') errors.push('expected H.264 video, got ' + video.codec_name);
   if (video && (video.width !== 1920 || video.height !== 1080)) errors.push('expected 1920x1080, got ' + video.width + 'x' + video.height);
   if (video && Math.abs(fps - 30) > 0.01) errors.push('expected 30fps, got ' + fps);
   if (!duration || duration <= 0) errors.push('invalid duration');
@@ -52,7 +53,7 @@ const results = [
 const report = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
-  checks: ['file-exists', 'non-empty-output', 'video-stream', '1920x1080', '30fps', 'positive-duration', 'film-audio-stream'],
+  checks: ['file-exists', 'non-empty-output', 'video-stream', 'h264-codec', '1920x1080', '30fps', 'positive-duration', 'film-audio-stream'],
   outputs: results,
   status: 'passed',
 };
