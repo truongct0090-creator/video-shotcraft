@@ -4,6 +4,7 @@ import { ThemedFilm } from './themes/ThemedFilm';
 import { ChibiDemo } from './chibi/ChibiDemo';
 import { MainBoyDemo } from './chibi/MainBoyDemo';
 import { StoryAnimatic, STORY_ANIMATIC_DEFAULTS } from './story/StoryAnimatic';
+import { IllustratedStoryFilm } from './story/IllustratedStoryFilm';
 
 export const Root: React.FC = () => {
   return (
