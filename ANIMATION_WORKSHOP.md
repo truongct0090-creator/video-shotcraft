@@ -24,7 +24,7 @@ Không tạo lại thứ repo đã có. Mỗi cảnh phải đi qua thứ tự:
 | Nhạc nền | `assets/audio/bgm/` | Chỉ dùng sau khi kiểm tra attribution và phù hợp tông phim |
 | SFX | `references/sfx-sourcing.md`, `assets/scripts/sfx-source.py` | Tìm/ghi nguồn và giấy phép; không tải tự động |
 | Story animatic | `template/src/story/StoryAnimatic.tsx` | Bản xem trước kịch bản và nhịp cảnh |
-| Illustrated film | `template/src/story/IllustratedStoryFilm.tsx`, `SceneStage.tsx` | Dựng phim minh họa 1920×1080/30fps từ toàn bộ cảnh; 9 sân khấu vector tái sử dụng; phụ đề lời kể; chuyển cảnh và SFX có nguồn |
+| Illustrated film | `template/src/story/IllustratedStoryFilm.tsx`, `SceneStage.tsx` | Dựng phim minh họa 1920×1080/30fps; 9 sân khấu nền; đạo cụ vector riêng theo từng cảnh; MainBoy có biểu cảm/cử chỉ theo nội dung; chuyển cảnh iris/wipe/whip và SFX |
 
 **Giới hạn thư viện hiện tại:** repo có thư viện motion phong phú và một nhân vật chibi mẫu, nhưng chưa có thư viện hoàn chỉnh gồm nhân vật phụ, rig nhiều góc, bối cảnh lịch sử/đời sống Việt Nam, đạo cụ theo thời kỳ, khẩu hình tiếng Việt đồng bộ âm vị, giọng đọc tiếng Việt và phụ đề được căn thời gian. Không được quảng bá các phần này là đã hoàn thiện.
 
@@ -77,7 +77,7 @@ Dùng workflow **Story animatic**. Mặc định workflow thủ công và `npm r
 Dùng Remotion hiện có, 1920×1080, 30fps. Tái sử dụng character components, motion cards, camera/effects, theme assets. Mỗi cảnh có continuity notes cho nhân vật, trang phục, vị trí, thời gian và đạo cụ. Không dùng một demo chuyển động như thể nó là toàn bộ bối cảnh.
 
 ### 6. Âm thanh và phụ đề
-Tách narration, BGM, SFX và subtitles. SFX chuyển cảnh dùng hai file Mixkit có ghi attribution trong `template/public/audio/ATTRIBUTION.md`. Có thể thêm voiceover và BGM do người dùng cung cấp trong `template/public/audio/`, rồi khai báo ở đầu kịch bản:
+Tách narration, BGM và SFX. Bản phim minh họa phát lời kể bằng voiceover, không in lời kể/phụ đề hay nhãn kỹ thuật lên hình. Bộ tạo giọng chỉ cắt đoạn im lặng ở cuối file sau ngưỡng âm lượng an toàn, giữ nguyên mọi khoảng nghỉ bên trong câu; cảnh tự co theo thời lượng audio thực tế trừ khi kịch bản đặt thời lượng tường minh. SFX chuyển cảnh dùng hai file Mixkit có ghi attribution trong `template/public/audio/ATTRIBUTION.md`. Có thể thêm voiceover và BGM do người dùng cung cấp trong `template/public/audio/`, rồi khai báo ở đầu kịch bản:
 
 ```md
 **Giọng đọc:** audio/episode-voice.mp3
@@ -93,7 +93,7 @@ Kiểm tra toàn bộ cảnh: không mất chữ, không tràn khung, không nh�
 
 ## Ranh giới hiện trạng
 
-- Đã có: Remotion renderer; technical MP4 QA bằng ffprobe; 124 shot cards/150 styles; gallery; reusable motion helpers; Workbench; JianYing export; MainBoy chibi; Markdown parser; asset audit; StoryAnimatic; IllustratedStoryFilm; 9 sân khấu vector; phụ đề lời dẫn; SFX chuyển cảnh; voiceover/BGM tùy chọn; xuất hai MP4 qua GitHub Actions.
+- Đã có: Remotion renderer; technical MP4 QA bằng ffprobe; 124 shot cards/150 styles; gallery; reusable motion helpers; Workbench; JianYing export; MainBoy chibi; Markdown parser; asset audit; StoryAnimatic; IllustratedStoryFilm; 9 sân khấu vector; đạo cụ vector riêng cho 20 cảnh tập 01; biểu cảm/cử chỉ theo kịch bản; voiceover/BGM tùy chọn; cắt im lặng cuối audio, giữ nhịp nghỉ nội bộ; chuyển cảnh iris/wipe/whip; xuất hai MP4 qua GitHub Actions.
 - Còn thiếu để thành studio sản xuất hoạt hình chuyên nghiệp: nhiều nhân vật/rig và góc nhìn; thư viện bối cảnh/đạo cụ lịch sử có metadata; scene/asset browser chuyên dụng; timeline biên tập nhiều track; lip-sync tiếng Việt theo âm vị; ghi âm/thu giọng tích hợp; sound mixer/mastering; kiểm tra continuity và QA tự động theo từng khung hình.
 - Kết luận hiện trạng: đã có dây chuyền tối thiểu xuất được phim hoạt hình minh họa từ kịch bản; chưa phải studio nhiều nhân vật với hoạt họa chi tiết và hậu kỳ âm thanh hoàn chỉnh.
 - Những mục thiếu này phải được triển khai theo từng lớp và kiểm thử. Không đánh đồng tài liệu hướng dẫn hoặc animatic với tính năng đã chạy.
