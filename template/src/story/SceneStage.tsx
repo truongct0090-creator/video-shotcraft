@@ -4,11 +4,12 @@ import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
-  audio:string; durationInFrames:number;
+  audio:string; durationInFrames:number; world?:string; character?:string;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'generic';
-const chooseWorld = (text:string):World => {
+const chooseWorld = (text:string, preferred?:string):World => {
+  if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(preferred)) return preferred as World;
   const s=text.toLowerCase();
   if (/bản đồ|map|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
@@ -48,7 +49,7 @@ const Backdrop:React.FC<{world:World;frame:number}> = ({world,frame}) => {
 
 export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const frame=useCurrentFrame();
- const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading);
+ const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const expression:BoyExpression=/nguy|cảnh báo|đáng ngờ|tranh cãi|bí mật/i.test(scene.action+' '+scene.heading)?'worried':/bất ngờ|nhướng mày|hé cửa/i.test(scene.action+' '+scene.heading)?'surprised':'neutral';
  const gesture:BoyGesture=/chỉ|đánh dấu|giới thiệu|dán nhãn|mở bản đồ/i.test(scene.action)?'point':/vẫy|chào/i.test(scene.action)?'wave':'rest';
  const zoom=1+Math.sin(frame/90)*.025;
@@ -56,7 +57,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   <div style={{position:'absolute',inset:-30,transform:`scale(${zoom})`}}><Backdrop world={world} frame={frame}/></div>
   <div style={{position:'absolute',left:70,top:72,color:'#f4e8d1',fontSize:22,letterSpacing:5,fontWeight:700,textShadow:'0 2px 8px #111'}}>XƯỞNG PHIM · TÁI HIỆN MINH HỌA</div>
   <div style={{position:'absolute',right:68,top:62,padding:'12px 22px',borderRadius:30,background:'rgba(20,24,29,.72)',color:'#f4e8d1',fontSize:22}}>CẢNH {String(scene.number).padStart(2,'0')}</div>
-  <div style={{position:'absolute',right:90,bottom:90,width:390,height:540,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.25))'}}><MainBoy expression={expression} gesture={gesture} speaking={false} mouth="closed" blink={frame%112>104&&frame%112<109}/></div>
+  {scene.character !== 'none' ? <div style={{position:'absolute',right:90,bottom:90,width:390,height:540,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.25))'}}><MainBoy expression={expression} gesture={gesture} speaking={false} mouth="closed" blink={frame%112>104&&frame%112<109}/></div> : null}
   <div style={{position:'absolute',left:100,top:190,maxWidth:1050,padding:'30px 38px',background:'rgba(17,22,28,.74)',borderLeft:'8px solid #e0b56f',borderRadius:12,color:'#fff7e8'}}>
    <div style={{fontSize:18,letterSpacing:4,color:'#e9c47f',marginBottom:18}}>PHÂN CẢNH {String(scene.number).padStart(2,'0')}</div>
    <div style={{fontSize:54,lineHeight:1.12,fontWeight:800}}>{scene.heading}</div>
