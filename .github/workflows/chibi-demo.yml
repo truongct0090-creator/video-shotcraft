@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   render:
-    name: Render chibi demo with Remotion
+    name: Render chibi character previews with Remotion
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -31,17 +31,25 @@ jobs:
         working-directory: template
         run: npm ci
 
-      - name: Render chibi demo
+      - name: Render original chibi demo
         working-directory: template
         run: npx remotion render src/index.ts ChibiDemo out/chibi-demo.mp4 --concurrency=1
 
-      - name: Verify MP4
-        run: ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 template/out/chibi-demo.mp4
+      - name: Render main character preview
+        working-directory: template
+        run: npx remotion render src/index.ts MainBoyDemo out/main-boy-preview.mp4 --concurrency=1
 
-      - name: Upload MP4 artifact
+      - name: Verify MP4 files
+        run: |
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 template/out/chibi-demo.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 template/out/main-boy-preview.mp4
+
+      - name: Upload MP4 artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: chibi-cartoon-demo
-          path: template/out/chibi-demo.mp4
+          name: chibi-cartoon-previews
+          path: |
+            template/out/chibi-demo.mp4
+            template/out/main-boy-preview.mp4
           if-no-files-found: error
           retention-days: 7
