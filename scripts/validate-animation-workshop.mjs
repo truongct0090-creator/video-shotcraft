@@ -77,7 +77,14 @@ const sceneResults = scenes.map((scene) => {
     reuseDecision: explicit ? 'explicit-library-match' : candidates.length ? 'candidate-library-match-review-required' : 'no-obvious-motion-recipe-match',
     selectedShot: explicit ? explicit.name : null,
     candidateShots: explicit ? [] : candidates,
-    createNewSceneOnlyIfNoSuitableLibraryScene: !explicit && candidates.length === 0,
+    createNewSceneOnlyIfNoSuitableLibraryScene: null,
+    requiresHumanLibraryReview: !explicit,
+    sceneBackgroundPlan: {
+      template: chooseSceneTemplate(scene),
+      source: 'template/src/story/SceneStage.tsx',
+      type: 'reusable-vector-stage',
+      rationale: 'The repository media inventory contains no verified story-specific background for this scene. Reuse the existing MainBoy rig and motion helpers; use this reusable vector stage as the fallback. Review candidate library shots before commissioning new artwork.',
+    },
   };
 });
 const report = {
@@ -88,6 +95,7 @@ const report = {
   inventory: {
     mediaFileCount: media.length,
     mediaFiles: media,
+    storyBackgroundAssets: media.filter((p) => /\.(png|jpe?g|webp|svg)$/i.test(p) && /(background|backdrop|environment|scene|location)/i.test(p)),
     characterSourceCount: characterSources.length,
     characterSources,
     knownReusableCharacters: [
@@ -102,6 +110,7 @@ const report = {
     noNewMediaGenerated: true,
     noMediaDownloaded: true,
     sceneTemplateSelectionIsReusable: true,
+    storyBackgroundAssetSearch: 'Scanned existing image assets by file type and background/environment naming; all candidates still require visual review.',
     candidatesRequireHumanReview: true,
     unmatchedScenesAreNotAutomaticallyApprovedForNewArtwork: true,
     createNewSceneOnlyWhenNoSuitableLibrarySceneExists: true,
