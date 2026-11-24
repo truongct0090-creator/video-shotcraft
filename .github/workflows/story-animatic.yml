@@ -7,6 +7,7 @@ on:
       - 'story_scripts/**'
       - 'scripts/parse-story.mjs'
       - 'scripts/validate-animation-workshop.mjs'
+      - 'scripts/validate-rendered-film.mjs'
       - 'ANIMATION_WORKSHOP.md'
       - 'template/src/story/**'
       - 'template/src/Root.tsx'
@@ -59,6 +60,8 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
         run: node scripts/validate-animation-workshop.mjs --script="$STORY_SCRIPT" --output=template/out/animation-asset-audit.json
+            template/out/story-film-qa.json
+            template/out/story-animatic-qa.json
       - name: Install renderer
         working-directory: template
         run: npm ci
