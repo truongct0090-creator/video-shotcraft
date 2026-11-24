@@ -5,7 +5,7 @@ import {MainBoy, BoyExpression, BoyGesture, BoyMouth} from './MainBoy';
 const beats: {from: number; expression: BoyExpression; mouth: BoyMouth; gesture: BoyGesture; caption: string}[] = [
   {from: 0, expression: 'happy', mouth: 'smile', gesture: 'wave', caption: 'Xin chào các bạn!'},
   {from: 55, expression: 'surprised', mouth: 'small-o', gesture: 'rest', caption: 'Ồ! Điều gì đang xảy ra vậy?'},
-  {from: 110, expression: 'worried', mouth: 'open', gesture: 'point', caption: 'Chúng ta cùng khám phá nhé!'},
+  {from: 110, expression: 'worried', mouth: 'open', gesture: 'point-right', caption: 'Chúng ta cùng khám phá nhé!'},
   {from: 165, expression: 'happy', mouth: 'wide', gesture: 'wave', caption: 'Bắt đầu thôi nào!'},
 ];
 
