@@ -39,7 +39,7 @@ const scenes = headings.map((match, index) => {
   const body = markdown.slice(start, end).split(/^##\s+/m)[0];
   const field = (label) => {
     const escaped = label.replaceAll('/', '\\/');
-    const pattern = new RegExp('^\\*\\*' + escaped + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
+    const pattern = new RegExp('^\\*\\*' + escaped + ':\\*\\*\s*([\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\s\\S]))', 'm');
     return clean(body.match(pattern)?.[1] ?? '');
   };
   return {
@@ -59,9 +59,9 @@ for (const scene of scenes) {
 }
 const parseDuration = (value) => {
   if (!value) return 150;
-  const seconds = value.match(/(\\d+(?:[.,]\\d+)?)\\s*(?:s|giây|seconds?)\\b/i);
-  const frames = value.match(/(\\d+)\\s*(?:f|frame|frames)\\b/i);
-  const minutes = value.match(/(\\d+(?:[.,]\\d+)?)\\s*(?:phút|minutes?)\\b/i);
+  const seconds = value.match(/(\d+(?:[.,]\d+)?)\s*(?:s|giây|seconds?)\\b/i);
+  const frames = value.match(/(\d+)\s*(?:f|frame|frames)\\b/i);
+  const minutes = value.match(/(\d+(?:[.,]\d+)?)\s*(?:phút|minutes?)\\b/i);
   if (frames) return Math.max(30, Number(frames[1]));
   if (minutes) return Math.max(30, Math.round(Number(minutes[1].replace(',', '.')) * 60 * 30));
   if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
