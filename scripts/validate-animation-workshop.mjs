@@ -89,6 +89,7 @@ const report = {
     noNewMediaGenerated: true,
     noMediaDownloaded: true,
     candidatesRequireHumanReview: true,
+    unmatchedScenesAreNotAutomaticallyApprovedForNewArtwork: true,
     createNewSceneOnlyWhenNoSuitableLibrarySceneExists: true,
     note: 'A text/keyword match is only a candidate. Review the recipe source and demo before deciding suitability; this audit never claims that a motion recipe is a complete illustrated background or character scene.',
   },
