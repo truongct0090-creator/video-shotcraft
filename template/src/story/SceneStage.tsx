@@ -6,7 +6,7 @@ import {handheld} from '../../../assets/lib/helpers/shake';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
-  audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string;
+  audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'generic';
