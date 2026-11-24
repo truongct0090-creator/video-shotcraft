@@ -69,10 +69,10 @@ const parseDuration = (value) => {
 };
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
 const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration)}));
-const voiceover = markdown.match(/^\\*\\*Giọng đọc:\\*\\*\\s*(.+)$/m)?.[1]?.trim() ?? '';
-const music = markdown.match(/^\\*\\*Nhạc nền:\\*\\*\\s*(.+)$/m)?.[1]?.trim() ?? '';
+const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
+const music = markdown.match(/^\*\*Nhạc nền:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
 for (const [label, file] of [['Giọng đọc', voiceover], ['Nhạc nền', music]]) {
-  if (file && (!file.startsWith('audio/') || file.includes('..') || !/\\.(mp3|wav|m4a|aac|ogg)$/i.test(file))) throw new Error(label + ' must be a safe audio/<filename> path inside template/public/.');
+  if (file && (!file.startsWith('audio/') || file.includes('..') || !/\.(mp3|wav|m4a|aac|ogg)$/i.test(file))) throw new Error(label + ' must be a safe audio/<filename> path inside template/public/.');
 }
 const props = {
   title,
