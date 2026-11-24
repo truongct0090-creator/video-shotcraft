@@ -39,7 +39,7 @@ const scenes = headings.map((match, index) => {
   const body = markdown.slice(start, end).split(/^##\s+/m)[0];
   const field = (label) => {
     const escaped = label.replaceAll('/', '\\/');
-    const pattern = new RegExp('^\\*\\*' + escaped + ':\\*\\*\s*([\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\s\\S]))', 'm');
+    const pattern = new RegExp('^\\*\\*' + escaped + ':\\*\\*\\s*([\\s\\S]*?)(?=^\\*\\*[^*]+:\\*\\*|(?![\\s\\S]))', 'm');
     return clean(body.match(pattern)?.[1] ?? '');
   };
   return {
