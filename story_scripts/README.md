@@ -15,4 +15,4 @@ Kho kịch bản độc lập với mã nguồn dựng phim trong `template/`.
 - Các cáo buộc về tổ chức/cá nhân phải gắn với nguồn, thời điểm và phạm vi cụ thể; ưu tiên văn bản chính thức, nghiên cứu học thuật và báo chí có uy tín.
 - Mọi hình tái hiện lịch sử phải ghi là minh họa, không giả làm ảnh tư liệu.
 
-Lưu ý: thư mục này là nguồn nội dung. Workflow render phim sẽ được tích hợp sau khi định dạng kịch bản và mẫu tập được duyệt; việc sửa/xóa kịch bản không làm thay đổi mã nguồn gốc.
+Lưu ý: thư mục này là nguồn nội dung độc lập. Dùng quy trình tại [PIPELINE.md](PIPELINE.md) để dựng animatic qua GitHub Actions; việc sửa/xóa kịch bản không làm thay đổi mã nguồn gốc.
