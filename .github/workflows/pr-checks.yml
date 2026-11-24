@@ -13,6 +13,9 @@ on:
       - 'demos/**'
       - 'assets/lib/**'
       - 'assets/scripts/**'
+      - 'scripts/validate-animation-workshop.mjs'
+      - 'story_scripts/**'
+      - 'ANIMATION_WORKSHOP.md'
       - 'template/src/**'
       - 'workbench/**'
       - 'package.json'
@@ -66,6 +69,9 @@ jobs:
                  'sync-from-cards.py + build-seo.py and commit the result'
             exit 1
           fi
+
+      - name: Asset-first animation workshop inventory
+        run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
 
       - name: Every library.json preview exists on the gallery-media release
         env:
