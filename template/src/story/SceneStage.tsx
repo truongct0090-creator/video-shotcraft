@@ -9,10 +9,11 @@ export type FilmSceneData = {
   audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string;
 };
 
-type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'generic';
+type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'generic';
 const chooseWorld = (text:string, preferred?:string):World => {
-  if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','generic'].includes(preferred)) return preferred as World;
   const s=text.toLowerCase();
+  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';
+  if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','generic'].includes(preferred)) return preferred as World;
   if (/bản đồ|map|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
   if (/quán trà|đèn dầu|bàn gỗ|người hoa/.test(s)) return 'teahouse';
@@ -26,8 +27,8 @@ const chooseWorld = (text:string, preferred?:string):World => {
 
 const Backdrop:React.FC<{world:World;frame:number}> = ({world,frame}) => {
  const drift=Math.sin(frame/55)*18;
- const sky:Record<World,string>={alley:'#25283b',archive:'#28303a',map:'#e6d9b8',teahouse:'#30251e',historic:'#d8c7a5',countryside:'#d9ebd2',modern:'#b9d9df',interior:'#ded2bf',generic:'#d8d1c3'};
- const ground:Record<World,string>={alley:'#393746',archive:'#46505a',map:'#c3ae83',teahouse:'#57402e',historic:'#9e9b78',countryside:'#83ad79',modern:'#78999a',interior:'#9a8067',generic:'#9d947f'};
+ const sky:Record<World,string>={alley:'#25283b',archive:'#28303a',map:'#e6d9b8',teahouse:'#30251e',historic:'#d8c7a5',countryside:'#d9ebd2',modern:'#b9d9df',interior:'#ded2bf',meeting:'#d7d0c1',generic:'#d8d1c3'};
+ const ground:Record<World,string>={alley:'#393746',archive:'#46505a',map:'#c3ae83',teahouse:'#57402e',historic:'#9e9b78',countryside:'#83ad79',modern:'#78999a',interior:'#9a8067',meeting:'#8c7964',generic:'#9d947f'};
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><linearGradient id="film-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={sky[world]}/><stop offset="1" stopColor={ground[world]}/></linearGradient><linearGradient id="film-glow" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff3cb" stopOpacity=".65"/><stop offset="1" stopColor="#fff3cb" stopOpacity="0"/></linearGradient></defs>
   <rect width="1920" height="1080" fill="url(#film-sky)"/>
@@ -44,6 +45,7 @@ const Backdrop:React.FC<{world:World;frame:number}> = ({world,frame}) => {
   {world==='countryside'&&<g><circle cx="1540" cy="200" r="105" fill="#f8d98e"/><path d="M0 700Q360 540 700 700T1400 670T1920 650V1080H0Z" fill="#a9c78e"/><path d="M0 820Q420 650 800 840T1600 800T1920 850V1080H0Z" fill="#789c6d"/>{[180,400,1500,1740].map((x,i)=><g key={i} transform={`translate(${x} 0)`}><path d="M0 700V480" stroke="#6a7046" strokeWidth="22"/><circle cx="0" cy="450" r="100" fill="#648b5c"/><circle cx="-55" cy="490" r="55" fill="#7da66c"/></g>)}</g>}
   {world==='modern'&&<g>{Array.from({length:8},(_,i)=><g key={i}><rect x={100+i*230} y={220+(i%3)*65} width="170" height={500-(i%3)*65} fill="#526b75" stroke="#354c55" strokeWidth="9"/>{Array.from({length:6},(_,j)=><rect key={j} x={120+i*230+(j%2)*70} y={250+(i%3)*65+Math.floor(j/2)*65} width="42" height="38" fill="#f0d49a"/> )}</g>)}</g>}
   {world==='interior'&&<g><rect x="120" y="110" width="1680" height="820" fill="#d6c5a8" stroke="#735d48" strokeWidth="18"/><rect x="230" y="220" width="520" height="420" fill="#9ab0b1" stroke="#6b5948" strokeWidth="16"/><path d="M490 220V640M230 430H750" stroke="#6b5948" strokeWidth="12"/><rect x="900" y="520" width="700" height="220" rx="14" fill="#78553a"/></g>}
+  {world==='meeting'&&<g><rect x="170" y="120" width="1580" height="650" rx="16" fill="#d9cbb0" stroke="#665442" strokeWidth="18"/><rect x="760" y="190" width="400" height="210" rx="8" fill="#9aafaa" stroke="#655644" strokeWidth="12"/><path d="M960 190V400M760 295H1160" stroke="#655644" strokeWidth="9"/><rect x="780" y="510" width="360" height="95" rx="12" fill="#70523a" stroke="#473729" strokeWidth="12"/>{[300,520,1400,1620].map((x,i)=><g key={i} transform={'translate('+x+' 0)'}><path d="M-48 620v110m96-110v110" stroke="#493c31" strokeWidth="16"/><rect x="-70" y="500" width="140" height="120" rx="18" fill="#8a6045" stroke="#493c31" strokeWidth="10"/></g>)}<circle cx="1510" cy="235" r="52" fill="#f2e6cb" stroke="#655644" strokeWidth="10"/><path d="M1510 235v-30m0 30l25 18" stroke="#655644" strokeWidth="8" strokeLinecap="round"/><path d="M0 850H1920" stroke="#685b4b" strokeWidth="30"/></g>}
   {world==='generic'&&<g><path d="M0 780Q400 700 800 780T1600 770T1920 760V1080H0Z" fill="#aaa18d"/><circle cx="1550" cy="200" r="90" fill="#f0d49a"/></g>}
   <rect width="1920" height="1080" fill="url(#film-glow)" opacity=".24"/>
  </svg>;
@@ -108,17 +110,19 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
  const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
  const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
+ const characterOnLeft=scene.number%2===0;
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.84?'point':'rest';
+ const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.84?(characterOnLeft?'point-right':'point-left'):'rest';
  const settle=dampedSettle(frame-8,0.075,0.16);
  const zoom=1+Math.sin(frame/90)*.014+settle*.025;
  const [driftX,driftY]=handheld(frame,1.1);
  const characterEntrance=interpolate(frame,[0,26],[150,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const characterBob=Math.sin(frame/18)*3;
+ const characterWalk=Math.sin(frame/27)*25;
+ const characterBob=Math.abs(Math.sin(frame/13))*7+Math.sin(frame/18)*2;
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   <div style={{position:'absolute',inset:-30,transform:'translate('+driftX+'px,'+driftY+'px) scale('+zoom+')'}}><Backdrop world={world} frame={frame}/></div>
   <SceneObjects scene={scene} frame={frame}/>
-  <div style={{position:'absolute',left:78,top:78,maxWidth:820,padding:'18px 26px',background:'rgba(17,22,28,.46)',borderLeft:'6px solid #e0b56f',borderRadius:8,color:'#fff7e8',fontSize:39,lineHeight:1.12,fontWeight:800,opacity:interpolate(frame,[0,12],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.heading}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',right:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+characterEntrance+'px,'+characterBob+'px)'}}><MainBoy expression={expression} gesture={gesture} speaking={false} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
+  <div style={{position:'absolute',left:characterOnLeft?820:78,right:characterOnLeft?78:820,top:210,maxWidth:820,padding:'16px 24px',background:'rgba(17,22,28,.58)',borderLeft:'6px solid #e0b56f',borderRadius:8,color:'#fff7e8',fontSize:39,lineHeight:1.12,fontWeight:800,textShadow:'0 3px 5px rgba(0,0,0,.9), 0 1px 1px rgba(0,0,0,.9)',boxShadow:'0 8px 22px rgba(0,0,0,.24)',opacity:interpolate(frame,[0,12],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.heading}</div>
+  {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+(characterEntrance*(characterOnLeft?-1:1)+characterWalk)+'px,'+characterBob+'px)'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
  </div>;
 };
