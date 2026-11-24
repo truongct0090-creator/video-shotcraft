@@ -14,6 +14,10 @@ if ! command -v ffprobe >/dev/null 2>&1; then
 fi
 
 node scripts/parse-story.mjs --script="$SCRIPT_PATH" --mode="$MODE" --output=template/out/story-props.json
+if [[ "${GENERATE_VOICEOVER:-0}" == "1" ]]; then
+  python3 -m pip install -r scripts/requirements-tts.txt
+  python3 scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
+fi
 cd template
 npm ci
 mkdir -p out

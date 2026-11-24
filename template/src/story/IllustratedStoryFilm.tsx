@@ -1,5 +1,5 @@
-import React from 'react';
-import {AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import React, {useEffect} from 'react';
+import {AbsoluteFill, Audio, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {SceneStage, type FilmSceneData} from './SceneStage';
 
 type Props={title:string;mode:'test'|'full';framesPerScene:number;scenes:FilmSceneData[];source:string;totalScenes:number;totalFrames:number;voiceover?:string;music?:string;};
@@ -11,6 +11,8 @@ const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene
  return <AbsoluteFill style={{opacity}}><Audio src={staticFile(transitionSound)} volume={0.14}/>{scene.voiceover?<Audio src={staticFile(scene.voiceover)} volume={1}/>:null}<SceneStage scene={scene}/><div style={{position:'absolute',left:70,bottom:18,color:'rgba(255,255,255,.55)',fontSize:14,letterSpacing:2}}>{title}</div></AbsoluteFill>;
 };
 export const IllustratedStoryFilm:React.FC<Props> = ({title,scenes,voiceover,music}) => {
+ const fontHandle=delayRender('Loading Be Vietnam Pro');
+ useEffect(()=>{document.fonts.load('800 54px "Be Vietnam Pro"').then(()=>document.fonts.ready).then(()=>continueRender(fontHandle)).catch(()=>continueRender(fontHandle));},[]);
  let cursor=0;
  const sequences=scenes.map((scene)=>{const from=cursor;cursor+=scene.durationInFrames;return <Sequence key={scene.number} from={from} durationInFrames={scene.durationInFrames}><SceneWithTransition scene={scene} title={title}/></Sequence>;});
  return <AbsoluteFill style={{backgroundColor:'#15191e',fontFamily:'Be Vietnam Pro, sans-serif'}}>

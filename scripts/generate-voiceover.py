@@ -5,11 +5,9 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import shutil
 import wave
 from pathlib import Path
 
-SAMPLE_RATE_FALLBACK = 48_000
 FPS = 30
 TAIL_SECONDS = 0.5
 
@@ -49,7 +47,9 @@ def main() -> None:
             raise SystemExit(f"TTS did not produce a valid WAV for scene {number}.")
         try:
             with wave.open(str(target), "rb") as wav:
-                sample_rate = wav.getframerate() or SAMPLE_RATE_FALLBACK
+                sample_rate = wav.getframerate()
+                if sample_rate <= 0:
+                    raise wave.Error("missing sample rate")
                 duration = wav.getnframes() / sample_rate
         except (wave.Error, EOFError) as exc:
             raise SystemExit(f"Invalid WAV for scene {number}: {exc}") from exc
