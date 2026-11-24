@@ -98,7 +98,11 @@ def main():
                 if wav.getframerate()<=0 or wav.getnframes()<=0: raise wave.Error("empty or invalid audio")
         except (wave.Error,EOFError,ValueError) as exc:
             raise SystemExit("Invalid WAV for scene %d: %s"%(number,exc)) from exc
-        scene["durationInFrames"]=max(int(scene.get("durationInFrames",0)),math.ceil((trimmed+TAIL_SECONDS)*FPS))
+        audio_frames=math.ceil(trimmed*FPS)
+        if scene.get("duration"):
+            scene["durationInFrames"]=max(int(scene.get("durationInFrames",0)),audio_frames)
+        else:
+            scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
         print("Scene %02d: %.2fs -> %.2fs; trimmed %.2fs trailing silence; scene %.2fs"%(number,before,trimmed,max(int(scene.get("durationInFrames",0)),1)/FPS))
     props["voiceover"]=""
