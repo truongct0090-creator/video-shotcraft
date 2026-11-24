@@ -118,11 +118,12 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const [driftX,driftY]=handheld(frame,1.1);
  const characterEntrance=interpolate(frame,[0,26],[150,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const characterWalk=Math.sin(frame/27)*25;
+ const characterDepth=1+Math.sin(frame/45)*0.018;
  const characterBob=Math.abs(Math.sin(frame/13))*7+Math.sin(frame/18)*2;
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   <div style={{position:'absolute',inset:-30,transform:'translate('+driftX+'px,'+driftY+'px) scale('+zoom+')'}}><Backdrop world={world} frame={frame}/></div>
   <SceneObjects scene={scene} frame={frame}/>
   <div style={{position:'absolute',left:characterOnLeft?820:78,right:characterOnLeft?78:820,top:210,maxWidth:820,padding:'16px 24px',background:'rgba(17,22,28,.58)',borderLeft:'6px solid #e0b56f',borderRadius:8,color:'#fff7e8',fontSize:39,lineHeight:1.12,fontWeight:800,textShadow:'0 3px 5px rgba(0,0,0,.9), 0 1px 1px rgba(0,0,0,.9)',boxShadow:'0 8px 22px rgba(0,0,0,.24)',opacity:interpolate(frame,[0,12],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.heading}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+(characterEntrance*(characterOnLeft?-1:1)+characterWalk)+'px,'+characterBob+'px)'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))',transform:'translate('+(characterEntrance*(characterOnLeft?-1:1)+characterWalk)+'px,'+characterBob+'px) scale('+characterDepth+')'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
  </div>;
 };
