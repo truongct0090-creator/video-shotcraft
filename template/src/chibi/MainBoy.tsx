@@ -108,7 +108,11 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           {silhouetteHair === 'long'
             ? <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239L440 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425L151 239Z" fill={inkBlack} stroke={inkBlack} strokeWidth="9" strokeLinejoin="round"/>
             : <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239Q431 214 414 199Q396 183 375 178Q356 174 338 181Q315 192 294 207Q270 224 246 230Q220 237 198 222Q180 211 166 224Q158 232 151 239Z" fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round"/>}
-          {silhouetteHair === 'long' && <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239Q431 214 414 199Q396 183 375 178Q356 174 338 181Q315 192 294 207Q270 224 246 230Q220 237 198 222Q180 211 166 224Q158 232 151 239Z" fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round"/>}
+          {silhouetteHair === 'long' && <g fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round">
+            {/* Long silver side locks fall past the shoulders; blunt fringe crosses the forehead. */}
+            <path d="M151 230Q137 180 160 137Q188 82 244 72Q300 48 356 72Q414 83 440 137Q463 182 449 235L445 548Q420 578 392 545L384 286H216L208 545Q180 578 155 548Z"/>
+            <path d="M154 220Q180 185 210 181Q250 174 300 181Q350 174 390 181Q422 185 446 220L438 252Q400 235 365 236H235Q195 235 162 252Z"/>
+          </g>}
           {silhouetteHair === 'short' && <path d="M166 158Q188 108 241 88Q291 69 333 88Q385 75 425 126Q445 153 438 194Q427 178 411 169Q392 157 372 160Q354 163 338 179Q349 148 349 91Q326 121 286 149Q264 172 244 190Q222 209 202 211Q187 210 176 197Q195 191 207 174Q221 153 240 137Q207 143 184 176Q174 189 165 204Q157 184 166 158Z" fill={silver} stroke={silver} strokeWidth="7" strokeLinejoin="round"/>}
         </g>
       </svg>
