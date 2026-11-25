@@ -313,7 +313,7 @@
 **Đạo cụ:** Bảng phân loại, hồ sơ, bút đánh dấu.
 **Lời dẫn:** Một vụ án nghiêm trọng cần được điều tra và xét xử nghiêm minh. Nhưng từ một vụ án, chúng ta không thể kết luận về tất cả những người khác chưa làm điều tương tự. Bất kỳ nhóm nào dùng niềm tin để khuyến khích hành vi nguy hiểm, cản trở việc chữa bệnh, cô lập người tham gia hoặc kích động vi phạm pháp luật đều cần được xem xét bằng chứng cứ cụ thể. Đừng đánh đồng. Nhưng cũng đừng nhắm mắt trước hành vi sai trái.
 **Âm thanh/Chữ:** “ĐÚNG NGƯỜI – ĐÚNG HÀNH VI – ĐÚNG CHỨNG CỨ”.
-**Loại cảnh:** compare
+**Loại cảnh:** archive
 **Nhân vật:** main-boy
 
 ## KẾT – ĐIỀU CẦN GIỮ LẠI SAU SÁU CÂU CHUYỆN
