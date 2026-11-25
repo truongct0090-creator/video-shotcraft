@@ -12,8 +12,9 @@ type SceneAssetInput = {
 const ink = '#514238';
 const paper = '#eadfc9';
 
-const Figure: React.FC<{x:number;y:number;scale?:number;coat:string;skin:string;hair:string;pose?:'talk'|'work'|'listen'}> = ({x,y,scale=1,coat,skin,hair,pose='listen'}) => (
+const Figure: React.FC<{x:number;y:number;scale?:number;coat:string;skin:string;hair:string;pose?:'talk'|'work'|'listen';facing?:'left'|'right'}> = ({x,y,scale=1,coat,skin,hair,pose='listen',facing='right'}) => (
   <g transform={`translate(${x} ${y}) scale(${scale})`} stroke={ink} strokeWidth="7" strokeLinejoin="round" strokeLinecap="round">
+    <g transform={facing === 'left' ? 'scale(-1 1)' : undefined}>
     <ellipse cx="0" cy="8" rx="48" ry="13" fill="#342b24" opacity=".16" stroke="none"/>
     <path d="M-24 185L-34 292L-4 292L8 205L24 292L54 292L35 180Z" fill="#554d43"/>
     <path d="M-47 98Q-28 75 0 78Q30 75 48 100L60 195Q0 218 -60 195Z" fill={coat}/>
@@ -24,6 +25,7 @@ const Figure: React.FC<{x:number;y:number;scale?:number;coat:string;skin:string;
     <path d="M-27 49Q-39 1 -4 -14Q36 -26 54 15Q34 8 18 21Q-1 37 -27 49Z" fill={hair}/>
     <path d="M-13 53q7 4 14 0M20 53q7 4 14 0" fill="none" stroke={ink} strokeWidth="4"/>
     <path d={pose==='talk'?'M2 67q10 13 20 0':'M4 68q8 5 16 0'} fill="none" stroke="#9d5d51" strokeWidth="4"/>
+    </g>
   </g>
 );
 
@@ -94,10 +96,10 @@ const DocumentStack = () => (
 const Cast: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
   if (scene.character === 'none') return null;
   const text = [scene.setting,scene.action,scene.heading].join(' ').toLowerCase();
-  if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return <g><Figure x={430} y={600} scale={.82} coat="#6f7e75" skin="#d7a98e" hair="#3b3029" pose="talk"/><Figure x={1510} y={590} scale={.82} coat="#9a6d4e" skin="#e2b99c" hair="#42352d" pose="listen"/></g>;
-  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return <g><Figure x={400} y={610} scale={.92} coat="#71805a" skin="#b98262" hair="#302b25" pose="work"/><Figure x={1510} y={620} scale={.82} coat="#92734f" skin="#c99475" hair="#3b3029" pose="talk"/></g>;
-  if (/phòng họp|sinh hoạt|cuộc họp|cộng đồng|hội trường/.test(text)) return <g><Figure x={390} y={610} scale={.8} coat="#71818a" skin="#d5a88d" hair="#3c302a" pose="listen"/><Figure x={1510} y={610} scale={.8} coat="#9b755c" skin="#d7a98e" hair="#332b27" pose="talk"/></g>;
-  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return <g><Figure x={390} y={620} scale={.82} coat="#6d7b83" skin="#c99576" hair="#332a25" pose="work"/><Figure x={1510} y={620} scale={.78} coat="#a37a54" skin="#d7aa8f" hair="#43362e" pose="listen"/></g>;
+  if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return <g><Figure x={430} y={600} scale={.82} coat="#6f7e75" skin="#d7a98e" hair="#3b3029" pose="talk" facing="right"/><Figure x={1510} y={590} scale={.82} coat="#9a6d4e" skin="#e2b99c" hair="#42352d" pose="listen" facing="left"/></g>;
+  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return <g><Figure x={400} y={610} scale={.92} coat="#71805a" skin="#b98262" hair="#302b25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.82} coat="#92734f" skin="#c99475" hair="#3b3029" pose="talk" facing="left"/></g>;
+  if (/phòng họp|sinh hoạt|cuộc họp|cộng đồng|hội trường/.test(text)) return <g><Figure x={390} y={610} scale={.8} coat="#71818a" skin="#d5a88d" hair="#3c302a" pose="listen" facing="right"/><Figure x={1510} y={610} scale={.8} coat="#9b755c" skin="#d7a98e" hair="#332b27" pose="talk"/></g>;
+  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return <g><Figure x={390} y={620} scale={.82} coat="#6d7b83" skin="#c99576" hair="#332a25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.78} coat="#a37a54" skin="#d7aa8f" hair="#43362e" pose="listen"/></g>;
   return null;
 };
 
