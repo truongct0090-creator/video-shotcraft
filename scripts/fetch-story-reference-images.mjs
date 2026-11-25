@@ -11,6 +11,13 @@ import {createHash} from 'node:crypto';
 const outputDir = path.resolve('template/public/reference');
 const assets = [
   {
+    file: 'asian-group-meeting.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Meetup_of_Asian_Wikipedians.jpg',
+    minBytes: 1_000_000,
+    maxBytes: 9_000_000,
+    sha1: 'e0aeeecd17d8dfa8d0b849fb3ffa54d535abcb67',
+  },
+  {
     file: 'cochinchina-map.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Map_of_Cochinchina.jpg',
     minBytes: 100_000,
