@@ -7,8 +7,8 @@ type Props={title:string;mode:'test'|'full';framesPerScene:number;scenes:FilmSce
 const SceneWithTransition:React.FC<{scene:FilmSceneData;title:string}> = ({scene}) => {
  const frame=useCurrentFrame();
  const duration=scene.durationInFrames;
- const enter=interpolate(frame,[0,18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const exit=interpolate(frame,[Math.max(0,duration-8),duration],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const enter=interpolate(frame,[0,18],[0.18,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const exit=interpolate(frame,[Math.max(0,duration-8),Math.max(1,duration-1)],[0,0.85],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const opacity=1-exit;
  const transitionSound=scene.number%2===0?'audio/transition-snap.mp3':'audio/transition-soft.mp3';
  // One transition per seam: iris, geometric wipe, whip-pan, or the repository's real FlashCut component.
