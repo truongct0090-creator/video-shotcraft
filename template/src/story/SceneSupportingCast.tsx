@@ -39,15 +39,15 @@ export const SceneSupportingCast:React.FC<{scene:SceneCastData}> = ({scene}) => 
   if (kind==='meeting') return (
     <>
       <div style={{position:'absolute',left:575,bottom:125,width:650,height:110,zIndex:6,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
-      {character('meeting-aL',455,245,165)}
-      {character('meeting-bR',650,245,165)}
-      {character('meeting-cL',900,245,165)}
-      {character('meeting-dR',1110,245,165)}
+      {character('meeting-aL',455,320,165)}
+      {character('meeting-bR',650,320,165)}
+      {character('meeting-cL',900,320,165)}
+      {character('meeting-dR',1110,320,165)}
     </>
   );
-  if (kind==='teahouse') return <>{character('tea-aR',500,118,175)}{character('tea-bL',690,118,175)}{character('tea-cR',900,118,175)}</>;
-  if (kind==='countryside') return <>{character('field-aR',470,112,175)}{character('field-bL',665,112,175)}{character('field-cR',860,112,175)}</>;
-  if (kind==='printing') return <>{character('print-aR',450,112,175)}{character('print-bL',645,112,175)}{character('print-cR',840,112,175)}</>;
-  if (kind==='community') return <>{character('community-aR',460,112,175)}{character('community-bL',655,112,175)}{character('community-cR',850,112,175)}{character('community-dL',1045,112,175)}</>;
+  if (kind==='teahouse') return <>{character('tea-aR',500,320,175)}{character('tea-bL',690,320,175)}{character('tea-cR',900,320,175)}</>;
+  if (kind==='countryside') return <>{character('field-aR',470,320,175)}{character('field-bL',665,320,175)}{character('field-cR',860,320,175)}</>;
+  if (kind==='printing') return <>{character('print-aR',450,320,175)}{character('print-bL',645,320,175)}{character('print-cR',840,320,175)}</>;
+  if (kind==='community') return <>{character('community-aR',460,320,175)}{character('community-bL',655,320,175)}{character('community-cR',850,320,175)}{character('community-dL',1045,320,175)}</>;
   return null;
 };
