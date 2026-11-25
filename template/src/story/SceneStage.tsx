@@ -117,7 +117,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
- const referencePhoto=scene.photo || (!whiteStage ? (scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null) : null);
+ const referencePhoto=scene.photo || (!whiteStage ? (/Nam Kỳ đầu thế kỷ/.test(scene.heading)?'reference/cochinchina-map.jpg':/Khám Lớn Sài Gòn/.test(scene.heading)?'reference/saigon-maison-centrale.jpg':/Thanh niên Cao vọng/.test(scene.heading)?'reference/nguyen-an-ninh-1929.jpg':null) : null);
  // Match the original ChibiDemo entrance: spring up from below, then a small settling bounce.
  const entrance=scene.number===1?spring({frame,fps,config:{damping:12,stiffness:95}}):1;
  const bounce=scene.number===1&&frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
