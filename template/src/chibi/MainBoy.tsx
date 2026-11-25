@@ -18,6 +18,9 @@ export type MainBoyProps = {
   shortsColor?: string;
   shoeColor?: string;
   skinColor?: string;
+  silhouette?: boolean;
+  silhouetteHair?: 'short' | 'long';
+  silhouetteDress?: boolean;
 };
 
 const outline = '#111111';
@@ -35,6 +38,9 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   shortsColor = '#FFFDF8',
   shoeColor = '#F9FAF8',
   skinColor = '#F7D5C8',
+  silhouette = false,
+  silhouetteHair = 'short',
+  silhouetteDress = false,
 }) => {
   const frame = useCurrentFrame();
   const skinTone = skinColor;
@@ -58,6 +64,33 @@ export const MainBoy: React.FC<MainBoyProps> = ({
     }
     return <ellipse cx={x} cy="246" rx="12" ry={expression === 'worried' ? 16 : 17} fill={outline} />;
   };
+
+  if (silhouette) {
+    const inkBlack = '#08090B';
+    const silver = '#C9CBD2';
+    return (
+      <svg viewBox="0 0 600 800" role="img" aria-label="Nhân vật phụ dạng bóng đen, tóc bạc" style={{width:'100%',height:'100%',overflow:'visible'}}>
+        <g transform={facing === 'left' ? 'translate(600 0) scale(-1 1)' : undefined}>
+          <ellipse cx="300" cy="758" rx="145" ry="18" fill="#000" opacity=".2"/>
+          {silhouetteHair === 'long' && <path d="M148 210Q130 100 220 66Q300 35 380 70Q465 110 452 225L445 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>}
+          <path d="M250 555Q245 625 245 690L290 690L296 555Z M304 555L310 690L355 690L350 555Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
+          <path d="M218 682Q255 670 288 686Q300 706 284 727H207Q192 718 204 699Z M312 686Q345 670 376 682L399 700Q410 717 394 727H316Q301 713 312 686Z" fill={inkBlack}/>
+          {silhouetteDress
+            ? <path d="M220 405Q247 382 276 382H324Q353 382 380 405L408 535L438 670Q300 710 162 670L192 535Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
+            : <path d="M220 405Q247 382 276 382H324Q353 382 380 405L408 535Q300 568 192 535Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>}
+          <path d="M273 357Q278 350 286 350H314Q322 350 327 357V425Q300 440 273 425Z" fill={inkBlack}/>
+          <g transform="rotate(18 222 420)"><path d="M222 420Q181 444 171 510" fill="none" stroke={inkBlack} strokeWidth="45" strokeLinecap="round"/><circle cx="169" cy="523" r="24" fill={inkBlack}/></g>
+          <g transform="rotate(-18 378 420)"><path d="M378 420Q419 445 429 510" fill="none" stroke={inkBlack} strokeWidth="46" strokeLinecap="round"/><circle cx="431" cy="523" r="24" fill={inkBlack}/></g>
+          <ellipse cx="300" cy="245" rx="151" ry="157" fill={inkBlack} stroke={inkBlack} strokeWidth="10"/>
+          {silhouetteHair === 'long'
+            ? <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239L440 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425L151 239Z" fill={inkBlack} stroke={inkBlack} strokeWidth="9" strokeLinejoin="round"/>
+            : <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239Q431 214 414 199Q396 183 375 178Q356 174 338 181Q315 192 294 207Q270 224 246 230Q220 237 198 222Q180 211 166 224Q158 232 151 239Z" fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round"/>}
+          {silhouetteHair === 'long' && <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239Q431 214 414 199Q396 183 375 178Q356 174 338 181Q315 192 294 207Q270 224 246 230Q220 237 198 222Q180 211 166 224Q158 232 151 239Z" fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round"/>}
+          {silhouetteHair === 'short' && <path d="M166 158Q188 108 241 88Q291 69 333 88Q385 75 425 126Q445 153 438 194Q427 178 411 169Q392 157 372 160Q354 163 338 179Q349 148 349 91Q326 121 286 149Q264 172 244 190Q222 209 202 211Q187 210 176 197Q195 191 207 174Q221 153 240 137Q207 143 184 176Q174 189 165 204Q157 184 166 158Z" fill={silver} stroke={silver} strokeWidth="7" strokeLinejoin="round"/>}
+        </g>
+      </svg>
+    );
+  }
 
   return (
     <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc hồng đất kiểu Hàn Quốc rẽ ngôi 7/3, áo polo hồng đất, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
