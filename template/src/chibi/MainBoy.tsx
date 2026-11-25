@@ -106,7 +106,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           )}
           <ellipse cx="300" cy="245" rx="151" ry="157" fill={inkBlack} stroke={inkBlack} strokeWidth="10"/>
           {silhouetteHair === 'long'
-            ? <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239L440 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425L151 239Z" fill={inkBlack} stroke={inkBlack} strokeWidth="9" strokeLinejoin="round"/>
+            ? <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239L440 548Q420 578 392 545L390 285H210L202 545Q178 578 155 548L151 239Z" fill={silver} stroke={inkBlack} strokeWidth="9" strokeLinejoin="round"/>
             : <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239Q431 214 414 199Q396 183 375 178Q356 174 338 181Q315 192 294 207Q270 224 246 230Q220 237 198 222Q180 211 166 224Q158 232 151 239Z" fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round"/>}
           {silhouetteHair === 'long' && <g fill={silver} stroke={silver} strokeWidth="9" strokeLinejoin="round">
             {/* Long silver side locks fall past the shoulders; blunt fringe crosses the forehead. */}
