@@ -1,5 +1,5 @@
 import React from 'react';
-import {Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
 
 
@@ -81,7 +81,7 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const label=(_x:number,_y:number,_value:string,_color='#594b3a')=>null;
  const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><g><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/><rect x={x+9} y={y+9} width={w-18} height={h-18} rx="6" fill="none" stroke="#fff6df" strokeOpacity=".38" strokeWidth="4"/><path d={`M${x+18} ${y+17}H${x+w-18}`} stroke="#fff8e9" strokeOpacity=".28" strokeWidth="4" strokeLinecap="round"/><path d={`M${x+18} ${y+h-15}H${x+w-18}`} stroke="#3f3024" strokeOpacity=".16" strokeWidth="3" strokeLinecap="round"/></g>;
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
-  <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="170%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/><feOffset in="blur" dx="0" dy="22" result="offset"/><feComponentTransfer in="offset" result="shadow"><feFuncA type="linear" slope="0.42"/></feComponentTransfer><feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="contact-blur"/><feOffset in="contact-blur" dx="0" dy="7" result="contact-offset"/><feComponentTransfer in="contact-offset" result="contact-shadow"><feFuncA type="linear" slope="0.30"/></feComponentTransfer><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="ambient-blur"/><feOffset in="ambient-blur" dx="12" dy="24" result="ambient-offset"/><feComponentTransfer in="ambient-offset" result="ambient-shadow"><feFuncA type="linear" slope="0.24"/></feComponentTransfer><feMerge><feMergeNode in="ambient-shadow"/><feMergeNode in="contact-shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
   <g filter="url(#story-prop-depth)">
    {visualKey==='invitation'&&<g>{card(720,250,330,430,'#76543b')}<rect x="770" y="330" width="225" height="150" fill="#f1dfb8" stroke="#6b543e" strokeWidth="8"/>{label(790,390,'BUỔI SINH HOẠT')}{label(820,435,'ĐẶC BIỆT')}<path d="M1040 500q95-45 145 12l-15 60q-70 30-125-5" fill="#f2d1bd" stroke="#59433f" strokeWidth="12"/>{card(1110,510,190,110,'#f5e8c8')}{label(1130,560,'NGƯỜI ĐƯỢC')}{label(1160,594,'CHỌN')}</g>}
    {visualKey==='categories'&&<g>{card(470,235,760,490,'#bba987')}{[0,1,2].map(i=><g key={i}><path d={'M850 340V'+(420+i*110)+'H'+(590+i*260)} fill="none" stroke={['#a84f43','#567c91','#69865c'][i]} strokeWidth="12"/>{card(490+i*260,420+i*110,220,105,['#d9a28e','#a9c1cb','#b7c89f'][i])}{label(515+i*260,482,['YÊU NƯỚC','CỘNG ĐỒNG','TÔN GIÁO'][i])}</g>)}{card(785,270,150,75,'#e7d6ae')}{label(805,318,'PHÂN BIỆT')}</g>}
@@ -109,6 +109,7 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
 export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const frame=useCurrentFrame();
+ const {fps}=useVideoConfig();
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
@@ -126,9 +127,12 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   {right:-125,top:300,fromX:180,fromY:0,origin:'right center',gesture:'point-left' as BoyGesture},
  ];
  const peek=peekPositions[peekIndex] ?? peekPositions[0];
- const entranceX=interpolate(frame,[0,14,22],[peek.fromX,8,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const entranceY=interpolate(frame,[0,14,22],[peek.fromY,-5,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const entranceOpacity=interpolate(frame,[0,8,18],[0,0.85,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ // Adapted from the repo's card-stack spring (damping 13 / stiffness 150): quick edge entry with one controlled overshoot.
+ const entrance=spring({frame,fps,config:{damping:13,stiffness:150}});
+ const entranceX=interpolate(entrance,[0,1],[peek.fromX,0]);
+ const entranceY=interpolate(entrance,[0,1],[peek.fromY,0]);
+ const entranceScale=interpolate(entrance,[0,1],[peekScale*0.92,peekScale]);
+ const entranceOpacity=interpolate(entrance,[0,1],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88
   ? (peekIndex===0?'point-right':peekIndex===4?'point-left':'point-right')
@@ -142,6 +146,6 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   <SceneObjects scene={scene}/>
   {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3?520:680,height:scene.number===3?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',left:peek.left,right:peek.right,top:peek.top,bottom:peek.bottom,width:480,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+peekScale+')'}}><div style={{width:480,height:640}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',left:peek.left,right:peek.right,top:peek.top,bottom:peek.bottom,width:480,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+entranceScale+')'}}><div style={{width:480,height:640}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
