@@ -130,7 +130,6 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           <path d="M250 566 Q246 620 244 686 L287 686 L294 570Z M306 570 L313 686 L356 686 L350 566Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
           <path d="M216 531 Q300 518 384 531 L375 632 Q341 646 305 628 Q269 646 225 632Z" fill={shortsTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           <path d="M300 543 L300 628" stroke={outline} strokeWidth="8" strokeLinecap="round"/>
-          <path d="M300 570 L300 686" stroke={outline} strokeWidth="8" strokeLinecap="round"/>
           <path d="M232 681 Q257 670 288 685 Q300 706 284 727 L207 727 Q192 718 204 699Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           <path d="M312 685 Q343 670 373 681 L399 700 Q410 717 394 727 L316 727 Q301 713 312 685Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           <path d="M210 709 Q248 717 287 709 M319 709 Q357 717 396 709" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
