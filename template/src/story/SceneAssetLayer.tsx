@@ -12,23 +12,6 @@ type SceneAssetInput = {
 const ink = '#514238';
 const paper = '#eadfc9';
 
-const Figure: React.FC<{x:number;y:number;scale?:number;coat:string;skin:string;hair:string;pose?:'talk'|'work'|'listen';facing?:'left'|'right'}> = ({x,y,scale=1,coat,skin,hair,pose='listen',facing='right'}) => (
-  <g transform={`translate(${x} ${y}) scale(${scale})`} stroke={ink} strokeWidth="7" strokeLinejoin="round" strokeLinecap="round">
-    <g transform={facing === 'left' ? 'scale(-1 1)' : undefined}>
-    <ellipse cx="0" cy="8" rx="48" ry="13" fill="#342b24" opacity=".16" stroke="none"/>
-    <path d="M-24 185L-34 292L-4 292L8 205L24 292L54 292L35 180Z" fill="#554d43"/>
-    <path d="M-47 98Q-28 75 0 78Q30 75 48 100L60 195Q0 218 -60 195Z" fill={coat}/>
-    <path d={pose==='talk'?'M-42 111Q-82 130 -72 164L-45 174L-22 136':'M-42 111Q-72 145 -57 180L-34 180L-17 139'} fill="none" stroke={coat} strokeWidth="25"/>
-    <path d={pose==='work'?'M40 112Q80 145 58 183L28 176L18 140':'M42 112Q76 128 79 158L54 173L25 140'} fill="none" stroke={coat} strokeWidth="25"/>
-    <circle cx={pose==='talk'?-73:pose==='work'?58:79} cy={pose==='talk'?169:pose==='work'?183:158} r="13" fill={skin}/>
-    <path d="M-25 72Q-30 30 -8 8Q20 -12 43 13Q61 37 39 80Z" fill={skin}/>
-    <path d="M-27 49Q-39 1 -4 -14Q36 -26 54 15Q34 8 18 21Q-1 37 -27 49Z" fill={hair}/>
-    <path d="M-13 53q7 4 14 0M20 53q7 4 14 0" fill="none" stroke={ink} strokeWidth="4"/>
-    <path d={pose==='talk'?'M2 67q10 13 20 0':'M4 68q8 5 16 0'} fill="none" stroke="#9d5d51" strokeWidth="4"/>
-    </g>
-  </g>
-);
-
 const TeaSet = () => (
   <g stroke={ink} strokeWidth="9" strokeLinejoin="round">
     <ellipse cx="0" cy="45" rx="115" ry="24" fill="#4d3528" opacity=".2" stroke="none"/>
@@ -93,15 +76,7 @@ const DocumentStack = () => (
   </g>
 );
 
-const Cast: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
-  if (scene.character === 'none') return null;
-  const text = [scene.setting,scene.action,scene.heading].join(' ').toLowerCase();
-  if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return <g><Figure x={430} y={600} scale={.82} coat="#6f7e75" skin="#d7a98e" hair="#3b3029" pose="talk" facing="right"/><Figure x={1510} y={590} scale={.82} coat="#9a6d4e" skin="#e2b99c" hair="#42352d" pose="listen" facing="left"/></g>;
-  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return <g><Figure x={400} y={610} scale={.92} coat="#71805a" skin="#b98262" hair="#302b25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.82} coat="#92734f" skin="#c99475" hair="#3b3029" pose="talk" facing="left"/></g>;
-  if (/phòng họp|sinh hoạt|cuộc họp|cộng đồng|hội trường/.test(text)) return <g><Figure x={390} y={610} scale={.8} coat="#71818a" skin="#d5a88d" hair="#3c302a" pose="listen" facing="right"/><Figure x={1510} y={610} scale={.8} coat="#9b755c" skin="#d7a98e" hair="#332b27" pose="talk" facing="left"/></g>;
-  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return <g><Figure x={390} y={620} scale={.82} coat="#6d7b83" skin="#c99576" hair="#332a25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.78} coat="#a37a54" skin="#d7aa8f" hair="#43362e" pose="listen" facing="left"/></g>;
-  return null;
-};
+const Cast: React.FC<{scene:SceneAssetInput}> = () => null;
 
 const Props: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
   const text = [scene.props,scene.action,scene.setting].filter(Boolean).join(' ').toLowerCase();
