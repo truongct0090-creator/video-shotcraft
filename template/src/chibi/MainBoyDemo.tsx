@@ -19,7 +19,7 @@ export const MainBoyDemo: React.FC = () => {
   return (
     <AbsoluteFill style={{backgroundColor: '#F8F2E9', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}}>
       <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH · THIẾT KẾ LẠI</div>
-      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Tóc đỏ Hàn Quốc rẽ ngôi 7/3 · mái vuốt lệch tự nhiên</div>
+      <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Tóc hồng đất #B08088 rẽ ngôi 7/3 · mái vuốt lệch tự nhiên</div>
       <div style={{height: 700, width: 525, marginTop: 125, opacity: entranceOpacity, transform: `translateY(${entranceY}px)`}}>
         <MainBoy expression={beat.expression} mouth={beat.mouth} gesture={beat.gesture} blink={blink} speaking={frame % 12 < 7}/>
       </div>
