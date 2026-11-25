@@ -80,7 +80,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={shirtTone} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
 
         {/* Short, anatomically placed neck joining the jaw to the collar. */}
-        <path d="M273 357 Q278 350 286 350 L314 350 Q322 350 327 357 L327 425 Q300 440 273 425Z" fill={skin} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+        <path d="M273 357 Q278 350 286 350 L314 350 Q322 350 327 357 L327 425 Q300 440 273 425Z" fill={skinTone} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
 
         {/* Polo collar sits in front of the neck at shoulder level. */}
         <path d="M264 384 L300 425 L336 384 L323 450 L277 450Z" fill="#F7F8F6" stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
@@ -91,23 +91,23 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         {/* Arms rotate at the shoulders. Mittens are round and have no fingers. */}
         <g transform={`rotate(${leftArmAngle} 222 420)`}>
           <path d="M222 420 Q181 444 171 510" fill="none" stroke={shirtTone} strokeWidth="45" strokeLinecap="round"/>
-          <circle cx="169" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
+          <circle cx="169" cy="523" r="24" fill={skinTone} stroke={outline} strokeWidth="8"/>
         </g>
         <g transform={`rotate(${rightArmAngle} 378 420)`}>
-          <path d="M378 420 Q419 445 429 510" fill="none" stroke={navy} strokeWidth="46" strokeLinecap="round"/>
-          <circle cx="431" cy="523" r="24" fill={skin} stroke={outline} strokeWidth="8"/>
+          <path d="M378 420 Q419 445 429 510" fill="none" stroke={shirtTone} strokeWidth="46" strokeLinecap="round"/>
+          <circle cx="431" cy="523" r="24" fill={skinTone} stroke={outline} strokeWidth="8"/>
         </g>
 
         {/* Head is a single, proportioned shape; no non-uniform scaling. */}
         <g transform={`rotate(${headTilt} 300 245)`}>
-          <ellipse cx="300" cy="245" rx="151" ry="157" fill={skin} stroke={outline} strokeWidth="10"/>
+          <ellipse cx="300" cy="245" rx="151" ry="157" fill={skinTone} stroke={outline} strokeWidth="10"/>
 
           {/* Korean 7:3 side-part: lifted crown, deep side part, and a clear swept fringe. */}
           <path d="M151 239 Q137 190 158 145 Q180 99 232 80 Q282 60 331 77 Q385 67 424 108 Q455 142 451 192 Q449 220 438 239 Q431 214 414 199 Q396 183 375 178 Q356 174 338 181 Q315 192 294 207 Q270 224 246 230 Q220 237 198 222 Q180 211 166 224 Q158 232 151 239Z" fill={hairColor} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           {/* Larger 7-side: raised volume swept diagonally across the forehead. */}
-          <path d="M166 158 Q188 108 241 88 Q291 69 333 88 Q351 96 365 113 Q346 108 327 118 Q305 130 286 149 Q264 172 244 190 Q222 209 202 211 Q187 210 176 197 Q195 191 207 174 Q221 153 240 137 Q207 143 184 176 Q174 189 165 204 Q157 184 166 158Z" fill={red} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
+          <path d="M166 158 Q188 108 241 88 Q291 69 333 88 Q351 96 365 113 Q346 108 327 118 Q305 130 286 149 Q264 172 244 190 Q222 209 202 211 Q187 210 176 197 Q195 191 207 174 Q221 153 240 137 Q207 143 184 176 Q174 189 165 204 Q157 184 166 158Z" fill={hairColor} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
           {/* Smaller 3-side follows the right temple neatly. */}
-          <path d="M349 91 Q395 91 425 126 Q445 153 438 194 Q427 178 411 169 Q392 157 372 160 Q354 163 338 179 Q349 148 349 91Z" fill={red} stroke={outline} strokeWidth="6" strokeLinejoin="round"/>
+          <path d="M349 91 Q395 91 425 126 Q445 153 438 194 Q427 178 411 169 Q392 157 372 160 Q354 163 338 179 Q349 148 349 91Z" fill={hairColor} stroke={outline} strokeWidth="6" strokeLinejoin="round"/>
           {/* Defined part line and curved comb marks. */}
           <path d="M350 91 Q343 119 326 145" fill="none" stroke="#805D65" strokeWidth="8" strokeLinecap="round"/>
           <path d="M184 143 Q222 100 273 96 Q305 94 328 109 M193 166 Q220 143 250 128 M211 188 Q239 168 264 145 M374 111 Q405 124 420 151" fill="none" stroke="#D8AAB2" strokeWidth="7" strokeLinecap="round"/>
