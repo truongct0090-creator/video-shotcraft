@@ -118,12 +118,12 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const referencePhoto=scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null;
  // Match the original ChibiDemo entrance: spring up from below, then a small settling bounce.
  const entrance=spring({frame,fps,config:{damping:12,stiffness:95}});
- const bounce=frame>0?Math.sin((frame/12)*Math.PI*2)*9:0;
+ const bounce=frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
  const entranceY=(1-entrance)*210-bounce;
  const entranceScale=interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const facing='right';
- const characterPosition:React.CSSProperties={left:500,bottom:105};
- const gesture:BoyGesture='point-right';
+ const facing=referencePhoto?'right':'left';
+ const characterPosition:React.CSSProperties=referencePhoto?{left:650,bottom:105}:{right:95,bottom:105};
+ const gesture:BoyGesture=referencePhoto?'point-right':'point-left';
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
