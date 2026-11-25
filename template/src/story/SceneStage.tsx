@@ -8,6 +8,7 @@ import {SceneSupportingCast} from './SceneSupportingCast';
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
   audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
+  stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; cardTitle?:string;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';
@@ -115,27 +116,28 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
- const referencePhoto=scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null;
+ const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
+ const referencePhoto=scene.photo || (!whiteStage ? (scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null) : null);
  // Match the original ChibiDemo entrance: spring up from below, then a small settling bounce.
  const entrance=spring({frame,fps,config:{damping:12,stiffness:95}});
  const bounce=frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
  const entranceY=(1-entrance)*210-bounce;
  const entranceScale=interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const facing=referencePhoto?'right':'left';
- const characterPosition:React.CSSProperties=referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:{right:95,bottom:105};
+ const facing=whiteStage?'right':referencePhoto?'right':'left';
+ const characterPosition:React.CSSProperties=whiteStage?{left:55,bottom:55}:referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:{right:95,bottom:105};
  // The arm is mirrored with the character: map the screen-side target to the local SVG arm.
  const gesture:BoyGesture='point-right'; // Right-side MainBoy is mirrored to point left; left-side MainBoy points right.
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
 
- return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
-  <div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div>
-  <SceneObjects scene={scene}/>
-  <SceneAssetLayer scene={scene}/>
-  {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3||scene.number===10?520:680,height:scene.number===3||scene.number===10?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
-  <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
-  <SceneSupportingCast scene={scene}/>
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+entranceScale+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+ return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
+  {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></> : null}
+  {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
+  {whiteStage && scene.cardTitle ? <div style={{position:'absolute',right:95,top:referencePhoto?770:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
+  {whiteStage && scene.photoCaption ? <div style={{position:'absolute',right:105,top:referencePhoto?735:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'0 2px 5px rgba(0,0,0,.12)'}}>{scene.photoCaption}</div> : null}
+  <div style={{position:'absolute',left:whiteStage?'5%':'10%',right:whiteStage?'5%':'10%',bottom:whiteStage?28:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:whiteStage?'10px 18px':'18px 30px',boxSizing:'border-box',background:whiteStage?'transparent':'rgba(16,20,24,.72)',borderRadius:18,color:whiteStage?'#252525':'#fffaf0',fontSize:whiteStage?29:34,lineHeight:1.35,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:whiteStage?'0 1px 0 #fff,0 3px 7px rgba(0,0,0,.22)':'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
+  {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+entranceScale+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
