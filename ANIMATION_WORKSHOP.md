@@ -26,7 +26,7 @@ Không tạo lại thứ repo đã có. Mỗi cảnh phải đi qua thứ tự:
 | Story animatic | `template/src/story/StoryAnimatic.tsx` | Bản xem trước kịch bản và nhịp cảnh |
 | Illustrated film | `template/src/story/IllustratedStoryFilm.tsx`, `SceneStage.tsx` | Dựng phim minh họa 1920×1080/30fps; 9 sân khấu nền; đạo cụ vector riêng theo từng cảnh; MainBoy có biểu cảm/cử chỉ và kiểu thập thò từ 5 vị trí; ảnh tư liệu có nguồn cho cảnh lịch sử phù hợp; phụ đề lời dẫn; chuyển cảnh iris/wipe/whip và SFX |
 
-**Giới hạn thư viện hiện tại:** repo có thư viện motion phong phú và một nhân vật chibi mẫu, nhưng chưa có thư viện hoàn chỉnh gồm nhân vật phụ, rig nhiều góc, bối cảnh lịch sử/đời sống Việt Nam, đạo cụ theo thời kỳ, khẩu hình tiếng Việt đồng bộ âm vị, giọng đọc tiếng Việt và phụ đề được căn thời gian. Hai ảnh tư liệu công cộng có kiểm tra nguồn được dùng ở cảnh bản đồ Cochinchina và Khám Lớn; đây không phải thư viện tư liệu lịch sử đầy đủ. Không được quảng bá các phần này là đã hoàn thiện.
+**Giới hạn thư viện hiện tại:** repo có thư viện motion phong phú và một nhân vật chibi mẫu, nhưng chưa có thư viện hoàn chỉnh gồm nhân vật phụ, rig nhiều góc, bối cảnh lịch sử/đời sống Việt Nam, đạo cụ theo thời kỳ, khẩu hình tiếng Việt đồng bộ âm vị, giọng đọc tiếng Việt và phụ đề được căn thời gian. Ba ảnh tư liệu công cộng có kiểm tra nguồn được dùng ở cảnh bản đồ Cochinchina, Khám Lớn và chân dung Nguyễn An Ninh; đây không phải thư viện tư liệu lịch sử đầy đủ. Không được quảng bá các phần này là đã hoàn thiện.
 
 ## Cấu trúc một dự án phim
 
