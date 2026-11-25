@@ -118,7 +118,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const seed=(scene.number*9301+49297)%233280;
  const peekIndex=seed%5;
  const peekScale=1.20+((seed*17)%11)/100;
- const peekPositions=[
+ const peekPositions:Array<{left?:number|string;right?:number|string;top?:number|string;bottom?:number|string;fromX:number;fromY:number;origin:string;gesture:BoyGesture}>=[
   {left:-125,top:300,fromX:-180,fromY:0,origin:'left center',gesture:'point-right' as BoyGesture},
   {left:-35,top:-55,fromX:-145,fromY:-95,origin:'left top',gesture:'rest' as BoyGesture},
   {left:'calc(50% - 240px)',bottom:-185,fromX:0,fromY:190,origin:'center bottom',gesture:'rest' as BoyGesture},
@@ -142,6 +142,6 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   <SceneObjects scene={scene}/>
   {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3?520:680,height:scene.number===3?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',...peek,width:480,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+peekScale+')'}}><div style={{width:480,height:640}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',left:peek.left,right:peek.right,top:peek.top,bottom:peek.bottom,width:480,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+peekScale+')'}}><div style={{width:480,height:640}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
