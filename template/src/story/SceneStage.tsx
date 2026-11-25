@@ -79,7 +79,7 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /dòng thời gian/.test(propText)?'timeline':
   /cánh cửa mở/.test(propText)?'open-door':'generic';
  const label=(_x:number,_y:number,_value:string,_color='#594b3a')=>null;
- const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/>;
+ const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><g><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/><rect x={x+9} y={y+9} width={w-18} height={h-18} rx="6" fill="none" stroke="#fff6df" strokeOpacity=".38" strokeWidth="4"/><path d={`M${x+18} ${y+17}H${x+w-18}`} stroke="#fff8e9" strokeOpacity=".28" strokeWidth="4" strokeLinecap="round"/><path d={`M${x+18} ${y+h-15}H${x+w-18}`} stroke="#3f3024" strokeOpacity=".16" strokeWidth="3" strokeLinecap="round"/></g>;
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="170%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/><feOffset in="blur" dx="0" dy="22" result="offset"/><feComponentTransfer in="offset" result="shadow"><feFuncA type="linear" slope="0.42"/></feComponentTransfer><feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
   <g filter="url(#story-prop-depth)">
