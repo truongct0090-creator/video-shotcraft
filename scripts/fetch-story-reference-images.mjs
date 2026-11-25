@@ -18,6 +18,13 @@ const assets = [
     sha1: null,
   },
   {
+    file: 'nguyen-an-ninh-1929.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Portrait_of_Nguy%E1%BB%85n_An_Ninh.jpg',
+    minBytes: 50_000,
+    maxBytes: 500_000,
+    sha1: null,
+  },
+  {
     file: 'saigon-maison-centrale.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Saigon._Maison_Centrale.jpg',
     minBytes: 50_000,
