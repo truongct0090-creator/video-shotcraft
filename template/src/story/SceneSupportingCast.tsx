@@ -4,12 +4,15 @@ import {MainBoy} from '../chibi/MainBoy';
 type SceneCastData = {setting:string;action:string;heading:string;props?:string;character?:string;world?:string};
 
 const sceneKind = (scene:SceneCastData) => {
-  const text=[scene.setting,scene.action,scene.heading,scene.props,scene.world].join(' ').toLowerCase();
-  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường/.test(text)) return 'meeting';
-  if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return 'teahouse';
-  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return 'countryside';
-  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return 'printing';
-  if (/cộng đồng|sinh hoạt|gia đình|nhóm|thành viên/.test(text)) return 'community';
+  // Cast is triggered by what happens in this shot, not merely by a persistent setting label.
+  const shot=[scene.action,scene.heading,scene.props].join(' ').toLowerCase();
+  const world=(scene.world||'').toLowerCase();
+  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường/.test(shot) ||
+      (world==='meeting' && /ngồi quanh bàn|người tham dự|các thành viên|thảo luận|họp mặt|đang họp/.test(shot))) return 'meeting';
+  if (/quán trà|ấm trà|chén trà|rót trà|ngồi uống trà|tiếp khách/.test(shot)) return 'teahouse';
+  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế|thu thuế|làm ruộng/.test(shot)) return 'countryside';
+  if (/xưởng in|máy in|tiệm sách|nhà in|thợ in|in ấn/.test(shot)) return 'printing';
+  if (/đám đông|buổi sinh hoạt cộng đồng|các gia đình|nhóm thành viên|nhiều thành viên/.test(shot)) return 'community';
   return 'general';
 };
 
