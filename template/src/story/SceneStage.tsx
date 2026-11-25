@@ -122,7 +122,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const entranceY=(1-entrance)*210-bounce;
  const entranceScale=interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const facing=referencePhoto?'right':'left';
- const characterPosition:React.CSSProperties=referencePhoto?{left:650,bottom:105}:{right:95,bottom:105};
+ const characterPosition:React.CSSProperties=referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:250,bottom:105}:{right:95,bottom:105};
  const gesture:BoyGesture=referencePhoto?'point-right':'point-left';
 
  const mouthFrames=scene.mouthFrames||[];
