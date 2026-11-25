@@ -17,7 +17,7 @@ const sceneKind = (scene:SceneCastData) => {
 
 const character = (key:string,x:number,bottom:number,width=165) => (
   <div key={key} style={{position:'absolute',left:x,bottom,width,height:250,zIndex:5,pointerEvents:'none',filter:'drop-shadow(0 9px 11px rgba(0,0,0,.2))'}}>
-    <ChibiSupportingCharacter facing={key.endsWith('L')?'left':'right'}/>
+    <ChibiSupportingCharacter facing={key.endsWith('L')?'left':'right'} variant={key}/>
   </div>
 );
 
