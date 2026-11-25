@@ -130,7 +130,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
- const referencePhoto=scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null;
+
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   <div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div>
   <SceneObjects scene={scene}/>
