@@ -116,28 +116,17 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
  const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
  const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
- // Stable pseudo-random choice per scene: reproducible renders, varied entrances.
- const seed=(scene.number*9301+49297)%233280;
- const peekIndex=seed%5;
- const peekScale=1.20+((seed*17)%11)/100;
- const peekPositions:Array<{left?:number|string;right?:number|string;top?:number|string;bottom?:number|string;fromX:number;fromY:number;origin:string;gesture:BoyGesture}>=[
-  {left:-105,top:300,fromX:-155,fromY:0,origin:'left center',gesture:'point-right' as BoyGesture},
-  {left:-35,top:-55,fromX:-125,fromY:-85,origin:'left top',gesture:'rest' as BoyGesture},
-  {left:'calc(50% - 195px)',bottom:-185,fromX:0,fromY:165,origin:'center bottom',gesture:'rest' as BoyGesture},
-  {right:-35,top:-55,fromX:125,fromY:-85,origin:'right top',gesture:'rest' as BoyGesture},
-  {right:-105,top:300,fromX:155,fromY:0,origin:'right center',gesture:'point-left' as BoyGesture},
- ];
- const peek=peekPositions[peekIndex] ?? peekPositions[0];
- // Adapted from the repo's card-stack spring (damping 13 / stiffness 150): quick edge entry with one controlled overshoot.
- const entrance=spring({frame,fps,config:{damping:13,stiffness:150}});
- const entranceX=interpolate(entrance,[0,1],[peek.fromX,0]);
- const entranceY=interpolate(entrance,[0,1],[peek.fromY,0]);
- const entranceScale=interpolate(entrance,[0,1],[peekScale*0.92,peekScale]);
+ // Full-body staging: stable scale, complete silhouette and inward-facing eyeline.
+ const referencePhoto=scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null;
+ const characterSide:'left'|'right'=referencePhoto?'left':scene.number%2===0?'left':'right';
+ const facing=characterSide==='left'?'right':'left';
+ const entrance=spring({frame,fps,config:{damping:18,stiffness:120}});
+ const entranceX=interpolate(entrance,[0,1],[characterSide==='left'?-26:26,0]);
  const entranceOpacity=interpolate(entrance,[0,1],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88
-  ? (peekIndex===0?'point-right':peekIndex===4?'point-left':'point-right')
-  : peek.gesture;
+  ? (facing==='right'?'point-right':'point-left')
+  : 'rest';
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
@@ -148,6 +137,6 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   <SceneAssetLayer scene={scene}/>
   {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3||scene.number===10?520:680,height:scene.number===3||scene.number===10?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
-  {scene.character !== 'none' ? <div style={{position:'absolute',left:peek.left,right:peek.right,top:peek.top,bottom:peek.bottom,width:390,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+entranceScale+')'}}><div style={{width:390,height:520}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',left:characterSide==='left'?96:undefined,right:characterSide==='right'?96:undefined,bottom:170,width:270,height:360,overflow:'visible',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 18px 20px rgba(0,0,0,.34))',opacity:entranceOpacity,transform:'translateX('+entranceX+'px)'}}><div style={{width:270,height:360}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
