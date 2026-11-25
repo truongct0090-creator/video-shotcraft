@@ -94,6 +94,7 @@ jobs:
           data = json.load(open('/tmp/story-props.json', encoding='utf-8'))
           scenes = data.get('scenes', [])
           assert len(scenes) == 32, f'expected 32 scenes, got {len(scenes)}'
+          assert any(s.get('world') in {'meeting', 'teahouse', 'countryside', 'printing', 'community'} for s in scenes), 'full script has no supporting-cast sample scene'
           missing = [s.get('number') for s in scenes if not s.get('props')]
           assert not missing, f'missing scene props: {missing}'
           print(f'validated {len(scenes)} scenes with explicit visual props')
@@ -251,8 +252,17 @@ jobs:
           key: story-reference-images-v2
       - name: Fetch allow-listed archival references
         run: node scripts/fetch-story-reference-images.mjs
-      - name: Parse first 10 scenes
-        run: node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode=test --output=template/out/story-props.json
+      - name: Parse opening scenes plus supporting-cast samples
+        run: |
+          node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode=test --output=template/out/story-props.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open('template/out/story-props.json', encoding='utf-8'))
+          scenes = data.get('scenes', [])
+          samples = [s for s in scenes if s.get('world') in {'meeting', 'teahouse', 'countryside', 'printing', 'community'}]
+          assert samples, 'smoke test must include at least one supporting-cast scene'
+          print('supporting-cast samples:', ', '.join(str(s['number']) for s in samples))
+          PY
       - name: Render illustrated film smoke test
         working-directory: template
         run: |
