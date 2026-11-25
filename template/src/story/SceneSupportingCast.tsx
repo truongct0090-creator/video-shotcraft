@@ -1,10 +1,9 @@
 import React from 'react';
-import {MainBoy} from '../chibi/MainBoy';
+import {ChibiSupportingCharacter} from '../chibi/ChibiSupportingCharacter';
 
 type SceneCastData = {setting:string;action:string;heading:string;props?:string;character?:string;world?:string};
 
 const sceneKind = (scene:SceneCastData) => {
-  // Cast is triggered by what happens in this shot, not merely by a persistent setting label.
   const shot=[scene.action,scene.heading,scene.props].join(' ').toLowerCase();
   const world=(scene.world||'').toLowerCase();
   if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường/.test(shot) ||
@@ -16,54 +15,27 @@ const sceneKind = (scene:SceneCastData) => {
   return 'general';
 };
 
-const silhouette = (key:string, x:number, bottom:number, hair:'short'|'long', seated=false, dress=false, width=165) => (
-  <div key={key} style={{position:'absolute',left:x,bottom,width,height:seated?220:250,zIndex:5,pointerEvents:'none',filter:'drop-shadow(0 9px 11px rgba(0,0,0,.25))'}}>
-    <MainBoy facing={key.endsWith('L')?'left':'right'} silhouette silhouetteHair={hair} silhouetteDress={dress} silhouettePose={seated?'seated':'standing'} expression="neutral" mouth="closed" gesture="rest"/>
+const character = (key:string,x:number,bottom:number,width=165) => (
+  <div key={key} style={{position:'absolute',left:x,bottom,width,height:250,zIndex:5,pointerEvents:'none',filter:'drop-shadow(0 9px 11px rgba(0,0,0,.2))'}}>
+    <ChibiSupportingCharacter facing={key.endsWith('L')?'left':'right'}/>
   </div>
 );
 
 export const SceneSupportingCast:React.FC<{scene:SceneCastData}> = ({scene}) => {
   if (scene.character === 'none') return null;
   const kind=sceneKind(scene);
-  if (kind==='meeting') {
-    return (
-      <>
-        <div style={{position:'absolute',left:575,bottom:125,width:650,height:110,zIndex:6,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
-        {silhouette('meeting-aL',455,245,'short',true,false,165)}
-        {silhouette('meeting-bR',650,95,'long',true,true,165)}
-        {silhouette('meeting-cL',900,95,'short',true,false,165)}
-        {silhouette('meeting-dR',1110,245,'long',true,true,165)}
-      </>
-    );
-  }
-  if (kind==='teahouse') return (
+  if (kind==='meeting') return (
     <>
-      {silhouette('tea-aR',500,118,'short',false,false,175)}
-      {silhouette('tea-bL',690,118,'long',false,true,175)}
-      {silhouette('tea-cR',900,118,'short',false,false,175)}
+      <div style={{position:'absolute',left:575,bottom:125,width:650,height:110,zIndex:6,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
+      {character('meeting-aL',455,245,165)}
+      {character('meeting-bR',650,245,165)}
+      {character('meeting-cL',900,245,165)}
+      {character('meeting-dR',1110,245,165)}
     </>
   );
-  if (kind==='countryside') return (
-    <>
-      {silhouette('field-aR',470,112,'short',false,false,175)}
-      {silhouette('field-bL',665,112,'long',false,true,175)}
-      {silhouette('field-cR',860,112,'short',false,false,175)}
-    </>
-  );
-  if (kind==='printing') return (
-    <>
-      {silhouette('print-aR',450,112,'short',false,false,175)}
-      {silhouette('print-bL',645,112,'long',false,true,175)}
-      {silhouette('print-cR',840,112,'short',false,false,175)}
-    </>
-  );
-  if (kind==='community') return (
-    <>
-      {silhouette('community-aR',460,112,'short',false,false,175)}
-      {silhouette('community-bL',655,112,'long',false,true,175)}
-      {silhouette('community-cR',850,112,'short',false,false,175)}
-      {silhouette('community-dL',1045,112,'long',false,true,175)}
-    </>
-  );
+  if (kind==='teahouse') return <>{character('tea-aR',500,118,175)}{character('tea-bL',690,118,175)}{character('tea-cR',900,118,175)}</>;
+  if (kind==='countryside') return <>{character('field-aR',470,112,175)}{character('field-bL',665,112,175)}{character('field-cR',860,112,175)}</>;
+  if (kind==='printing') return <>{character('print-aR',450,112,175)}{character('print-bL',645,112,175)}{character('print-cR',840,112,175)}</>;
+  if (kind==='community') return <>{character('community-aR',460,112,175)}{character('community-bL',655,112,175)}{character('community-cR',850,112,175)}{character('community-dL',1045,112,175)}</>;
   return null;
 };
