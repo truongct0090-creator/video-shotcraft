@@ -12,6 +12,7 @@ export type MainBoyProps = {
   blink?: boolean;
   speaking?: boolean;
   speakingLevel?: number;
+  facing?: 'left' | 'right' | 'front';
 };
 
 const skin = '#F7D5C8';
@@ -26,6 +27,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   blink = false,
   speaking = false,
   speakingLevel,
+  facing = 'front',
 }) => {
   const frame = useCurrentFrame();
   const mouthShape = speakingLevel !== undefined
@@ -48,6 +50,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
 
   return (
     <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc hồng đất kiểu Hàn Quốc rẽ ngôi 7/3, áo polo hồng đất, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
+      <g transform={facing === 'left' ? 'translate(600 0) scale(-1 1)' : undefined}>
       <g transform={`translate(0 ${idleBob})`}>
         <ellipse cx="300" cy="758" rx="145" ry="18" fill="#6E8D78" opacity=".16" />
 
@@ -125,6 +128,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           {mouthShape === 'wide' && <path d="M270 325 Q300 380 330 325 Q300 350 270 325Z" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
           {mouthShape === 'small-o' && <ellipse cx="300" cy="337" rx="13" ry="17" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
         </g>
+      </g>
       </g>
     </svg>
   );
