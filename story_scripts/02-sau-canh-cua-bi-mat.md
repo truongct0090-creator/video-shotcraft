@@ -126,7 +126,17 @@
 
 ## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
 
-### 12. Từ một địa điểm thành tâm điểm mạng xã hội
+### 13. Thẻ chương – Tịnh thất Bồng Lai
+**Bối cảnh:** Nền trắng; MainBoy bên trái, ảnh địa điểm được cấp quyền sử dụng bên phải khi có nguồn phù hợp.
+**Hành động:** MainBoy chỉ vào tên chương; không dùng ảnh người không liên quan.
+**Đạo cụ:** Thẻ tiêu đề; ảnh địa điểm chỉ được bổ sung sau khi xác minh quyền sử dụng.
+**Lời dẫn:** Chương thứ hai là câu chuyện về Tịnh thất Bồng Lai, còn được gọi là Thiền am bên bờ vũ trụ.
+**Âm thanh/Chữ:** Tên chương cỡ lớn.
+**Sân khấu:** white-title
+**Tiêu đề ảnh:** CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
+**Nhân vật:** main-boy
+
+### 13. Từ một địa điểm thành tâm điểm mạng xã hội
 **Bối cảnh:** Hình ảnh địa điểm được xác minh, chuyển sang giao diện mạng xã hội cách điệu.
 **Hành động:** MainBoy nhìn các đoạn video xuất hiện liên tiếp, rồi dừng hình và kéo tập hồ sơ ra.
 **Đạo cụ:** Ảnh địa điểm, điện thoại, màn hình video cách điệu, hồ sơ.
@@ -135,7 +145,7 @@
 **Loại cảnh:** modern
 **Nhân vật:** main-boy
 
-### 13. Điều gì đã được tòa án xét xử?
+### 14. Điều gì đã được tòa án xét xử?
 **Bối cảnh:** Phòng hồ sơ pháp lý, ánh sáng tập trung vào tài liệu và mốc thời gian.
 **Hành động:** MainBoy mở hồ sơ, tách thông tin đã xét xử khỏi cáo buộc trên mạng.
 **Đạo cụ:** Hồ sơ vụ án, lịch thời gian, trang báo có nguồn.
@@ -144,7 +154,7 @@
 **Loại cảnh:** archive
 **Nhân vật:** main-boy
 
-### 14. Bài học phía sau một vụ việc ồn ào
+### 15. Bài học phía sau một vụ việc ồn ào
 **Bối cảnh:** Bảng ghim có hai cột “Đã xác nhận” và “Chưa đủ căn cứ”.
 **Hành động:** MainBoy đặt từng tờ giấy vào đúng cột.
 **Đạo cụ:** Bảng ghim, giấy ghi chú, hồ sơ.
@@ -155,7 +165,7 @@
 
 ## CHƯƠNG 3 – THIÊN TRIỀU ÂM PHỦ / ĐỨC CHÚA TRỜI BỐN PHƯƠNG
 
-### 15. Thẻ chương – Thiên Triều Âm Phủ
+### 16. Thẻ chương – Thiên Triều Âm Phủ
 **Bối cảnh:** Nền trắng; ảnh minh họa nhóm người châu Á bên phải, MainBoy bên trái.
 **Hành động:** MainBoy chỉ vào ảnh và tên chương.
 **Đạo cụ:** Ảnh nhóm người châu Á không logo, thẻ tiêu đề và nhãn “Ảnh minh họa”.
@@ -167,7 +177,7 @@
 **Tiêu đề ảnh:** CHƯƠNG 3 – THIÊN TRIỀU ÂM PHỦ
 **Nhân vật:** main-boy
 
-### 16. Một cái tên, nhưng hồ sơ ở đâu?
+### 17. Một cái tên, nhưng hồ sơ ở đâu?
 **Bối cảnh:** Bàn điều tra, ảnh nhóm người châu Á chỉ đóng vai trò minh họa.
 **Hành động:** MainBoy dùng kính lúp xem tài liệu, không tìm thấy nguồn xác thực độc lập.
 **Đạo cụ:** Ảnh minh họa, hồ sơ, kính lúp.
@@ -176,7 +186,7 @@
 **Loại cảnh:** investigation
 **Nhân vật:** main-boy
 
-### 17. Không lấy ảnh minh họa làm bằng chứng
+### 18. Không lấy ảnh minh họa làm bằng chứng
 **Bối cảnh:** Bảng kiểm chứng thông tin; ảnh nhóm châu Á có nhãn minh họa.
 **Hành động:** MainBoy đóng dấu “ẢNH MINH HỌA”, gạt sang bên các mẩu tin không rõ nguồn.
 **Đạo cụ:** Ảnh nhóm châu Á, con dấu, bảng kiểm chứng.
@@ -187,7 +197,7 @@
 
 ## CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
 
-### 18. Thẻ chương – Nhóm Trừ Quỷ Bảo Lộc
+### 19. Thẻ chương – Nhóm Trừ Quỷ Bảo Lộc
 **Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu chính thức hoặc địa điểm có nguồn bên phải.
 **Hành động:** MainBoy chỉ vào ảnh và tên chương.
 **Đạo cụ:** Ảnh tư liệu đã xác minh, thẻ tiêu đề.
@@ -197,7 +207,7 @@
 **Tiêu đề ảnh:** CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
 **Nhân vật:** main-boy
 
-### 19. Khi một tuyên bố khiến cả giáo hội phải lên tiếng
+### 20. Khi một tuyên bố khiến cả giáo hội phải lên tiếng
 **Bối cảnh:** Văn bản thông cáo chính thức, chuyển sang bàn hồ sơ.
 **Hành động:** MainBoy mở văn bản, đọc dòng tiêu đề rồi ngẩng lên nhìn khán giả.
 **Đạo cụ:** Bản thông cáo ngày 30/05/2022, bàn đọc tài liệu.
@@ -206,7 +216,7 @@
 **Loại cảnh:** archive
 **Nhân vật:** main-boy
 
-### 20. Ranh giới giữa đức tin và thẩm quyền
+### 21. Ranh giới giữa đức tin và thẩm quyền
 **Bối cảnh:** Bàn làm việc với thông cáo và tài liệu giáo lý.
 **Hành động:** MainBoy chỉ vào các đoạn trong văn bản, đặt dấu hỏi bên cạnh.
 **Đạo cụ:** Thông cáo, sách giáo lý, bút đánh dấu.
@@ -215,7 +225,7 @@
 **Loại cảnh:** investigation
 **Nhân vật:** main-boy
 
-### 21. Đừng đánh đồng một nhóm với cả cộng đồng
+### 22. Đừng đánh đồng một nhóm với cả cộng đồng
 **Bối cảnh:** Khung hình chia đôi: văn bản thông cáo và hình ảnh sinh hoạt Công giáo thông thường.
 **Hành động:** MainBoy kéo hai khung hình tách xa nhau.
 **Đạo cụ:** Văn bản thông cáo, ảnh sinh hoạt tôn giáo có nguồn.
@@ -226,7 +236,7 @@
 
 ## CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
 
-### 22. Thẻ chương – Thanh Hải Vô Thượng Sư
+### 23. Thẻ chương – Thanh Hải Vô Thượng Sư
 **Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu có nguồn về nhân vật bên phải.
 **Hành động:** MainBoy chỉ vào ảnh và tên chương.
 **Đạo cụ:** Ảnh tư liệu được xác minh, thẻ tiêu đề.
@@ -238,7 +248,7 @@
 **Tiêu đề ảnh:** CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
 **Nhân vật:** main-boy
 
-### 23. Một nhân vật, một hệ thống hoạt động quốc tế
+### 24. Một nhân vật, một hệ thống hoạt động quốc tế
 **Bối cảnh:** Bản đồ châu Á, mốc Đài Loan năm 1989, sau đó là ảnh tư liệu có nguồn.
 **Hành động:** MainBoy chỉ vào bản đồ và mốc thời gian.
 **Đạo cụ:** Bản đồ, ảnh tư liệu, dòng thời gian.
@@ -247,7 +257,7 @@
 **Loại cảnh:** map
 **Nhân vật:** main-boy
 
-### 24. Từ thiền định, ăn chay đến những cảnh báo
+### 25. Từ thiền định, ăn chay đến những cảnh báo
 **Bối cảnh:** Hình ảnh hoạt động công khai có nguồn, chuyển sang bàn hồ sơ báo chí.
 **Hành động:** MainBoy quan sát ảnh, sau đó mở tập báo cáo có ghi nguồn.
 **Đạo cụ:** Ảnh hoạt động công khai, sách, tài liệu báo chí.
@@ -256,7 +266,7 @@
 **Loại cảnh:** archive
 **Nhân vật:** main-boy
 
-### 25. Câu hỏi quan trọng không nằm ở khẩu hiệu
+### 26. Câu hỏi quan trọng không nằm ở khẩu hiệu
 **Bối cảnh:** MainBoy trước bảng kiểm chứng gồm ba câu hỏi.
 **Hành động:** MainBoy lần lượt chỉ vào từng câu hỏi.
 **Đạo cụ:** Bảng kiểm chứng: “Ai chịu trách nhiệm?”, “Thông tin có minh bạch?”, “Người tham gia có quyền tự quyết?”.
@@ -267,7 +277,7 @@
 
 ## CHƯƠNG 6 – PHÁP LUÂN CÔNG
 
-### 26. Thẻ chương – Pháp Luân Công
+### 27. Thẻ chương – Pháp Luân Công
 **Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh người châu Á luyện tập có nguồn bên phải.
 **Hành động:** MainBoy chỉ vào ảnh và tên chương.
 **Đạo cụ:** Ảnh luyện tập có nguồn, thẻ tiêu đề.
@@ -279,7 +289,7 @@
 **Tiêu đề ảnh:** CHƯƠNG 6 – PHÁP LUÂN CÔNG
 **Nhân vật:** main-boy
 
-### 27. Một phương pháp luyện tập và những tranh luận tại Việt Nam
+### 28. Một phương pháp luyện tập và những tranh luận tại Việt Nam
 **Bối cảnh:** Công viên, người châu Á luyện các động tác chậm; chuyển sang bảng thông tin.
 **Hành động:** MainBoy quan sát, không chế giễu người tập.
 **Đạo cụ:** Ảnh luyện tập có nguồn, bảng thông tin.
@@ -288,7 +298,7 @@
 **Loại cảnh:** community
 **Nhân vật:** main-boy
 
-### 28. Vụ án Bình Dương năm 2019
+### 29. Vụ án Bình Dương năm 2019
 **Bối cảnh:** Bản đồ Bình Dương, chuyển sang hồ sơ vụ án và dòng thời gian. Không tái hiện thi thể hay cảnh bạo lực trực diện.
 **Hành động:** MainBoy mở hồ sơ, đặt mốc năm 2019, chỉ vào thông tin đã được báo chí đưa tin.
 **Đạo cụ:** Bản đồ Bình Dương, hồ sơ vụ án.
@@ -297,7 +307,7 @@
 **Loại cảnh:** investigation
 **Nhân vật:** main-boy
 
-### 29. Đừng để một vụ án trở thành cái cớ để đánh đồng
+### 30. Đừng để một vụ án trở thành cái cớ để đánh đồng
 **Bối cảnh:** Bảng phân loại “Hành vi cá nhân” và “Cộng đồng rộng hơn”.
 **Hành động:** MainBoy đặt hồ sơ vụ án vào đúng khung.
 **Đạo cụ:** Bảng phân loại, hồ sơ, bút đánh dấu.
@@ -308,7 +318,7 @@
 
 ## KẾT – ĐIỀU CẦN GIỮ LẠI SAU SÁU CÂU CHUYỆN
 
-### 30. Cánh cửa cuối cùng là quyền được đặt câu hỏi
+### 31. Cánh cửa cuối cùng là quyền được đặt câu hỏi
 **Bối cảnh:** Nền trắng trở lại. Sáu khung ảnh thu nhỏ xuất hiện phía sau MainBoy.
 **Hành động:** MainBoy lần lượt nhìn sáu ảnh, sau đó quay về phía khán giả.
 **Đạo cụ:** Sáu ảnh mở đầu, bảng ba câu hỏi.
@@ -317,7 +327,7 @@
 **Sân khấu:** white-intro
 **Nhân vật:** main-boy
 
-### 31. Lời chào của MainBoy
+### 32. Lời chào của MainBoy
 **Bối cảnh:** Nền trắng tối giản, MainBoy đứng giữa khung hình.
 **Hành động:** MainBoy chỉ nhẹ về phía khán giả, sau đó hạ tay.
 **Đạo cụ:** Không.
