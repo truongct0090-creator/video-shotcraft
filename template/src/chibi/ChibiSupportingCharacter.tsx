@@ -2,8 +2,6 @@ import React from 'react';
 
 type Outfit = {shirt:string; trousers:string; hair:string; shoes:string; trim:string};
 
-// Stable pseudo-random palette by character ID: the same render stays reproducible,
-// while people in one shot receive visibly different outfits.
 const OUTFITS: Outfit[] = [
   {shirt:'#79b9a7',trousers:'#78604c',hair:'#5b4945',shoes:'#f08d79',trim:'#b4dfd1'},
   {shirt:'#d98d72',trousers:'#52677d',hair:'#493b36',shoes:'#d8b46b',trim:'#f1b9a4'},
@@ -23,53 +21,37 @@ const outfitFor = (variant:string):Outfit => {
   return OUTFITS[hash%OUTFITS.length];
 };
 
-/**
- * Supporting character based on the repo's original ChibiDemo style.
- * Both arms, forearms and hands are drawn explicitly; outfit colors vary
- * deterministically by character ID and never affect MainBoy.
- */
+/** Supporting chibi with continuous outlined sleeves, forearms and round fingerless hands. */
 export const ChibiSupportingCharacter: React.FC<{
   facing?: 'left'|'right';
   scale?: number;
   variant?: string;
 }> = ({facing='right', scale=1, variant='supporting-a'}) => {
   const outfit=outfitFor(variant);
+  const ink='#111111';
+  const skin='#f5c9a8';
   return (
     <svg viewBox="-230 0 460 800" role="img" aria-label="Nhân vật phụ chibi theo mẫu gốc của repo" style={{width:'100%',height:'100%',overflow:'visible'}}>
       <g transform={`translate(0 790) scale(${scale}) ${facing==='left'?'scale(-1 1)':''}`}>
         <ellipse cx="0" cy="5" rx="150" ry="25" fill="#7f9b83" opacity=".18"/>
-
-        {/* Two complete arms behind the torso, with visible sleeves and forearms. */}
-        <path d="M-88 -342 Q-145 -302 -143 -238" fill="none" stroke="#111111" strokeWidth="42" strokeLinecap="round"/>
-        <path d="M88 -342 Q145 -302 143 -238" fill="none" stroke="#111111" strokeWidth="42" strokeLinecap="round"/>
-        <path d="M-88 -342 Q-145 -302 -143 -238" fill="none" stroke="#f5c9a8" strokeWidth="32" strokeLinecap="round"/>
-        <path d="M88 -342 Q145 -302 143 -238" fill="none" stroke="#f5c9a8" strokeWidth="32" strokeLinecap="round"/>
-        <path d="M-91 -340 Q-125 -320 -137 -285" fill="none" stroke="#111111" strokeWidth="48" strokeLinecap="round"/>
-        <path d="M91 -340 Q125 -320 137 -285" fill="none" stroke="#111111" strokeWidth="48" strokeLinecap="round"/>
-        <path d="M-91 -340 Q-125 -320 -137 -285" fill="none" stroke={outfit.shirt} strokeWidth="38" strokeLinecap="round"/>
-        <path d="M91 -340 Q125 -320 137 -285" fill="none" stroke={outfit.shirt} strokeWidth="38" strokeLinecap="round"/>
-
-        {/* Legs and shoes. */}
-        <path d="M-58 -160 Q-70 -88 -65 -34 M58 -160 Q70 -88 65 -34" fill="none" stroke="#111111" strokeWidth="42" strokeLinecap="round"/>
+        <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round"/>
+        <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round"/>
+        <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round"/>
+        <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round"/>
+        <path d="M-58 -160 Q-70 -88 -65 -34 M58 -160 Q70 -88 65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
         <path d="M-58 -160 Q-70 -88 -65 -34 M58 -160 Q70 -88 65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
-        <ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke="#111111" strokeWidth="8"/>
-        <ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke="#111111" strokeWidth="8"/>
-
-        {/* Torso. */}
-        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke="#111111" strokeWidth="9" strokeLinejoin="round"/>
+        <ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+        <ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
         <path d="M-48 -330 Q0 -300 48 -330" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round"/>
-
-        {/* Hands are layered in front so neither arm disappears behind the body. */}
-        <path d="M-143 -240 Q-160 -226 -155 -205" fill="none" stroke="#111111" strokeWidth="38" strokeLinecap="round"/>
-        <path d="M143 -240 Q160 -226 155 -205" fill="none" stroke="#111111" strokeWidth="38" strokeLinecap="round"/>
-        <path d="M-143 -240 Q-160 -226 -155 -205" fill="none" stroke="#f5c9a8" strokeWidth="28" strokeLinecap="round"/>
-        <path d="M143 -240 Q160 -226 155 -205" fill="none" stroke="#f5c9a8" strokeWidth="28" strokeLinecap="round"/>
-        <ellipse cx="-155" cy="-199" rx="24" ry="29" fill="#f5c9a8" stroke="#111111" strokeWidth="8"/>
-        <ellipse cx="155" cy="-199" rx="24" ry="29" fill="#f5c9a8" stroke="#111111" strokeWidth="8"/>
-
-        {/* Head and face. */}
-        <circle cx="0" cy="-500" r="190" fill="#f8d7bd" stroke="#111111" strokeWidth="10"/>
-        <path d="M-184 -535 Q-188 -700 -42 -690 Q35 -755 118 -675 Q206 -640 181 -520 Q140 -560 104 -555 Q70 -590 35 -558 Q-10 -600 -52 -558 Q-115 -590 -148 -535Z" fill={outfit.hair} stroke="#111111" strokeWidth="9" strokeLinejoin="round"/>
+        <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round"/>
+        <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={skin} strokeWidth="22" strokeLinecap="round"/>
+        <path d="M145 -276 Q157 -247 155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round"/>
+        <path d="M145 -276 Q157 -247 155 -220" fill="none" stroke={skin} strokeWidth="22" strokeLinecap="round"/>
+        <ellipse cx="-155" cy="-207" rx="24" ry="23" fill={skin} stroke={ink} strokeWidth="8"/>
+        <ellipse cx="155" cy="-207" rx="24" ry="23" fill={skin} stroke={ink} strokeWidth="8"/>
+        <circle cx="0" cy="-500" r="190" fill="#f8d7bd" stroke={ink} strokeWidth="10"/>
+        <path d="M-184 -535 Q-188 -700 -42 -690 Q35 -755 118 -675 Q206 -640 181 -520 Q140 -560 104 -555 Q70 -590 35 -558 Q-10 -600 -52 -558 Q-115 -590 -148 -535Z" fill={outfit.hair} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
         <path d="M-160 -545 Q-130 -605 -90 -570 M-35 -575 Q-5 -620 30 -575 M85 -570 Q120 -610 150 -555" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round" opacity=".55"/>
         <ellipse cx="-57" cy="-495" rx="17" ry="24" fill="#493d3a"/>
         <ellipse cx="57" cy="-495" rx="17" ry="24" fill="#493d3a"/>
