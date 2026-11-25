@@ -25,7 +25,7 @@ export const SceneSupportingCast:React.FC<{scene:SceneCastData}> = ({scene}) => 
   if (kind==='meeting') {
     return (
       <>
-        <div style={{position:'absolute',left:575,bottom:125,width:650,height:230,zIndex:3,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
+        <div style={{position:'absolute',left:575,bottom:125,width:650,height:110,zIndex:6,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
         {silhouette('meeting-aL',430,180,'short',true,false,165)}
         {silhouette('meeting-bR',610,180,'long',true,true,165)}
         {silhouette('meeting-cL',930,180,'short',true,false,165)}
