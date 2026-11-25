@@ -126,7 +126,7 @@
 
 ## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
 
-### 13. Thẻ chương – Tịnh thất Bồng Lai
+### 12. Thẻ chương – Tịnh thất Bồng Lai
 **Bối cảnh:** Nền trắng; MainBoy bên trái, ảnh địa điểm được cấp quyền sử dụng bên phải khi có nguồn phù hợp.
 **Hành động:** MainBoy chỉ vào tên chương; không dùng ảnh người không liên quan.
 **Đạo cụ:** Thẻ tiêu đề; ảnh địa điểm chỉ được bổ sung sau khi xác minh quyền sử dụng.
