@@ -115,35 +115,15 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
- const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
- const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
- // MainBoy peeks in from a frame corner; face stays upright and only the horizontal facing changes.
  const referencePhoto=scene.number===3?'reference/cochinchina-map.jpg':scene.number===7?'reference/saigon-maison-centrale.jpg':scene.number===10?'reference/nguyen-an-ninh-1929.jpg':null;
- const corners=['left','right','top-left','top-right','bottom-left','bottom-right'] as const;
- const entranceCorner=referencePhoto?'left':corners[(scene.number-1)%corners.length];
- const fromLeft=entranceCorner.includes('left');
- const facing=fromLeft?'right':'left';
- const entrance=spring({frame,fps,config:{damping:18,stiffness:120}});
- const startX=entranceCorner.includes('left')?-560:entranceCorner.includes('right')?560:0;
- const startY=entranceCorner.startsWith('top')?-620:entranceCorner.startsWith('bottom')?620:0;
- const entranceX=interpolate(entrance,[0,1],[startX,0]);
- const entranceY=interpolate(entrance,[0,1],[startY,0]);
- const entranceOpacity=interpolate(entrance,[0,1],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const characterPosition:React.CSSProperties=entranceCorner==='left'
-  ? {left:-160,bottom:140}
-  : entranceCorner==='right'
-   ? {right:-160,bottom:140}
-   : entranceCorner==='top-left'
-    ? {left:-100,top:-170}
-    : entranceCorner==='top-right'
-     ? {right:-100,top:-170}
-     : entranceCorner==='bottom-left'
-      ? {left:-100,bottom:-290}
-      : {right:-100,bottom:-290};
- const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88
-  ? (facing==='right'?'point-right':'point-left')
-  : 'rest';
+ // Match the original ChibiDemo entrance: spring up from below, then a small settling bounce.
+ const entrance=spring({frame,fps,config:{damping:12,stiffness:95}});
+ const bounce=frame>0?Math.sin((frame/12)*Math.PI*2)*9:0;
+ const entranceY=(1-entrance)*210-bounce;
+ const entranceScale=interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const facing='right';
+ const characterPosition:React.CSSProperties={left:500,bottom:105};
+ const gesture:BoyGesture='point-right';
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
@@ -155,6 +135,6 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3||scene.number===10?520:680,height:scene.number===3||scene.number===10?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
   <SceneSupportingCast scene={scene}/>
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 18px 20px rgba(0,0,0,.34))',opacity:entranceOpacity,transform:'translate('+entranceX+'px,'+entranceY+'px)'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+entranceScale+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
