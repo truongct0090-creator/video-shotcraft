@@ -11,6 +11,27 @@ import {createHash} from 'node:crypto';
 const outputDir = path.resolve('template/public/reference');
 const assets = [
   {
+    file: 'church-of-god-singapore.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/World_Mission_Society_Church_of_God%2C_Singapore_%282025%29_-_img_01.jpg',
+    minBytes: 1_000_000,
+    maxBytes: 3_500_000,
+    sha1: 'be5d04c6ac94141ca0548c51ca0126052827532a',
+  },
+  {
+    file: 'ching-hai-sydney-1993.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/9/95/ChingHai_Sydney_in_1993.jpg',
+    minBytes: 30_000,
+    maxBytes: 100_000,
+    sha1: '8898ad06a2c0d7bbc5433710acc21c88429aaa66',
+  },
+  {
+    file: 'falun-gong-taiwan-2025.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Falun_Gong_practitioners_%2820250130%29.jpg',
+    minBytes: 1_000_000,
+    maxBytes: 7_000_000,
+    sha1: '9ac59d056fa748028a84c94497bb78a6afce4217',
+  },
+  {
     file: 'asian-group-meeting.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Meetup_of_Asian_Wikipedians.jpg',
     minBytes: 1_000_000,
