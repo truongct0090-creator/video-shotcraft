@@ -88,7 +88,7 @@ jobs:
 
       - name: Parse and validate all story scene props
         run: |
-          node scripts/parse-story.mjs --script=story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md --mode=full --output=/tmp/story-props.json
+          node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode=full --output=/tmp/story-props.json
           python3 - <<'PY'
           import json
           data = json.load(open('/tmp/story-props.json', encoding='utf-8'))
@@ -248,7 +248,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: template/public/reference
-          key: story-reference-images-v1
+          key: story-reference-images-v2
       - name: Fetch allow-listed archival references
         run: node scripts/fetch-story-reference-images.mjs
       - name: Parse first 10 scenes
