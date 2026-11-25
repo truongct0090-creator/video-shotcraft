@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Fetch only the two pre-reviewed, public-domain archival images used by the
+ * Fetch only the three pre-reviewed, public-domain archival images used by the
  * starter episode. URLs are fixed allow-listed Wikimedia Commons originals.
  * No user script or external input can choose an arbitrary download URL.
  */
