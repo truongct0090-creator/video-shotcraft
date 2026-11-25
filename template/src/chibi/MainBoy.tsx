@@ -21,6 +21,7 @@ export type MainBoyProps = {
   silhouette?: boolean;
   silhouetteHair?: 'short' | 'long';
   silhouetteDress?: boolean;
+  silhouettePose?: 'standing' | 'seated';
 };
 
 const outline = '#111111';
@@ -41,6 +42,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   silhouette = false,
   silhouetteHair = 'short',
   silhouetteDress = false,
+  silhouettePose = 'standing',
 }) => {
   const frame = useCurrentFrame();
   const skinTone = skinColor;
@@ -72,15 +74,36 @@ export const MainBoy: React.FC<MainBoyProps> = ({
       <svg viewBox="0 0 600 800" role="img" aria-label="Nhân vật phụ dạng bóng đen, tóc bạc" style={{width:'100%',height:'100%',overflow:'visible'}}>
         <g transform={facing === 'left' ? 'translate(600 0) scale(-1 1)' : undefined}>
           <ellipse cx="300" cy="758" rx="145" ry="18" fill="#000" opacity=".2"/>
+          {silhouettePose === 'seated' && <g fill="#393A3D" stroke="#08090B" strokeWidth="12" strokeLinejoin="round"><path d="M165 455Q300 410 435 455L420 600H180Z"/><path d="M190 580V745M410 580V745" fill="none" strokeWidth="24"/></g>}
           {silhouetteHair === 'long' && <path d="M148 210Q130 100 220 66Q300 35 380 70Q465 110 452 225L445 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>}
-          <path d="M250 555Q245 625 245 690L290 690L296 555Z M304 555L310 690L355 690L350 555Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
-          <path d="M218 682Q255 670 288 686Q300 706 284 727H207Q192 718 204 699Z M312 686Q345 670 376 682L399 700Q410 717 394 727H316Q301 713 312 686Z" fill={inkBlack}/>
+          {silhouettePose === 'seated' ? (
+            <g>
+              <path d="M245 535Q230 590 190 625Q160 650 130 650L115 690Q190 730 260 675L315 600Z M355 535Q370 590 410 625Q440 650 470 650L485 690Q410 730 340 675L285 600Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
+              <path d="M115 650Q145 635 185 655L190 690Q150 715 105 695Z M485 650Q455 635 415 655L410 690Q450 715 495 695Z" fill={inkBlack}/>
+            </g>
+          ) : (
+            <g>
+              <path d="M250 555Q245 625 245 690L290 690L296 555Z M304 555L310 690L355 690L350 555Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
+              <path d="M218 682Q255 670 288 686Q300 706 284 727H207Q192 718 204 699Z M312 686Q345 670 376 682L399 700Q410 717 394 727H316Q301 713 312 686Z" fill={inkBlack}/>
+            </g>
+          )}
           {silhouetteDress
             ? <path d="M220 405Q247 382 276 382H324Q353 382 380 405L408 535L438 670Q300 710 162 670L192 535Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>
             : <path d="M220 405Q247 382 276 382H324Q353 382 380 405L408 535Q300 568 192 535Z" fill={inkBlack} stroke={inkBlack} strokeWidth="10" strokeLinejoin="round"/>}
           <path d="M273 357Q278 350 286 350H314Q322 350 327 357V425Q300 440 273 425Z" fill={inkBlack}/>
-          <g transform="rotate(18 222 420)"><path d="M222 420Q181 444 171 510" fill="none" stroke={inkBlack} strokeWidth="45" strokeLinecap="round"/><circle cx="169" cy="523" r="24" fill={inkBlack}/></g>
-          <g transform="rotate(-18 378 420)"><path d="M378 420Q419 445 429 510" fill="none" stroke={inkBlack} strokeWidth="46" strokeLinecap="round"/><circle cx="431" cy="523" r="24" fill={inkBlack}/></g>
+          {silhouettePose === 'seated' ? (
+            <g>
+              <path d="M222 420Q200 470 245 505L330 535" fill="none" stroke={inkBlack} strokeWidth="45" strokeLinecap="round"/>
+              <circle cx="340" cy="538" r="24" fill={inkBlack}/>
+              <path d="M378 420Q400 470 355 505L270 535" fill="none" stroke={inkBlack} strokeWidth="46" strokeLinecap="round"/>
+              <circle cx="260" cy="538" r="24" fill={inkBlack}/>
+            </g>
+          ) : (
+            <g>
+              <g transform="rotate(18 222 420)"><path d="M222 420Q181 444 171 510" fill="none" stroke={inkBlack} strokeWidth="45" strokeLinecap="round"/><circle cx="169" cy="523" r="24" fill={inkBlack}/></g>
+              <g transform="rotate(-18 378 420)"><path d="M378 420Q419 445 429 510" fill="none" stroke={inkBlack} strokeWidth="46" strokeLinecap="round"/><circle cx="431" cy="523" r="24" fill={inkBlack}/></g>
+            </g>
+          )}
           <ellipse cx="300" cy="245" rx="151" ry="157" fill={inkBlack} stroke={inkBlack} strokeWidth="10"/>
           {silhouetteHair === 'long'
             ? <path d="M151 239Q137 190 158 145Q180 99 232 80Q282 60 331 77Q385 67 424 108Q455 142 451 192Q449 220 438 239L440 430Q420 455 398 425L390 285H210L202 430Q178 455 155 425L151 239Z" fill={inkBlack} stroke={inkBlack} strokeWidth="9" strokeLinejoin="round"/>
