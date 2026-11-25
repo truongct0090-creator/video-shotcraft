@@ -1,6 +1,7 @@
 import React from 'react';
 import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
+import {SceneAssetLayer} from './SceneAssetLayer';
 
 
 export type FilmSceneData = {
@@ -144,6 +145,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   <div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div>
   <SceneObjects scene={scene}/>
+  <SceneAssetLayer scene={scene}/>
   {referencePhoto ? <div style={{position:'absolute',right:150,top:140,width:scene.number===3||scene.number===10?520:680,height:scene.number===3||scene.number===10?700:470,padding:14,boxSizing:'border-box',background:'#eee5d3',border:'2px solid rgba(72,57,42,.72)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 24px 30px rgba(0,0,0,.48))',transform:'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   <div style={{position:'absolute',left:'10%',right:'10%',bottom:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:'18px 30px',boxSizing:'border-box',background:'rgba(16,20,24,.72)',borderRadius:18,color:'#fffaf0',fontSize:34,lineHeight:1.42,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
   {scene.character !== 'none' ? <div style={{position:'absolute',left:peek.left,right:peek.right,top:peek.top,bottom:peek.bottom,width:390,height:440,overflow:'hidden',zIndex:6,pointerEvents:'none',filter:'drop-shadow(0 22px 26px rgba(0,0,0,.46))',opacity:entranceOpacity,transformOrigin:peek.origin,transform:'translate('+entranceX+'px,'+entranceY+'px) scale('+entranceScale+')'}}><div style={{width:390,height:520}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
