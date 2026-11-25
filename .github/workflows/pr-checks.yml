@@ -223,3 +223,39 @@ jobs:
           # template dependencies resolvable from those source directories.
           ln -s template/node_modules node_modules
           python3 assets/scripts/smoke-render-demos.py
+
+  story-visual-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: template/package-lock.json
+      - name: Install FFmpeg for rendered MP4 QA
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y ffmpeg
+          ffprobe -version
+      - name: Fetch allow-listed archival references
+        run: node scripts/fetch-story-reference-images.mjs
+      - name: Parse first 10 scenes
+        run: node scripts/parse-story.mjs --script=story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md --mode=test --output=template/out/story-props.json
+      - name: Render illustrated film smoke test
+        working-directory: template
+        run: |
+          npm ci
+          npx remotion render src/index.ts IllustratedStoryFilm out/story-film-smoke.mp4 --props=out/story-props.json --codec=h264 --concurrency=2
+      - name: Validate rendered film
+        run: node scripts/validate-rendered-film.mjs --file=template/out/story-film-smoke.mp4 --props=template/out/story-props.json --output=template/out/story-film-smoke-qa.json
+      - name: Upload smoke-test render
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-film-visual-smoke
+          path: |
+            template/out/story-film-smoke.mp4
+            template/out/story-film-smoke-qa.json
+          if-no-files-found: error
+          retention-days: 7
