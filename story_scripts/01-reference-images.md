@@ -12,5 +12,5 @@ Các ảnh này được tải từ bản gốc Wikimedia Commons trong lúc ch�
 
 - Ảnh chỉ được đặt cạnh hình minh họa vector có sẵn; không thay thế bối cảnh toàn cảnh hoặc khiến người xem hiểu nhầm ảnh được chụp đúng lúc sự kiện.
 - Chưa có ảnh chân dung Phan Xích Long đủ độ phân giải và đủ rõ về quyền sử dụng tại Việt Nam trong bộ tư liệu đã kiểm tra. Vì vậy cảnh 06 tiếp tục dùng chân dung **tái hiện bằng vector**, không dùng bản Commons có tình trạng quyền sử dụng không rõ.
-- Ảnh được tải bằng danh sách URL cố định, kiểm tra HTTP, MIME, chữ ký JPEG, giới hạn dung lượng; ảnh Khám Lớn còn được đối chiếu SHA-1 với metadata Commons.
+- Ảnh được tải bằng danh sách URL cố định, kiểm tra HTTP, MIME, chữ ký JPEG, giới hạn dung lượng; cả ba ảnh đều được đối chiếu SHA-1 với byte tải về; riêng ảnh Khám Lớn còn đối chiếu trực tiếp với metadata Commons.
 - Không tải ảnh người tham gia hoặc tín đồ đời thực trong phần hiện đại của tập phim.
