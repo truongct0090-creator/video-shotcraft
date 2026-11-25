@@ -15,14 +15,14 @@ const assets = [
     url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Map_of_Cochinchina.jpg',
     minBytes: 100_000,
     maxBytes: 8_000_000,
-    sha1: null,
+    sha1: '02bef102b1b985de60587303cb3a5de454b79392',
   },
   {
     file: 'nguyen-an-ninh-1929.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Portrait_of_Nguy%E1%BB%85n_An_Ninh.jpg',
     minBytes: 50_000,
     maxBytes: 500_000,
-    sha1: null,
+    sha1: 'fed1e0325860c2397aa93bf943195f61ba0ee170',
   },
   {
     file: 'saigon-maison-centrale.jpg',
