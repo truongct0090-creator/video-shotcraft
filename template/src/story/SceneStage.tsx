@@ -123,7 +123,8 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const entranceScale=interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const facing=referencePhoto?'right':'left';
  const characterPosition:React.CSSProperties=referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:{right:95,bottom:105};
- const gesture:BoyGesture=referencePhoto?'point-right':'point-left';
+ // The arm is mirrored with the character: map the screen-side target to the local SVG arm.
+ const gesture:BoyGesture=referencePhoto?'point-left':'point-right';
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
