@@ -3,15 +3,27 @@ import {ChibiSupportingCharacter} from '../chibi/ChibiSupportingCharacter';
 
 type SceneCastData = {setting:string;action:string;heading:string;props?:string;character?:string;world?:string};
 
-const sceneKind = (scene:SceneCastData) => {
-  const shot=[scene.action,scene.heading,scene.props].join(' ').toLowerCase();
+type CastKind = 'meeting'|'teahouse'|'countryside'|'printing'|'community'|'general';
+
+const WORLD_KIND:Record<string,CastKind> = {
+  meeting:'meeting',
+  teahouse:'teahouse',
+  countryside:'countryside',
+  printing:'printing',
+  community:'community',
+};
+
+const sceneKind = (scene:SceneCastData):CastKind => {
+  // Use the complete scene description: earlier versions ignored the setting,
+  // so a scene could explicitly describe a gathering yet render no supporting cast.
+  const text=[scene.setting,scene.action,scene.heading,scene.props].join(' ').toLowerCase();
   const world=(scene.world||'').toLowerCase();
-  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường/.test(shot) ||
-      (world==='meeting' && /ngồi quanh bàn|người tham dự|các thành viên|thảo luận|họp mặt|đang họp/.test(shot))) return 'meeting';
-  if (/quán trà|ấm trà|chén trà|rót trà|ngồi uống trà|tiếp khách/.test(shot)) return 'teahouse';
-  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế|thu thuế|làm ruộng/.test(shot)) return 'countryside';
-  if (/xưởng in|máy in|tiệm sách|nhà in|thợ in|in ấn/.test(shot)) return 'printing';
-  if (/đám đông|buổi sinh hoạt cộng đồng|các gia đình|nhóm thành viên|nhiều thành viên/.test(shot)) return 'community';
+  if (WORLD_KIND[world]) return WORLD_KIND[world];
+  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường|ngồi quanh bàn|người tham dự|các thành viên|thảo luận|họp mặt|đang họp/.test(text)) return 'meeting';
+  if (/quán trà|ấm trà|chén trà|rót trà|ngồi uống trà|tiếp khách/.test(text)) return 'teahouse';
+  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế|thu thuế|làm ruộng/.test(text)) return 'countryside';
+  if (/xưởng in|máy in|tiệm sách|nhà in|thợ in|in ấn/.test(text)) return 'printing';
+  if (/đám đông|buổi sinh hoạt cộng đồng|các gia đình|nhóm thành viên|nhiều thành viên|người châu á luyện|sinh hoạt tập thể/.test(text)) return 'community';
   return 'general';
 };
 
