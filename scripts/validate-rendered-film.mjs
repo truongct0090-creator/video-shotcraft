@@ -23,6 +23,10 @@ if(video.width!==1920||video.height!==1080) throw new Error('Expected 1920x1080,
 const [num,den]=String(video.avg_frame_rate).split('/').map(Number);
 const fps=den?num/den:num;
 if(Math.abs(fps-30)>0.01) throw new Error('Expected 30fps, got '+fps);
+const blackScan=spawnSync('ffmpeg',['-hide_banner','-i',file,'-vf','blackdetect=d=0.001:pix_th=0.10:pic_th=0.98','-an','-f','null','-'],{encoding:'utf8'});
+if(blackScan.error?.code==='ENOENT'||blackScan.status!==0) throw new Error('ffmpeg is required for black-frame validation.');
+const blackMatches=[...(blackScan.stderr??'').matchAll(/black_start:([0-9.]+) black_end:([0-9.]+) black_duration:([0-9.]+)/g)];
+if(blackMatches.length) throw new Error('Detected '+blackMatches.length+' full-black frame(s); first at '+blackMatches[0][1]+'s. Scene transitions must not expose blank frames.');
 const duration=Number(probe.format?.duration??0);
 const expected=Number(props.totalFrames??0)/30;
 if(!(duration>0)) throw new Error('MP4 duration is empty.');
