@@ -124,8 +124,8 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   {left:'calc(50% - 240px)',bottom:-185,fromX:0,fromY:190,origin:'center bottom',gesture:'rest' as BoyGesture},
   {right:-35,top:-55,fromX:145,fromY:-95,origin:'right top',gesture:'rest' as BoyGesture},
   {right:-125,top:300,fromX:180,fromY:0,origin:'right center',gesture:'point-left' as BoyGesture},
- ] as const;
- const peek=peekPositions[peekIndex];
+ ];
+ const peek=peekPositions[peekIndex] ?? peekPositions[0];
  const entranceX=interpolate(frame,[0,14,22],[peek.fromX,8,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const entranceY=interpolate(frame,[0,14,22],[peek.fromY,-5,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const entranceOpacity=interpolate(frame,[0,8,18],[0,0.85,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
