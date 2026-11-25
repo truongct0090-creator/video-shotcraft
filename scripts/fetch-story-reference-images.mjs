@@ -33,10 +33,10 @@ const assets = [
   },
   {
     file: 'asian-group-meeting.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Meetup_of_Asian_Wikipedians.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Group_Discussion_1.jpg',
     minBytes: 1_000_000,
-    maxBytes: 9_000_000,
-    sha1: 'e0aeeecd17d8dfa8d0b849fb3ffa54d535abcb67',
+    maxBytes: 3_000_000,
+    sha1: 'd941bc5b258469bc42d8a8300b7c4172b0a1d962',
   },
   {
     file: 'cochinchina-map.jpg',
