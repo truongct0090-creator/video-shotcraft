@@ -27,6 +27,10 @@ on:
       - 'package-lock.json'
       - '.github/workflows/pr-checks.yml'
 
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -239,6 +243,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y ffmpeg
           ffprobe -version
+      - name: Cache verified historical reference images
+        uses: actions/cache@v4
+        with:
+          path: template/public/reference
+          key: story-reference-images-v1
       - name: Fetch allow-listed archival references
         run: node scripts/fetch-story-reference-images.mjs
       - name: Parse first 10 scenes
