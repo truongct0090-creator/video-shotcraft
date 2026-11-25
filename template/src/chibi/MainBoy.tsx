@@ -16,8 +16,8 @@ export type MainBoyProps = {
 
 const skin = '#F7D5C8';
 const outline = '#59433F';
-const navy = '#183B63';
-const red = '#C9363B';
+const navy = '#B08088';
+const red = '#B08088';
 
 export const MainBoy: React.FC<MainBoyProps> = ({
   expression = 'happy',
@@ -47,7 +47,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
   };
 
   return (
-    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc đỏ kiểu Hàn Quốc rẽ ngôi 7/3, áo polo xanh than, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
+    <svg viewBox="0 0 600 800" role="img" aria-label="Bé trai chibi tóc hồng đất kiểu Hàn Quốc rẽ ngôi 7/3, áo polo hồng đất, quần sọt trắng và giày thể thao" style={{width: '100%', height: '100%', overflow: 'visible'}}>
       <g transform={`translate(0 ${idleBob})`}>
         <ellipse cx="300" cy="758" rx="145" ry="18" fill="#6E8D78" opacity=".16" />
 
