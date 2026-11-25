@@ -55,7 +55,7 @@ const Backdrop:React.FC<{world:World;frame:number}> = ({world}) => {
 };
 
 
-const SceneObjects:React.FC<{scene:FilmSceneData;frame:number}> = ({scene,frame}) => {
+const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
  const propText=(scene.props||[scene.setting,scene.action,scene.heading].join(' ')).toLowerCase();
  const visualKey=/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
@@ -121,11 +121,9 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
  const captionSource=scene.audio||'';
  const captionText=captionSource.match(/(?:chữ lớn|chữ trên màn hình|chữ|caption)\s*:\s*([^;]+)/i)?.[1]?.replace(/[“”"]/g,'').trim() || captionSource.match(/[“]([^”]{4,100})[”]/)?.[1] || scene.heading;
- const captionTop=/điện thoại|tin nhắn/i.test(scene.props||'')?'24%':/bản đồ|dòng thời gian/i.test(scene.props||'')?'19%':/phễu|checklist/i.test(scene.props||'')?'58%':'27%';
- const captionLeft=characterOnLeft?'58%':'32%';
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
-  <div style={{position:'absolute',inset:0}}><Backdrop world={world} frame={frame}/></div>
-  <SceneObjects scene={scene} frame={frame}/>
+  <div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div>
+  <SceneObjects scene={scene}/>
   <div style={{position:'absolute',left:'8%',right:'8%',top:24,maxWidth:1500,margin:'0 auto',padding:0,background:'transparent',border:0,borderRadius:0,color:'#fff8e9',fontSize:32,lineHeight:1.28,fontWeight:800,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',wordBreak:'normal',textShadow:'0 1px 0 #fff0cf, 0 2px 0 #c9a875, 0 3px 0 #9a744b, 0 5px 8px rgba(0,0,0,.72), 0 10px 18px rgba(0,0,0,.42)',opacity:interpolate(frame,[0,12],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{captionText}</div>
   {scene.character !== 'none' ? <div style={{position:'absolute',[characterOnLeft?'left':'right']:62,bottom:45,width:390,height:540,zIndex:3,filter:'drop-shadow(0 18px 20px rgba(0,0,0,.28))'}}><MainBoy expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div> : null}
  </div>;
