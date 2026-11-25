@@ -231,7 +231,7 @@
 **Đạo cụ:** Văn bản thông cáo, ảnh sinh hoạt tôn giáo có nguồn.
 **Lời dẫn:** Nhóm Trừ Quỷ Bảo Lộc không đại diện cho toàn thể người Công giáo. Khi một nhóm tự nhận có quyền năng đặc biệt, câu hỏi không phải là chúng ta có tin hay không. Câu hỏi là những tuyên bố đó có phù hợp với quy tắc, có được kiểm tra và có gây tổn hại cho người khác hay không.
 **Âm thanh/Chữ:** “KHÔNG ĐÁNH ĐỒNG MỘT NHÓM VỚI CẢ CỘNG ĐỒNG”.
-**Loại cảnh:** compare
+**Loại cảnh:** archive
 **Nhân vật:** main-boy
 
 ## CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
