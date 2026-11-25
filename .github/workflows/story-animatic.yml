@@ -5,10 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       script:
-        description: Markdown script inside story_scripts/
+        description: Select the story script to render
         required: true
+        type: choice
         default: story_scripts/02-sau-canh-cua-bi-mat.md
-        type: string
+        options:
+          - story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md
+          - story_scripts/02-sau-canh-cua-bi-mat.md
       mode:
         description: Render first 10 scenes or all scenes
         required: true
