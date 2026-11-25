@@ -5,6 +5,7 @@ name: PR checks
 # llms.txt) drifting from the shot cards, and library.json referencing preview
 # MP4s that don't exist on the gallery-media release.
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
