@@ -18,6 +18,7 @@ on:
       - 'assets/scripts/**'
       - 'scripts/validate-animation-workshop.mjs'
       - 'scripts/validate-rendered-film.mjs'
+      - 'scripts/fetch-story-reference-images.mjs'
       - 'scripts/qa-rendered-film.mjs'
       - 'story_scripts/**'
       - 'ANIMATION_WORKSHOP.md'
