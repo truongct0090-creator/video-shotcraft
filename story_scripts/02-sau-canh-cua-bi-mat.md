@@ -252,7 +252,7 @@
 **Bối cảnh:** Bản đồ châu Á, mốc Đài Loan năm 1989, sau đó là ảnh tư liệu có nguồn.
 **Hành động:** MainBoy chỉ vào bản đồ và mốc thời gian.
 **Đạo cụ:** Bản đồ, ảnh tư liệu, dòng thời gian.
-**Lời dẫn:** Thanh Hải Vô Thượng Sư, còn được gọi là Supreme Master Ching Hai, gắn với nhân vật Đặng Thị Trinh, sinh năm 1948 tại Quảng Ngãi. Theo thông tin được Công an thành phố Hải Phòng đăng tải năm 2022, tổ chức này được thành lập năm 1989 tại Đài Loan và du nhập vào Việt Nam khoảng năm 1990. Đó là hành trình hoạt động xuyên biên giới; muốn đánh giá cần nhìn vào tuyên bố, hoạt động thực tế và cách các cơ quan liên quan phản hồi.
+**Lời dẫn:** Thanh Hải Vô Thượng Sư, còn được gọi là Supreme Master Ching Hai, gắn với nhân vật Đặng Thị Trinh, pháp hiệu Thanh Hải. Một số nguồn công bố có khác biệt về thông tin tiểu sử, nên ở đây chúng ta không tự khẳng định năm sinh. Theo thông tin được Công an thành phố Hải Phòng đăng tải năm 2022, tổ chức này được thành lập năm 1989 tại Đài Loan và du nhập vào Việt Nam khoảng năm 1990. Đó là hành trình hoạt động xuyên biên giới; muốn đánh giá cần nhìn vào tuyên bố, hoạt động thực tế và cách các cơ quan liên quan phản hồi.
 **Âm thanh/Chữ:** “1989 – ĐÀI LOAN” và “KHOẢNG 1990 – VIỆT NAM”.
 **Loại cảnh:** map
 **Nhân vật:** main-boy
