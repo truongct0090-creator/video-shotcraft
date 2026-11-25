@@ -79,6 +79,8 @@ jobs:
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
+      - name: Download verified public-domain historical reference images
+        run: node scripts/fetch-story-reference-images.mjs
       - name: Inventory reusable assets and motion recipes
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md' }}
