@@ -98,8 +98,8 @@ const Cast: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
   const text = [scene.setting,scene.action,scene.heading].join(' ').toLowerCase();
   if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return <g><Figure x={430} y={600} scale={.82} coat="#6f7e75" skin="#d7a98e" hair="#3b3029" pose="talk" facing="right"/><Figure x={1510} y={590} scale={.82} coat="#9a6d4e" skin="#e2b99c" hair="#42352d" pose="listen" facing="left"/></g>;
   if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return <g><Figure x={400} y={610} scale={.92} coat="#71805a" skin="#b98262" hair="#302b25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.82} coat="#92734f" skin="#c99475" hair="#3b3029" pose="talk" facing="left"/></g>;
-  if (/phòng họp|sinh hoạt|cuộc họp|cộng đồng|hội trường/.test(text)) return <g><Figure x={390} y={610} scale={.8} coat="#71818a" skin="#d5a88d" hair="#3c302a" pose="listen" facing="right"/><Figure x={1510} y={610} scale={.8} coat="#9b755c" skin="#d7a98e" hair="#332b27" pose="talk"/></g>;
-  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return <g><Figure x={390} y={620} scale={.82} coat="#6d7b83" skin="#c99576" hair="#332a25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.78} coat="#a37a54" skin="#d7aa8f" hair="#43362e" pose="listen"/></g>;
+  if (/phòng họp|sinh hoạt|cuộc họp|cộng đồng|hội trường/.test(text)) return <g><Figure x={390} y={610} scale={.8} coat="#71818a" skin="#d5a88d" hair="#3c302a" pose="listen" facing="right"/><Figure x={1510} y={610} scale={.8} coat="#9b755c" skin="#d7a98e" hair="#332b27" pose="talk" facing="left"/></g>;
+  if (/xưởng in|máy in|tiệm sách|nhà in/.test(text)) return <g><Figure x={390} y={620} scale={.82} coat="#6d7b83" skin="#c99576" hair="#332a25" pose="work" facing="right"/><Figure x={1510} y={620} scale={.78} coat="#a37a54" skin="#d7aa8f" hair="#43362e" pose="listen" facing="left"/></g>;
   return null;
 };
 
