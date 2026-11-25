@@ -22,6 +22,8 @@
 **Lời dẫn:** Cánh cửa đầu tiên dẫn tới một tổ chức có nguồn gốc từ Hàn Quốc, với cái tên khiến nhiều người tò mò: Hội Thánh Đức Chúa Trời Mẹ. Tại Việt Nam, cái tên này từng xuất hiện dày đặc trên báo chí, trong những cuộc tranh luận về sinh hoạt tôn giáo và những phản ánh từ gia đình.
 **Âm thanh/Chữ:** Nhạc chuyển nhẹ.
 **Sân khấu:** white-photo
+**Ảnh tư liệu:** reference/church-of-god-singapore.jpg
+**Chú thích ảnh:** Ảnh trụ sở của tổ chức tại Singapore năm 2025; không phải điểm nhóm ở Việt Nam
 **Tiêu đề ảnh:** HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 **Nhân vật:** main-boy
 
@@ -64,6 +66,8 @@
 **Lời dẫn:** Cánh cửa thứ năm gắn với một nhân vật có ảnh hưởng quốc tế, các hoạt động thiền định, ăn chay và từ thiện, đồng thời cũng vướng những cảnh báo và tranh luận tại Việt Nam.
 **Âm thanh/Chữ:** Nhạc chuyển.
 **Sân khấu:** white-photo
+**Ảnh tư liệu:** reference/ching-hai-sydney-1993.jpg
+**Chú thích ảnh:** Ảnh tư liệu Thanh Hải tại Sydney năm 1993
 **Tiêu đề ảnh:** THANH HẢI VÔ THƯỢNG SƯ
 **Nhân vật:** main-boy
 
@@ -74,6 +78,8 @@
 **Lời dẫn:** Và cánh cửa cuối cùng là Pháp Luân Công. Một phương pháp tu luyện có người tập ở nhiều nơi, nhưng tại Việt Nam cũng từng bị nhắc đến trong những vụ việc nghiêm trọng. Điều quan trọng là phải phân biệt người luyện tập bình thường với hành vi phạm pháp của những cá nhân cụ thể. Sáu cái tên. Sáu bối cảnh khác nhau. Và chúng ta sẽ không vội kết luận trước khi nhìn vào hồ sơ.
 **Âm thanh/Chữ:** Nhạc dừng nhịp, chuyển sang chương 1.
 **Sân khấu:** white-photo
+**Ảnh tư liệu:** reference/falun-gong-taiwan-2025.jpg
+**Chú thích ảnh:** Người tập Pháp Luân Công tại Đài Loan năm 2025; không phải hoạt động tại Việt Nam
 **Tiêu đề ảnh:** PHÁP LUÂN CÔNG
 **Nhân vật:** main-boy
 
@@ -86,6 +92,8 @@
 **Lời dẫn:** Chúng ta bắt đầu với Hội Thánh Đức Chúa Trời Mẹ. Trước tiên, cần phân biệt tên gọi phổ biến với tên đầy đủ trong tài liệu chính thức: Hội thánh của Đức Chúa Trời Hiệp hội Truyền giáo Tin lành Thế giới.
 **Âm thanh/Chữ:** Tên chương cỡ lớn, font Be Vietnam Pro hiện có, không viền, có đổ bóng.
 **Sân khấu:** white-title
+**Ảnh tư liệu:** reference/church-of-god-singapore.jpg
+**Chú thích ảnh:** Ảnh trụ sở của tổ chức tại Singapore năm 2025; không phải điểm nhóm ở Việt Nam
 **Tiêu đề ảnh:** CHƯƠNG 1 – HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 **Nhân vật:** main-boy
 
@@ -225,6 +233,8 @@
 **Lời dẫn:** Chương tiếp theo gắn với một nhân vật có ảnh hưởng quốc tế: Thanh Hải Vô Thượng Sư.
 **Âm thanh/Chữ:** Tên chương cỡ lớn.
 **Sân khấu:** white-title
+**Ảnh tư liệu:** reference/ching-hai-sydney-1993.jpg
+**Chú thích ảnh:** Ảnh tư liệu Thanh Hải tại Sydney năm 1993
 **Tiêu đề ảnh:** CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
 **Nhân vật:** main-boy
 
@@ -264,6 +274,8 @@
 **Lời dẫn:** Cánh cửa cuối cùng là Pháp Luân Công – một trường hợp cần đặc biệt cẩn trọng khi kể.
 **Âm thanh/Chữ:** Tên chương cỡ lớn.
 **Sân khấu:** white-title
+**Ảnh tư liệu:** reference/falun-gong-taiwan-2025.jpg
+**Chú thích ảnh:** Người tập Pháp Luân Công tại Đài Loan năm 2025; không phải hoạt động tại Việt Nam
 **Tiêu đề ảnh:** CHƯƠNG 6 – PHÁP LUÂN CÔNG
 **Nhân vật:** main-boy
 
