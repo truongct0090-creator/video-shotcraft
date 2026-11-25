@@ -71,7 +71,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           <path d="M216 531 Q300 518 384 531 L375 632 Q341 646 305 628 Q269 646 225 632Z" fill={shortsTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           <path d="M300 543 L300 628" stroke="#D9D9D4" strokeWidth="5"/>
           <path d="M232 681 Q257 670 288 685 Q300 706 284 727 L207 727 Q192 718 204 699Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
-          <path d="M312 685 Q343 670 373 681 L399 700 Q410 717 394 727 L316 727 Q301 713 312 685Z" fill="#F9FAF8" stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
+          <path d="M312 685 Q343 670 373 681 L399 700 Q410 717 394 727 L316 727 Q301 713 312 685Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
           <path d="M210 709 Q248 717 287 709 M319 709 Q357 717 396 709" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
           <path d="M245 686 l24 14 M338 686 l24 14" stroke="#6C9CCB" strokeWidth="7" strokeLinecap="round"/>
         </g>
