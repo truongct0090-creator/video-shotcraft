@@ -123,10 +123,13 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const bounce=scene.number===1&&frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
  const entranceY=scene.number===1?(1-entrance)*210-bounce:0;
  const entranceScale=scene.number===1?interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}):1;
- const facing=whiteStage?'right':referencePhoto?'right':'left';
- const characterPosition:React.CSSProperties=whiteStage?{left:55,bottom:55}:referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:{right:95,bottom:105};
- // The arm is mirrored with the character: map the screen-side target to the local SVG arm.
- const gesture:BoyGesture='point-right'; // Right-side MainBoy is mirrored to point left; left-side MainBoy points right.
+ const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
+ const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
+ const characterOnLeft=whiteStage || scene.number%2===0 || Boolean(referencePhoto);
+ const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+ const gesture:BoyGesture=whiteStage?'point-right':waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
+ const facing=characterOnLeft?'right':'left';
+ const characterPosition:React.CSSProperties=whiteStage?{left:55,bottom:55}:referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
