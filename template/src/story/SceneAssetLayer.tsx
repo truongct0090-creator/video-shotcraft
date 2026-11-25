@@ -92,6 +92,7 @@ const DocumentStack = () => (
 );
 
 const Cast: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
+  if (scene.character === 'none') return null;
   const text = [scene.setting,scene.action,scene.heading].join(' ').toLowerCase();
   if (/quán trà|ấm trà|chén trà|người hoa/.test(text)) return <g><Figure x={430} y={600} scale={.82} coat="#6f7e75" skin="#d7a98e" hair="#3b3029" pose="talk"/><Figure x={1510} y={590} scale={.82} coat="#9a6d4e" skin="#e2b99c" hair="#42352d" pose="listen"/></g>;
   if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế/.test(text)) return <g><Figure x={400} y={610} scale={.92} coat="#71805a" skin="#b98262" hair="#302b25" pose="work"/><Figure x={1510} y={620} scale={.82} coat="#92734f" skin="#c99475" hair="#3b3029" pose="talk"/></g>;
