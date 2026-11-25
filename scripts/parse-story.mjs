@@ -85,7 +85,13 @@ const parseDuration = (value, narration = '') => {
   if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
   throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
 };
-const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
+const supportingWorlds = new Set(['meeting', 'teahouse', 'countryside', 'printing', 'community']);
+const supportingSamples = [...supportingWorlds]
+  .map((world) => scenes.find((scene) => scene.world === world))
+  .filter(Boolean);
+const selected = mode === 'test'
+  ? [...new Map([...scenes.slice(0, 10), ...supportingSamples].map((scene) => [scene.number, scene])).values()].sort((a, b) => a.number - b.number)
+  : scenes;
 const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration, scene.narration)}));
 const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
 const music = markdown.match(/^\*\*Nhạc nền:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
