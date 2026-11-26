@@ -130,6 +130,7 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
 
 type ReferenceArtworkKind = 'building'|'unverified'|'communique';
 const tinhThatPhotoUrl = 'https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg';
+const truQuyBaoLocPhotoUrl = 'https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/19/tru-quy-16529569579741849352232.jpg';
 const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  if(kind==='building') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
   <rect width="820" height="610" fill="#dce7df"/><text x="410" y="52" textAnchor="middle" fontSize="30" fontWeight="900" fill="#514536">TỊNH THẤT BỒNG LAI</text><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
@@ -164,7 +165,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
   {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Trụ sở tại Singapore · 2025',photo:'reference/church-of-god-singapore.jpg'},
   {title:'TỊNH THẤT BỒNG LAI',note:'Ảnh tư liệu · Ảnh: K.Q',photo:tinhThatPhotoUrl},
   {title:'THIÊN TRIỀU ÂM PHỦ',note:'Chưa có ảnh độc lập xác minh',kind:'unverified' as const},
-  {title:'NHÓM TRỪ QUỶ BẢO LỘC',note:'Thông cáo chính thức · 30.05.2022',kind:'communique' as const},
+  {title:'NHÓM TRỪ QUỶ BẢO LỘC',note:'Ảnh tư liệu · Dân Việt',photo:truQuyBaoLocPhotoUrl},
   {title:'THANH HẢI VÔ THƯỢNG SƯ',note:'Ảnh tư liệu tại Sydney · 1993',photo:'reference/ching-hai-sydney-1993.jpg'},
   {title:'PHÁP LUÂN CÔNG',note:'Người tập tại Đài Loan · 2025',photo:'reference/falun-gong-taiwan-2025.jpg'},
  ];
