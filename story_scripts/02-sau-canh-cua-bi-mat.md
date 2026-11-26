@@ -1,8 +1,8 @@
 # 4 CÁNH CỬA NIỀM TIN – KHI LỜI HỨA TRỞ THÀNH DẤU HỎI
 **Tập 02 – Bốn câu chuyện từng gây tranh cãi tại Việt Nam**
 **Phong cách lời dẫn:** trò chuyện trực tiếp với người xem; tự nhiên, có nhịp nghỉ, câu cảm thán đời thường vừa phải; không đọc như bản tin.
-**Giọng đọc:** giọng Việt Nam tự nhiên, gần gũi; thay đổi nhịp theo cảm xúc; không diễn quá lố.
-**Nhạc nền:** điều tra nhẹ, có khoảng lặng; tránh nhạc kinh dị hóa niềm tin tôn giáo.
+**Định hướng giọng đọc:** giọng Việt Nam tự nhiên, gần gũi; thay đổi nhịp theo cảm xúc; không diễn quá lố.
+**Định hướng nhạc nền:** điều tra nhẹ, có khoảng lặng; tránh nhạc kinh dị hóa niềm tin tôn giáo.
 
 ## MỞ ĐẦU – MỘT CÂU HỎI KHÔNG DỄ TRẢ LỜI
 
