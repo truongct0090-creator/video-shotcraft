@@ -77,8 +77,8 @@ for (const scene of scenes) {
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
   if (scene.ttsCue) {
-    const cue = scene.ttsCue.match(/^(chuckle|sigh|clear_throat)\s*\|\s*(.+)$/i);
-    if (!cue || !scene.narration.toLowerCase().includes(cue[2].trim().toLowerCase())) throw new Error('Scene ' + scene.number + ' **TTS cue:** must be chuckle|, sigh|, or clear_throat| followed by an exact phrase from **Lời dẫn:**.');
+    const cue = scene.ttsCue.match(/^(chuckle|sigh|clear-throat)\s*\|\s*(.+)$/i);
+    if (!cue || !scene.narration.toLowerCase().includes(cue[2].trim().toLowerCase())) throw new Error('Scene ' + scene.number + ' **TTS cue:** must be chuckle|, sigh|, or clear-throat| followed by an exact phrase from **Lời dẫn:**.');
   }
   if (scene.breathAfter && !scene.narration.toLowerCase().includes(scene.breathAfter.toLowerCase())) throw new Error('Scene ' + scene.number + ' **Hơi thở sau:** must be an exact phrase from **Lời dẫn:**.');
 }
