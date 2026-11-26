@@ -58,6 +58,7 @@ const scenes = headings.map((match, index) => {
     photo: field('Ảnh tư liệu'),
     photoCaption: field('Chú thích ảnh'),
     cardTitle: field('Tiêu đề ảnh'),
+    expression: field('Biểu cảm').toLowerCase(),
   };
 }).filter((scene) => scene.heading);
 
@@ -72,6 +73,7 @@ for (const scene of scenes) {
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
+  if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
 }
 const parseDuration = (value, narration = '') => {
   if (!value) {
