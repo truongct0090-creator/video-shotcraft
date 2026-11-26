@@ -200,12 +200,14 @@
 ## CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
 
 ### 19. Thẻ chương – Nhóm Trừ Quỷ Bảo Lộc
-**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu chính thức hoặc địa điểm có nguồn bên phải.
-**Hành động:** MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh tư liệu đã xác minh, thẻ tiêu đề.
+**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu Dân Việt bên phải.
+**Hành động:** Ảnh tư liệu xuất hiện; MainBoy chỉ vào ảnh và tên chương.
+**Đạo cụ:** Ảnh 4 trong bài Dân Việt về việc Tòa Giám mục Đà Lạt lên tiếng; giữ nguyên chú thích và ghi nguồn Dân Việt.
 **Lời dẫn:** Câu chuyện tiếp theo là một nhóm nhỏ từng khiến chính giới Công giáo phải ra thông cáo chính thức: Nhóm Trừ Quỷ Bảo Lộc.
 **Âm thanh/Chữ:** Tên chương cỡ lớn.
 **Sân khấu:** white-title
+**Ảnh tư liệu:** https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/19/tru-quy-16529569579741849352232.jpg
+**Chú thích ảnh:** Tòa Giám mục Đà Lạt nhận định việc “trừ quỷ”, “chữa bệnh” của nhóm “trừ quỷ Bảo Lộc” là mê tín dị đoan, không phải đức tin công truyền của người Công giáo. Ảnh: Dân Việt
 **Tiêu đề ảnh:** CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
 **Nhân vật:** main-boy
 
