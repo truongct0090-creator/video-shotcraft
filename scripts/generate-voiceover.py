@@ -278,6 +278,8 @@ def main():
                         help="Optional clean 48 kHz mono human inhale WAV; never synthesized from noise.")
     parser.add_argument("--breath-gain-db", type=float, default=-24.0,
                         help="Breath sample gain relative to full scale (default: -24 dB).")
+    parser.add_argument("--room-tone-dbfs", type=float, default=-50.0,
+                        help="Continuous HVAC-like room tone RMS under speech and pauses (default: -50 dBFS).")
     args=parser.parse_args()
     props_path=Path(args.props)
     output_dir=Path(args.output_dir)
@@ -313,6 +315,10 @@ def main():
         try:
             with wave.open(str(target),"rb") as wav: before=wav.getnframes()/wav.getframerate()
             original,trimmed=trim_trailing_silence(target)
+            room_tone_level=apply_room_tone(target,args.room_tone_dbfs,seed=20261126+number)
+            silence_audit=audit_digital_silence(target)
+            if silence_audit["zeroSamples"] != 0 or silence_audit["longestDigitalSilenceMs"] != 0:
+                raise ValueError("digital silence remains after room-tone processing: "+str(silence_audit))
             with wave.open(str(target),"rb") as wav:
                 if wav.getframerate()<=0 or wav.getnframes()<=0: raise wave.Error("empty or invalid audio")
         except (wave.Error,EOFError,ValueError) as exc:
@@ -323,6 +329,7 @@ def main():
         else:
             scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
+        scene["audioQa"]={"roomToneRmsDbfs":room_tone_level,**silence_audit}
         scene["mouthFrames"]=frame_mouth_envelope(target)
         scene_duration=max(int(scene.get("durationInFrames",0)),1)/FPS
         print(format_scene_report(number, before, original, trimmed, scene_duration))
