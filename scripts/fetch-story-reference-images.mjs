@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Fetch only the six fixed, pre-reviewed archival reference images used by the
- * story renderer. URLs are fixed allow-listed Wikimedia Commons originals.
+ * Fetch only the pre-reviewed archival reference image used by the
+ * currently approved 32-scene episode. Add another entry only when a script uses it. URLs are fixed allow-listed Wikimedia Commons originals.
  * No user script or external input can choose an arbitrary download URL.
  */
 import fs from 'node:fs/promises';
@@ -16,43 +16,7 @@ const assets = [
     minBytes: 1_000_000,
     maxBytes: 3_500_000,
     sha1: 'be5d04c6ac94141ca0548c51ca0126052827532a',
-  },
-  {
-    file: 'ching-hai-sydney-1993.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/9/95/ChingHai_Sydney_in_1993.jpg',
-    minBytes: 30_000,
-    maxBytes: 100_000,
-    sha1: '8898ad06a2c0d7bbc5433710acc21c88429aaa66',
-  },
-  {
-    file: 'falun-gong-taiwan-2025.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Falun_Gong_practitioners_%2820250130%29.jpg',
-    minBytes: 1_000_000,
-    maxBytes: 7_000_000,
-    sha1: '9ac59d056fa748028a84c94497bb78a6afce4217',
-  },
-  {
-    file: 'cochinchina-map.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Map_of_Cochinchina.jpg',
-    minBytes: 100_000,
-    maxBytes: 8_000_000,
-    sha1: '02bef102b1b985de60587303cb3a5de454b79392',
-  },
-  {
-    file: 'nguyen-an-ninh-1929.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Portrait_of_Nguy%E1%BB%85n_An_Ninh.jpg',
-    minBytes: 50_000,
-    maxBytes: 500_000,
-    sha1: 'fed1e0325860c2397aa93bf943195f61ba0ee170',
-  },
-  {
-    file: 'saigon-maison-centrale.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Saigon._Maison_Centrale.jpg',
-    minBytes: 50_000,
-    maxBytes: 2_000_000,
-    sha1: '52dd6f45a7ea181e9b325930a158fdf31d8b6403',
-  },
-];
+  },;
 
 await fs.mkdir(outputDir, {recursive: true});
 const isValidImage = (bytes, asset) => {
