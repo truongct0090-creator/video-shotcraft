@@ -65,6 +65,38 @@ class VoiceoverTrimTests(unittest.TestCase):
             with wave.open(str(path), "rb") as wav:
                 self.assertAlmostEqual(wav.getnframes() / rate, after, delta=0.001)
 
+    def test_room_tone_fills_silence_at_minus_50_dbfs_and_removes_exact_zero_samples(self):
+        rate = 48000
+        samples = [0] * rate
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "room-tone.wav"
+            with wave.open(str(path), "wb") as wav:
+                wav.setnchannels(1)
+                wav.setsampwidth(2)
+                wav.setframerate(rate)
+                wav.writeframes(struct.pack("<" + "h" * len(samples), *samples))
+            level = MODULE.apply_room_tone(path, -50.0, seed=123)
+            audit = MODULE.audit_digital_silence(path)
+            self.assertEqual(level, -50.0)
+            self.assertEqual(audit["zeroSamples"], 0)
+            self.assertEqual(audit["longestDigitalSilenceMs"], 0)
+            with wave.open(str(path), "rb") as wav:
+                values = MODULE.sample_values(wav.readframes(wav.getnframes()), 2)
+            rms = math.sqrt(sum(value * value for value in values) / len(values)) / 32768.0
+            measured_dbfs = 20 * math.log10(rms)
+            self.assertAlmostEqual(measured_dbfs, -50.0, delta=0.3)
+
+    def test_room_tone_rejects_unsafe_level(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "room-tone.wav"
+            with wave.open(str(path), "wb") as wav:
+                wav.setnchannels(1)
+                wav.setsampwidth(2)
+                wav.setframerate(8000)
+                wav.writeframes(struct.pack("<" + "h" * 8000, *([0] * 8000)))
+            with self.assertRaises(ValueError):
+                MODULE.apply_room_tone(path, -10.0)
+
     def test_mouth_envelope_tracks_voiced_frames(self):
         rate = 16000
         voiced = [int(9000 * math.sin(2 * math.pi * 220 * i / rate)) for i in range(rate // 2)]
