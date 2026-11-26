@@ -9,7 +9,7 @@
 ### 01. Một câu hỏi trước sáu cánh cửa
 **Bối cảnh:** Nền trắng hoàn toàn, MainBoy bật lên từ dưới khung hình rồi tiếp đất và đứng yên.
 **Hành động:** MainBoy nhìn thẳng khán giả, giới thiệu sáu vị trí ảnh sẽ lần lượt xuất hiện.
-**Đạo cụ:** Nền trắng, sáu khung ảnh lần lượt hiện ra.
+**Đạo cụ:** Sáu khung hình: Hội Thánh Đức Chúa Trời Mẹ; Tịnh thất Bồng Lai; Thiên Triều Âm Phủ; Nhóm Trừ Quỷ Bảo Lộc; Thanh Hải Vô Thượng Sư; Pháp Luân Công.
 **Lời dẫn:** Có những cánh cửa không cần khóa. Chỉ cần một lời hứa đủ hấp dẫn, một câu trả lời tưởng như giải quyết được mọi nỗi lo… là người ta tự bước vào. Nhưng điều gì xảy ra khi niềm tin bị trộn lẫn với quyền lực, tiền bạc, sự sùng bái hoặc những lời khẳng định không ai được phép chất vấn? Hôm nay, chúng ta sẽ mở sáu cánh cửa từng gây nhiều tranh cãi tại Việt Nam. Không phải để chế giễu niềm tin của bất kỳ ai. Mà để xem: chuyện gì đã được xác nhận, chuyện gì còn tranh cãi, và đâu là ranh giới giữa niềm tin với sự lợi dụng.
 **Âm thanh/Chữ:** Nhạc điều tra tăng dần; tiêu đề lớn “SÁU CÁNH CỬA GÂY TRANH CÃI”.
 **Sân khấu:** white-intro
@@ -30,33 +30,34 @@
 ### 03. Bức ảnh thứ hai – Tịnh thất Bồng Lai
 **Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh địa điểm từ nguồn báo chí bên phải.
 **Hành động:** Ảnh địa điểm xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh địa điểm Tịnh thất Bồng Lai/Thiền am bên bờ vũ trụ có nguồn, không dùng ảnh người không liên quan.
+**Đạo cụ:** Thẻ tái hiện kiến trúc địa điểm theo mô tả báo chí; ghi rõ đây là minh họa, không phải ảnh chụp.
 **Lời dẫn:** Cánh cửa thứ hai từng trở thành tâm điểm của mạng xã hội. Một nơi mang dáng vẻ tu hành, những video gây chú ý, những tranh cãi nối tiếp nhau… và cuối cùng là một vụ án khiến dư luận chia thành nhiều luồng ý kiến.
 **Âm thanh/Chữ:** Nhạc điều tra.
 **Sân khấu:** white-photo
 **Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI – THIỀN AM BÊN BỜ VŨ TRỤ
+**Chú thích ảnh:** Tái hiện minh họa địa điểm; không phải ảnh tư liệu.
 **Nhân vật:** main-boy
 
 ### 04. Bức ảnh thứ ba – Thiên Triều Âm Phủ
 **Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh nhóm người châu Á trao đổi quanh bàn bên phải.
 **Hành động:** Ảnh nhóm người châu Á xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh minh họa nhóm sinh hoạt châu Á, không logo, không biểu tượng nhận diện.
+**Đạo cụ:** Thẻ tư liệu trung tính; không dùng ảnh nhóm người không liên quan để đại diện.
 **Lời dẫn:** Cánh cửa thứ ba mang một cái tên nghe như bước ra từ một câu chuyện huyền bí: Thiên Triều Âm Phủ, còn được nhắc tới với tên Đức Chúa Trời Bốn Phương. Nhưng có một điều chúng ta phải làm trước khi kể: kiểm tra xem mình thực sự biết gì về nó. Bởi một video trên mạng không tự động biến thành chứng cứ.
 **Âm thanh/Chữ:** Nhãn ảnh minh họa hiển thị rõ.
 **Sân khấu:** white-photo
-**Ảnh tư liệu:** reference/asian-group-meeting.jpg
-**Chú thích ảnh:** Ảnh minh họa một buổi gặp mặt; không phải thành viên hay địa điểm của tổ chức
+**Chú thích ảnh:** Chưa có ảnh độc lập xác minh; không dùng ảnh nhóm khác để đại diện tổ chức.
 **Tiêu đề ảnh:** THIÊN TRIỀU ÂM PHỦ – ĐỨC CHÚA TRỜI BỐN PHƯƠNG
 **Nhân vật:** main-boy
 
 ### 05. Bức ảnh thứ tư – Nhóm Trừ Quỷ Bảo Lộc
 **Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh tư liệu địa điểm hoặc văn bản chính thức bên phải.
 **Hành động:** Ảnh xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh địa điểm hoặc tài liệu chính thức; không dựng nghi lễ không có tư liệu.
+**Đạo cụ:** Đồ họa trích yếu thông cáo chính thức ngày 30/05/2022; không dựng ảnh nhóm hoặc nghi lễ không có tư liệu.
 **Lời dẫn:** Cánh cửa thứ tư dẫn tới một nhóm nhỏ từng khiến chính giới Công giáo phải ra thông cáo chính thức. Câu chuyện xoay quanh những lời tuyên bố về mặc khải trực tiếp và khả năng trừ quỷ.
 **Âm thanh/Chữ:** Nhạc chuyển.
 **Sân khấu:** white-photo
 **Tiêu đề ảnh:** NHÓM TRỪ QUỶ BẢO LỘC
+**Chú thích ảnh:** Đồ họa trích yếu thông cáo chính thức; không phải ảnh chụp nhóm.
 **Nhân vật:** main-boy
 
 ### 06. Bức ảnh thứ năm – Thanh Hải Vô Thượng Sư
