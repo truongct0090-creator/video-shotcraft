@@ -11,6 +11,7 @@
 **Hành động:** MainBoy hơi nghiêng đầu, đưa tay như muốn hỏi chuyện người xem.
 **Đạo cụ:** Bốn khung hình lần lượt xuất hiện: Hội Thánh Đức Chúa Trời Mẹ; Tịnh thất Bồng Lai; Đạo Hà Mòn; hiện tượng Dương Văn Mình.
 **Lời dẫn:** “Bạn có bao giờ nghe một lời hứa mà thoạt đầu thấy… cũng có lý không? Rằng chỉ cần tin theo, cuộc sống sẽ tốt hơn. Rằng có người nắm giữ một bí mật mà người ngoài không biết. Hoặc rằng, chỉ cần làm theo một vài điều, mọi rắc rối sẽ được giải quyết. À thì… nghe cũng hấp dẫn đấy. Nhưng khoan đã. Nếu đằng sau lời hứa ấy là tiền bạc, quyền lực, sự sợ hãi, hay việc phải cắt đứt với gia đình thì sao?”
+**TTS cue:** chuckle|nghe cũng hấp dẫn đấy.
 **Âm thanh/Chữ:** Nhạc mở đầu tăng nhẹ; chữ lớn “KHI LỜI HỨA TRỞ THÀNH DẤU HỎI”.
 **Sân khấu:** white-intro
 **Biểu cảm:** surprised
@@ -196,6 +197,7 @@
 **Hành động:** MainBoy chỉ vào Cao Bằng, Tuyên Quang và các địa bàn được nguồn nghiên cứu nhắc tới.
 **Đạo cụ:** Bản đồ, dòng thời gian bắt đầu năm 1989.
 **Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
+**Hơi thở sau:** Nhưng ở đây, mình muốn chậm lại một chút.
 **Âm thanh/Chữ:** “TỪ KHOẢNG NĂM 1989 – MIỀN NÚI PHÍA BẮC”.
 **Loại cảnh:** map
 **Biểu cảm:** surprised

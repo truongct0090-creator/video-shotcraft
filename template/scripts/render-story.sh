@@ -16,7 +16,7 @@ fi
 node scripts/parse-story.mjs --script="$SCRIPT_PATH" --mode="$MODE" --output=template/out/story-props.json
 if [[ "${GENERATE_VOICEOVER:-0}" == "1" ]]; then
   python3 -m pip install -r scripts/requirements-tts.txt
-  python3 scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
+  python3 scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam --precision fp32
 fi
 cd template
 npm ci

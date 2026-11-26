@@ -1,0 +1,151 @@
+name: Adam voiceover pilot
+
+on:
+  push:
+    branches:
+      - feat/adam-voiceover-naturalness-pilot
+    paths:
+      - scripts/generate-voiceover.py
+      - scripts/parse-story.mjs
+      - scripts/test_voiceover_trim.py
+      - scripts/prepare-breath-sample.py
+      - story_scripts/02-sau-canh-cua-bi-mat.md
+      - .github/workflows/adam-voiceover-pilot.yml
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate first 10 scenes, first 10 plus breath-marked scenes, or all scenes
+        required: true
+        type: choice
+        default: breath-test
+        options:
+          - test
+          - breath-test
+          - full
+      compare_int8:
+        description: Also generate an INT8 comparison set
+        required: true
+        type: boolean
+        default: true
+      breath_sample_url:
+        description: Public direct MP3 URL for the approved human inhale sample (leave blank to omit)
+        required: false
+        type: string
+        default: "https://www.image2url.com/r2/default/audio/1795698690384-de541230-a588-4903-9b62-0256f6775d13.mp3"
+
+permissions:
+  contents: read
+
+jobs:
+  voiceover-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: scripts/requirements-tts.txt
+
+      - name: Cache VieNeu model files
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/hf-home
+          key: vieneu-adam-pilot-v3.3.0-${{ runner.os }}-fp32
+
+      - name: Validate narration and prepare scene props
+        env:
+          RENDER_MODE: ${{ inputs.mode || 'breath-test' }}
+        run: |
+          node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode="$RENDER_MODE" --output=template/out/adam-pilot-props.json
+          python3 scripts/test_voiceover_trim.py -v
+          mkdir -p template/out/adam-voiceover-pilot/fp32 template/out/adam-voiceover-pilot/int8
+
+      - name: Install VieNeu-TTS and FFmpeg binary
+        run: |
+          python -m pip install -r scripts/requirements-tts.txt
+          python -m pip install imageio-ffmpeg==0.6.0
+
+      - name: Download and prepare approved inhale sample
+        env:
+          BREATH_SAMPLE_URL: ${{ inputs.breath_sample_url || 'https://www.image2url.com/r2/default/audio/1795698690384-de541230-a588-4903-9b62-0256f6775d13.mp3' }}
+        run: |
+          set -euo pipefail
+          case "$BREATH_SAMPLE_URL" in
+            https://www.image2url.com/r2/default/audio/*.mp3) ;;
+            *) echo "Rejected breath URL: only the approved image2url audio path is allowed."; exit 1 ;;
+          esac
+          curl --fail --location --silent --show-error --retry 2 --max-time 90 --max-filesize 25000000 \
+            --output "$RUNNER_TEMP/adam-breath-source.mp3" "$BREATH_SAMPLE_URL"
+          test -s "$RUNNER_TEMP/adam-breath-source.mp3"
+          FFMPEG_BIN="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+          "$FFMPEG_BIN" -nostdin -hide_banner -loglevel error -y \
+            -i "$RUNNER_TEMP/adam-breath-source.mp3" -vn -ac 1 -ar 48000 -c:a pcm_s16le \
+            "$RUNNER_TEMP/adam-breath-source.wav"
+          python scripts/prepare-breath-sample.py \
+            --input "$RUNNER_TEMP/adam-breath-source.wav" \
+            --output "$RUNNER_TEMP/adam-inhale.wav"
+
+      - name: Generate FP32 Adam voice tracks
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-home
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
+        run: |
+          cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/fp32/story-props.json
+          args=(--props template/out/adam-voiceover-pilot/fp32/story-props.json --output-dir template/out/adam-voiceover-pilot/fp32/audio --voice Adam --precision fp32)
+          if [ -f "$BREATH_SAMPLE_PATH" ]; then
+            args+=(--breath-sample "$BREATH_SAMPLE_PATH")
+          fi
+          python scripts/generate-voiceover.py "${args[@]}"
+
+      - name: Generate INT8 comparison tracks
+        if: ${{ github.event_name == 'push' || inputs.compare_int8 }}
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-home
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
+        run: |
+          cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/int8/story-props.json
+          args=(--props template/out/adam-voiceover-pilot/int8/story-props.json --output-dir template/out/adam-voiceover-pilot/int8/audio --voice Adam --precision int8)
+          if [ -f "$BREATH_SAMPLE_PATH" ]; then
+            args+=(--breath-sample "$BREATH_SAMPLE_PATH")
+          fi
+          python scripts/generate-voiceover.py "${args[@]}"
+
+      - name: Write pilot notes
+        env:
+          MODE: ${{ inputs.mode || 'breath-test' }}
+          COMPARE_INT8: ${{ github.event_name == 'push' || inputs.compare_int8 }}
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
+        run: |
+          {
+            echo "# Adam voiceover pilot"
+            echo
+            echo "- Mode: $MODE"
+            echo "- Primary output: FP32"
+            echo "- INT8 comparison: $COMPARE_INT8"
+            if [ -f "$BREATH_SAMPLE_PATH" ]; then
+              echo "- Breath recording: downloaded from the approved public URL and converted/cropped to 48 kHz mono WAV"
+            else
+              echo "- Breath recording: not supplied"
+            fi
+            echo "- Voice: Adam / VieNeu-TTS 3.3.0 / ONNX / 48 kHz"
+            echo "- TTS cues are limited to documented non-verbal cues; see VOICEOVER.md."
+            echo "- This artifact is for listening review, not a final film render."
+          } > template/out/adam-voiceover-pilot/README.md
+
+      - name: Upload A/B audio for listening review
+        uses: actions/upload-artifact@v4
+        with:
+          name: adam-voiceover-pilot-${{ inputs.mode || 'breath-test' }}-${{ github.run_number }}
+          path: template/out/adam-voiceover-pilot/
+          if-no-files-found: error
+          retention-days: 14

@@ -15,7 +15,7 @@ const output = args.output ?? 'template/out/story-props.json';
 if (!script.startsWith('story_scripts/') || !script.endsWith('.md')) {
   throw new Error('Script path must point to a Markdown file inside story_scripts/.');
 }
-if (!['test', 'full'].includes(mode)) throw new Error('Mode must be test or full.');
+if (!['test', 'breath-test', 'full'].includes(mode)) throw new Error('Mode must be test, breath-test, or full.');
 
 const absolute = path.resolve(script);
 const root = path.resolve('story_scripts') + path.sep;
@@ -59,6 +59,8 @@ const scenes = headings.map((match, index) => {
     photoCaption: field('Chú thích ảnh'),
     cardTitle: field('Tiêu đề ảnh'),
     expression: field('Biểu cảm').toLowerCase(),
+    ttsCue: field('TTS cue'),
+    breathAfter: field('Hơi thở sau'),
   };
 }).filter((scene) => scene.heading);
 
@@ -74,6 +76,11 @@ for (const scene of scenes) {
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
+  if (scene.ttsCue) {
+    const cue = scene.ttsCue.match(/^(chuckle|sigh|clear-throat)\s*\|\s*(.+)$/i);
+    if (!cue || !scene.narration.toLowerCase().includes(cue[2].trim().toLowerCase())) throw new Error('Scene ' + scene.number + ' **TTS cue:** must be chuckle|, sigh|, or clear-throat| followed by an exact phrase from **Lời dẫn:**.');
+  }
+  if (scene.breathAfter && !scene.narration.toLowerCase().includes(scene.breathAfter.toLowerCase())) throw new Error('Scene ' + scene.number + ' **Hơi thở sau:** must be an exact phrase from **Lời dẫn:**.');
 }
 const parseDuration = (value, narration = '') => {
   if (!value) {
@@ -89,9 +96,13 @@ const parseDuration = (value, narration = '') => {
   if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
   throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
 };
-// "test" is a strict first-10-scenes preview. Do not append later sample scenes,
-// because that changes the promised test scope and makes duration/output unpredictable.
-const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
+// "test" is a strict first-10-scenes preview. "breath-test" adds only scenes
+// carrying a recorded-breath marker, so the breath path is exercised without a full pilot.
+const selected = mode === 'test'
+  ? scenes.slice(0, 10)
+  : mode === 'breath-test'
+    ? [...scenes.slice(0, 10), ...scenes.slice(10).filter((scene) => scene.breathAfter)]
+    : scenes;
 let nextStartFrame = 0;
 const withTiming = selected.map((scene) => {
   const durationInFrames = parseDuration(scene.duration, scene.narration);
