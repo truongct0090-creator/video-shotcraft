@@ -315,6 +315,7 @@ def main():
         try:
             with wave.open(str(target),"rb") as wav: before=wav.getnframes()/wav.getframerate()
             original,trimmed=trim_trailing_silence(target)
+            mouth_frames=frame_mouth_envelope(target)
             room_tone_level=apply_room_tone(target,args.room_tone_dbfs,seed=20261126+number)
             silence_audit=audit_digital_silence(target)
             if silence_audit["zeroSamples"] != 0 or silence_audit["longestDigitalSilenceMs"] != 0:
@@ -330,7 +331,7 @@ def main():
             scene["durationInFrames"]=audio_frames
         scene["voiceover"]="voiceover/scene-%02d.wav"%number
         scene["audioQa"]={"roomToneRmsDbfs":room_tone_level,**silence_audit}
-        scene["mouthFrames"]=frame_mouth_envelope(target)
+        scene["mouthFrames"]=mouth_frames
         scene_duration=max(int(scene.get("durationInFrames",0)),1)/FPS
         print(format_scene_report(number, before, original, trimmed, scene_duration))
     props["voiceover"]=""
