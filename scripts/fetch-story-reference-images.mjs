@@ -16,7 +16,8 @@ const assets = [
     minBytes: 1_000_000,
     maxBytes: 3_500_000,
     sha1: 'be5d04c6ac94141ca0548c51ca0126052827532a',
-  },;
+  },
+];
 
 await fs.mkdir(outputDir, {recursive: true});
 const isValidImage = (bytes, asset) => {
