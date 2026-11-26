@@ -175,7 +175,7 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  </svg>;
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
- const items=[
+ const items: Array<{title:string;note:string;kind:ReferenceArtworkKind;photo:string}>=[
   {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',kind:'unverified',photo:'https://then-plum-el39utcz.edgeone.dev/'},
   {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa',kind:'unverified',photo:'https://aware-rose-aec8adoj.edgeone.dev/'},
   {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified',photo:'https://nursing-coral-yq1hzjed.edgeone.dev/'},
