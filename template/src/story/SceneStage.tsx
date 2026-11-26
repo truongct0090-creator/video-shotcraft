@@ -84,14 +84,8 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /cánh cửa mở/.test(propText)?'open-door':'generic';
  // Text belongs to the object/card that it describes. Keep it compact and
   // scale the type down for longer labels so it never spills outside its panel.
-  const label=(x:number,y:number,value:string,color='#594b3a')=>{
-   const fontSize=value.length>18?17:value.length>12?19:22;
-   const estimatedWidth=Math.min(value.length*fontSize*0.58,260);
-   return <text x={x} y={y} fill={color} fontFamily="Be Vietnam Pro, Arial, sans-serif"
-    fontSize={fontSize} fontWeight="800" letterSpacing=".2" dominantBaseline="middle"
-    textAnchor="start" textLength={estimatedWidth} lengthAdjust="spacingAndGlyphs"
-    paintOrder="stroke" stroke="#fff4df" strokeWidth="2.5" strokeLinejoin="round">{value}</text>;
-  };
+  // Object artwork stays clean: labels are presented separately as animated scene captions.
+ const label=(_x:number,_y:number,_value:string,_color='#594b3a')=>null;
  const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><g><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/><rect x={x+9} y={y+9} width={w-18} height={h-18} rx="6" fill="none" stroke="#fff6df" strokeOpacity=".38" strokeWidth="4"/><path d={`M${x+18} ${y+17}H${x+w-18}`} stroke="#fff8e9" strokeOpacity=".28" strokeWidth="4" strokeLinecap="round"/><path d={`M${x+18} ${y+h-15}H${x+w-18}`} stroke="#3f3024" strokeOpacity=".16" strokeWidth="3" strokeLinecap="round"/></g>;
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="contact-blur"/><feOffset in="contact-blur" dx="0" dy="7" result="contact-offset"/><feComponentTransfer in="contact-offset" result="contact-shadow"><feFuncA type="linear" slope="0.30"/></feComponentTransfer><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="ambient-blur"/><feOffset in="ambient-blur" dx="12" dy="24" result="ambient-offset"/><feComponentTransfer in="ambient-offset" result="ambient-shadow"><feFuncA type="linear" slope="0.24"/></feComponentTransfer><feMerge><feMergeNode in="ambient-shadow"/><feMergeNode in="contact-shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
