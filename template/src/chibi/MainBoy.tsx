@@ -54,8 +54,13 @@ export const MainBoy: React.FC<MainBoyProps> = ({
     : speaking ? (frame % 12 < 4 ? 'open' : frame % 12 < 8 ? 'small-o' : 'closed') : mouth;
   const idleBob = 0;
   const headTilt = 0;
-  const leftArmAngle = gesture === 'point-left' ? 63 : gesture === 'wave' ? -8 + Math.sin(frame / 7) * 9 : 0;
-  const rightArmAngle = gesture === 'point-right' ? -63 : gesture === 'wave' ? -25 + Math.sin(frame / 7) * 11 : 0;
+  // Point with the character's anatomical right hand in both facings.
+  // The outer facing transform mirrors the whole character, so the same right arm
+  // naturally points screen-right when facing right and screen-left when facing left.
+  const leftArmAngle = gesture === 'wave' ? -8 + Math.sin(frame / 7) * 9 : 0;
+  const rightArmAngle = gesture === 'point-left' || gesture === 'point-right'
+    ? -63
+    : gesture === 'wave' ? -25 + Math.sin(frame / 7) * 11 : 0;
 
   const eye = (x: number) => {
     if (blink) {
