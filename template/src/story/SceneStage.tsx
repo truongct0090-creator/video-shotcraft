@@ -198,13 +198,10 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
 };
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,whiteStage,characterOnLeft})=>{
  const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
- const elapsed=Math.max(0,Math.floor(((scene.startTimeInFrames||0)+frame)/fps));
- const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
  return <>
   {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
    {labels.map((label,index)=>{const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={label} style={{maxWidth:'100%',fontSize:46,lineHeight:1.08,fontWeight:900,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',opacity:reveal,transform:'translateY('+(1-reveal)*22+'px) scale('+(0.96+reveal*0.04)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>})}
   </div>:null}
-  <div style={{position:'absolute',right:28,bottom:18,zIndex:9,fontSize:16,fontWeight:700,letterSpacing:1,color:whiteStage?'rgba(48,45,40,.55)':'rgba(255,248,232,.68)',textShadow:whiteStage?'none':'0 2px 5px rgba(0,0,0,.4)',pointerEvents:'none'}}>{timecode}</div>
  </>;
 };
 
