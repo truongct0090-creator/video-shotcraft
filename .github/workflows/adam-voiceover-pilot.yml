@@ -1,0 +1,116 @@
+name: Adam voiceover pilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate the first 10 scenes or all scenes
+        required: true
+        type: choice
+        default: test
+        options:
+          - test
+          - full
+      compare_int8:
+        description: Also generate an INT8 comparison set
+        required: true
+        type: boolean
+        default: true
+      breath_sample_path:
+        description: Optional repository path to a licensed 48 kHz mono human inhale WAV
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  voiceover-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: scripts/requirements-tts.txt
+
+      - name: Cache VieNeu model files
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/hf-home
+          key: vieneu-adam-pilot-v3.3.0-${{ runner.os }}-fp32
+
+      - name: Validate narration and prepare scene props
+        env:
+          RENDER_MODE: ${{ inputs.mode || 'test' }}
+        run: |
+          node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode="$RENDER_MODE" --output=template/out/adam-pilot-props.json
+          python3 scripts/test_voiceover_trim.py -v
+          mkdir -p template/out/adam-voiceover-pilot/fp32 template/out/adam-voiceover-pilot/int8
+
+      - name: Install VieNeu-TTS
+        run: python -m pip install -r scripts/requirements-tts.txt
+
+      - name: Generate FP32 Adam voice tracks
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-home
+          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+        run: |
+          cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/fp32/story-props.json
+          args=(--props template/out/adam-voiceover-pilot/fp32/story-props.json --output-dir template/out/adam-voiceover-pilot/fp32/audio --voice Adam --precision fp32)
+          if [ -n "$BREATH_SAMPLE_PATH" ]; then
+            test -f "$BREATH_SAMPLE_PATH"
+            args+=(--breath-sample "$BREATH_SAMPLE_PATH")
+          fi
+          python scripts/generate-voiceover.py "${args[@]}"
+
+      - name: Generate INT8 comparison tracks
+        if: ${{ inputs.compare_int8 }}
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-home
+          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+        run: |
+          cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/int8/story-props.json
+          args=(--props template/out/adam-voiceover-pilot/int8/story-props.json --output-dir template/out/adam-voiceover-pilot/int8/audio --voice Adam --precision int8)
+          if [ -n "$BREATH_SAMPLE_PATH" ]; then
+            test -f "$BREATH_SAMPLE_PATH"
+            args+=(--breath-sample "$BREATH_SAMPLE_PATH")
+          fi
+          python scripts/generate-voiceover.py "${args[@]}"
+
+      - name: Write pilot notes
+        env:
+          MODE: ${{ inputs.mode || 'test' }}
+          COMPARE_INT8: ${{ inputs.compare_int8 }}
+          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+        run: |
+          {
+            echo "# Adam voiceover pilot"
+            echo
+            echo "- Mode: $MODE"
+            echo "- Primary output: FP32"
+            echo "- INT8 comparison: $COMPARE_INT8"
+            echo "- Breath recording: ${BREATH_SAMPLE_PATH:-not supplied}"
+            echo "- Voice: Adam / VieNeu-TTS 3.3.0 / ONNX / 48 kHz"
+            echo "- TTS cues are limited to documented non-verbal cues; see VOICEOVER.md."
+            echo "- This artifact is for listening review, not a final film render."
+          } > template/out/adam-voiceover-pilot/README.md
+
+      - name: Upload A/B audio for listening review
+        uses: actions/upload-artifact@v4
+        with:
+          name: adam-voiceover-pilot-${{ inputs.mode || 'test' }}-${{ github.run_number }}
+          path: template/out/adam-voiceover-pilot/
+          if-no-files-found: error
+          retention-days: 14
