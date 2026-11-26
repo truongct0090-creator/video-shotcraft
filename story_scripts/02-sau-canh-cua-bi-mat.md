@@ -35,7 +35,6 @@
 **Âm thanh/Chữ:** Nhạc điều tra.
 **Sân khấu:** white-photo
 **Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI – THIỀN AM BÊN BỜ VŨ TRỤ
-**Chú thích ảnh:** Tái hiện minh họa địa điểm; không phải ảnh tư liệu.
 **Nhân vật:** main-boy
 
 ### 04. Bức ảnh thứ ba – Thiên Triều Âm Phủ
@@ -45,7 +44,6 @@
 **Lời dẫn:** Cánh cửa thứ ba mang một cái tên nghe như bước ra từ một câu chuyện huyền bí: Thiên Triều Âm Phủ, còn được nhắc tới với tên Đức Chúa Trời Bốn Phương. Nhưng có một điều chúng ta phải làm trước khi kể: kiểm tra xem mình thực sự biết gì về nó. Bởi một video trên mạng không tự động biến thành chứng cứ.
 **Âm thanh/Chữ:** Nhãn ảnh minh họa hiển thị rõ.
 **Sân khấu:** white-photo
-**Chú thích ảnh:** Chưa có ảnh độc lập xác minh; không dùng ảnh nhóm khác để đại diện tổ chức.
 **Tiêu đề ảnh:** THIÊN TRIỀU ÂM PHỦ – ĐỨC CHÚA TRỜI BỐN PHƯƠNG
 **Nhân vật:** main-boy
 
@@ -57,7 +55,6 @@
 **Âm thanh/Chữ:** Nhạc chuyển.
 **Sân khấu:** white-photo
 **Tiêu đề ảnh:** NHÓM TRỪ QUỶ BẢO LỘC
-**Chú thích ảnh:** Đồ họa trích yếu thông cáo chính thức; không phải ảnh chụp nhóm.
 **Nhân vật:** main-boy
 
 ### 06. Bức ảnh thứ năm – Thanh Hải Vô Thượng Sư
