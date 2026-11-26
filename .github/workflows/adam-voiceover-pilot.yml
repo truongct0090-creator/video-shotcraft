@@ -14,12 +14,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Generate the first 10 scenes or all scenes
+        description: Generate first 10 scenes, first 10 plus breath-marked scenes, or all scenes
         required: true
         type: choice
-        default: test
+        default: breath-test
         options:
           - test
+          - breath-test
           - full
       compare_int8:
         description: Also generate an INT8 comparison set
@@ -63,7 +64,7 @@ jobs:
 
       - name: Validate narration and prepare scene props
         env:
-          RENDER_MODE: ${{ inputs.mode || 'test' }}
+          RENDER_MODE: ${{ inputs.mode || 'breath-test' }}
         run: |
           node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode="$RENDER_MODE" --output=template/out/adam-pilot-props.json
           python3 scripts/test_voiceover_trim.py -v
@@ -118,7 +119,7 @@ jobs:
 
       - name: Write pilot notes
         env:
-          MODE: ${{ inputs.mode || 'test' }}
+          MODE: ${{ inputs.mode || 'breath-test' }}
           COMPARE_INT8: ${{ github.event_name == 'push' || inputs.compare_int8 }}
           BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
         run: |
@@ -141,7 +142,7 @@ jobs:
       - name: Upload A/B audio for listening review
         uses: actions/upload-artifact@v4
         with:
-          name: adam-voiceover-pilot-${{ inputs.mode || 'test' }}-${{ github.run_number }}
+          name: adam-voiceover-pilot-${{ inputs.mode || 'breath-test' }}-${{ github.run_number }}
           path: template/out/adam-voiceover-pilot/
           if-no-files-found: error
           retention-days: 14
