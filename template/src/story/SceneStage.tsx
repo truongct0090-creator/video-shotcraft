@@ -160,24 +160,22 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
   <text x="410" y="545" textAnchor="middle" fontSize="21" fontWeight="700" fill="#665b4b">30.05.2022 · VĂN BẢN CHÍNH THỨC</text>
  </svg>;
  return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-  <rect width="820" height="610" fill="#e4e7e5"/><text x="410" y="42" textAnchor="middle" fontSize="27" fontWeight="900" fill="#38423d">THIÊN TRIỀU ÂM PHỦ</text><rect x="100" y="55" width="620" height="500" rx="24" fill="#f7f7f2" stroke="#87918d" strokeWidth="5"/>
+  <rect width="820" height="610" fill="#e4e7e5"/><text x="410" y="42" textAnchor="middle" fontSize="27" fontWeight="900" fill="#38423d">TƯ LIỆU KIỂM CHỨNG</text><rect x="100" y="55" width="620" height="500" rx="24" fill="#f7f7f2" stroke="#87918d" strokeWidth="5"/>
   <circle cx="410" cy="205" r="78" fill="#d6dfda" stroke="#7b8982" strokeWidth="8"/><path d="M365 205h90M410 160v90" stroke="#718178" strokeWidth="12" strokeLinecap="round"/>
-  <text x="410" y="355" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">CHƯA CÓ ẢNH</text>
-  <text x="410" y="398" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">ĐƯỢC XÁC MINH</text>
-  <text x="410" y="465" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">Không dùng ảnh nhóm khác</text>
-  <text x="410" y="497" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">để đại diện cho tổ chức này</text>
+  <text x="410" y="355" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">KHÔNG DÙNG ẢNH</text>
+  <text x="410" y="398" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">CHƯA XÁC MINH</text>
+  <text x="410" y="465" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">Ưu tiên bản đồ và nghiên cứu</text>
+  <text x="410" y="497" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">không gán ảnh người bất kỳ</text>
  </svg>;
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  const items=[
-  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Trụ sở tại Singapore · 2025',photo:'reference/church-of-god-singapore.jpg'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Ảnh tư liệu · Ảnh: K.Q',photo:tinhThatPhotoUrl},
-  {title:'THIÊN TRIỀU ÂM PHỦ',note:'Chưa có ảnh độc lập xác minh',kind:'unverified' as const},
-  {title:'NHÓM TRỪ QUỶ BẢO LỘC',note:'Ảnh tư liệu · Dân Việt',photo:truQuyBaoLocPhotoUrl},
-  {title:'THANH HẢI VÔ THƯỢNG SƯ',note:'Ảnh tư liệu tại Sydney · 1993',photo:'reference/ching-hai-sydney-1993.jpg'},
-  {title:'PHÁP LUÂN CÔNG',note:'Người tập tại Đài Loan · 2025',photo:'reference/falun-gong-taiwan-2025.jpg'},
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',photo:'reference/church-of-god-singapore.jpg'},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu báo chí · Ảnh: K.Q',photo:tinhThatPhotoUrl},
+  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified' as const},
+  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified' as const},
  ];
- return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
+ return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
   {items.map((item,index)=>{
    const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
@@ -198,7 +196,7 @@ const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;fps:number;wh
  const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
  return <>
   {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
-   {labels.map((label,index)=><div key={label} style={{maxWidth:'100%',fontSize:labels.length===1?42:index===0?36:29,lineHeight:1.16,fontWeight:850,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>)}
+   {labels.map((label,index)=>{const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={label} style={{maxWidth:'100%',fontSize:labels.length===1?42:index===0?36:29,lineHeight:1.16,fontWeight:850,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',opacity:reveal,transform:'translateY('+(1-reveal)*22+'px) scale('+(0.96+reveal*0.04)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>})}
   </div>:null}
   <div style={{position:'absolute',right:28,bottom:18,zIndex:9,fontSize:16,fontWeight:700,letterSpacing:1,color:whiteStage?'rgba(48,45,40,.55)':'rgba(255,248,232,.68)',textShadow:whiteStage?'none':'0 2px 5px rgba(0,0,0,.4)',pointerEvents:'none'}}>{timecode}</div>
  </>;
@@ -209,15 +207,17 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const {fps}=useVideoConfig();
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
- const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
+ const expression:BoyExpression=/tức giận|phẫn nộ|châm biếm|mỉa mai|vô lý|thiếu minh bạch|lừa dối|ép buộc/i.test(actionText)?'angry':/thắc mắc|tò mò|vì sao|tại sao|câu hỏi|điều gì|bạn có bao giờ|bạn sẽ hỏi/i.test(actionText)?'surprised':/đau lòng|buồn|mất mát|qua đời|trẻ em|tổn thương/i.test(actionText)?'sad':/đe dọa|nguy hiểm|lo lắng|cảnh báo|áp lực|sợ hãi|bạo lực|đàn áp/i.test(actionText)?'worried':/bất ngờ|phát hiện|hé lộ|bí mật|đột ngột/i.test(actionText)?'surprised':/chào|mỉm cười|cảm ơn|hẹn gặp|hy vọng|tốt đẹp/i.test(actionText)?'happy':'neutral';
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  const referencePhoto=scene.photo || (!whiteStage ? (/Nam Kỳ đầu thế kỷ/.test(scene.heading)?'reference/cochinchina-map.jpg':/Khám Lớn Sài Gòn/.test(scene.heading)?'reference/saigon-maison-centrale.jpg':/Thanh niên Cao vọng/.test(scene.heading)?'reference/nguyen-an-ninh-1929.jpg':null) : null);
  // Use the original ChibiDemo entrance: spring up from below and scale from zero,
  // followed by one short settling bounce. Do not add idle bobbing after entrance.
- const entrance=scene.number===1?spring({frame,fps,config:{damping:12,stiffness:95}}):1;
- const bounce=scene.number===1&&frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
- const entranceY=scene.number===1?(1-entrance)*180+bounce:0;
- const entranceScale=scene.number===1?entrance:1;
+ const entrance=spring({frame,fps,config:{damping:12,stiffness:95}});
+ const bounce=frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
+ const entranceY=(1-entrance)*180+bounce;
+ const entranceScale=entrance;
+ const propEntrance=spring({frame:Math.max(0,frame-3),fps,config:{damping:18,stiffness:125}});
+ const propOpacity=interpolate(frame,[2,15],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  // Gesture intent comes from the action, not narration or props; merely opening,
  // moving, or handling an object must not make MainBoy point at empty space.
  const points=/chỉ|trỏ|hướng tay|đánh dấu|gạch chân|đặt dấu hỏi|lần lượt chỉ/i.test(scene.action);
@@ -235,14 +235,14 @@ const facing=characterOnLeft?'right':'left';
  const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
  const characterScale=scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
-  {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></> : null}
+  {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><div style={{position:'absolute',inset:0,opacity:propOpacity,transform:'translateY('+(1-propEntrance)*42+'px) scale('+(0.94+propEntrance*0.06)+')',transformOrigin:'center center'}}><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></div></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div></div> : null}
-  {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>SÁU CÁNH CỬA GÂY TRANH CÃI</div><IntroSixReferenceGrid frame={frame}/></>:null}
+  {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>4 CÁNH CỬA NIỀM TIN</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{scene.photoCaption}</div> : null}
    <SceneInfoCaptions scene={scene} frame={frame} fps={fps} whiteStage={whiteStage} characterOnLeft={characterOnLeft}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/>{expression!=='neutral'?<div aria-hidden="true" style={{position:'absolute',top:18,right:expression==='angry'?-4:12,minWidth:expression==='angry'?74:58,height:58,padding:'0 10px',borderRadius:28,display:'flex',alignItems:'center',justifyContent:'center',fontSize:expression==='angry'?43:38,fontWeight:1000,lineHeight:1,color:expression==='angry'?'#D52E2E':expression==='sad'?'#398CCB':expression==='worried'?'#4B8DA8':expression==='happy'?'#E5A52E':'#426CB0',background:'rgba(255,255,255,.94)',border:'4px solid '+(expression==='angry'?'#D52E2E':expression==='sad'?'#398CCB':expression==='worried'?'#4B8DA8':expression==='happy'?'#E5A52E':'#426CB0'),boxShadow:'0 5px 0 rgba(0,0,0,.12)',transform:'rotate('+(expression==='angry'?-8:expression==='sad'?8:expression==='happy'?7:0)+'deg)'}}>{expression==='angry'?'><':expression==='sad'?'💧':expression==='worried'?'💦':expression==='happy'?'✦':expression==='surprised'?'?':'!'}</div>:null}</div></div> : null}
  </div>;
 };
