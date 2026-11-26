@@ -196,12 +196,20 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
   })}
  </div>;
 };
-const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,whiteStage,characterOnLeft})=>{
-   {!whiteStage && referencePhoto && scene.photoCaption ? <div style={{position:'absolute',right:150,top:612,width:680,zIndex:8,padding:'10px 14px',boxSizing:'border-box',background:'rgba(28,31,32,.78)',color:'#fff8e8',fontSize:20,fontWeight:700,lineHeight:1.2,textAlign:'center',textShadow:'0 2px 4px rgba(0,0,0,.55)'}}>{scene.photoCaption}</div> : null}
+const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
  const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
+ const labelWidth=hasPhoto?'min(680px, 42%)':'min(760px, 44%)';
+ const labelSide=hasPhoto
+  ? (characterOnLeft?{left:72}:{right:72})
+  : (characterOnLeft?{right:72}:{left:72});
  return <>
-  {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
-   {labels.map((label,index)=>{const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={label} style={{maxWidth:'100%',fontSize:46,lineHeight:1.08,fontWeight:900,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',opacity:reveal,transform:'translateY('+(1-reveal)*22+'px) scale('+(0.96+reveal*0.04)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>})}
+  {!whiteStage && hasPhoto && scene.photoCaption ? <div style={{position:'absolute',right:150,top:620,width:680,maxWidth:'42%',zIndex:8,padding:'9px 14px',boxSizing:'border-box',background:'rgba(28,31,32,.82)',color:'#fff8e8',fontSize:18,fontWeight:700,lineHeight:1.25,textAlign:'center',textShadow:'0 2px 4px rgba(0,0,0,.55)',borderRadius:5}}>{scene.photoCaption}</div> : null}
+  {labels.length>0?<div style={{position:'absolute',top:hasPhoto?70:76,...labelSide,width:labelWidth,zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:10,pointerEvents:'none'}}>
+   {labels.map((label,index)=>{
+    const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+    const fontSize=label.length>34?32:label.length>24?36:label.length>15?40:46;
+    return <div key={label} style={{maxWidth:'100%',padding:'5px 9px',boxSizing:'border-box',fontSize,lineHeight:1.12,fontWeight:900,letterSpacing:.1,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'break-word',textWrap:'pretty',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.97+reveal*0.03)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>;
+   })}
   </div>:null}
  </>;
 };
@@ -246,7 +254,7 @@ const facing=characterOnLeft?'right':'left';
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:54,lineHeight:1.08,fontWeight:900,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:24,lineHeight:1.22,fontWeight:700,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{scene.photoCaption}</div> : null}
-   <SceneInfoCaptions scene={scene} frame={frame} whiteStage={whiteStage} characterOnLeft={characterOnLeft}/>
+   <SceneInfoCaptions scene={scene} frame={frame} whiteStage={whiteStage} characterOnLeft={characterOnLeft} hasPhoto={Boolean(referencePhoto)}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
   {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
