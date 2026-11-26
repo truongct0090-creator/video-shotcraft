@@ -21,7 +21,10 @@ export const IllustratedStoryFilm:React.FC<Props> = ({title,scenes,voiceover,mus
  useEffect(()=>{document.fonts.load('800 54px "Be Vietnam Pro"').then(()=>document.fonts.ready).then(()=>continueRender(fontHandle)).catch(()=>continueRender(fontHandle));},[fontHandle]);
  let cursor=0;
  const sequences=scenes.map((scene)=>{const from=cursor;cursor+=scene.durationInFrames;return <Sequence key={scene.number} from={from} durationInFrames={scene.durationInFrames}><SceneWithTransition scene={scene} title={title}/></Sequence>;});
- return <AbsoluteFill style={{backgroundColor:'#15191e',fontFamily:'Be Vietnam Pro, sans-serif'}}>
+ // Use a warm paper matte beneath the animated reveal. The previous near-black matte
+ // was exposed by the first frames of the wipe/iris transitions and correctly flagged
+ // by blackdetect as full-black frames at the beginning of the film.
+ return <AbsoluteFill style={{backgroundColor:'#d8d1c3',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {sequences}
   {voiceover?<Audio src={staticFile(voiceover)} volume={1}/>:null}
   {music?<Audio src={staticFile(music)} volume={0.16}/>:null}
