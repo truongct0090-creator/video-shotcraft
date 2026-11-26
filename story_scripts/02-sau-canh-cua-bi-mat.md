@@ -198,7 +198,7 @@
 **Lời dẫn:** “Đây mới là câu hỏi đáng suy nghĩ: vì sao có người tin theo? Nghiên cứu về các hiện tượng tôn giáo mới ở vùng dân tộc thiểu số cho thấy cần nhìn cả bối cảnh xã hội: đời sống khó khăn, nhu cầu được nâng đỡ, thay đổi văn hóa, nhu cầu cộng đồng và niềm hy vọng vào một tương lai tốt đẹp hơn. Nói cách khác, nếu chỉ gọi người ta là nhẹ dạ thì mình chẳng hiểu được gì cả. Muốn hiểu một hiện tượng, phải nhìn cả hoàn cảnh khiến nó có đất để phát triển.”
 **Âm thanh/Chữ:** “MUỐN HIỂU – PHẢI NHÌN CẢ BỐI CẢNH”.
 **Loại cảnh:** community
-**Nhân vật:** main-boy, supporting-characters
+**Nhân vật:** main-boy
 
 ### 21. Những nhận định của cơ quan chức năng và góc nhìn nghiên cứu
 **Bối cảnh:** Hai cột tài liệu: “Nhận định của cơ quan chức năng” và “Nghiên cứu học thuật”.
@@ -238,11 +238,74 @@
 **Loại cảnh:** checklist
 **Nhân vật:** main-boy
 
-### 25. Lời chào của MainBoy
+### 25. Một lời hứa đẹp chưa chắc là lời hứa đúng
+**Bối cảnh:** Bảng quảng cáo cách điệu với các lời hứa chung chung, phía sau là tập hồ sơ.
+**Hành động:** MainBoy kéo tấm màn quảng cáo xuống, để lộ các câu hỏi kiểm chứng.
+**Đạo cụ:** Bảng lời hứa, hồ sơ, kính lúp.
+**Lời dẫn:** “Đi qua bốn câu chuyện, có một điểm chung đáng để suy nghĩ: lời hứa thường rất dễ nghe. Nhưng lời hứa càng lớn thì câu hỏi về trách nhiệm càng phải rõ. Ai nói? Nói dựa trên điều gì? Nếu lời hứa không thành sự thật, ai chịu trách nhiệm? Nghe hơi khô khan nhỉ, nhưng đây chính là cách tự bảo vệ mình.”
+**Âm thanh/Chữ:** “LỜI HỨA LỚN – TRÁCH NHIỆM PHẢI RÕ”.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
+
+### 26. Người thân tham gia thì nên nói chuyện thế nào?
+**Bối cảnh:** Phòng khách gia đình; hai chiếc ghế đặt đối diện, không khí bình tĩnh.
+**Hành động:** MainBoy ngồi xuống, mở lòng bàn tay như mời trò chuyện.
+**Đạo cụ:** Hai chiếc ghế, bàn trà, điện thoại đặt úp.
+**Lời dẫn:** “Nếu người thân của bạn đang tham gia một nhóm khiến bạn lo lắng, đừng vội mở đầu bằng câu ‘con bị dụ rồi’. Nói vậy thường chỉ khiến người ta đóng cửa lòng. Thử hỏi xem họ đang tìm kiếm điều gì, có điều gì khiến họ vui, có điều gì làm họ bất an. Mình có thể không đồng ý, nhưng vẫn nên giữ một con đường để trò chuyện. Và nếu có dấu hiệu đe dọa, ép buộc hay nguy hiểm, hãy tìm sự hỗ trợ phù hợp.”
+**Âm thanh/Chữ:** “LẮNG NGHE TRƯỚC – TRAO ĐỔI SAU”.
+**Loại cảnh:** interior
+**Nhân vật:** main-boy
+
+### 27. Dấu hiệu nào cần đặc biệt lưu ý?
+**Bối cảnh:** Bảng kiểm tra với các biểu tượng tiền bạc, liên lạc gia đình, quyền từ chối và chăm sóc sức khỏe.
+**Hành động:** MainBoy lần lượt đánh dấu các mục cần quan sát.
+**Đạo cụ:** Checklist bốn mục, bút đánh dấu.
+**Lời dẫn:** “Không phải cứ sinh hoạt nhóm hay có niềm tin khác mình là đáng lo. Nhưng có vài dấu hiệu nên để ý: bị ép đưa tiền mà không minh bạch; bị cấm liên hệ với gia đình; bị đe dọa nếu muốn rời đi; hoặc bị khuyên bỏ điều trị y tế cần thiết. Một dấu hiệu riêng lẻ chưa đủ để kết luận toàn bộ tổ chức. Nhưng nếu những chuyện này xảy ra, đừng xem nhẹ.”
+**Âm thanh/Chữ:** “TIỀN BẠC – CÔ LẬP – ĐE DỌA – SỨC KHỎE”.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
+
+### 28. Đừng để mạng xã hội xử án thay tòa
+**Bối cảnh:** Màn hình mạng xã hội cách điệu với các bình luận chạy nhanh, bên cạnh là hồ sơ pháp lý.
+**Hành động:** MainBoy tạm dừng dòng bình luận và mở hồ sơ.
+**Đạo cụ:** Điện thoại, màn hình bình luận, hồ sơ.
+**Lời dẫn:** “Còn một thói quen rất dễ mắc: thấy một bài đăng nhiều lượt chia sẻ rồi nghĩ chắc chắn đúng. Nhưng đông người nói không biến một cáo buộc thành sự thật. Một đoạn clip ngắn không thay thế được hồ sơ. Và bình luận dữ dội cũng không thay thế được phán quyết của tòa. Trước khi chia sẻ, thử dừng lại vài giây, tìm nguồn gốc thông tin. Mất thêm chút thời gian, nhưng tránh được việc làm tổn thương người vô can.”
+**Âm thanh/Chữ:** “NHIỀU LƯỢT CHIA SẺ ≠ CHỨNG CỨ”.
+**Loại cảnh:** modern
+**Nhân vật:** main-boy
+
+### 29. Bốn câu chuyện không phải bốn bản sao
+**Bối cảnh:** Bốn thẻ chủ đề được đặt cạnh bốn loại tư liệu khác nhau.
+**Hành động:** MainBoy chỉ ra sự khác biệt giữa báo cáo, hồ sơ vụ án, dòng thời gian và nghiên cứu học thuật.
+**Đạo cụ:** Bốn thẻ nguồn, bốn biểu tượng tài liệu.
+**Lời dẫn:** “Mình cũng muốn nhắc lại: bốn câu chuyện hôm nay không giống nhau. Có số liệu từ họp báo; có quyết định hành chính; có bản án; có lời kể và nghiên cứu học thuật. Mỗi loại tài liệu trả lời một câu hỏi khác nhau. Nếu trộn tất cả lại rồi gọi chung bằng một nhãn, câu chuyện có thể nghe kịch tính hơn, nhưng sẽ kém chính xác hơn.”
+**Âm thanh/Chữ:** “MỖI NGUỒN – MỘT GIỚI HẠN”.
+**Loại cảnh:** investigation
+**Nhân vật:** main-boy
+
+### 30. Châm biếm điều gì, và không châm biếm ai?
+**Bối cảnh:** MainBoy đứng cạnh bảng “Hành vi / lời hứa / quyền lực” và “Con người / cộng đồng”.
+**Hành động:** MainBoy gạch dưới hành vi cần chất vấn, giữ nguyên hình ảnh cộng đồng.
+**Đạo cụ:** Bảng hai cột, bút.
+**Lời dẫn:** “Mình có thể châm biếm một lời hứa vô căn cứ, một cách làm thiếu minh bạch, hay một người tự đặt mình lên trên mọi câu hỏi. Nhưng không nên chế giễu người dân chỉ vì họ tin, không nên biến trẻ em thành trò đùa, càng không nên lấy bản sắc của một cộng đồng làm punchline. Châm biếm đúng chỗ thì sắc; châm biếm nhầm người thì chỉ thành ác ý.”
+**Âm thanh/Chữ:** “CHẤT VẤN HÀNH VI – TÔN TRỌNG CON NGƯỜI”.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
+
+### 31. Bạn muốn mình kiểm chứng câu chuyện nào tiếp?
+**Bối cảnh:** Nền trắng; bốn thẻ chủ đề thu nhỏ thành các thẻ bình luận.
+**Hành động:** MainBoy hướng bàn tay về phía khán giả, chờ câu hỏi.
+**Đạo cụ:** Bốn thẻ chủ đề, biểu tượng bình luận.
+**Lời dẫn:** “Đến lượt bạn rồi. Trong bốn câu chuyện này, có chi tiết nào bạn muốn mình đào sâu hơn? Có tài liệu gốc nào bạn nghĩ nên đối chiếu? Cứ để lại bình luận và nguồn nếu có nhé. Mình sẽ ưu tiên những thông tin kiểm chứng được, chứ không chạy theo lời đồn cho đủ kịch tính.”
+**Âm thanh/Chữ:** “BÌNH LUẬN KÈM NGUỒN – CÙNG KIỂM CHỨNG”.
+**Loại cảnh:** community
+**Nhân vật:** main-boy
+
+### 32. Lời chào của MainBoy
 **Bối cảnh:** Nền trắng tối giản, MainBoy đứng giữa khung hình.
 **Hành động:** MainBoy chỉ nhẹ về phía khán giả, mỉm cười, hạ tay.
 **Đạo cụ:** Không.
-**Lời dẫn:** “Còn bạn thì sao? Bạn từng nghe câu chuyện nào trong bốn câu chuyện này chưa? Có chi tiết nào bạn nghĩ cần kiểm chứng thêm không? Để lại bình luận, nhưng nhớ giúp mình một điều: tranh luận vào sự việc, đừng công kích người bình thường chỉ vì họ có niềm tin khác mình. Cảm ơn bạn đã xem đến đây. Hẹn gặp lại ở câu chuyện tiếp theo. Và nhớ nhé: đừng tin chỉ vì người ta nói rất chắc; cũng đừng kết tội chỉ vì người khác kể rất nhiều. Mình cùng tìm hiểu, kiểm chứng rồi hãy kết luận.”
+**Lời dẫn:** “Cảm ơn bạn đã xem đến đây. Hẹn gặp lại ở câu chuyện tiếp theo. Và nhớ nhé: đừng tin chỉ vì người ta nói rất chắc; cũng đừng kết tội chỉ vì người khác kể rất nhiều. Mình cùng tìm hiểu, kiểm chứng rồi hãy kết luận.”
 **Âm thanh/Chữ:** Nhạc kết; “TÌM HIỂU – KIỂM CHỨNG – KHÔNG ĐÁNH ĐỒNG”.
 **Sân khấu:** white-intro
 **Nhân vật:** main-boy
