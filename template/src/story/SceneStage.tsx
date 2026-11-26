@@ -9,6 +9,7 @@ export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
   audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
   stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; cardTitle?:string;
+  expression?:BoyExpression;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';
@@ -130,7 +131,6 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
 
 type ReferenceArtworkKind = 'building'|'unverified'|'communique';
 const tinhThatPhotoUrl = 'https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg';
-const truQuyBaoLocPhotoUrl = 'https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/19/tru-quy-16529569579741849352232.jpg';
 const archivalPhotoStyle:React.CSSProperties = {
  filter:'grayscale(1) sepia(.34) contrast(.92) brightness(.91)',
 };
@@ -207,7 +207,8 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const {fps}=useVideoConfig();
  const world=chooseWorld(scene.setting+' '+scene.action+' '+scene.heading,scene.world);
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
- const expression:BoyExpression=/tức giận|phẫn nộ|châm biếm|mỉa mai|vô lý|thiếu minh bạch|lừa dối|ép buộc/i.test(actionText)?'angry':/thắc mắc|tò mò|vì sao|tại sao|câu hỏi|điều gì|bạn có bao giờ|bạn sẽ hỏi/i.test(actionText)?'surprised':/đau lòng|buồn|mất mát|qua đời|trẻ em|tổn thương/i.test(actionText)?'sad':/đe dọa|nguy hiểm|lo lắng|cảnh báo|áp lực|sợ hãi|bạo lực|đàn áp/i.test(actionText)?'worried':/bất ngờ|phát hiện|hé lộ|bí mật|đột ngột/i.test(actionText)?'surprised':/chào|mỉm cười|cảm ơn|hẹn gặp|hy vọng|tốt đẹp/i.test(actionText)?'happy':'neutral';
+ const inferredExpression:BoyExpression=/tức giận|phẫn nộ|châm biếm|mỉa mai|vô lý|thiếu minh bạch|lừa dối|ép buộc/i.test(actionText)?'angry':/thắc mắc|tò mò|vì sao|tại sao|câu hỏi|điều gì|bạn có bao giờ|bạn sẽ hỏi/i.test(actionText)?'surprised':/đau lòng|buồn|mất mát|qua đời|trẻ em|tổn thương/i.test(actionText)?'sad':/đe dọa|nguy hiểm|lo lắng|cảnh báo|áp lực|sợ hãi|bạo lực|đàn áp/i.test(actionText)?'worried':/bất ngờ|phát hiện|hé lộ|bí mật|đột ngột/i.test(actionText)?'surprised':/chào|mỉm cười|cảm ơn|hẹn gặp|hy vọng|tốt đẹp/i.test(actionText)?'happy':'neutral';
+ const expression:BoyExpression=scene.expression||inferredExpression;
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  const referencePhoto=scene.photo || (!whiteStage ? (/Nam Kỳ đầu thế kỷ/.test(scene.heading)?'reference/cochinchina-map.jpg':/Khám Lớn Sài Gòn/.test(scene.heading)?'reference/saigon-maison-centrale.jpg':/Thanh niên Cao vọng/.test(scene.heading)?'reference/nguyen-an-ninh-1929.jpg':null) : null);
  // Use the original ChibiDemo entrance: spring up from below and scale from zero,
