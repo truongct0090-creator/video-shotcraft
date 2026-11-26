@@ -32,13 +32,6 @@ const assets = [
     sha1: '9ac59d056fa748028a84c94497bb78a6afce4217',
   },
   {
-    file: 'asian-group-meeting.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Group_Discussion_1.jpg',
-    minBytes: 1_000_000,
-    maxBytes: 3_000_000,
-    sha1: 'd941bc5b258469bc42d8a8300b7c4172b0a1d962',
-  },
-  {
     file: 'cochinchina-map.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Map_of_Cochinchina.jpg',
     minBytes: 100_000,
