@@ -129,6 +129,7 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
 
 
 type ReferenceArtworkKind = 'building'|'unverified'|'communique';
+const tinhThatPhotoUrl = 'https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg';
 const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  if(kind==='building') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
   <rect width="820" height="610" fill="#dce7df"/><text x="410" y="52" textAnchor="middle" fontSize="30" fontWeight="900" fill="#514536">TỊNH THẤT BỒNG LAI</text><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
@@ -161,7 +162,7 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  const items=[
   {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Trụ sở tại Singapore · 2025',photo:'reference/church-of-god-singapore.jpg'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Tái hiện địa điểm · không phải ảnh chụp',kind:'building' as const},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Ảnh tư liệu · Ảnh: K.Q',photo:tinhThatPhotoUrl},
   {title:'THIÊN TRIỀU ÂM PHỦ',note:'Chưa có ảnh độc lập xác minh',kind:'unverified' as const},
   {title:'NHÓM TRỪ QUỶ BẢO LỘC',note:'Thông cáo chính thức · 30.05.2022',kind:'communique' as const},
   {title:'THANH HẢI VÔ THƯỢNG SƯ',note:'Ảnh tư liệu tại Sydney · 1993',photo:'reference/ching-hai-sydney-1993.jpg'},
@@ -172,7 +173,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
    const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
     <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
-     {item.photo?<Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>:<ReferenceArtwork kind={item.kind!}/>}
+     {item.photo?<Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>:<ReferenceArtwork kind={item.kind!}/>}
     </div>
     <div style={{flex:1,minHeight:0,padding:'9px 12px 7px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
      <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28'}}>{item.title}</div>
@@ -221,12 +222,12 @@ const facing=characterOnLeft?'right':'left';
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
 
- const fallbackKind:ReferenceArtworkKind|undefined=whiteStage?(scene.number===3?'building':scene.number===4?'unverified':scene.number===5?'communique':undefined):undefined;
+ const fallbackKind:ReferenceArtworkKind|undefined=whiteStage?(scene.number===4?'unverified':scene.number===5?'communique':undefined):undefined;
  const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
  const characterScale=scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></> : null}
-  {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
+  {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'0 2px 0 #fff,0 6px 12px rgba(0,0,0,.12)'}}>SÁU CÁNH CỬA GÂY TRANH CÃI</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
