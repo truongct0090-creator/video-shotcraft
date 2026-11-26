@@ -11,6 +11,12 @@ import {createHash} from 'node:crypto';
 const outputDir = path.resolve('template/public/reference');
 const assets = [
   {
+    file: 'kon-tum-city-1972.jpg',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Kon_Tum_City%2C_Viet_Nam_1972.jpg',
+    minBytes: 350_000,
+    maxBytes: 550_000,
+  },
+  {
     file: 'church-of-god-singapore.jpg',
     url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/World_Mission_Society_Church_of_God%2C_Singapore_%282025%29_-_img_01.jpg',
     minBytes: 1_000_000,
