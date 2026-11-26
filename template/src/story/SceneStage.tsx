@@ -226,7 +226,7 @@ const facing=characterOnLeft?'right':'left';
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
 
- const fallbackKind:ReferenceArtworkKind|undefined=whiteStage?(scene.number===4?'unverified':scene.number===5?'communique':undefined):undefined;
+ const fallbackKind:ReferenceArtworkKind|undefined=whiteStage?(scene.number===4?'unverified':scene.number===5?'communique':scene.number===8?'unverified':undefined):undefined;
  const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
  const characterScale=scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
