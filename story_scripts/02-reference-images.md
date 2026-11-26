@@ -1,27 +1,28 @@
-# Ảnh tham chiếu tập 02 – Sáu cánh cửa gây tranh cãi
+# Ảnh tham chiếu tập 02 – Bốn cánh cửa niềm tin
 
-Nguyên tắc: ảnh phải đúng chủ thể và địa điểm; không dùng ảnh một nhóm người bất kỳ để minh họa như thể đó là thành viên của tổ chức. Khi không có ảnh xác minh hoặc quyền tái sử dụng, dùng đồ họa tái hiện có ghi nhãn thay vì ảnh sai.
+Nguyên tắc: ảnh phải đúng chủ thể, địa điểm và thời điểm; không dùng ảnh một nhóm người bất kỳ để minh họa như thể đó là thành viên. Khi không có ảnh xác minh hoặc quyền tái sử dụng, ưu tiên bản đồ, dòng thời gian, đồ họa hồ sơ có nhãn “tái hiện minh họa”.
 
 | Mục | Hình dùng trong video | Cơ sở xác minh và giới hạn |
 |---|---|---|
 | 1. Hội Thánh Đức Chúa Trời Mẹ | Ảnh cơ sở của World Mission Society Church of God tại Singapore năm 2025 (church-of-god-singapore.jpg). | Đúng tổ chức, nhưng không phải cơ sở ở Việt Nam. Wikimedia Commons, Chainwit., CC BY 4.0. Chú thích địa điểm/năm bắt buộc. |
-| 2. Tịnh thất Bồng Lai | Ảnh tư liệu ông Lê Tùng Vân cùng các “chú tiểu” từng xuất hiện trong “Thách thức danh hài”; dùng đúng ảnh người dùng chỉ định. | Chú thích ảnh được đối chiếu: “Ông Lê Tùng Vân cùng những ‘chú tiểu’ từng gây ‘bão’ trong chương trình ‘Thách thức danh hài’. Ảnh: K.Q”. Nguồn bài Lao Động do người dùng cung cấp; ảnh đối chiếu cùng chú thích được tìm thấy trong bài Techz. Ảnh có trẻ vị thành niên, mặt đã được làm mờ. Chỉ dùng trong bản dựng/preview nội bộ; quyền tái sử dụng và bản gốc độ phân giải cao cần được xác nhận trước khi phát hành công khai. |
-| 3. Thiên Triều Âm Phủ / Đức Chúa Trời Bốn Phương | Thẻ tư liệu “Chưa có ảnh độc lập xác minh”. | Chưa có nguồn độc lập đáng tin cậy xác minh hình ảnh, địa điểm hoặc danh tính nhóm. Đã loại bỏ ảnh Group Discussion 1 vì đó là ảnh cuộc họp của cộng đồng Wikimedia tại Delhi, Ấn Độ, hoàn toàn không liên quan. |
-| 4. Nhóm Trừ Quỷ Bảo Lộc | Ảnh 4 trong bài Dân Việt ngày 02/06/2022, ảnh phát biểu/nhận định của Tòa Giám mục Đà Lạt. | Caption gốc: “Tòa Giám mục Đà Lạt nhận định việc ‘trừ quỷ’, ‘chữa bệnh’ của nhóm ‘trừ quỷ Bảo Lộc’ là mê tín dị đoan, không phải đức tin công truyền của người công giáo.” Nguồn: Dân Việt, bài “Sự thật về nhóm ‘trừ quỷ Bảo Lộc’ (Bài 3)”. Chỉ dùng cho preview nội bộ; Dân Việt yêu cầu có sự đồng ý bằng văn bản trước khi sao chép/phát hành công khai. |
-| 5. Thanh Hải Vô Thượng Sư | Ảnh tư liệu tại Sydney năm 1993 (ching-hai-sydney-1993.jpg). | Wikimedia Commons, Truthexplorer (re-upload Rico Shen); CC BY-SA 3.0 và GFDL. Ghi công và tuân thủ điều khoản giấy phép. |
-| 6. Pháp Luân Công | Ảnh người tập tại Đài Loan ngày 30/01/2025 (falun-gong-taiwan-2025.jpg). | Wikimedia Commons, Allervous, CC BY-SA 4.0. Chú thích rõ đây là Đài Loan, không phải Việt Nam. |
+| 2. Tịnh thất Bồng Lai | Ảnh tư liệu ông Lê Tùng Vân cùng các “chú tiểu” từng xuất hiện trong “Thách thức danh hài”; dùng đúng ảnh đã chỉ định. | Chú thích: “Ông Lê Tùng Vân cùng những ‘chú tiểu’ từng gây chú ý trong chương trình ‘Thách thức danh hài’. Ảnh: K.Q”. Nguồn ảnh đối chiếu qua bài Techz; mặt trẻ vị thành niên đã được làm mờ. Chỉ dùng preview nội bộ; xác nhận quyền tái sử dụng trước phát hành công khai. |
+| 2A. Trại dưỡng lão và Cô nhi Thánh Đức | Dòng thời gian và văn bản hành chính cách điệu, không giả làm bản gốc. | Không dùng ảnh trẻ em hoặc ảnh cơ sở không rõ nguồn. Ghi rõ “tái hiện văn bản”. Mốc 25/07/2007 về quyết định chấm dứt hoạt động được báo chí dẫn lại từ UBND huyện Bình Chánh. |
+| 3. Đạo Hà Mòn | Bản đồ Kon Tum – Gia Lai và đồ họa dòng thời gian; ảnh tư liệu chỉ dùng khi xác minh đúng địa điểm/người và giấy phép. | Không dùng ảnh nhóm người chung chung để đại diện. Gắn nhãn “tái hiện minh họa” cho bản đồ và đồ họa. Nguồn nội dung: Thanh Niên (29/05/2013), VOV (28/05/2013). |
+| 4. Hiện tượng Dương Văn Mình | Bản đồ các tỉnh miền núi phía Bắc; đồ họa nhà đòn/biểu tượng tang lễ theo tài liệu nghiên cứu, không tái hiện nghi thức như tư liệu thật. | Nguồn nghiên cứu: tài liệu Viện Hàn lâm Khoa học Xã hội Việt Nam về hiện tượng tôn giáo mới; đối chiếu thêm nguồn công khai của địa phương. Không gán ảnh người Mông bất kỳ thành thành viên tổ chức. Tránh hình ảnh kỳ thị hoặc khuôn mẫu. |
 
-## Nguồn biên tập cho các thẻ không dùng ảnh chụp
+## Nguồn biên tập
 
-- Tịnh thất Bồng Lai: Báo Lao Động – “Công khai kết quả điều tra về Tịnh thất Bồng Lai” (đường dẫn do người dùng cung cấp): https://laodong.vn/xa-hoi/cong-khai-ket-qua-dieu-tra-ve-tinh-that-bong-lai-838527.ldo. Chú thích ảnh được đối chiếu qua bản đăng lại có cùng caption tại Techz: https://www.techz.vn/187-525-5-nguoi-vo-sap-chet-van-bi-le-tung-van-loi-dung-lo-bang-chung-thep-trong-vu-thay-ong-noi-loan-luan-ylt649739.html. Ảnh xem được: https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg. Ghi công theo caption: K.Q. Chưa xác minh giấy phép tái sử dụng; chỉ dùng cho preview nội bộ cho đến khi có quyền.
-- Nhóm Trừ Quỷ Bảo Lộc: Dân Việt, “Sự thật về nhóm ‘trừ quỷ Bảo Lộc’ (Bài 3): Tòa Giám mục Đà Lạt lên tiếng, ra ‘tối hậu thư’” (02/06/2022): https://danviet.vn/su-that-ve-nhom-tru-quy-bao-loc-bai-3-toa-giam-muc-da-lat-len-tieng-ra-toi-hau-thu-20220519174703422-d1020187.html. Dùng Ảnh 4, URL ảnh: https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/19/tru-quy-16529569579741849352232.jpg. Giữ nguyên caption và ghi nguồn Dân Việt. Bản quyền thuộc Báo điện tử Dân Việt; chỉ dùng preview nội bộ đến khi có văn bản đồng ý tái sử dụng.
-- Thiên Triều Âm Phủ: chưa có ảnh độc lập xác minh; tuyệt đối không gắn ảnh một nhóm khác vào mục này.
+- Hội Thánh Đức Chúa Trời Mẹ: Bộ Nội vụ (09/2023); họp báo Bộ Công an ngày 30/06/2023 về số liệu sáu tháng đầu năm. Chỉ sử dụng số liệu cùng mốc thời gian và nguồn.
+- Tịnh thất Bồng Lai / Trại dưỡng lão và Cô nhi Thánh Đức: VietnamNet, “Kết quả điều tra về cơ sở Tịnh thất Bồng Lai”: https://vietnamnet.vn/ket-qua-dieu-tra-ve-co-so-tinh-that-bong-lai-675761.html ; Thanh Niên: https://thanhnien.vn/cong-an-long-an-khoi-to-vu-an-dieu-tra-nhieu-toi-danh-tai-tinh-that-bong-lai-1851418111.htm ; Công an Nhân dân: https://cand.vn/dieu-tra-theo-don-ban-doc/Su-that-ve-trai-duong-lao-co-nhi-Thanh-Duc-i289065/ . Mốc 25/07/2007 cần giữ nguyên theo nguồn được dẫn; phân biệt quyết định hành chính với cáo buộc khác. Ảnh Tịnh thất Bồng Lai: https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg ; ghi công “Ảnh: K.Q”; chưa xác minh giấy phép tái sử dụng.
+- Đạo Hà Mòn: Thanh Niên, “Xét xử vụ ‘tà đạo Hà Mòn’” (29/05/2013): https://thanhnien.vn/xet-xu-vu-ta-dao-ha-mon-185253284.htm ; VOV, “Gia Lai xét xử 8 đối tượng chủ chốt của ‘tà đạo Hà Mòn’” (28/05/2013): https://vov.vn/phap-luat/gia-lai-xet-xu-8-doi-tuong-chu-chot-cua-ta-dao-ha-mon-263878.vov . Khi kể phải phân biệt lời đồn, lời khai, cáo trạng và phán quyết.
+- Hiện tượng Dương Văn Mình: Viện Hàn lâm Khoa học Xã hội Việt Nam, tài liệu “Tôn giáo tín ngưỡng ở khu vực miền núi” và “Một số vấn đề cơ bản về các hiện tượng tôn giáo mới ở Việt Nam”; tài liệu của cơ quan chức năng địa phương chỉ dùng với ghi chú rõ đó là quan điểm/nhận định của cơ quan phát hành.
+- Ảnh tư liệu Tịnh thất Bồng Lai chỉ dùng preview nội bộ cho đến khi xác nhận quyền tái sử dụng. Không sử dụng hình ảnh trẻ em nhạy cảm hoặc ảnh người vô can làm minh họa cáo buộc.
 
 ## Quy tắc hiển thị
 
-- Cảnh mở đầu phải hiện đủ sáu thẻ hình cùng lúc, đúng thứ tự sáu mục trong kịch bản.
-- Mọi ảnh ngoài Việt Nam phải ghi đúng địa điểm và năm.
-- Đồ họa tái hiện phải có nhãn “tái hiện minh họa”; không được trình bày như ảnh tư liệu.
-- Ảnh Tịnh thất Bồng Lai do báo chí đăng phải giữ ghi công “Ảnh: K.Q”; không xóa watermark/ghi công. Không phát hành công khai nếu chưa xác nhận quyền sử dụng.
-- Ảnh Trừ Quỷ Bảo Lộc từ Dân Việt phải giữ nguyên chú thích gốc và ghi nguồn Dân Việt; không phát hành công khai nếu chưa có văn bản đồng ý tái sử dụng.
-- Không dùng ảnh trẻ em hoặc ảnh người vô can để minh họa cho cáo buộc/tổ chức.
+- Mở đầu chỉ có bốn thẻ chủ đề, theo đúng thứ tự kịch bản.
+- Ảnh ngoài địa điểm câu chuyện phải ghi đúng địa điểm/năm; không tạo ấn tượng đó là ảnh tại Việt Nam.
+- Đồ họa tái hiện phải ghi “tái hiện minh họa” hoặc “tái hiện văn bản”.
+- Không dùng ảnh trẻ em thật để minh họa tranh cãi; bảo vệ danh tính và quyền riêng tư.
+- Không phát hành công khai ảnh báo chí khi chưa xác nhận quyền sử dụng.
+- Với cộng đồng người Mông, không sử dụng hình ảnh theo hướng kỳ thị; không gán ảnh người bất kỳ là thành viên của hiện tượng/tổ chức.
