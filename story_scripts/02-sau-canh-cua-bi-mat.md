@@ -150,6 +150,9 @@
 **Bối cảnh:** Bản đồ Kon Tum và Tây Nguyên; phong cảnh làng được tái hiện trung tính.
 **Hành động:** MainBoy chỉ vào khu vực Hà Mòn, sau đó mở hồ sơ.
 **Đạo cụ:** Bản đồ, mốc cuối thập niên 1990 – đầu những năm 2000.
+**Ảnh tư liệu:** https://upload.wikimedia.org/wikipedia/commons/f/f6/Kon_Tum_City%2C_Viet_Nam_1972.jpg
+**Chú thích ảnh:** Thị xã Kon Tum năm 1972; ảnh tư liệu địa lý bối cảnh, không phải ảnh sự kiện Hà Mòn. Gary Cantrell, CC BY 2.0.
+**Tiêu đề ảnh:** KON TUM – TƯ LIỆU LỊCH SỬ
 **Lời dẫn:** “Rời miền Nam, mình đưa bạn lên Tây Nguyên. Câu chuyện thứ ba là Hà Mòn, còn được một số nguồn gọi là hiện tượng Đức Mẹ Hà Mòn. Các tài liệu báo chí cho biết hiện tượng này xuất hiện ở khu vực Kon Tum vào khoảng cuối thập niên 1990, gắn với lời đồn Đức Mẹ hiện hình. Và như thường thấy, khi một lời đồn chạm vào niềm tin sâu sắc của con người, nó có thể lan rất nhanh.”
 **Âm thanh/Chữ:** “KON TUM – CUỐI THẬP NIÊN 1990”.
 **Loại cảnh:** map
