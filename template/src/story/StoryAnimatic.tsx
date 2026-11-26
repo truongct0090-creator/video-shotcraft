@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { AbsoluteFill, continueRender, delayRender, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, continueRender, delayRender, interpolate, useCurrentFrame } from 'remotion';
 
 type Scene = {
   number: number;
@@ -27,7 +27,6 @@ export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, sce
   const [fontHandle] = useState(() => delayRender('Loading Be Vietnam Pro'));
   useEffect(() => { document.fonts.load('700 58px "Be Vietnam Pro"').then(() => document.fonts.ready).then(() => continueRender(fontHandle)).catch(() => continueRender(fontHandle)); }, [fontHandle]);
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
   const sceneStarts = scenes.map((_, index) => scenes.slice(0, index).reduce((sum, item) => sum + (item.durationInFrames || framesPerScene), 0));
   const sceneIndex = Math.max(0, scenes.findIndex((scene, index) => frame < sceneStarts[index] + (scene.durationInFrames || framesPerScene)));
   const scene = scenes[sceneIndex] ?? scenes[scenes.length - 1];
@@ -36,7 +35,6 @@ export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, sce
   const enter = interpolate(local, [0, Math.min(18, sceneFrames / 3)], [0, 1], clamp);
   const fade = interpolate(local, [Math.max(0, sceneFrames - 12), sceneFrames], [1, 0], clamp);
   const opacity = Math.min(enter, fade);
-  const seconds = Math.floor(frame / fps);
   const label = String(scene.number).padStart(2, '0');
 
   return (
@@ -68,7 +66,6 @@ export const StoryAnimatic: React.FC<Props> = ({title, mode, framesPerScene, sce
         <div style={{height: 3, width: `${((sceneStarts[sceneIndex] + local) / (scenes.reduce((sum, item) => sum + (item.durationInFrames || framesPerScene), 0))) * 100}%`, background: '#c4a36a'}} />
       </div>
       <div style={{position: 'absolute', bottom: 78, left: 84, color: '#8c8982', fontSize: 16, letterSpacing: 2}}>{title}</div>
-      <div style={{position: 'absolute', bottom: 78, right: 84, color: '#8c8982', fontSize: 16}}>{String(seconds).padStart(2, '0')}s</div>
     </AbsoluteFill>
   );
 };

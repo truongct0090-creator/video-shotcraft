@@ -79,8 +79,20 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /bong bóng thoại/.test(propText)?'pitch':
   /phễu tuyển thành viên/.test(propText)?'funnel':
   /khung gia đình/.test(propText)?'faith':
-  /bảng checklist/.test(propText)?'checklist':
+  /bảng checklist|checklist|bốn mục/.test(propText)?'checklist':
   /dòng thời gian/.test(propText)?'timeline':
+  /bữa ăn|bàn ăn|bữa cơm|ghế trống|hai chiếc ghế|bàn trà/.test(propText)?'family-table':
+  /bảng số liệu|họp báo|12 vụ|85 người/.test(propText)?'stats-board':
+  /có được hỏi|có được từ chối|có được rời đi|quyền tự quyết/.test(propText)?'rights-board':
+  /bản đồ bình chánh|bản đồ gia lai|bản đồ kon tum|bản đồ.*long an/.test(propText)?'route-map':
+  /cặp sách|quyền riêng tư|bảo vệ danh tính|quyền học tập/.test(propText)?'school-protection':
+  /lời kể|lời đồn|thông điệp thiêng|tờ giấy ghi/.test(propText)?'testimony':
+  /vụ án|bị cáo|tòa án|xét xử|điều 331|bản án/.test(propText)?'legal-case':
+  /bản làng|nhà sàn|người mông|miền núi phía bắc/.test(propText)?'village-house':
+  /tài liệu nghiên cứu|viện hàn lâm|trích dẫn nguồn|nghiên cứu|bốn thẻ nguồn|biểu tượng tài liệu/.test(propText)?'research-stack':
+  /màn hình bình luận|mạng xã hội|bình luận|video clip/.test(propText)?'social-feed':
+  /hai cột|châm biếm|niềm tin cá nhân|hành vi cụ thể/.test(propText)?'two-column':
+  /nhà đòn|tang lễ|nghi lễ/.test(propText)?'funeral-house':
   /cánh cửa mở/.test(propText)?'open-door':'generic';
  // Text belongs to the object/card that it describes. Keep it compact and
   // scale the type down for longer labels so it never spills outside its panel.
@@ -184,15 +196,21 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
   })}
  </div>;
 };
-const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;fps:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,fps,whiteStage,characterOnLeft})=>{
+const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
  const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
- const elapsed=Math.max(0,Math.floor(((scene.startTimeInFrames||0)+frame)/fps));
- const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
+ const labelWidth=hasPhoto?'min(680px, 42%)':'min(760px, 44%)';
+ const labelSide=hasPhoto
+  ? (characterOnLeft?{left:72}:{right:72})
+  : (characterOnLeft?{right:72}:{left:72});
  return <>
-  {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
-   {labels.map((label,index)=>{const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={label} style={{maxWidth:'100%',fontSize:labels.length===1?42:index===0?36:29,lineHeight:1.16,fontWeight:850,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',opacity:reveal,transform:'translateY('+(1-reveal)*22+'px) scale('+(0.96+reveal*0.04)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>})}
+  {!whiteStage && hasPhoto && scene.photoCaption ? <div style={{position:'absolute',right:150,top:620,width:680,maxWidth:'42%',zIndex:8,padding:'9px 14px',boxSizing:'border-box',background:'rgba(28,31,32,.82)',color:'#fff8e8',fontSize:18,fontWeight:700,lineHeight:1.25,textAlign:'center',textShadow:'0 2px 4px rgba(0,0,0,.55)',borderRadius:5}}>{scene.photoCaption}</div> : null}
+  {labels.length>0?<div style={{position:'absolute',top:hasPhoto?70:76,...labelSide,width:labelWidth,zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:10,pointerEvents:'none'}}>
+   {labels.map((label,index)=>{
+    const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+    const fontSize=label.length>34?32:label.length>24?36:label.length>15?40:46;
+    return <div key={label} style={{maxWidth:'100%',padding:'5px 9px',boxSizing:'border-box',fontSize,lineHeight:1.12,fontWeight:900,letterSpacing:.1,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'break-word',textWrap:'pretty',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.97+reveal*0.03)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>;
+   })}
   </div>:null}
-  <div style={{position:'absolute',right:28,bottom:18,zIndex:9,fontSize:16,fontWeight:700,letterSpacing:1,color:whiteStage?'rgba(48,45,40,.55)':'rgba(255,248,232,.68)',textShadow:whiteStage?'none':'0 2px 5px rgba(0,0,0,.4)',pointerEvents:'none'}}>{timecode}</div>
  </>;
 };
 
@@ -234,10 +252,10 @@ const facing=characterOnLeft?'right':'left';
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div></div> : null}
   {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>4 CÁNH CỬA NIỀM TIN</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
-  {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
-  {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{scene.photoCaption}</div> : null}
-   <SceneInfoCaptions scene={scene} frame={frame} fps={fps} whiteStage={whiteStage} characterOnLeft={characterOnLeft}/>
+  {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:54,lineHeight:1.08,fontWeight:900,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
+  {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:24,lineHeight:1.22,fontWeight:700,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{scene.photoCaption}</div> : null}
+   <SceneInfoCaptions scene={scene} frame={frame} whiteStage={whiteStage} characterOnLeft={characterOnLeft} hasPhoto={Boolean(referencePhoto)}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/>{expression!=='neutral'?<div aria-hidden="true" style={{position:'absolute',top:18,right:expression==='angry'?-4:12,minWidth:expression==='angry'?74:58,height:58,padding:'0 10px',borderRadius:28,display:'flex',alignItems:'center',justifyContent:'center',fontSize:expression==='angry'?43:38,fontWeight:1000,lineHeight:1,color:expression==='angry'?'#D52E2E':expression==='sad'?'#398CCB':expression==='worried'?'#4B8DA8':expression==='happy'?'#E5A52E':'#426CB0',background:'rgba(255,255,255,.94)',border:'4px solid '+(expression==='angry'?'#D52E2E':expression==='sad'?'#398CCB':expression==='worried'?'#4B8DA8':expression==='happy'?'#E5A52E':'#426CB0'),boxShadow:'0 5px 0 rgba(0,0,0,.12)',transform:'rotate('+(expression==='angry'?-8:expression==='sad'?8:expression==='happy'?7:0)+'deg)'}}>{expression==='angry'?'><':expression==='sad'?'💧':expression==='worried'?'💦':expression==='happy'?'✦':expression==='surprised'?'?':'!'}</div>:null}</div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
