@@ -1,22 +1,25 @@
-# Ảnh tư liệu tập 02 – Sáu cánh cửa gây tranh cãi
+# Ảnh tham chiếu tập 02 – Sáu cánh cửa gây tranh cãi
 
-Các ảnh dưới đây được tải từ Wikimedia Commons qua allow-list trong `scripts/fetch-story-reference-images.mjs`. Giữ nguyên tác giả, nguồn và điều kiện giấy phép khi tái sử dụng. Ảnh minh họa không được mô tả như ảnh chụp tại Việt Nam nếu bối cảnh gốc ở nơi khác.
+Nguyên tắc: ảnh phải đúng chủ thể và địa điểm; không dùng ảnh một nhóm người bất kỳ để minh họa như thể đó là thành viên của tổ chức. Khi không có ảnh xác minh hoặc quyền tái sử dụng, dùng đồ họa tái hiện có ghi nhãn thay vì ảnh sai.
 
-| File | Chủ đề/cảnh | Nguồn và tác giả | Giấy phép / giới hạn sử dụng |
-|---|---|---|---|
-| `church-of-god-singapore.jpg` | Hội Thánh Đức Chúa Trời Mẹ – ảnh cơ sở của World Mission Society Church of God tại Singapore, không phải điểm nhóm ở Việt Nam | [Wikimedia Commons – World Mission Society Church of God, Singapore (2025), img 01](https://commons.wikimedia.org/wiki/File:World_Mission_Society_Church_of_God,_Singapore_(2025)_-_img_01.jpg), Chainwit., 12-03-2025 | CC BY 4.0. Ghi công Chainwit.; không hàm ý người chụp ủng hộ phim. |
-| `asian-group-meeting.jpg` | Thiên Triều Âm Phủ / Đức Chúa Trời Bốn Phương – ảnh minh họa một buổi gặp mặt có người châu Á, không phải thành viên/địa điểm của tổ chức | [Wikimedia Commons – Group Discussion 1](https://commons.wikimedia.org/wiki/File:Group_Discussion_1.jpg), FromPunjab, 23-03-2024 | CC0 1.0. Ảnh do FromPunjab hiến tặng phạm vi công cộng; mô tả gốc là cuộc họp nhóm tại Delhi. Hình có người Nam Á, không có logo nhận diện tổ chức đang được đề cập. Ảnh không có logo tổ chức được đề cập. |
-| `ching-hai-sydney-1993.jpg` | Thanh Hải Vô Thượng Sư – ảnh tư liệu tại Sydney, Australia, năm 1993 | [Wikimedia Commons – ChingHai Sydney in 1993](https://commons.wikimedia.org/wiki/File:ChingHai_Sydney_in_1993.jpg), Truthexplorer (re-upload Rico Shen) | CC BY-SA 3.0 và GFDL. Ghi công; tuân thủ điều khoản chia sẻ tương tự/GFDL nếu áp dụng. |
-| `falun-gong-taiwan-2025.jpg` | Pháp Luân Công – người tập tại quảng trường Chiang Kai-shek Memorial Hall, Đài Loan, 30-01-2025; không phải hoạt động ở Việt Nam | [Wikimedia Commons – Falun Gong practitioners (20250130)](https://commons.wikimedia.org/wiki/File:Falun_Gong_practitioners_(20250130).jpg), Allervous | CC BY-SA 4.0. Ghi công Allervous; tuân thủ điều khoản chia sẻ tương tự. |
+| Mục | Hình dùng trong video | Cơ sở xác minh và giới hạn |
+|---|---|---|
+| 1. Hội Thánh Đức Chúa Trời Mẹ | Ảnh cơ sở của World Mission Society Church of God tại Singapore năm 2025 (church-of-god-singapore.jpg). | Đúng tổ chức, nhưng không phải cơ sở ở Việt Nam. Wikimedia Commons, Chainwit., CC BY 4.0. Chú thích địa điểm/năm bắt buộc. |
+| 2. Tịnh thất Bồng Lai | Đồ họa tái hiện kiến trúc địa điểm, ghi rõ “tái hiện minh họa – không phải ảnh chụp”. | Báo Người Lao Động, bài và ảnh Hà Long, 22/09/2020 và bài 09/08/2025 mô tả địa điểm; ảnh báo chí chưa có giấy phép tái sử dụng xác nhận nên không nhúng vào repo. Không dùng ảnh trẻ em. |
+| 3. Thiên Triều Âm Phủ / Đức Chúa Trời Bốn Phương | Thẻ tư liệu “Chưa có ảnh độc lập xác minh”. | Chưa có nguồn độc lập đáng tin cậy xác minh hình ảnh, địa điểm hoặc danh tính nhóm. Đã loại bỏ ảnh Group Discussion 1 vì đó là ảnh cuộc họp của cộng đồng Wikimedia tại Delhi, Ấn Độ, hoàn toàn không liên quan. |
+| 4. Nhóm Trừ Quỷ Bảo Lộc | Đồ họa trích yếu thông cáo chính thức ngày 30/05/2022, không phải ảnh chụp nhóm. | Nội dung đối chiếu thông cáo của Ủy ban Giáo lý Đức Tin thuộc Hội đồng Giám mục Việt Nam. Không có ảnh nhóm/địa điểm có quyền tái sử dụng được xác minh. |
+| 5. Thanh Hải Vô Thượng Sư | Ảnh tư liệu tại Sydney năm 1993 (ching-hai-sydney-1993.jpg). | Wikimedia Commons, Truthexplorer (re-upload Rico Shen); CC BY-SA 3.0 và GFDL. Ghi công và tuân thủ điều khoản giấy phép. |
+| 6. Pháp Luân Công | Ảnh người tập tại Đài Loan ngày 30/01/2025 (falun-gong-taiwan-2025.jpg). | Wikimedia Commons, Allervous, CC BY-SA 4.0. Chú thích rõ đây là Đài Loan, không phải Việt Nam. |
 
-## Ảnh chưa đưa vào bản dựng
+## Nguồn biên tập cho các thẻ không dùng ảnh chụp
 
-- **Tịnh thất Bồng Lai:** ảnh địa điểm được báo chí Việt Nam đăng tải có thể nhận diện đúng nơi, nhưng chưa xác minh được giấy phép tái sử dụng. Không tự động tải hoặc nhúng vào video khi chưa có quyền phù hợp. Có thể dùng liên kết bài báo làm tư liệu biên tập, không coi đó là quyền tái xuất bản ảnh.
-- **Nhóm Trừ Quỷ Bảo Lộc:** hiện có thông cáo chính thức dạng văn bản; chưa xác định được ảnh nhóm/địa điểm cụ thể có giấy phép tái sử dụng rõ ràng. Không dùng ảnh nhà thờ hay người Công giáo bất kỳ để gán thành ảnh nhóm này.
+- Tịnh thất Bồng Lai: Báo Người Lao Động – Lộ thêm sự thật về “Tịnh thất bồng lai”, “Thiền am bên bờ vũ trụ” (22/09/2020): https://tuoitre.vn/nld/thoi-su/lo-them-su-that-ve-tinh-that-bong-lai-thien-am-ben-bo-vu-tru-20200922173226525.htm. Ảnh bài báo chỉ dùng để kiểm chứng biên tập; không tái xuất bản khi chưa có quyền.
+- Nhóm Trừ Quỷ Bảo Lộc: Thông cáo Ủy ban Giáo lý Đức Tin (30/05/2022): https://www.tonggiaophanhue.net/tin-tuc/tin-giao-hoi-viet-nam/uy-ban-giao-ly-duc-tin-thong-cao-ve-nhom-tru-quy-bao-loc/.
+- Thiên Triều Âm Phủ: chưa có ảnh độc lập xác minh; tuyệt đối không gắn ảnh một nhóm khác vào mục này.
 
-## Quy tắc chú thích
+## Quy tắc hiển thị
 
-- Ảnh Singapore, Sydney và Đài Loan phải hiển thị đúng địa danh/năm; không giả làm ảnh tại Việt Nam.
-- Ảnh Asian Wikipedians chỉ là ảnh minh họa cho chương 3; không đại diện tổ chức được nhắc tới.
-- Không lấy logo làm ảnh đại diện; không gắn nhầm người vô can vào tổ chức.
-- Ảnh báo chí chưa có quyền tái sử dụng rõ ràng không được tải vào `template/public/reference/`.
+- Cảnh mở đầu phải hiện đủ sáu thẻ hình cùng lúc, đúng thứ tự sáu mục trong kịch bản.
+- Mọi ảnh ngoài Việt Nam phải ghi đúng địa điểm và năm.
+- Đồ họa tái hiện phải có nhãn “tái hiện minh họa”; không được trình bày như ảnh tư liệu.
+- Không dùng ảnh trẻ em hoặc ảnh người vô can để minh họa cho cáo buộc/tổ chức.
