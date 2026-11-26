@@ -88,7 +88,13 @@ const parseDuration = (value, narration = '') => {
 // "test" is a strict first-10-scenes preview. Do not append later sample scenes,
 // because that changes the promised test scope and makes duration/output unpredictable.
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
-const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration, scene.narration)}));
+let nextStartFrame = 0;
+const withTiming = selected.map((scene) => {
+  const durationInFrames = parseDuration(scene.duration, scene.narration);
+  const timedScene = {...scene, startTimeInFrames: nextStartFrame, durationInFrames};
+  nextStartFrame += durationInFrames;
+  return timedScene;
+});
 const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
 const music = markdown.match(/^\*\*Nhạc nền:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
 for (const [label, file] of [['Giọng đọc', voiceover], ['Nhạc nền', music]]) {
