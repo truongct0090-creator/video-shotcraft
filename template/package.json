@@ -7,10 +7,10 @@
     "render": "remotion render src/index.ts AiflPromo out/promo.mp4",
     "still": "remotion still src/index.ts AiflPromo",
     "render:story": "bash scripts/render-story.sh",
-    "render:film": "bash scripts/render-story.sh story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md full",
-    "render:story:test": "bash scripts/render-story.sh story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md test",
+    "render:film": "bash scripts/render-story.sh story_scripts/02-sau-canh-cua-bi-mat.md full",
+    "render:story:test": "bash scripts/render-story.sh story_scripts/02-sau-canh-cua-bi-mat.md test",
     "qa:film": "node ../scripts/qa-rendered-film.mjs out/story-film.mp4 out/story-animatic.mp4",
-    "render:film:voice": "GENERATE_VOICEOVER=1 bash scripts/render-story.sh story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md full"
+    "render:film:voice": "GENERATE_VOICEOVER=1 bash scripts/render-story.sh story_scripts/02-sau-canh-cua-bi-mat.md full"
   },
   "dependencies": {
     "@remotion/cli": "4.0.484",

@@ -8,7 +8,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((arg) => {
   return [arg.slice(2, i), arg.slice(i + 1)];
 }));
 
-const script = args.script ?? 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md';
+const script = args.script ?? 'story_scripts/02-sau-canh-cua-bi-mat.md';
 const mode = args.mode ?? 'test';
 const output = args.output ?? 'template/out/story-props.json';
 
@@ -54,6 +54,11 @@ const scenes = headings.map((match, index) => {
     world: field('Loại cảnh').toLowerCase(),
     character: field('Nhân vật').toLowerCase() || 'main-boy',
     duration: field('Thời lượng'),
+    stage: field('Sân khấu').toLowerCase(),
+    photo: field('Ảnh tư liệu'),
+    photoCaption: field('Chú thích ảnh'),
+    cardTitle: field('Tiêu đề ảnh'),
+    expression: field('Biểu cảm').toLowerCase(),
   };
 }).filter((scene) => scene.heading);
 
@@ -61,8 +66,14 @@ if (scenes.length === 0) throw new Error('No scenes found. Expected headings lik
 for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
   if (!scene.props) throw new Error('Scene ' + scene.number + ' is missing **Đạo cụ:**; each scene needs concrete visual objects.');
+  if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
+  const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
+  const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);
+  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
+  if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
+  if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
 }
 const parseDuration = (value, narration = '') => {
   if (!value) {
@@ -78,10 +89,18 @@ const parseDuration = (value, narration = '') => {
   if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
   throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
 };
+// "test" is a strict first-10-scenes preview. Do not append later sample scenes,
+// because that changes the promised test scope and makes duration/output unpredictable.
 const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
-const withTiming = selected.map((scene) => ({...scene, durationInFrames: parseDuration(scene.duration, scene.narration)}));
-const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
-const music = markdown.match(/^\*\*Nhạc nền:\*\*\s*(.+)$/m)?.[1]?.trim() ?? '';
+let nextStartFrame = 0;
+const withTiming = selected.map((scene) => {
+  const durationInFrames = parseDuration(scene.duration, scene.narration);
+  const timedScene = {...scene, startTimeInFrames: nextStartFrame, durationInFrames};
+  nextStartFrame += durationInFrames;
+  return timedScene;
+});
+const voiceover = markdown.match(/^\*\*Giọng đọc:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
+const music = markdown.match(/^\*\*Nhạc nền:\*\*[ \t]*([^\r\n]*)$/m)?.[1]?.trim() ?? '';
 for (const [label, file] of [['Giọng đọc', voiceover], ['Nhạc nền', music]]) {
   if (file && (!file.startsWith('audio/') || file.includes('..') || !/\.(mp3|wav|m4a|aac|ogg)$/i.test(file))) throw new Error(label + ' must be a safe audio/<filename> path inside template/public/.');
   if (file && !fs.existsSync(path.resolve('template/public', file))) throw new Error(label + ' file not found: template/public/' + file);

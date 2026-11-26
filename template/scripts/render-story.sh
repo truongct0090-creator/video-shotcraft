@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_PATH="${1:-story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md}"
+SCRIPT_PATH="${1:-story_scripts/02-sau-canh-cua-bi-mat.md}"
 MODE="${2:-full}"
 ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT_DIR"

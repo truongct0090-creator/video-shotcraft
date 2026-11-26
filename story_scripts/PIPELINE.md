@@ -5,7 +5,7 @@
 1. Mở tab **Actions** của repository.
 2. Chọn workflow **Story animatic**.
 3. Chọn **Run workflow**.
-4. Giữ đường dẫn tập mặc định hoặc nhập một file Markdown nằm trong `story_scripts/`.
+4. Chọn `story_scripts/02-sau-canh-cua-bi-mat.md` (hoặc nhập một file Markdown khác nằm trong `story_scripts/`).
 5. Chọn `test` (10 cảnh đầu) hoặc `full` (toàn bộ cảnh), rồi chạy.
 6. Khi workflow hoàn tất, mở run tương ứng, vào **Artifacts** và tải ZIP về iPhone.
 
@@ -14,7 +14,7 @@
 Từ thư mục gốc repository:
 
 ```bash
-bash template/scripts/render-story.sh story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md full
+bash template/scripts/render-story.sh story_scripts/02-sau-canh-cua-bi-mat.md full
 ```
 
 Thay `full` bằng `test` để dựng 10 cảnh đầu. Script local tự chạy QA kỹ thuật sau khi render.
@@ -29,6 +29,10 @@ Mỗi cảnh cần tiêu đề `### 01. Tên cảnh` và các trường:
 - `**Âm thanh/Chữ:**` (không bắt buộc)
 - `**Loại cảnh:**` tùy chọn: `alley`, `archive`, `map`, `teahouse`, `historic`, `countryside`, `modern`, `interior`, `generic` để chọn bối cảnh thư viện thay vì tự nhận diện
 - `**Nhân vật:**` tùy chọn: `main-boy` hoặc `none`
+- `**Sân khấu:**` tùy chọn: `white-intro`, `white-photo`, `white-title` hoặc `normal`; các sân khấu trắng dùng cho phần mở đầu và thẻ tên chương.
+- `**Ảnh tư liệu:**` tùy chọn: đường dẫn `reference/<filename>` đã được allow-list trong downloader.
+- `**Chú thích ảnh:**` và `**Tiêu đề ảnh:**` tùy chọn; dùng để ghi rõ nguồn/bối cảnh và tên chương. Không gắn ảnh minh họa với tổ chức như thể đó là ảnh thành viên thật.
+- `**Biểu cảm:**` tùy chọn: `happy`, `sad`, `surprised`, `angry`, `worried`, `neutral`; dùng để chỉ định nét mặt và sticker cảm xúc của MainBoy theo từng cảnh.
 
 Workflow hiện xuất song song hai sản phẩm: **StoryAnimatic** để duyệt bố cục/lời dẫn và **IllustratedStoryFilm** là bản phim hoạt hình minh họa có bối cảnh vector chuyển động, nhân vật chibi tái sử dụng, chuyển cảnh và phụ đề lời kể. Cảnh nền được chọn từ thư viện bối cảnh dựng sẵn theo nội dung; nếu chưa có bối cảnh phù hợp, dùng sân khấu minh họa trung tính và ghi nhận cần bổ sung asset.
 

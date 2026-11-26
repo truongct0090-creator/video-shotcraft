@@ -18,14 +18,22 @@ on:
       - 'assets/scripts/**'
       - 'scripts/validate-animation-workshop.mjs'
       - 'scripts/validate-rendered-film.mjs'
+      - 'scripts/fetch-story-reference-images.mjs'
       - 'scripts/qa-rendered-film.mjs'
       - 'story_scripts/**'
       - 'ANIMATION_WORKSHOP.md'
       - 'template/src/**'
+      - 'template/package.json'
+      - 'template/package-lock.json'
+      - 'template/scripts/**'
       - 'workbench/**'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/pr-checks.yml'
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -83,16 +91,34 @@ jobs:
 
       - name: Parse and validate all story scene props
         run: |
-          node scripts/parse-story.mjs --script=story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md --mode=full --output=/tmp/story-props.json
+          node scripts/parse-story.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md --mode=full --output=/tmp/story-props.json
           python3 - <<'PY'
           import json
           data = json.load(open('/tmp/story-props.json', encoding='utf-8'))
           scenes = data.get('scenes', [])
-          assert len(scenes) == 20, f'expected 20 scenes, got {len(scenes)}'
+          assert len(scenes) == 32, f'expected 32 scenes, got {len(scenes)}'
+          assert any(s.get('world') in {'meeting', 'teahouse', 'countryside', 'printing', 'community'} for s in scenes), 'full script has no supporting-cast sample scene'
           missing = [s.get('number') for s in scenes if not s.get('props')]
           assert not missing, f'missing scene props: {missing}'
           print(f'validated {len(scenes)} scenes with explicit visual props')
           PY
+
+      - name: Story render commands use the approved episode
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const approved = 'story_scripts/02-sau-canh-cua-bi-mat.md';
+          const retired = '01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md';
+          const pkg = JSON.parse(fs.readFileSync('template/package.json', 'utf8'));
+          for (const key of ['render:film', 'render:story:test', 'render:film:voice']) {
+            const command = pkg.scripts?.[key] ?? '';
+            if (!command.includes(approved)) throw new Error(key + ' does not use the approved episode script');
+            if (command.includes(retired)) throw new Error(key + ' still references the retired six-scene script');
+          }
+          const local = fs.readFileSync('template/scripts/render-story.sh', 'utf8');
+          if (!local.includes(approved) || local.includes(retired)) throw new Error('Local render defaults still reference a retired script');
+          console.log('all local render entry points use the approved 32-scene episode');
+          NODE
 
       - name: Every library.json preview exists on the gallery-media release
         env:

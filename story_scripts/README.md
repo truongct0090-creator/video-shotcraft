@@ -8,6 +8,7 @@ Kho kịch bản độc lập với mã nguồn dựng phim trong `template/`.
 - **Bản test:** lấy đúng 10 phân cảnh đầu.
 - **Bản full:** lấy toàn bộ phân cảnh có trong kịch bản.
 - Có thể thêm, sửa hoặc xóa tệp tại đây mà không sửa nhân vật, composition hay mã nguồn nền trong `template/src/`.
+- Metadata cảnh hỗ trợ `**Sân khấu:** white-intro | white-photo | white-title | normal`, `**Ảnh tư liệu:** reference/<filename>`, `**Chú thích ảnh:**` và `**Tiêu đề ảnh:**`. Ảnh phải nằm trong allow-list của `scripts/fetch-story-reference-images.mjs`; không cho phép URL tùy ý từ Markdown.
 
 ## Quy tắc biên tập
 - Phân biệt hội kín lịch sử, tổ chức chính trị bí mật, hội đoàn và nhóm tôn giáo hiện đại; không gom tất cả thành một loại.
