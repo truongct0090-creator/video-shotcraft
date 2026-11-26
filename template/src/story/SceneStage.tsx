@@ -176,21 +176,22 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  const items=[
-  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',photo:'reference/church-of-god-singapore.jpg'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu báo chí · Ảnh: K.Q',photo:tinhThatPhotoUrl},
-  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified' as const},
-  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified' as const},
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',photo:'https://then-plum-el39utcz.edgeone.dev/'},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa',photo:'https://aware-rose-aec8adoj.edgeone.dev/'},
+  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',photo:'https://nursing-coral-yq1hzjed.edgeone.dev/'},
+  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',photo:'https://fit-tan-zvotansr.edgeone.dev/'},
  ];
  return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
   {items.map((item,index)=>{
    const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
     <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
-     {item.photo?<div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>:<ReferenceArtwork kind={item.kind!}/>}
+     {item.photo?<div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>:<ReferenceArtwork kind={item.kind!}/>
     </div>
-    <div style={{flex:1,minHeight:0,padding:'9px 12px 7px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
-     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28'}}>{item.title}</div>
-     <div style={{fontSize:14,fontWeight:650,lineHeight:1.15,color:'#71695d',marginTop:5}}>{item.note}</div>
+    <div style={{flex:1,minHeight:0,padding:'5px 12px 6px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
+     <div style={{fontFamily:'Be Vietnam Pro, sans-serif',fontSize:14,fontWeight:900,lineHeight:1.05,letterSpacing:.8,textTransform:'uppercase',color:'#282522',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,0 4px 8px rgba(0,0,0,.18)'}}>ẢNH MINH HỌA</div>
+     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28',marginTop:4}}>{item.title}</div>
+     <div style={{fontSize:14,fontWeight:650,lineHeight:1.1,color:'#71695d',marginTop:3}}>{item.note}</div>
     </div>
    </div>;
   })}
