@@ -15,7 +15,7 @@ const output = args.output ?? 'template/out/story-props.json';
 if (!script.startsWith('story_scripts/') || !script.endsWith('.md')) {
   throw new Error('Script path must point to a Markdown file inside story_scripts/.');
 }
-if (!['test', 'full'].includes(mode)) throw new Error('Mode must be test or full.');
+if (!['test', 'breath-test', 'full'].includes(mode)) throw new Error('Mode must be test, breath-test, or full.');
 
 const absolute = path.resolve(script);
 const root = path.resolve('story_scripts') + path.sep;
@@ -96,9 +96,13 @@ const parseDuration = (value, narration = '') => {
   if (seconds) return Math.max(30, Math.round(Number(seconds[1].replace(',', '.')) * 30));
   throw new Error('Invalid **Thời lượng:**. Use e.g. 6s, 180f, or 1 phút.');
 };
-// "test" is a strict first-10-scenes preview. Do not append later sample scenes,
-// because that changes the promised test scope and makes duration/output unpredictable.
-const selected = mode === 'test' ? scenes.slice(0, 10) : scenes;
+// "test" is a strict first-10-scenes preview. "breath-test" adds only scenes
+// carrying a recorded-breath marker, so the breath path is exercised without a full pilot.
+const selected = mode === 'test'
+  ? scenes.slice(0, 10)
+  : mode === 'breath-test'
+    ? [...scenes.slice(0, 10), ...scenes.slice(10).filter((scene) => scene.breathAfter)]
+    : scenes;
 let nextStartFrame = 0;
 const withTiming = selected.map((scene) => {
   const durationInFrames = parseDuration(scene.duration, scene.narration);
