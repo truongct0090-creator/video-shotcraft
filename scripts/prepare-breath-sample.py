@@ -7,6 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
+from scipy.ndimage import uniform_filter1d
 
 RATE = 48_000
 MIN_SECONDS = 0.12
@@ -70,10 +71,9 @@ def select_active_region(audio: np.ndarray) -> tuple[np.ndarray, float, float]:
             start, end = 0, len(audio)
         else:
             frame = max(1, int(0.10 * RATE))
-            energy = np.convolve(np.square(audio.astype(np.float64)),
-                                 np.ones(frame) / frame, mode="same")
+            energy = uniform_filter1d(np.square(audio.astype(np.float64)), size=frame, mode="nearest")
             smooth_width = max(1, int(0.25 * RATE))
-            smooth = np.convolve(energy, np.ones(smooth_width) / smooth_width, mode="same")
+            smooth = uniform_filter1d(energy, size=smooth_width, mode="nearest")
             center = int(np.argmax(smooth))
             start = max(0, min(len(audio) - length, center - length // 2))
             end = start + length
