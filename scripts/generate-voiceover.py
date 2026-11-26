@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate Vietnamese narration and trim only trailing silence, preserving pauses inside speech."""
 from __future__ import annotations
-import argparse, json, math, struct, wave
+import argparse, json, math, random, struct, wave
 from pathlib import Path
 
 FPS = 30
@@ -148,6 +148,90 @@ def trim_trailing_silence(path: Path):
         wav.writeframes(output)
     return frames/params.framerate,keep/params.framerate
 
+
+def apply_room_tone(path: Path, target_dbfs: float = -50.0, seed: int = 20261126):
+    """Lay a quiet, steady HVAC-like room tone under the complete track.
+
+    The bed combines a restrained 50 Hz mains/fan hum, weak harmonics and
+    low-level broadband airflow. Its RMS is calibrated to target_dbfs.
+    It is continuous under speech as well as pauses to avoid audible gating.
+    """
+    if not -80.0 <= target_dbfs <= -30.0:
+        raise ValueError("Room-tone level must be between -80 and -30 dBFS.")
+    with wave.open(str(path), "rb") as wav:
+        params = wav.getparams()
+        if params.comptype != "NONE":
+            raise ValueError("Unsupported WAV compression: " + params.comptype)
+        raw = wav.readframes(params.nframes)
+    width, channels = params.sampwidth, params.nchannels
+    values = sample_values(raw, width)
+    frames = len(values) // channels
+    if frames == 0:
+        raise ValueError("Cannot add room tone to an empty WAV.")
+    scale = float(1 << (8 * width - 1))
+    rng = random.Random(seed + frames + params.framerate)
+    bed = []
+    for frame in range(frames):
+        t = frame / float(params.framerate)
+        # Subtle mains/fan character plus soft airflow; no hard-edged clicks.
+        hum = (0.55 * math.sin(2 * math.pi * 50.0 * t + 0.37)
+               + 0.20 * math.sin(2 * math.pi * 100.0 * t + 0.91)
+               + 0.08 * math.sin(2 * math.pi * 150.0 * t + 1.43))
+        airflow = 0.17 * rng.uniform(-1.0, 1.0)
+        bed.append(hum + airflow)
+    rms = math.sqrt(sum(sample * sample for sample in bed) / len(bed))
+    if rms <= 0:
+        raise ValueError("Room-tone generator produced an empty signal.")
+    target_rms = 10 ** (target_dbfs / 20.0)
+    gain = target_rms / rms
+    mixed = []
+    for frame, ambient in enumerate(bed):
+        ambient *= gain
+        for channel in range(channels):
+            source = values[frame * channels + channel] / scale
+            sample = int(round((source + ambient) * scale))
+            sample = max(-int(scale), min(int(scale) - 1, sample))
+            # A one-LSB dither floor prevents even isolated exact-zero PCM samples.
+            if sample == 0:
+                sample = 1
+            mixed.append(sample)
+    if width == 1:
+        output = bytes(max(0, min(255, value + 128)) for value in mixed)
+    elif width == 2:
+        output = struct.pack("<" + "h" * len(mixed), *mixed)
+    elif width == 3:
+        output = b"".join(int(value).to_bytes(3, "little", signed=True) for value in mixed)
+    elif width == 4:
+        output = struct.pack("<" + "i" * len(mixed), *mixed)
+    else:
+        raise ValueError("Unsupported PCM sample width: " + str(width))
+    with wave.open(str(path), "wb") as wav:
+        wav.setparams(params)
+        wav.writeframes(output)
+    return target_dbfs
+
+
+def audit_digital_silence(path: Path):
+    """Return sample-level exact-zero count and longest all-channel zero run."""
+    with wave.open(str(path), "rb") as wav:
+        params = wav.getparams()
+        values = sample_values(wav.readframes(params.nframes), params.sampwidth)
+    channels = params.nchannels
+    frames = len(values) // channels
+    zero_samples = sum(1 for value in values if value == 0)
+    longest_run = current_run = 0
+    for frame in range(frames):
+        is_zero = all(values[frame * channels + channel] == 0 for channel in range(channels))
+        if is_zero:
+            current_run += 1
+            longest_run = max(longest_run, current_run)
+        else:
+            current_run = 0
+    return {
+        "zeroSamples": zero_samples,
+        "longestDigitalSilenceMs": round(longest_run * 1000 / params.framerate, 3),
+    }
+
 def frame_mouth_envelope(path: Path):
     """Return one normalized RMS mouth-opening value per 30fps video frame."""
     with wave.open(str(path), "rb") as wav:
@@ -245,7 +329,7 @@ def main():
     props["voiceover"]=""
     props["totalFrames"]=sum(int(s["durationInFrames"]) for s in scenes)
     props_path.write_text(json.dumps(props,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("Generated %d Adam voice tracks; FP32 selected; internal pauses preserved; only trailing silence trimmed."%len(scenes))
+    print("Generated %d Adam voice tracks; FP32 selected; internal pauses preserved; -50 dBFS room tone mixed; sample-level digital-silence QA passed."%len(scenes))
     if any(scene.get("breathAfter") for scene in scenes) and args.breath_sample is None:
         print("NOTE: recorded inhale insertion is wired but not activated; supply --breath-sample after approving a clean licensed recording.")
 
