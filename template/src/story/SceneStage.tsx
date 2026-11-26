@@ -197,6 +197,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  </div>;
 };
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,whiteStage,characterOnLeft})=>{
+   {!whiteStage && referencePhoto && scene.photoCaption ? <div style={{position:'absolute',right:150,top:612,width:680,zIndex:8,padding:'10px 14px',boxSizing:'border-box',background:'rgba(28,31,32,.78)',color:'#fff8e8',fontSize:20,fontWeight:700,lineHeight:1.2,textAlign:'center',textShadow:'0 2px 4px rgba(0,0,0,.55)'}}>{scene.photoCaption}</div> : null}
  const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
  return <>
   {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
