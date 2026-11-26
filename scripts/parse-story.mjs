@@ -8,7 +8,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((arg) => {
   return [arg.slice(2, i), arg.slice(i + 1)];
 }));
 
-const script = args.script ?? 'story_scripts/01-nhung-hoi-kin-tung-lam-mua-lam-gio-o-viet-nam.md';
+const script = args.script ?? 'story_scripts/02-sau-canh-cua-bi-mat.md';
 const mode = args.mode ?? 'test';
 const output = args.output ?? 'template/out/story-props.json';
 
