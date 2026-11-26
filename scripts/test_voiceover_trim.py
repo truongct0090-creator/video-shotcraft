@@ -15,6 +15,29 @@ assert SPEC and SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
 class VoiceoverTrimTests(unittest.TestCase):
+    def test_tts_cue_is_inserted_after_exact_anchor(self):
+        text = "Nghe cũng hấp dẫn đấy. Nhưng khoan đã."
+        result = MODULE.apply_tts_cue(text, "chuckle|nghe cũng hấp dẫn đấy.")
+        self.assertEqual(result, "Nghe cũng hấp dẫn đấy. [chuckle] Nhưng khoan đã.")
+
+    def test_tts_cue_rejects_unknown_tags_and_missing_anchors(self):
+        with self.assertRaises(ValueError):
+            MODULE.apply_tts_cue("Xin chào.", "laugh|Xin chào.")
+        with self.assertRaises(ValueError):
+            MODULE.apply_tts_cue("Xin chào.", "chuckle|không có trong câu")
+
+    def test_breath_split_keeps_both_sides_of_the_anchor(self):
+        before, after = MODULE.split_after_anchor(
+            "Mình muốn chậm lại một chút. Bởi đây là chuyện quan trọng.",
+            "Mình muốn chậm lại một chút.",
+        )
+        self.assertEqual(before, "Mình muốn chậm lại một chút.")
+        self.assertEqual(after, "Bởi đây là chuyện quan trọng.")
+
+    def test_breath_split_rejects_terminal_anchor(self):
+        with self.assertRaises(ValueError):
+            MODULE.split_after_anchor("Chỉ có một câu.", "Chỉ có một câu.")
+
     def test_scene_progress_report_formats_all_values(self):
         report = MODULE.format_scene_report(3, 4.20, 4.20, 3.75, 3.80)
         self.assertEqual(
