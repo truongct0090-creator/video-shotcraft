@@ -30,10 +30,12 @@
 ### 03. Bức ảnh thứ hai – Tịnh thất Bồng Lai
 **Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh địa điểm từ nguồn báo chí bên phải.
 **Hành động:** Ảnh địa điểm xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Thẻ tái hiện kiến trúc địa điểm theo mô tả báo chí; ghi rõ đây là minh họa, không phải ảnh chụp.
+**Đạo cụ:** Ảnh tư liệu ông Lê Tùng Vân cùng những “chú tiểu” từng xuất hiện trong chương trình “Thách thức danh hài”; giữ nguyên nội dung ảnh và ghi công K.Q.
 **Lời dẫn:** Cánh cửa thứ hai từng trở thành tâm điểm của mạng xã hội. Một nơi mang dáng vẻ tu hành, những video gây chú ý, những tranh cãi nối tiếp nhau… và cuối cùng là một vụ án khiến dư luận chia thành nhiều luồng ý kiến.
 **Âm thanh/Chữ:** Nhạc điều tra.
 **Sân khấu:** white-photo
+**Ảnh tư liệu:** https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg
+**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây “bão” trong chương trình “Thách thức danh hài”. Ảnh: K.Q
 **Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI – THIỀN AM BÊN BỜ VŨ TRỤ
 **Nhân vật:** main-boy
 
@@ -127,10 +129,12 @@
 ### 12. Thẻ chương – Tịnh thất Bồng Lai
 **Bối cảnh:** Nền trắng; MainBoy bên trái, ảnh địa điểm được cấp quyền sử dụng bên phải khi có nguồn phù hợp.
 **Hành động:** MainBoy chỉ vào tên chương; không dùng ảnh người không liên quan.
-**Đạo cụ:** Thẻ tiêu đề; ảnh địa điểm chỉ được bổ sung sau khi xác minh quyền sử dụng.
+**Đạo cụ:** Ảnh tư liệu ông Lê Tùng Vân cùng các “chú tiểu” theo ảnh báo chí được chỉ định; ghi công K.Q, quyền tái sử dụng cần được xác nhận trước khi phát hành.
 **Lời dẫn:** Chương thứ hai là câu chuyện về Tịnh thất Bồng Lai, còn được gọi là Thiền am bên bờ vũ trụ.
 **Âm thanh/Chữ:** Tên chương cỡ lớn.
 **Sân khấu:** white-title
+**Ảnh tư liệu:** https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg
+**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây “bão” trong chương trình “Thách thức danh hài”. Ảnh: K.Q
 **Tiêu đề ảnh:** CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
 **Nhân vật:** main-boy
 
