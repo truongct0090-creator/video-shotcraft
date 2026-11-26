@@ -66,7 +66,9 @@ for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
   if (!scene.props) throw new Error('Scene ' + scene.number + ' is missing **Đạo cụ:**; each scene needs concrete visual objects.');
   if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
-  if (scene.photo && (!scene.photo.startsWith('reference/') || scene.photo.includes('..') || !/^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo))) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference/<filename> path.');
+  const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
+  const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);
+  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
