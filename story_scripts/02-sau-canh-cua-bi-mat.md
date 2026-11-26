@@ -1,351 +1,279 @@
-# SÁU CÁNH CỬA GÂY TRANH CÃI
-**Tập 02 – Sáu hội nhóm, sáu câu chuyện cần nhìn cho rõ**
+# 4 CÁNH CỬA NIỀM TIN – KHI LỜI HỨA TRỞ THÀNH DẤU HỎI
+**Tập 02 – Bốn câu chuyện từng gây tranh cãi tại Việt Nam**
+**Phong cách lời dẫn:** trò chuyện trực tiếp với người xem; tự nhiên, có nhịp nghỉ, câu cảm thán đời thường vừa phải; không đọc như bản tin.
+**Giọng đọc:** giọng Việt Nam tự nhiên, gần gũi; thay đổi nhịp theo cảm xúc; không diễn quá lố.
+**Nhạc nền:** điều tra nhẹ, có khoảng lặng; tránh nhạc kinh dị hóa niềm tin tôn giáo.
 
-**Giọng đọc:** 
-**Nhạc nền:** 
+## MỞ ĐẦU – MỘT CÂU HỎI KHÔNG DỄ TRẢ LỜI
 
-## MỞ ĐẦU – SÁU BỨC ẢNH, SÁU CÂU CHUYỆN
-
-### 01. Một câu hỏi trước sáu cánh cửa
-**Bối cảnh:** Nền trắng hoàn toàn, MainBoy bật lên từ dưới khung hình rồi tiếp đất và đứng yên.
-**Hành động:** MainBoy nhìn thẳng khán giả, giới thiệu sáu vị trí ảnh sẽ lần lượt xuất hiện.
-**Đạo cụ:** Sáu khung hình: Hội Thánh Đức Chúa Trời Mẹ; Tịnh thất Bồng Lai; Thiên Triều Âm Phủ; Nhóm Trừ Quỷ Bảo Lộc; Thanh Hải Vô Thượng Sư; Pháp Luân Công.
-**Lời dẫn:** Có những cánh cửa không cần khóa. Chỉ cần một lời hứa đủ hấp dẫn, một câu trả lời tưởng như giải quyết được mọi nỗi lo… là người ta tự bước vào. Nhưng điều gì xảy ra khi niềm tin bị trộn lẫn với quyền lực, tiền bạc, sự sùng bái hoặc những lời khẳng định không ai được phép chất vấn? Hôm nay, chúng ta sẽ mở sáu cánh cửa từng gây nhiều tranh cãi tại Việt Nam. Không phải để chế giễu niềm tin của bất kỳ ai. Mà để xem: chuyện gì đã được xác nhận, chuyện gì còn tranh cãi, và đâu là ranh giới giữa niềm tin với sự lợi dụng.
-**Âm thanh/Chữ:** Nhạc điều tra tăng dần; tiêu đề lớn “SÁU CÁNH CỬA GÂY TRANH CÃI”.
+### 01. Có những lời hứa nghe rất dễ tin
+**Bối cảnh:** Nền trắng; MainBoy bật lên từ dưới khung hình, tiếp đất, đứng yên nhìn thẳng khán giả.
+**Hành động:** MainBoy hơi nghiêng đầu, đưa tay như muốn hỏi chuyện người xem.
+**Đạo cụ:** Bốn khung hình lần lượt xuất hiện: Hội Thánh Đức Chúa Trời Mẹ; Tịnh thất Bồng Lai; Đạo Hà Mòn; hiện tượng Dương Văn Mình.
+**Lời dẫn:** “Bạn có bao giờ nghe một lời hứa mà thoạt đầu thấy… cũng có lý không? Rằng chỉ cần tin theo, cuộc sống sẽ tốt hơn. Rằng có người nắm giữ một bí mật mà người ngoài không biết. Hoặc rằng, chỉ cần làm theo một vài điều, mọi rắc rối sẽ được giải quyết. À thì… nghe cũng hấp dẫn đấy. Nhưng khoan đã. Nếu đằng sau lời hứa ấy là tiền bạc, quyền lực, sự sợ hãi, hay việc phải cắt đứt với gia đình thì sao?”
+**Âm thanh/Chữ:** Nhạc mở đầu tăng nhẹ; chữ lớn “KHI LỜI HỨA TRỞ THÀNH DẤU HỎI”.
 **Sân khấu:** white-intro
 **Nhân vật:** main-boy
 
-### 02. Bức ảnh thứ nhất – Hội Thánh Đức Chúa Trời Mẹ
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh tư liệu đã xác minh bên phải.
-**Hành động:** Ảnh xuất hiện sau đó; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh tư liệu đúng tổ chức, không dùng ảnh nhóm khác thay thế.
-**Lời dẫn:** Cánh cửa đầu tiên dẫn tới một tổ chức có nguồn gốc từ Hàn Quốc, với cái tên khiến nhiều người tò mò: Hội Thánh Đức Chúa Trời Mẹ. Tại Việt Nam, cái tên này từng xuất hiện dày đặc trên báo chí, trong những cuộc tranh luận về sinh hoạt tôn giáo và những phản ánh từ gia đình.
-**Âm thanh/Chữ:** Nhạc chuyển nhẹ.
+### 02. Hôm nay mình sẽ nhìn vào điều gì?
+**Bối cảnh:** Bốn khung hình đứng phía sau MainBoy.
+**Hành động:** MainBoy chỉ lần lượt vào bốn khung, rồi quay lại khán giả.
+**Đạo cụ:** Bốn thẻ tên chủ đề.
+**Lời dẫn:** “Hôm nay mình cùng nhìn lại bốn câu chuyện từng gây nhiều tranh cãi ở Việt Nam. Có câu chuyện gắn với những lời kêu gọi sinh hoạt tôn giáo; có câu chuyện bắt đầu từ hình ảnh nuôi trẻ, làm từ thiện; có câu chuyện lan truyền lời đồn về hiện tượng Đức Mẹ hiện hình; và có một hiện tượng tôn giáo mới trong cộng đồng người Mông. Mình không ở đây để cười nhạo người có niềm tin. Mình muốn cùng bạn hỏi một điều đơn giản hơn: đâu là điều đã được chứng minh, đâu là lời kể, và ai phải chịu trách nhiệm khi có người bị tổn hại?”
+**Âm thanh/Chữ:** “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM”.
 **Sân khấu:** white-photo
-**Ảnh tư liệu:** reference/church-of-god-singapore.jpg
-**Chú thích ảnh:** Ảnh trụ sở của tổ chức tại Singapore năm 2025; không phải điểm nhóm ở Việt Nam
-**Tiêu đề ảnh:** HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 **Nhân vật:** main-boy
 
-### 03. Bức ảnh thứ hai – Tịnh thất Bồng Lai
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh địa điểm từ nguồn báo chí bên phải.
-**Hành động:** Ảnh địa điểm xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh tư liệu ông Lê Tùng Vân cùng những “chú tiểu” từng xuất hiện trong chương trình “Thách thức danh hài”; giữ nguyên nội dung ảnh và ghi công K.Q.
-**Lời dẫn:** Cánh cửa thứ hai từng trở thành tâm điểm của mạng xã hội. Một nơi mang dáng vẻ tu hành, những video gây chú ý, những tranh cãi nối tiếp nhau… và cuối cùng là một vụ án khiến dư luận chia thành nhiều luồng ý kiến.
-**Âm thanh/Chữ:** Nhạc điều tra.
-**Sân khấu:** white-photo
-**Ảnh tư liệu:** https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg
-**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây “bão” trong chương trình “Thách thức danh hài”. Ảnh: K.Q
-**Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI – THIỀN AM BÊN BỜ VŨ TRỤ
-**Nhân vật:** main-boy
-
-### 04. Bức ảnh thứ ba – Thiên Triều Âm Phủ
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh nhóm người châu Á trao đổi quanh bàn bên phải.
-**Hành động:** Ảnh nhóm người châu Á xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Thẻ tư liệu trung tính; không dùng ảnh nhóm người không liên quan để đại diện.
-**Lời dẫn:** Cánh cửa thứ ba mang một cái tên nghe như bước ra từ một câu chuyện huyền bí: Thiên Triều Âm Phủ, còn được nhắc tới với tên Đức Chúa Trời Bốn Phương. Nhưng có một điều chúng ta phải làm trước khi kể: kiểm tra xem mình thực sự biết gì về nó. Bởi một video trên mạng không tự động biến thành chứng cứ.
-**Âm thanh/Chữ:** Nhãn ảnh minh họa hiển thị rõ.
-**Sân khấu:** white-photo
-**Tiêu đề ảnh:** THIÊN TRIỀU ÂM PHỦ – ĐỨC CHÚA TRỜI BỐN PHƯƠNG
-**Nhân vật:** main-boy
-
-### 05. Bức ảnh thứ tư – Nhóm Trừ Quỷ Bảo Lộc
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh tư liệu địa điểm hoặc văn bản chính thức bên phải.
-**Hành động:** Ảnh xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Đồ họa trích yếu thông cáo chính thức ngày 30/05/2022; không dựng ảnh nhóm hoặc nghi lễ không có tư liệu.
-**Lời dẫn:** Cánh cửa thứ tư dẫn tới một nhóm nhỏ từng khiến chính giới Công giáo phải ra thông cáo chính thức. Câu chuyện xoay quanh những lời tuyên bố về mặc khải trực tiếp và khả năng trừ quỷ.
-**Âm thanh/Chữ:** Nhạc chuyển.
-**Sân khấu:** white-photo
-**Tiêu đề ảnh:** NHÓM TRỪ QUỶ BẢO LỘC
-**Nhân vật:** main-boy
-
-### 06. Bức ảnh thứ năm – Thanh Hải Vô Thượng Sư
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh tư liệu có nguồn bên phải.
-**Hành động:** Ảnh xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh tư liệu được xác minh đúng nhân vật hoặc hoạt động công khai.
-**Lời dẫn:** Cánh cửa thứ năm gắn với một nhân vật có ảnh hưởng quốc tế, các hoạt động thiền định, ăn chay và từ thiện, đồng thời cũng vướng những cảnh báo và tranh luận tại Việt Nam.
-**Âm thanh/Chữ:** Nhạc chuyển.
-**Sân khấu:** white-photo
-**Ảnh tư liệu:** reference/ching-hai-sydney-1993.jpg
-**Chú thích ảnh:** Ảnh tư liệu Thanh Hải tại Sydney năm 1993
-**Tiêu đề ảnh:** THANH HẢI VÔ THƯỢNG SƯ
-**Nhân vật:** main-boy
-
-### 07. Bức ảnh thứ sáu – Pháp Luân Công
-**Bối cảnh:** Nền trắng, MainBoy bên trái, ảnh người châu Á luyện các động tác chậm bên phải.
-**Hành động:** Ảnh luyện tập xuất hiện; MainBoy chỉ vào ảnh.
-**Đạo cụ:** Ảnh luyện tập có nguồn; không lấy ảnh vụ án để đại diện người tập.
-**Lời dẫn:** Và cánh cửa cuối cùng là Pháp Luân Công. Một phương pháp tu luyện có người tập ở nhiều nơi, nhưng tại Việt Nam cũng từng bị nhắc đến trong những vụ việc nghiêm trọng. Điều quan trọng là phải phân biệt người luyện tập bình thường với hành vi phạm pháp của những cá nhân cụ thể. Sáu cái tên. Sáu bối cảnh khác nhau. Và chúng ta sẽ không vội kết luận trước khi nhìn vào hồ sơ.
-**Âm thanh/Chữ:** Nhạc dừng nhịp, chuyển sang chương 1.
-**Sân khấu:** white-photo
-**Ảnh tư liệu:** reference/falun-gong-taiwan-2025.jpg
-**Chú thích ảnh:** Người tập Pháp Luân Công tại Đài Loan năm 2025; không phải hoạt động tại Việt Nam
-**Tiêu đề ảnh:** PHÁP LUÂN CÔNG
+### 03. Một lưu ý trước khi bắt đầu
+**Bối cảnh:** Bảng chia hai cột “Đã được xác nhận” và “Còn tranh luận”.
+**Hành động:** MainBoy đặt một tập hồ sơ vào giữa hai cột.
+**Đạo cụ:** Bảng kiểm chứng, hồ sơ, kính lúp.
+**Lời dẫn:** “Có một chuyện mình muốn nói trước. Một tổ chức gây tranh cãi không có nghĩa là tất cả người từng tham gia đều xấu. Một cá nhân phạm pháp cũng không biến cả cộng đồng thành người có tội. Ngược lại, mình cũng không nên bỏ qua sai phạm chỉ vì nó được khoác lên một chiếc áo rất đẹp. Nói ngắn gọn: có gì nói nấy, có nguồn thì dẫn nguồn, chưa rõ thì nói chưa rõ. Chơi vậy mới công bằng, đúng không?”
+**Âm thanh/Chữ:** “KHÔNG ĐÁNH ĐỒNG – KHÔNG SUY DIỄN”.
+**Loại cảnh:** checklist
 **Nhân vật:** main-boy
 
 ## CHƯƠNG 1 – HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 
-### 08. Thẻ chương – Hội Thánh Đức Chúa Trời Mẹ
-**Bối cảnh:** Nền trắng; ảnh tư liệu đã xác minh chiếm phần lớn bên phải, MainBoy bên trái.
-**Hành động:** MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh tư liệu đúng tổ chức, thẻ tiêu đề.
-**Lời dẫn:** Chúng ta bắt đầu với Hội Thánh Đức Chúa Trời Mẹ. Trước tiên, cần phân biệt tên gọi phổ biến với tên đầy đủ trong tài liệu chính thức: Hội thánh của Đức Chúa Trời Hiệp hội Truyền giáo Tin lành Thế giới.
-**Âm thanh/Chữ:** Tên chương cỡ lớn, font Be Vietnam Pro hiện có, không viền, có đổ bóng.
-**Sân khấu:** white-title
-**Ảnh tư liệu:** reference/church-of-god-singapore.jpg
-**Chú thích ảnh:** Ảnh trụ sở của tổ chức tại Singapore năm 2025; không phải điểm nhóm ở Việt Nam
-**Tiêu đề ảnh:** CHƯƠNG 1 – HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
-**Nhân vật:** main-boy
-
-### 09. Cái tên có nguồn gốc từ đâu?
-**Bối cảnh:** Bản đồ Hàn Quốc và bàn hồ sơ.
-**Hành động:** MainBoy chỉ vào mốc 1964 và tài liệu.
-**Đạo cụ:** Bản đồ Hàn Quốc, dòng thời gian, hồ sơ.
-**Lời dẫn:** Theo tài liệu của Bộ Nội vụ, tổ chức được Ahn Sahng-hong sáng lập tại Hàn Quốc năm 1964. Người đứng đầu hiện nay được tài liệu này nêu là bà Jang Gil-ja. Đây là thông tin về nguồn gốc tổ chức, không phải bằng chứng rằng mọi người tham gia đều có cùng cách sinh hoạt hay cùng hành vi.
+### 04. Cái tên khiến nhiều gia đình chú ý
+**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh đúng tổ chức hoặc đồ họa bản đồ Hàn Quốc bên phải.
+**Hành động:** MainBoy chỉ vào tên gọi, rồi chuyển sang bản đồ.
+**Đạo cụ:** Thẻ tên tổ chức; bản đồ Hàn Quốc.
+**Lời dẫn:** “Bắt đầu với cái tên khá quen trên mặt báo: Hội Thánh Đức Chúa Trời Mẹ. Nghe tên thôi, có người tò mò, có người thấy khó hiểu, cũng có gia đình lo lắng khi người thân tham gia sinh hoạt. Nhưng trước khi bàn đúng sai, ta cần biết mình đang nói về tổ chức nào. Theo tài liệu được cơ quan chức năng Việt Nam công bố, tổ chức này có nguồn gốc từ Hàn Quốc, được thành lập năm 1964. Đó là thông tin về lịch sử tổ chức; còn trải nghiệm của từng người tham gia thì không thể gom thành một câu chuyện duy nhất.”
 **Âm thanh/Chữ:** “HÀN QUỐC – 1964”.
-**Loại cảnh:** map
+**Sân khấu:** white-photo
+**Ảnh tư liệu:** reference/church-of-god-singapore.jpg
+**Chú thích ảnh:** Trụ sở tổ chức tại Singapore, năm 2025; không phải điểm nhóm ở Việt Nam.
+**Tiêu đề ảnh:** HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 **Nhân vật:** main-boy
 
-### 10. Khi câu chuyện đi vào đời sống gia đình
-**Bối cảnh:** Không gian sinh hoạt gia đình Việt Nam, chuyển sang bàn điều tra với tài liệu báo chí.
-**Hành động:** MainBoy xem các trang báo, đánh dấu mốc thời gian.
-**Đạo cụ:** Bàn gỗ, điện thoại, báo chí, lịch thời gian.
-**Lời dẫn:** Tại Việt Nam, tổ chức này được ghi nhận du nhập từ khoảng đầu những năm 2000. VietnamPlus năm 2018 cho biết từng có một điểm nhóm ở Thành phố Hồ Chí Minh được chấp thuận đăng ký sinh hoạt tôn giáo tập trung. Nhưng ở những địa phương khác, tình hình được phản ánh không giống nhau. Nói rằng tất cả đều giống nhau là cách kể thiếu chính xác.
-**Âm thanh/Chữ:** “ĐẦU NHỮNG NĂM 2000 – VIỆT NAM”.
+### 05. Khi niềm tin bước vào bữa cơm gia đình
+**Bối cảnh:** Phòng khách gia đình Việt Nam; bàn ăn có vài chiếc ghế trống, điện thoại đặt trên bàn.
+**Hành động:** MainBoy nhìn chiếc ghế trống, sau đó nhìn khán giả.
+**Đạo cụ:** Bàn ăn, điện thoại, lịch.
+**Lời dẫn:** “Thử tưởng tượng nhé: đang ăn cơm, cả nhà hỏi hôm nay con đi đâu, con trả lời đi sinh hoạt. Ban đầu có thể chẳng ai nghĩ gì. Nhưng rồi lịch sinh hoạt dày lên, quan điểm trong nhà khác nhau, những cuộc trò chuyện bắt đầu căng thẳng. Có gia đình phản ánh rằng người thân thay đổi nếp sinh hoạt hoặc xa cách họ. Đây là những phản ánh cần được kiểm tra theo từng trường hợp, chứ không thể mặc định ai tham gia cũng gặp chuyện như vậy. Điều đáng hỏi là: người tham gia có còn thoải mái giữ liên hệ với gia đình và tự quyết định cuộc sống của mình không?”
+**Âm thanh/Chữ:** “NIỀM TIN – GIA ĐÌNH – QUYỀN TỰ QUYẾT”.
 **Loại cảnh:** interior
 **Nhân vật:** main-boy
 
-### 11. Con số và câu hỏi cần đặt đúng chỗ
-**Bối cảnh:** Phòng hồ sơ, bảng số liệu.
-**Hành động:** MainBoy chỉ vào con số 12 và 85, nhấn mạnh mốc thời gian.
-**Đạo cụ:** Bảng số liệu, tài liệu họp báo, bút đánh dấu.
-**Lời dẫn:** Ngày 30 tháng 6 năm 2023, tại họp báo của Bộ Công an, đại diện Cục An ninh nội địa cho biết trong sáu tháng đầu năm, lực lượng chức năng phát hiện và xử lý 12 vụ, với 85 người hoạt động, sinh hoạt theo nhóm này. Đó là số liệu trong một khoảng thời gian cụ thể. Không thể lấy nó để kết luận về mọi người từng tham gia. Điều đáng bàn là: người tham gia có được quyền đặt câu hỏi, giữ liên hệ với gia đình và tự quyết định rời đi hay không?
-**Âm thanh/Chữ:** “12 VỤ – 85 NGƯỜI – 6 THÁNG ĐẦU NĂM 2023”; ghi nguồn Bộ Công an.
+### 06. Con số phải đi kèm thời gian và nguồn
+**Bối cảnh:** Bàn hồ sơ; bảng số liệu hiện ra rõ ràng.
+**Hành động:** MainBoy khoanh con số, gõ nhẹ vào dòng ghi nguồn.
+**Đạo cụ:** Bảng số liệu, tài liệu họp báo.
+**Lời dẫn:** “Đến đây có một con số thường được nhắc lại. Tại họp báo ngày 30 tháng 6 năm 2023, đại diện Cục An ninh nội địa cho biết trong sáu tháng đầu năm, lực lượng chức năng phát hiện và xử lý 12 vụ, với 85 người hoạt động, sinh hoạt theo nhóm này. Nhớ nhé, đây là số liệu trong sáu tháng đầu năm 2023, không phải con số đại diện cho mọi người từng tham gia từ trước tới nay. Nghe một con số thì dễ giật mình, nhưng đọc số liệu phải đọc cả chú thích bên cạnh.”
+**Âm thanh/Chữ:** “12 VỤ – 85 NGƯỜI – 6 THÁNG ĐẦU NĂM 2023”; ghi nguồn và ngày.
 **Loại cảnh:** investigation
 **Nhân vật:** main-boy
 
-## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
+### 07. Điều gì nên được hỏi?
+**Bối cảnh:** MainBoy trước bảng ba câu hỏi.
+**Hành động:** MainBoy lần lượt chỉ vào từng câu.
+**Đạo cụ:** Bảng “Có được hỏi?”, “Có được từ chối?”, “Có được rời đi?”.
+**Lời dẫn:** “Vậy rốt cuộc, câu hỏi quan trọng không phải là người ta gọi buổi sinh hoạt ấy bằng cái tên gì. Mà là: bạn có được quyền hỏi lại không? Có được từ chối đóng góp hay tham gia một hoạt động nào đó không? Có được rời đi mà không bị đe dọa, gây áp lực? Một môi trường lành mạnh phải chịu được những câu hỏi bình thường như thế. Chứ cứ hỏi một câu mà bị xem là có vấn đề thì… nghe đã thấy cần xem xét rồi.”
+**Âm thanh/Chữ:** Ba câu hỏi xuất hiện từng nhịp.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
 
-### 12. Thẻ chương – Tịnh thất Bồng Lai
-**Bối cảnh:** Nền trắng; MainBoy bên trái, ảnh địa điểm được cấp quyền sử dụng bên phải khi có nguồn phù hợp.
-**Hành động:** MainBoy chỉ vào tên chương; không dùng ảnh người không liên quan.
-**Đạo cụ:** Ảnh tư liệu ông Lê Tùng Vân cùng các “chú tiểu” theo ảnh báo chí được chỉ định; ghi công K.Q, quyền tái sử dụng cần được xác nhận trước khi phát hành.
-**Lời dẫn:** Chương thứ hai là câu chuyện về Tịnh thất Bồng Lai, còn được gọi là Thiền am bên bờ vũ trụ.
-**Âm thanh/Chữ:** Tên chương cỡ lớn.
-**Sân khấu:** white-title
+## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI VÀ TRẠI CÔ NHI THÁNH ĐỨC
+
+### 08. Từ những video gây chú ý
+**Bối cảnh:** Nền trắng; ảnh tư liệu được chỉ định bên phải, MainBoy bên trái.
+**Hành động:** Ảnh xuất hiện; MainBoy chỉ vào ảnh rồi nhìn khán giả.
+**Đạo cụ:** Ảnh báo chí đúng chú thích, ghi công K.Q.
+**Lời dẫn:** “Câu chuyện thứ hai chắc nhiều người từng nghe qua: Tịnh thất Bồng Lai, sau này còn được gọi là Thiền am bên bờ vũ trụ. Có thời điểm, những video về các em nhỏ và người sống tại đây thu hút lượng xem rất lớn. Người xem tò mò, người thương cảm, người đặt câu hỏi. Mạng xã hội thì vốn vậy, một video vừa lên là bình luận chạy nhanh hơn cả người trong cuộc giải thích.”
+**Âm thanh/Chữ:** Tiếng thông báo mạng xã hội, sau đó hạ âm.
+**Sân khấu:** white-photo
 **Ảnh tư liệu:** https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg
-**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây “bão” trong chương trình “Thách thức danh hài”. Ảnh: K.Q
-**Tiêu đề ảnh:** CHƯƠNG 2 – TỊNH THẤT BỒNG LAI
+**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây chú ý trong chương trình “Thách thức danh hài”. Ảnh: K.Q. Ảnh dùng cho preview; cần xác nhận quyền trước khi phát hành.
+**Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI
 **Nhân vật:** main-boy
 
-### 13. Từ một địa điểm thành tâm điểm mạng xã hội
-**Bối cảnh:** Hình ảnh địa điểm được xác minh, chuyển sang giao diện mạng xã hội cách điệu.
-**Hành động:** MainBoy nhìn các đoạn video xuất hiện liên tiếp, rồi dừng hình và kéo tập hồ sơ ra.
-**Đạo cụ:** Ảnh địa điểm, điện thoại, màn hình video cách điệu, hồ sơ.
-**Lời dẫn:** Tịnh thất Bồng Lai, còn được gọi là Thiền am bên bờ vũ trụ, từng thu hút sự chú ý lớn qua các video trên mạng. Ban đầu, nhiều người biết đến nơi này qua hình ảnh những người tu hành và các em nhỏ. Nhưng càng về sau, câu chuyện càng bị bao phủ bởi lời tố cáo, suy đoán và tranh cãi. Trên mạng, một lời đồn được chia sẻ đủ nhiều có thể biến thành “sự thật” trong mắt người xem. Nhưng hồ sơ pháp lý không hoạt động theo cách đó.
-**Âm thanh/Chữ:** Tiếng thông báo mạng xã hội dồn dập rồi tắt đột ngột.
-**Loại cảnh:** modern
-**Nhân vật:** main-boy
-
-### 14. Điều gì đã được tòa án xét xử?
-**Bối cảnh:** Phòng hồ sơ pháp lý, ánh sáng tập trung vào tài liệu và mốc thời gian.
-**Hành động:** MainBoy mở hồ sơ, tách thông tin đã xét xử khỏi cáo buộc trên mạng.
-**Đạo cụ:** Hồ sơ vụ án, lịch thời gian, trang báo có nguồn.
-**Lời dẫn:** Năm 2022, sáu người liên quan đến cơ sở này bị kết án theo Điều 331 Bộ luật Hình sự. Nhưng có một ranh giới phải giữ thật rõ: những cáo buộc từng lan truyền về lừa đảo hay loạn luân không thể được kể như sự thật đã được chứng minh nếu không có chứng cứ và kết luận pháp lý tương ứng. Một vụ án có bản án cụ thể. Những lời đồn khác cần chứng cứ riêng.
-**Âm thanh/Chữ:** “NỘI DUNG ĐÃ XÉT XỬ” và “CÁO BUỘC KHÁC – CẦN CHỨNG CỨ RIÊNG”.
-**Loại cảnh:** archive
-**Nhân vật:** main-boy
-
-### 15. Bài học phía sau một vụ việc ồn ào
-**Bối cảnh:** Bảng ghim có hai cột “Đã xác nhận” và “Chưa đủ căn cứ”.
-**Hành động:** MainBoy đặt từng tờ giấy vào đúng cột.
-**Đạo cụ:** Bảng ghim, giấy ghi chú, hồ sơ.
-**Lời dẫn:** Một vụ việc gây tranh cãi không chỉ cần người kể chuyện. Nó cần người biết dừng lại trước khi chia sẻ thông tin chưa được kiểm chứng. Nếu một cá nhân sai phạm, hãy nói đúng cá nhân đó. Nếu tòa án đã tuyên án, hãy nói đúng nội dung bản án. Nếu cáo buộc chưa được chứng minh, đừng biến nó thành sự thật chỉ vì nó nghe giật gân.
-**Âm thanh/Chữ:** Nhạc hạ thấp, chuyển chương.
-**Loại cảnh:** checklist
-**Nhân vật:** main-boy
-
-## CHƯƠNG 3 – THIÊN TRIỀU ÂM PHỦ / ĐỨC CHÚA TRỜI BỐN PHƯƠNG
-
-### 16. Thẻ chương – Thiên Triều Âm Phủ
-**Bối cảnh:** Nền trắng; ảnh minh họa nhóm người châu Á bên phải, MainBoy bên trái.
-**Hành động:** MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh nhóm người châu Á không logo, thẻ tiêu đề và nhãn “Ảnh minh họa”.
-**Lời dẫn:** Đến đây, chúng ta gặp một trường hợp cần kể theo cách khác: Thiên Triều Âm Phủ, hay Đức Chúa Trời Bốn Phương.
-**Âm thanh/Chữ:** Tên chương lớn; nhãn ảnh minh họa rõ ràng.
-**Sân khấu:** white-title
-**Ảnh tư liệu:** reference/asian-group-meeting.jpg
-**Chú thích ảnh:** Ảnh minh họa – không phải thành viên hay địa điểm của tổ chức
-**Tiêu đề ảnh:** CHƯƠNG 3 – THIÊN TRIỀU ÂM PHỦ
-**Nhân vật:** main-boy
-
-### 17. Một cái tên, nhưng hồ sơ ở đâu?
-**Bối cảnh:** Bàn điều tra, ảnh nhóm người châu Á chỉ đóng vai trò minh họa.
-**Hành động:** MainBoy dùng kính lúp xem tài liệu, không tìm thấy nguồn xác thực độc lập.
-**Đạo cụ:** Ảnh minh họa, hồ sơ, kính lúp.
-**Lời dẫn:** Với những tài liệu có thể kiểm chứng độc lập mà ê-kíp hiện có, chưa đủ cơ sở để dựng một câu chuyện đầy đủ về tổ chức, người đứng đầu, lịch sử hoạt động hay những hành vi cụ thể. Nếu tự bịa thêm cho câu chuyện hấp dẫn, bộ phim này cũng đang làm điều mà nó muốn cảnh báo: biến suy đoán thành sự thật.
-**Âm thanh/Chữ:** “CHƯA ĐỦ DỮ LIỆU KIỂM CHỨNG”.
-**Loại cảnh:** investigation
-**Nhân vật:** main-boy
-
-### 18. Không lấy ảnh minh họa làm bằng chứng
-**Bối cảnh:** Bảng kiểm chứng thông tin; ảnh nhóm châu Á có nhãn minh họa.
-**Hành động:** MainBoy đóng dấu “ẢNH MINH HỌA”, gạt sang bên các mẩu tin không rõ nguồn.
-**Đạo cụ:** Ảnh nhóm châu Á, con dấu, bảng kiểm chứng.
-**Lời dẫn:** Bức ảnh đang thấy chỉ là ảnh minh họa một nhóm người châu Á trong buổi trao đổi. Nó không phải thành viên, địa điểm hay bằng chứng về hoạt động của nhóm được nhắc tới. Một bức ảnh sai có thể khiến người vô can bị gắn nhầm danh tính, còn khán giả thì tưởng rằng mình vừa xem được bằng chứng. Với trường hợp này, chúng ta tạm dừng ở điều có thể xác nhận.
-**Âm thanh/Chữ:** “ẢNH MINH HỌA – KHÔNG ĐẠI DIỆN TỔ CHỨC”.
-**Loại cảnh:** checklist
-**Nhân vật:** main-boy
-
-## CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
-
-### 19. Thẻ chương – Nhóm Trừ Quỷ Bảo Lộc
-**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu Dân Việt bên phải.
-**Hành động:** Ảnh tư liệu xuất hiện; MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh 4 trong bài Dân Việt về việc Tòa Giám mục Đà Lạt lên tiếng; giữ nguyên chú thích và ghi nguồn Dân Việt.
-**Lời dẫn:** Câu chuyện tiếp theo là một nhóm nhỏ từng khiến chính giới Công giáo phải ra thông cáo chính thức: Nhóm Trừ Quỷ Bảo Lộc.
-**Âm thanh/Chữ:** Tên chương cỡ lớn.
-**Sân khấu:** white-title
-**Ảnh tư liệu:** https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/19/tru-quy-16529569579741849352232.jpg
-**Chú thích ảnh:** Tòa Giám mục Đà Lạt nhận định việc “trừ quỷ”, “chữa bệnh” của nhóm “trừ quỷ Bảo Lộc” là mê tín dị đoan, không phải đức tin công truyền của người Công giáo. Ảnh: Dân Việt
-**Tiêu đề ảnh:** CHƯƠNG 4 – NHÓM TRỪ QUỶ BẢO LỘC
-**Nhân vật:** main-boy
-
-### 20. Khi một tuyên bố khiến cả giáo hội phải lên tiếng
-**Bối cảnh:** Văn bản thông cáo chính thức, chuyển sang bàn hồ sơ.
-**Hành động:** MainBoy mở văn bản, đọc dòng tiêu đề rồi ngẩng lên nhìn khán giả.
-**Đạo cụ:** Bản thông cáo ngày 30/05/2022, bàn đọc tài liệu.
-**Lời dẫn:** Ngày 30 tháng 5 năm 2022, Ủy ban Giáo lý Đức tin thuộc Hội đồng Giám mục Việt Nam công bố thông cáo về “Nhóm Trừ Quỷ Bảo Lộc”. Theo thông cáo, từ năm 2015, một nhóm nhỏ tín hữu thuộc Giáo xứ Bảo Lộc đã tin rằng họ được Chúa Cha trực tiếp mặc khải, làm thư ký cho Chúa Cha và được ban đặc ân trừ quỷ. Đây là nội dung được nêu trong văn bản chính thức của tổ chức tôn giáo liên quan.
-**Âm thanh/Chữ:** “30.05.2022 – THÔNG CÁO CHÍNH THỨC”.
-**Loại cảnh:** archive
-**Nhân vật:** main-boy
-
-### 21. Ranh giới giữa đức tin và thẩm quyền
-**Bối cảnh:** Bàn làm việc với thông cáo và tài liệu giáo lý.
-**Hành động:** MainBoy chỉ vào các đoạn trong văn bản, đặt dấu hỏi bên cạnh.
-**Đạo cụ:** Thông cáo, sách giáo lý, bút đánh dấu.
-**Lời dẫn:** Thông cáo cho biết nhóm này còn lôi kéo được một số linh mục và tu sĩ tham gia. Giáo phận Đà Lạt đã lắng nghe, khuyên nhủ, cảnh báo và áp dụng kỷ luật, nhưng theo văn bản, nhóm vẫn công khai bất tuân. Ủy ban Giáo lý Đức tin cũng nhấn mạnh rằng việc tự ý tuyên bố trừ quỷ, coi mọi bệnh tật là quỷ ám và thực hiện hành vi trừ tà không theo quy định là điều không phù hợp với giáo lý và thực hành Công giáo. Câu hỏi ở đây là: ai trao thẩm quyền ấy, và ai kiểm tra nó?
-**Âm thanh/Chữ:** “TUYÊN BỐ – THẨM QUYỀN – KIỂM CHỨNG”.
-**Loại cảnh:** investigation
-**Nhân vật:** main-boy
-
-### 22. Đừng đánh đồng một nhóm với cả cộng đồng
-**Bối cảnh:** Khung hình chia đôi: văn bản thông cáo và hình ảnh sinh hoạt Công giáo thông thường.
-**Hành động:** MainBoy kéo hai khung hình tách xa nhau.
-**Đạo cụ:** Văn bản thông cáo, ảnh sinh hoạt tôn giáo có nguồn.
-**Lời dẫn:** Nhóm Trừ Quỷ Bảo Lộc không đại diện cho toàn thể người Công giáo. Khi một nhóm tự nhận có quyền năng đặc biệt, câu hỏi không phải là chúng ta có tin hay không. Câu hỏi là những tuyên bố đó có phù hợp với quy tắc, có được kiểm tra và có gây tổn hại cho người khác hay không.
-**Âm thanh/Chữ:** “KHÔNG ĐÁNH ĐỒNG MỘT NHÓM VỚI CẢ CỘNG ĐỒNG”.
-**Loại cảnh:** archive
-**Nhân vật:** main-boy
-
-## CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
-
-### 23. Thẻ chương – Thanh Hải Vô Thượng Sư
-**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh tư liệu có nguồn về nhân vật bên phải.
-**Hành động:** MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh tư liệu được xác minh, thẻ tiêu đề.
-**Lời dẫn:** Chương tiếp theo gắn với một nhân vật có ảnh hưởng quốc tế: Thanh Hải Vô Thượng Sư.
-**Âm thanh/Chữ:** Tên chương cỡ lớn.
-**Sân khấu:** white-title
-**Ảnh tư liệu:** reference/ching-hai-sydney-1993.jpg
-**Chú thích ảnh:** Ảnh tư liệu Thanh Hải tại Sydney năm 1993
-**Tiêu đề ảnh:** CHƯƠNG 5 – THANH HẢI VÔ THƯỢNG SƯ
-**Nhân vật:** main-boy
-
-### 24. Một nhân vật, một hệ thống hoạt động quốc tế
-**Bối cảnh:** Bản đồ châu Á, mốc Đài Loan năm 1989, sau đó là ảnh tư liệu có nguồn.
-**Hành động:** MainBoy chỉ vào bản đồ và mốc thời gian.
-**Đạo cụ:** Bản đồ, ảnh tư liệu, dòng thời gian.
-**Lời dẫn:** Thanh Hải Vô Thượng Sư, còn được gọi là Supreme Master Ching Hai, gắn với nhân vật Đặng Thị Trinh, pháp hiệu Thanh Hải. Một số nguồn công bố có khác biệt về thông tin tiểu sử, nên ở đây chúng ta không tự khẳng định năm sinh. Theo thông tin được Công an thành phố Hải Phòng đăng tải năm 2022, tổ chức này được thành lập năm 1989 tại Đài Loan và du nhập vào Việt Nam khoảng năm 1990. Đó là hành trình hoạt động xuyên biên giới; muốn đánh giá cần nhìn vào tuyên bố, hoạt động thực tế và cách các cơ quan liên quan phản hồi.
-**Âm thanh/Chữ:** “1989 – ĐÀI LOAN” và “KHOẢNG 1990 – VIỆT NAM”.
+### 09. Nhưng câu chuyện bắt đầu sớm hơn
+**Bối cảnh:** Dòng thời gian từ năm 1990 đến 2007; bản đồ Bình Chánh, TP.HCM.
+**Hành động:** MainBoy kéo dòng thời gian lùi về năm 1990.
+**Đạo cụ:** Bản đồ Bình Chánh; mốc “Trại dưỡng lão và Cô nhi Thánh Đức”.
+**Lời dẫn:** “Khoan, nếu chỉ bắt đầu câu chuyện từ những video trên mạng thì mình sẽ bỏ sót một phần quan trọng. Trước Tịnh thất Bồng Lai, ông Lê Tùng Vân từng lập Trại dưỡng lão và Cô nhi Thánh Đức ở huyện Bình Chánh. Theo các bài báo dẫn thông tin từ cơ quan chức năng, cơ sở này hình thành từ khoảng năm 1990 và được giới thiệu là nơi chăm sóc trẻ mồ côi, người già neo đơn. Đến đây, có thể bạn sẽ hỏi: vậy chuyện gì đã xảy ra với cơ sở ấy?”
+**Âm thanh/Chữ:** “BÌNH CHÁNH – KHOẢNG 1990”.
 **Loại cảnh:** map
 **Nhân vật:** main-boy
 
-### 25. Từ thiền định, ăn chay đến những cảnh báo
-**Bối cảnh:** Hình ảnh hoạt động công khai có nguồn, chuyển sang bàn hồ sơ báo chí.
-**Hành động:** MainBoy quan sát ảnh, sau đó mở tập báo cáo có ghi nguồn.
-**Đạo cụ:** Ảnh hoạt động công khai, sách, tài liệu báo chí.
-**Lời dẫn:** Những nội dung được nhắc đến quanh tổ chức này gồm thiền định, ăn chay và các hoạt động từ thiện. Song song với đó, một số cơ quan chức năng tại Việt Nam đã đăng tải cảnh báo và đưa ra nhận định phê phán về hoạt động của tổ chức. Cần nói rõ đâu là hoạt động công khai, đâu là nhận định của cơ quan chức năng, và đâu là điều chưa có chứng cứ độc lập để kết luận.
-**Âm thanh/Chữ:** “HOẠT ĐỘNG CÔNG KHAI” và “NHẬN ĐỊNH/CẢNH BÁO – GHI RÕ NGUỒN”.
+### 10. Năm 2007 – cơ sở Thánh Đức chấm dứt hoạt động
+**Bối cảnh:** Bàn hồ sơ; văn bản hành chính cách điệu, không giả làm bản gốc.
+**Hành động:** MainBoy đặt mốc 25/07/2007 lên dòng thời gian.
+**Đạo cụ:** Hồ sơ, dòng thời gian, nhãn “tái hiện văn bản”.
+**Lời dẫn:** “Theo thông tin được báo chí dẫn lại, ngày 25 tháng 7 năm 2007, UBND huyện Bình Chánh ra quyết định chấm dứt hoạt động cơ sở Thánh Đức. Những lý do được nêu gồm điều kiện cơ sở vật chất, vệ sinh môi trường, đăng ký tạm trú và thủ tục nhận nuôi con nuôi không đúng quy định. Đây là điều có thể đối chiếu trong các bài báo về vụ việc. Còn những lời tố cáo khác từng xuất hiện quanh cơ sở này thì phải tách riêng, không được tự động kể thành kết luận đã được chứng minh.”
+**Âm thanh/Chữ:** “25.07.2007 – CHẤM DỨT HOẠT ĐỘNG”; ghi nguồn.
 **Loại cảnh:** archive
 **Nhân vật:** main-boy
 
-### 26. Câu hỏi quan trọng không nằm ở khẩu hiệu
-**Bối cảnh:** MainBoy trước bảng kiểm chứng gồm ba câu hỏi.
-**Hành động:** MainBoy lần lượt chỉ vào từng câu hỏi.
-**Đạo cụ:** Bảng kiểm chứng: “Ai chịu trách nhiệm?”, “Thông tin có minh bạch?”, “Người tham gia có quyền tự quyết?”.
-**Lời dẫn:** Dù một tổ chức nói về thiền định, sức khỏe hay lòng tốt, chúng ta vẫn có quyền đặt những câu hỏi rất bình thường. Ai chịu trách nhiệm về lời khuyên được đưa ra? Thông tin tài chính và hoạt động có minh bạch không? Người tham gia có thể tự do lựa chọn, từ chối hoặc rời đi mà không bị đe dọa hay gây áp lực không? Đừng để một khẩu hiệu đẹp thay thế cho những câu hỏi cần thiết.
-**Âm thanh/Chữ:** Ba câu hỏi xuất hiện lần lượt.
-**Loại cảnh:** checklist
+### 11. Từ Thánh Đức đến Tịnh thất Bồng Lai
+**Bối cảnh:** Dòng thời gian nối Bình Chánh với Đức Hòa, Long An.
+**Hành động:** MainBoy nối hai mốc địa điểm bằng một đường chỉ.
+**Đạo cụ:** Bản đồ, mốc 2007 và giai đoạn sau 2015.
+**Lời dẫn:** “Rồi nhiều năm sau, cái tên Tịnh thất Bồng Lai xuất hiện ở Long An. Hai địa điểm, hai giai đoạn, nhưng có một nhân vật trung tâm được báo chí và hồ sơ điều tra nhắc tới là ông Lê Tùng Vân. Điều mình muốn nhấn mạnh ở đây không phải cứ cơ sở sau giống cơ sở trước. Mà là khi một nơi tự giới thiệu hoạt động vì trẻ em, vì người yếu thế, thì sự minh bạch càng phải cao. Tiền từ thiện đi đâu? Trẻ em được chăm sóc, học hành thế nào? Ai chịu trách nhiệm?”
+**Âm thanh/Chữ:** “MINH BẠCH – TRÁCH NHIỆM – AN TOÀN TRẺ EM”.
+**Loại cảnh:** map
 **Nhân vật:** main-boy
 
-## CHƯƠNG 6 – PHÁP LUÂN CÔNG
-
-### 27. Thẻ chương – Pháp Luân Công
-**Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh người châu Á luyện tập có nguồn bên phải.
-**Hành động:** MainBoy chỉ vào ảnh và tên chương.
-**Đạo cụ:** Ảnh luyện tập có nguồn, thẻ tiêu đề.
-**Lời dẫn:** Cánh cửa cuối cùng là Pháp Luân Công – một trường hợp cần đặc biệt cẩn trọng khi kể.
-**Âm thanh/Chữ:** Tên chương cỡ lớn.
-**Sân khấu:** white-title
-**Ảnh tư liệu:** reference/falun-gong-taiwan-2025.jpg
-**Chú thích ảnh:** Người tập Pháp Luân Công tại Đài Loan năm 2025; không phải hoạt động tại Việt Nam
-**Tiêu đề ảnh:** CHƯƠNG 6 – PHÁP LUÂN CÔNG
-**Nhân vật:** main-boy
-
-### 28. Một phương pháp luyện tập và những tranh luận tại Việt Nam
-**Bối cảnh:** Công viên, người châu Á luyện các động tác chậm; chuyển sang bảng thông tin.
-**Hành động:** MainBoy quan sát, không chế giễu người tập.
-**Đạo cụ:** Ảnh luyện tập có nguồn, bảng thông tin.
-**Lời dẫn:** Có người tập các động tác chậm ở công viên, có người theo đuổi việc tu luyện tinh thần. Nhưng trong những năm qua, cái tên này cũng xuất hiện trong các cuộc tranh luận và một số vụ việc nghiêm trọng tại Việt Nam. Không thể nhìn một vụ án rồi kết luận tất cả người tập đều giống nhau. Cũng không thể lấy lời tự giới thiệu của một nhóm để thay thế việc kiểm chứng hành vi cụ thể.
-**Âm thanh/Chữ:** “PHÂN BIỆT NGƯỜI TẬP – TỔ CHỨC – HÀNH VI CỤ THỂ”.
-**Loại cảnh:** community
-**Nhân vật:** main-boy
-
-### 29. Vụ án Bình Dương năm 2019
-**Bối cảnh:** Bản đồ Bình Dương, chuyển sang hồ sơ vụ án và dòng thời gian. Không tái hiện thi thể hay cảnh bạo lực trực diện.
-**Hành động:** MainBoy mở hồ sơ, đặt mốc năm 2019, chỉ vào thông tin đã được báo chí đưa tin.
-**Đạo cụ:** Bản đồ Bình Dương, hồ sơ vụ án.
-**Lời dẫn:** Năm 2019, vụ án hai người tử vong, thi thể được phát hiện trong các thùng chứa tại Bình Dương gây chấn động dư luận. Một số nghi phạm từng có liên hệ với việc luyện tập Pháp Luân Công. Các thông tin báo chí khi đó cũng ghi nhận tranh luận về việc không thể lấy hành vi của nhóm gây án để đại diện cho toàn bộ người tập. Tội ác của người gây án phải được xử lý nghiêm minh; trách nhiệm hình sự thuộc về người thực hiện hành vi.
-**Âm thanh/Chữ:** “BÌNH DƯƠNG – 2019”. Nhạc nghiêm túc, không dùng hiệu ứng gây sốc.
+### 12. Điều đã được xét xử và điều không nên nói quá
+**Bối cảnh:** Hai ngăn hồ sơ: “Nội dung đã xét xử” và “Thông tin cần kiểm chứng riêng”.
+**Hành động:** MainBoy đặt tài liệu vào đúng ngăn.
+**Đạo cụ:** Hồ sơ pháp lý, nhãn phân loại.
+**Lời dẫn:** “Đến phần pháp lý, mình cần nói thật chính xác. Năm 2022, một số người liên quan đến cơ sở này bị xét xử theo Điều 331 Bộ luật Hình sự. Những cáo buộc khác từng lan truyền trên mạng phải được xem theo từng hồ sơ và kết luận cụ thể. Đừng lấy một lời đồn rồi kể như bản án. Mà cũng đừng vì có người bênh vực mà phủ nhận những gì tòa án đã tuyên. Hai việc đó đều không ổn.”
+**Âm thanh/Chữ:** “BẢN ÁN KHÁC VỚI LỜI ĐỒN”.
 **Loại cảnh:** investigation
 **Nhân vật:** main-boy
 
-### 30. Đừng để một vụ án trở thành cái cớ để đánh đồng
-**Bối cảnh:** Bảng phân loại “Hành vi cá nhân” và “Cộng đồng rộng hơn”.
-**Hành động:** MainBoy đặt hồ sơ vụ án vào đúng khung.
-**Đạo cụ:** Bảng phân loại, hồ sơ, bút đánh dấu.
-**Lời dẫn:** Một vụ án nghiêm trọng cần được điều tra và xét xử nghiêm minh. Nhưng từ một vụ án, chúng ta không thể kết luận về tất cả những người khác chưa làm điều tương tự. Bất kỳ nhóm nào dùng niềm tin để khuyến khích hành vi nguy hiểm, cản trở việc chữa bệnh, cô lập người tham gia hoặc kích động vi phạm pháp luật đều cần được xem xét bằng chứng cứ cụ thể. Đừng đánh đồng. Nhưng cũng đừng nhắm mắt trước hành vi sai trái.
-**Âm thanh/Chữ:** “ĐÚNG NGƯỜI – ĐÚNG HÀNH VI – ĐÚNG CHỨNG CỨ”.
+### 13. Trẻ em không phải đạo cụ truyền thông
+**Bối cảnh:** Khung hình tối giản với chiếc cặp học sinh, quyển vở và biểu tượng quyền riêng tư; không dùng ảnh trẻ em thật.
+**Hành động:** MainBoy đặt một tấm màn che lên khung ảnh minh họa.
+**Đạo cụ:** Cặp sách, vở, biểu tượng bảo vệ danh tính.
+**Lời dẫn:** “Có một điều mình nghĩ cần nói riêng. Trong mọi câu chuyện có trẻ em, các em không phải đạo cụ để người lớn chứng minh mình đúng, cũng không phải nhân vật để mạng xã hội đem ra tranh cãi mãi mãi. Dù câu chuyện thuộc phe nào, trẻ em vẫn cần được bảo vệ danh tính, quyền học tập, sức khỏe và sự an toàn. Người lớn có thể tranh luận. Nhưng đừng bắt trẻ con phải gánh hậu quả thay người lớn.”
+**Âm thanh/Chữ:** “BẢO VỆ TRẺ EM – TRƯỚC HẾT”.
+**Loại cảnh:** interior
+**Nhân vật:** main-boy
+
+## CHƯƠNG 3 – ĐẠO HÀ MÒN
+
+### 14. Một lời đồn lan qua các buôn làng
+**Bối cảnh:** Bản đồ Kon Tum và Tây Nguyên; phong cảnh làng được tái hiện trung tính.
+**Hành động:** MainBoy chỉ vào khu vực Hà Mòn, sau đó mở hồ sơ.
+**Đạo cụ:** Bản đồ, mốc cuối thập niên 1990 – đầu những năm 2000.
+**Lời dẫn:** “Rời miền Nam, mình đưa bạn lên Tây Nguyên. Câu chuyện thứ ba là Hà Mòn, còn được một số nguồn gọi là hiện tượng Đức Mẹ Hà Mòn. Các tài liệu báo chí cho biết hiện tượng này xuất hiện ở khu vực Kon Tum vào khoảng cuối thập niên 1990, gắn với lời đồn Đức Mẹ hiện hình. Và như thường thấy, khi một lời đồn chạm vào niềm tin sâu sắc của con người, nó có thể lan rất nhanh.”
+**Âm thanh/Chữ:** “KON TUM – CUỐI THẬP NIÊN 1990”.
+**Loại cảnh:** map
+**Nhân vật:** main-boy
+
+### 15. Khi một lời khẳng định trở thành niềm tin
+**Bối cảnh:** Bàn sinh hoạt cộng đồng tái hiện; không dựng nghi lễ như tư liệu thật.
+**Hành động:** MainBoy lắng nghe, sau đó đặt dấu hỏi bên cạnh lời khẳng định.
+**Đạo cụ:** Bản đồ, tờ giấy ghi “lời kể”, nhãn “tái hiện minh họa”.
+**Lời dẫn:** “Thử đặt mình vào hoàn cảnh một người dân ở vùng xa, thông tin ít, cuộc sống nhiều khó khăn, và có người nói rằng họ nhận được một thông điệp thiêng liêng. Có người tin vì hy vọng, có người tin vì cộng đồng xung quanh cùng tin, cũng có người có thể nghi ngờ. Chúng ta không nên coi thường người dân hay biến họ thành trò cười. Câu hỏi cần đặt ra là: lời khẳng định ấy có được kiểm chứng không, và ai đang sử dụng nó để kêu gọi người khác làm theo?”
+**Âm thanh/Chữ:** “LỜI KỂ KHÔNG TỰ ĐỘNG LÀ CHỨNG CỨ”.
+**Loại cảnh:** community
+**Nhân vật:** main-boy
+
+### 16. Vụ án năm 2013 – đọc đúng nội dung bản án
+**Bối cảnh:** Phòng hồ sơ pháp lý, mốc 28–29/05/2013.
+**Hành động:** MainBoy mở hồ sơ, chỉ vào tên vụ án và điều luật được báo chí nêu.
+**Đạo cụ:** Hồ sơ, lịch thời gian, bản đồ Gia Lai – Kon Tum.
+**Lời dẫn:** “Đến tháng 5 năm 2013, TAND tỉnh Gia Lai mở phiên tòa xét xử tám bị cáo trong vụ án được báo chí gọi là vụ Hà Mòn. Các bản tin thời điểm đó cho biết những người này bị xét xử về tội danh liên quan đến phá hoại chính sách đoàn kết dân tộc. Mình nhắc rõ: đây là nội dung của vụ án và bản án đối với các bị cáo cụ thể. Không thể từ đó suy ra mọi người từng nghe theo lời đồn Đức Mẹ hiện hình đều phạm tội.”
+**Âm thanh/Chữ:** “THÁNG 5.2013 – XÉT XỬ 8 BỊ CÁO”; nguồn báo chí.
 **Loại cảnh:** archive
 **Nhân vật:** main-boy
 
-## KẾT – ĐIỀU CẦN GIỮ LẠI SAU SÁU CÂU CHUYỆN
+### 17. Đừng đánh đồng đức tin với hành vi vi phạm
+**Bối cảnh:** Khung hình chia đôi: biểu tượng sinh hoạt tôn giáo bình thường và hồ sơ vụ án.
+**Hành động:** MainBoy tách hai khung, đặt nhãn rõ ràng.
+**Đạo cụ:** Bảng “niềm tin cá nhân” và “hành vi cụ thể”.
+**Lời dẫn:** “Đây là đoạn rất dễ bị kể lệch. Một người có quyền thực hành đức tin của mình; còn hành vi vi phạm pháp luật, nếu có, phải được chứng minh và xử lý theo đúng người, đúng việc. Không thể lấy một vụ án để quy chụp cả cộng đồng tôn giáo. Và cũng không thể lấy danh nghĩa đức tin để miễn trừ trách nhiệm cho bất kỳ ai. Hai nguyên tắc này phải đi cùng nhau.”
+**Âm thanh/Chữ:** “ĐÚNG NGƯỜI – ĐÚNG HÀNH VI – ĐÚNG CHỨNG CỨ”.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
 
-### 31. Cánh cửa cuối cùng là quyền được đặt câu hỏi
-**Bối cảnh:** Nền trắng trở lại. Sáu khung ảnh thu nhỏ xuất hiện phía sau MainBoy.
-**Hành động:** MainBoy lần lượt nhìn sáu ảnh, sau đó quay về phía khán giả.
-**Đạo cụ:** Sáu ảnh mở đầu, bảng ba câu hỏi.
-**Lời dẫn:** Sáu câu chuyện, sáu bối cảnh khác nhau. Có nơi đã có văn bản chính thức, có vụ việc đã được tòa án xét xử, có nơi còn thiếu dữ liệu độc lập để kết luận. Nhưng có một nguyên tắc dùng được cho tất cả: đừng giao toàn bộ quyền suy nghĩ của mình cho bất kỳ ai. Một nhóm lành mạnh phải chịu được câu hỏi. Một lời khuyên có trách nhiệm phải chấp nhận việc kiểm chứng. Và một niềm tin không nên buộc con người phải từ bỏ quyền tự quyết, sự an toàn hay những mối quan hệ bình thường của mình.
-**Âm thanh/Chữ:** “ĐƯỢC HỎI” – “ĐƯỢC KIỂM CHỨNG” – “ĐƯỢC TỰ QUYẾT”.
+## CHƯƠNG 4 – HIỆN TƯỢNG DƯƠNG VĂN MÌNH
+
+### 18. Một câu chuyện kéo dài hơn ba thập niên
+**Bối cảnh:** Bản đồ các tỉnh miền núi phía Bắc; phong cảnh bản làng Mông được tái hiện tôn trọng, không khuôn mẫu.
+**Hành động:** MainBoy chỉ vào Cao Bằng, Tuyên Quang và các địa bàn được nguồn nghiên cứu nhắc tới.
+**Đạo cụ:** Bản đồ, dòng thời gian bắt đầu năm 1989.
+**Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
+**Âm thanh/Chữ:** “TỪ KHOẢNG NĂM 1989 – MIỀN NÚI PHÍA BẮC”.
+**Loại cảnh:** map
+**Nhân vật:** main-boy
+
+### 19. Nhà đòn và những thay đổi trong nghi lễ
+**Bối cảnh:** Mô hình nhà đòn được vẽ cách điệu, không tái hiện nghi thức như ảnh tư liệu.
+**Hành động:** MainBoy quan sát mô hình, chỉ vào các biểu tượng được mô tả trong tài liệu.
+**Đạo cụ:** Đồ họa “nhà đòn”, biểu tượng tang lễ; nhãn “tái hiện theo tài liệu”.
+**Lời dẫn:** “Có lẽ bạn đang thắc mắc: nhà đòn là gì? Trong các tài liệu nghiên cứu về hiện tượng này, nhà đòn được mô tả là nơi lưu giữ một số vật dụng, biểu tượng liên quan đến nghi lễ tang ma của những người đi theo. Một số nghi thức truyền thống cũng thay đổi. Với người ngoài, chuyện này có thể nghe lạ. Nhưng với một cộng đồng, thay đổi nghi lễ tang ma là chuyện rất sâu sắc, vì nó chạm tới cách họ tiễn biệt người thân và gìn giữ bản sắc.”
+**Âm thanh/Chữ:** “TANG LỄ – PHONG TỤC – CỘNG ĐỒNG”.
+**Loại cảnh:** archive
+**Nhân vật:** main-boy
+
+### 20. Vì sao người ta đi theo?
+**Bối cảnh:** Bản làng, con đường núi, bàn sinh hoạt; nhân vật phụ đại diện người dân được vẽ trung tính.
+**Hành động:** MainBoy nhìn các nhân vật phụ, không chỉ trỏ buộc tội.
+**Đạo cụ:** Đồ họa về đời sống cộng đồng, tài liệu nghiên cứu.
+**Lời dẫn:** “Đây mới là câu hỏi đáng suy nghĩ: vì sao có người tin theo? Nghiên cứu về các hiện tượng tôn giáo mới ở vùng dân tộc thiểu số cho thấy cần nhìn cả bối cảnh xã hội: đời sống khó khăn, nhu cầu được nâng đỡ, thay đổi văn hóa, nhu cầu cộng đồng và niềm hy vọng vào một tương lai tốt đẹp hơn. Nói cách khác, nếu chỉ gọi người ta là nhẹ dạ thì mình chẳng hiểu được gì cả. Muốn hiểu một hiện tượng, phải nhìn cả hoàn cảnh khiến nó có đất để phát triển.”
+**Âm thanh/Chữ:** “MUỐN HIỂU – PHẢI NHÌN CẢ BỐI CẢNH”.
+**Loại cảnh:** community
+**Nhân vật:** main-boy, supporting-characters
+
+### 21. Những nhận định của cơ quan chức năng và góc nhìn nghiên cứu
+**Bối cảnh:** Hai cột tài liệu: “Nhận định của cơ quan chức năng” và “Nghiên cứu học thuật”.
+**Hành động:** MainBoy đặt tài liệu vào hai cột riêng biệt.
+**Đạo cụ:** Trích dẫn nguồn công khai, tài liệu nghiên cứu của Viện Hàn lâm Khoa học Xã hội Việt Nam.
+**Lời dẫn:** “Các cơ quan chức năng ở một số địa phương từng gọi đây là tổ chức bất hợp pháp và đưa ra nhận định về hoạt động ly khai, tự trị. Đó là quan điểm và kết luận được nêu trong các văn bản của cơ quan chức năng. Trong khi đó, nghiên cứu học thuật tiếp cận hiện tượng này như một hiện tượng tôn giáo mới, phân tích nguồn gốc, nghi lễ và bối cảnh cộng đồng. Hai loại tài liệu có mục đích khác nhau, nên mình không trộn chúng thành một kết luận duy nhất. Người xem cần biết ai đang nói, nói trong tư cách nào và dựa trên loại chứng cứ gì.”
+**Âm thanh/Chữ:** “PHÂN BIỆT NGUỒN – PHÂN BIỆT GÓC NHÌN”.
+**Loại cảnh:** investigation
+**Nhân vật:** main-boy
+
+### 22. Khi người đứng đầu không còn, điều gì ở lại?
+**Bối cảnh:** Dòng thời gian kết thúc ở năm 2021, sau đó là hình ảnh bản làng bình yên.
+**Hành động:** MainBoy khép tập hồ sơ, nhìn về phía cộng đồng.
+**Đạo cụ:** Mốc năm 2021; tài liệu nghiên cứu và báo chí.
+**Lời dẫn:** “Dương Văn Mình qua đời năm 2021. Nhưng một hiện tượng tồn tại hơn ba mươi năm không biến mất khỏi đời sống cộng đồng chỉ vì người đứng đầu không còn. Những thay đổi trong quan hệ gia đình, phong tục, niềm tin và cách tổ chức cộng đồng có thể còn để lại dấu vết lâu dài. Và đó là lý do khi kể câu chuyện này, mình không muốn chỉ dừng ở một cái tên. Điều cần nhìn là con người và cộng đồng đã trải qua những gì.”
+**Âm thanh/Chữ:** “2021 – NGƯỜI ĐỨNG ĐẦU QUA ĐỜI; DI SẢN XÃ HỘI CÒN CẦN TÌM HIỂU”.
+**Loại cảnh:** archive
+**Nhân vật:** main-boy
+
+## KẾT – ĐỪNG VỘI TIN, CŨNG ĐỪNG VỘI KẾT TỘI
+
+### 23. Bốn câu chuyện, bốn bối cảnh khác nhau
+**Bối cảnh:** Bốn thẻ chủ đề xuất hiện sau MainBoy.
+**Hành động:** MainBoy nhìn từng thẻ rồi quay lại khán giả.
+**Đạo cụ:** Bốn thẻ chủ đề.
+**Lời dẫn:** “Vậy là mình vừa đi qua bốn câu chuyện. Có câu chuyện được nhắc tới trong các báo cáo về sinh hoạt tôn giáo. Có câu chuyện gắn với hoạt động nuôi trẻ, từ thiện và những vụ việc pháp lý. Có vụ án liên quan đến lời đồn Đức Mẹ hiện hình. Và có một hiện tượng kéo dài trong cộng đồng người Mông, gắn với những thay đổi sâu sắc về phong tục. Bốn câu chuyện không giống nhau, nên không thể dùng một chiếc khuôn để giải thích tất cả.”
+**Âm thanh/Chữ:** Bốn tên chủ đề hiện lần lượt.
 **Sân khấu:** white-intro
 **Nhân vật:** main-boy
 
-### 32. Lời chào của MainBoy
+### 24. Ba câu hỏi nên giữ lại
+**Bối cảnh:** Nền trắng; ba câu hỏi lớn hiện phía sau MainBoy.
+**Hành động:** MainBoy giơ tay đếm ba câu hỏi.
+**Đạo cụ:** Bảng “Có được hỏi?”, “Có được từ chối?”, “Có minh bạch và chịu trách nhiệm?”.
+**Lời dẫn:** “Nếu sau video này bạn chỉ nhớ ba điều, mình mong đó là ba câu hỏi này. Một: mình có được quyền đặt câu hỏi không? Hai: mình có được quyền từ chối hoặc rời đi không? Ba: người đứng đầu có minh bạch và chịu trách nhiệm khi có sai phạm không? À, nghe thì đơn giản nhỉ. Nhưng đôi khi chính những câu hỏi đơn giản lại giúp mình tránh được những quyết định rất lớn.”
+**Âm thanh/Chữ:** Ba câu hỏi lần lượt hiện.
+**Loại cảnh:** checklist
+**Nhân vật:** main-boy
+
+### 25. Lời chào của MainBoy
 **Bối cảnh:** Nền trắng tối giản, MainBoy đứng giữa khung hình.
-**Hành động:** MainBoy chỉ nhẹ về phía khán giả, sau đó hạ tay.
+**Hành động:** MainBoy chỉ nhẹ về phía khán giả, mỉm cười, hạ tay.
 **Đạo cụ:** Không.
-**Lời dẫn:** Đừng tin chỉ vì người ta nói rất chắc. Đừng kết tội chỉ vì người khác kể rất nhiều. Hãy xem nguồn, xem chứng cứ, xem cả những điều chưa được xác nhận. Bởi sự thật không sợ câu hỏi. Chỉ có những lời khẳng định không muốn bị kiểm tra mới sợ mà thôi.
+**Lời dẫn:** “Còn bạn thì sao? Bạn từng nghe câu chuyện nào trong bốn câu chuyện này chưa? Có chi tiết nào bạn nghĩ cần kiểm chứng thêm không? Để lại bình luận, nhưng nhớ giúp mình một điều: tranh luận vào sự việc, đừng công kích người bình thường chỉ vì họ có niềm tin khác mình. Cảm ơn bạn đã xem đến đây. Hẹn gặp lại ở câu chuyện tiếp theo. Và nhớ nhé: đừng tin chỉ vì người ta nói rất chắc; cũng đừng kết tội chỉ vì người khác kể rất nhiều. Mình cùng tìm hiểu, kiểm chứng rồi hãy kết luận.”
 **Âm thanh/Chữ:** Nhạc kết; “TÌM HIỂU – KIỂM CHỨNG – KHÔNG ĐÁNH ĐỒNG”.
 **Sân khấu:** white-intro
 **Nhân vật:** main-boy
 
-## GHI CHÚ TƯ LIỆU VÀ KIỂM CHỨNG
+## NGÂN HÀNG CÂU NÓI ĐỜI THƯỜNG CHO GIỌNG DẪN
+Dùng có chọn lọc, không nhồi vào mọi câu. Mỗi cảnh chỉ nên có 1–3 cụm tạo sắc thái.
 
-- Hội Thánh Đức Chúa Trời Mẹ: VietnamPlus (08/05/2018), Cổng thông tin Chính phủ/Bộ Công an (30/06/2023), Bộ Nội vụ (09/2023). Thông tin về 12 vụ, 85 người chỉ thuộc sáu tháng đầu năm 2023.
-- Tịnh thất Bồng Lai: cần đối chiếu bản án và các bài báo về vụ án; không kể cáo buộc chưa được chứng minh như sự thật.
-- Thiên Triều Âm Phủ/Đức Chúa Trời Bốn Phương: chưa có đủ nguồn độc lập đáng tin cậy để xác nhận lịch sử, nhân vật, quy mô hay hành vi cụ thể. Ảnh nhóm người châu Á là ảnh minh họa.
-- Nhóm Trừ Quỷ Bảo Lộc: Hội đồng Giám mục Việt Nam, Ủy ban Giáo lý Đức tin, thông cáo ngày 30/05/2022.
-- Thanh Hải Vô Thượng Sư: các bài thông tin của Công an thành phố Hải Phòng (27/01/2022) và Công an Nghệ An (05/08/2020); ghi rõ đây là nhận định/cảnh báo của cơ quan chức năng.
-- Pháp Luân Công: phân biệt việc luyện tập với hành vi của cá nhân trong vụ án Bình Dương; không đánh đồng toàn bộ người tập.
-- Chỉ dùng ảnh tư liệu có nguồn và quyền sử dụng rõ ràng. Ảnh minh họa phải gắn nhãn rõ. Không dùng logo, biểu tượng hoặc ảnh nhóm khác khiến khán giả hiểu nhầm.
+- Mở ý/tạo cảm giác trò chuyện: “À thì…”, “Nói thế này cho dễ hiểu nhé…”, “Khoan đã…”, “Thử nghĩ thế này…”, “Bạn để ý chỗ này nhé…”
+- Gợi tò mò: “Nhưng chuyện chưa dừng ở đó đâu.”, “Và đây mới là đoạn đáng nói.”, “Nghe đến đây chắc bạn sẽ hỏi…”, “Điều ít người để ý là…”
+- Chuyển ý tự nhiên: “Ấy vậy mà…”, “Thế rồi…”, “Còn một chuyện nữa…”, “Quay lại câu chuyện chính nhé…”, “Nói đến đây phải nhắc thêm…”
+- Nhấn mạnh vừa phải: “Nói thật nhé…”, “Đây mới là điểm mấu chốt.”, “Chuyện này không đơn giản như mình tưởng.”, “Đừng vội kết luận.”
+- Tương tác với người xem: “Bạn thử đặt mình vào hoàn cảnh ấy xem.”, “Nếu là bạn, bạn sẽ hỏi gì?”, “Bạn có thấy điểm bất thường ở đây không?”, “Nghe quen không?”
+- Châm biếm nhẹ, không chế giễu tín ngưỡng: “Nghe thì có vẻ dễ dàng quá nhỉ?”, “Lời hứa thì rất hay, nhưng ai chịu trách nhiệm?”, “Nói miệng thì dễ, còn chứng cứ đâu?”
+- Hạ nhịp/đưa về suy ngẫm: “Nói đến đây, mình muốn dừng lại một chút.”, “Có lẽ điều đáng nghĩ nhất là…”, “Và đừng quên người chịu ảnh hưởng cũng là người thật, có gia đình và cuộc sống thật.”
+
+## QUY TẮC THU ÂM VÀ BIÊN TẬP LỜI DẪN
+- Không đọc mọi câu cùng một tốc độ hoặc cùng một cao độ. Thay đổi nhịp theo câu hỏi, dữ kiện, cảm xúc và khoảng lặng.
+- Những cụm “à thì”, “khoan đã”, “nói thật nhé” chỉ dùng ở điểm chuyển ý; không thêm máy móc vào mọi cảnh.
+- Dùng giọng miền Nam phổ thông nhẹ, dễ nghe toàn quốc; không cố tạo giọng địa phương giả.
+- Câu hỏi hướng tới người xem phải có khoảng nghỉ ngắn trước câu trả lời hoặc ý tiếp theo.
+- Châm biếm nhắm vào sự mâu thuẫn, lời hứa thiếu căn cứ hoặc cách hành xử; tuyệt đối không châm biếm người dân, trẻ em, người dân tộc thiểu số hay người có đức tin.
+- Không dùng từ “tà đạo” như kết luận mặc định của người dẫn. Nếu trích tên gọi từ báo chí/cơ quan chức năng, phải nói rõ đó là cách gọi của nguồn.
+- Không trình bày nhận định của cơ quan chức năng như sự thật trung lập nếu chưa có nguồn độc lập đối chiếu. Phân biệt cáo buộc, kết luận điều tra, bản án và nghiên cứu học thuật.
+- Không dùng ảnh minh họa sai chủ thể. Với tư liệu chưa xác minh, dùng đồ họa “tái hiện minh họa” hoặc thẻ “chưa có ảnh xác minh”.
+- Ảnh Tịnh thất Bồng Lai có trẻ vị thành niên: chỉ dùng preview nội bộ, bảo vệ danh tính và xác nhận quyền tái sử dụng trước phát hành.
+- Tư liệu Trại dưỡng lão và Cô nhi Thánh Đức: dùng văn bản/dòng thời gian tái hiện, không dựng cảnh trẻ em bị ngược đãi nếu không có bằng chứng và quyền sử dụng hình ảnh.
+- Với Hà Mòn và Dương Văn Mình: không dùng hình ảnh cộng đồng dân tộc thiểu số theo hướng kỳ thị, không gán hình người bất kỳ thành thành viên nhóm.
+ 
+## NGUỒN TƯ LIỆU VÀ GIỚI HẠN KIỂM CHỨNG
+- Hội Thánh Đức Chúa Trời Mẹ: tài liệu Bộ Nội vụ (09/2023); thông tin họp báo Bộ Công an ngày 30/06/2023 về 12 vụ, 85 người trong sáu tháng đầu năm. Khi dùng số liệu phải giữ nguyên thời gian và nguồn.
+- Tịnh thất Bồng Lai/Trại dưỡng lão và Cô nhi Thánh Đức: VietnamNet về kết quả điều tra cơ sở; Thanh Niên về hồ sơ cơ sở Thánh Đức; Công an TP.HCM và báo chí về quyết định chấm dứt hoạt động ngày 25/07/2007. Đối chiếu bản án trước khi nêu chi tiết pháp lý; không kể cáo buộc chưa được chứng minh như sự thật.
+- Đạo Hà Mòn: Thanh Niên (29/05/2013) và VOV (28/05/2013) về phiên tòa xét xử tám bị cáo; khi mô tả lời đồn Đức Mẹ hiện hình, phải phân biệt lời đồn, lời khai, cáo trạng và kết luận tòa.
+- Hiện tượng Dương Văn Mình: tài liệu nghiên cứu của Viện Hàn lâm Khoa học Xã hội Việt Nam về hiện tượng tôn giáo mới và nghi lễ; tài liệu/công bố của cơ quan chức năng địa phương về quan điểm chính thức. Luôn ghi rõ nguồn và loại tài liệu.
+- Nguồn trực tuyến cần được kiểm tra lại bản gốc, ngày đăng và nội dung trước khi thu âm cuối cùng.
