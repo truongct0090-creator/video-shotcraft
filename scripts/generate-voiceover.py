@@ -14,7 +14,7 @@ RELATIVE_RMS_FLOOR = 0.012
 EMOTION_TAGS = {
     "chuckle": "[chuckle]",
     "sigh": "[sigh]",
-    "clear_throat": "[clear throat]",
+    "clear-throat": "[clear throat]",
 }
 SAMPLE_RATE = 48_000
 
@@ -27,7 +27,7 @@ def apply_tts_cue(narration: str, cue_spec: str) -> str:
     cue = cue.strip().lower()
     anchor = anchor.strip()
     if not separator or cue not in EMOTION_TAGS or not anchor:
-        raise ValueError("TTS cue must be '<chuckle|sigh|clear_throat>|<exact narration phrase>'.")
+        raise ValueError("TTS cue must be '<chuckle|sigh|clear-throat>|<exact narration phrase>'.")
     start = narration.casefold().find(anchor.casefold())
     if start < 0:
         raise ValueError(f"TTS cue anchor was not found in narration: {anchor!r}")
