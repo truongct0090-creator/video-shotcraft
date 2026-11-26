@@ -196,8 +196,8 @@ export const MainBoy: React.FC<MainBoyProps> = ({
 
           {eye(244)}
           {eye(356)}
-          <ellipse cx="190" cy="292" rx="25" ry="13" fill="#F29B9B" opacity=".72"/>
-          <ellipse cx="410" cy="292" rx="25" ry="13" fill="#F29B9B" opacity=".72"/>
+          <ellipse cx="190" cy="292" rx="29" ry="17" fill={expression === "angry" ? "#E85B54" : "#F29B9B"} opacity={expression === "angry" ? ".94" : ".72"}/>
+          <ellipse cx="410" cy="292" rx="29" ry="17" fill={expression === "angry" ? "#E85B54" : "#F29B9B"} opacity={expression === "angry" ? ".94" : ".72"}/>
           <path d="M292 278 q8 7 16 0" fill="none" stroke="#D59A86" strokeWidth="5" strokeLinecap="round"/>
 
           {mouthShape === 'closed' && <path d="M281 330 Q300 338 319 330" fill="none" stroke="#9E5756" strokeWidth="7" strokeLinecap="round"/>}
