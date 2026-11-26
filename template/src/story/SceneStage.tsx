@@ -131,7 +131,7 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
 type ReferenceArtworkKind = 'building'|'unverified'|'communique';
 const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  if(kind==='building') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-  <rect width="820" height="610" fill="#dce7df"/><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
+  <rect width="820" height="610" fill="#dce7df"/><text x="410" y="52" textAnchor="middle" fontSize="30" fontWeight="900" fill="#514536">TỊNH THẤT BỒNG LAI</text><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
   <path d="M0 430Q180 390 360 430T820 410V610H0Z" fill="#9bb48e"/>
   <path d="M95 450V235L410 95L725 235V450Z" fill="#d7c8ac" stroke="#685846" strokeWidth="14"/>
   <path d="M65 245L410 75L755 245" fill="none" stroke="#5c5144" strokeWidth="22" strokeLinejoin="round"/>
@@ -150,7 +150,7 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
   <text x="410" y="545" textAnchor="middle" fontSize="21" fontWeight="700" fill="#665b4b">30.05.2022 · VĂN BẢN CHÍNH THỨC</text>
  </svg>;
  return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-  <rect width="820" height="610" fill="#e4e7e5"/><rect x="100" y="55" width="620" height="500" rx="24" fill="#f7f7f2" stroke="#87918d" strokeWidth="5"/>
+  <rect width="820" height="610" fill="#e4e7e5"/><text x="410" y="42" textAnchor="middle" fontSize="27" fontWeight="900" fill="#38423d">THIÊN TRIỀU ÂM PHỦ</text><rect x="100" y="55" width="620" height="500" rx="24" fill="#f7f7f2" stroke="#87918d" strokeWidth="5"/>
   <circle cx="410" cy="205" r="78" fill="#d6dfda" stroke="#7b8982" strokeWidth="8"/><path d="M365 205h90M410 160v90" stroke="#718178" strokeWidth="12" strokeLinecap="round"/>
   <text x="410" y="355" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">CHƯA CÓ ẢNH</text>
   <text x="410" y="398" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">ĐƯỢC XÁC MINH</text>
@@ -183,7 +183,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  </div>;
 };
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;fps:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,fps,whiteStage,characterOnLeft})=>{
- const labels=scene.stage==='white-intro'?[]:extractSceneLabels(scene);
+ const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
  const elapsed=Math.max(0,Math.floor(((scene.startTimeInFrames||0)+frame)/fps));
  const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
  return <>
@@ -227,7 +227,7 @@ const facing=characterOnLeft?'right':'left';
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
-  {scene.stage==='white-intro'?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'0 2px 0 #fff,0 6px 12px rgba(0,0,0,.12)'}}>SÁU CÁNH CỬA GÂY TRANH CÃI</div><IntroSixReferenceGrid frame={frame}/></>:null}
+  {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'0 2px 0 #fff,0 6px 12px rgba(0,0,0,.12)'}}>SÁU CÁNH CỬA GÂY TRANH CÃI</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'0 2px 5px rgba(0,0,0,.12)'}}>{scene.photoCaption}</div> : null}
