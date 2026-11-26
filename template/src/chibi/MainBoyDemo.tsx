@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MainBoy, BoyExpression, BoyGesture, BoyMouth} from './MainBoy';
 
 const beats: {from: number; expression: BoyExpression; mouth: BoyMouth; gesture: BoyGesture; caption: string}[] = [
@@ -11,16 +11,20 @@ const beats: {from: number; expression: BoyExpression; mouth: BoyMouth; gesture:
 
 export const MainBoyDemo: React.FC = () => {
   const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const beat = [...beats].reverse().find((item) => frame >= item.from) ?? beats[0];
   const blink = frame % 92 > 84 && frame % 92 < 89;
-  const entranceY = interpolate(frame, [0, 24], [36, 0], {extrapolateRight: 'clamp'});
-  const entranceOpacity = interpolate(frame, [0, 18], [0, 1], {extrapolateRight: 'clamp'});
+  // Match the original ChibiDemo spring entrance: rise from below while scaling in,
+  // then settle with one short bounce instead of continuously bobbing at idle.
+  const entrance = spring({frame, fps, config: {damping: 12, stiffness: 95}});
+  const entranceY = (1 - entrance) * 180
+    + (frame < 30 ? Math.sin((frame / 12) * Math.PI * 2) * 9 * (1 - frame / 30) : 0);
   const captionIn = interpolate(frame % 55, [0, 8], [0, 1], {extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{backgroundColor: '#F8F2E9', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'}}>
       <div style={{position: 'absolute', top: 65, fontSize: 54, fontWeight: 800, color: '#294665', fontFamily: 'Arial'}}>NHÂN VẬT CHÍNH · THIẾT KẾ LẠI</div>
       <div style={{position: 'absolute', top: 135, fontSize: 25, color: '#7B7770', fontFamily: 'Arial'}}>Tóc hồng đất #B08088 rẽ ngôi 7/3 · mái vuốt lệch tự nhiên</div>
-      <div style={{height: 700, width: 525, marginTop: 125, opacity: entranceOpacity, transform: `translateY(${entranceY}px)`}}>
+      <div style={{height: 700, width: 525, marginTop: 125, transform: `translateY(${entranceY}px) scale(${entrance})`, transformOrigin: 'center bottom'}}>
         <MainBoy expression={beat.expression} mouth={beat.mouth} gesture={beat.gesture} blink={blink} speaking={frame % 12 < 7}/>
       </div>
       <div style={{position: 'absolute', bottom: 54, padding: '16px 34px', borderRadius: 24, backgroundColor: 'rgba(255,255,255,.82)', color: '#294665', fontSize: 34, fontWeight: 700, fontFamily: 'Arial', opacity: captionIn}}>
