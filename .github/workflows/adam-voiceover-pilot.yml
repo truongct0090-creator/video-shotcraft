@@ -8,6 +8,7 @@ on:
       - scripts/generate-voiceover.py
       - scripts/parse-story.mjs
       - scripts/test_voiceover_trim.py
+      - scripts/prepare-breath-sample.py
       - story_scripts/02-sau-canh-cua-bi-mat.md
       - .github/workflows/adam-voiceover-pilot.yml
   workflow_dispatch:
@@ -25,11 +26,11 @@ on:
         required: true
         type: boolean
         default: true
-      breath_sample_path:
-        description: Optional repository path to a licensed 48 kHz mono human inhale WAV
+      breath_sample_url:
+        description: Public direct MP3 URL for the approved human inhale sample (leave blank to omit)
         required: false
         type: string
-        default: ""
+        default: "https://www.image2url.com/r2/default/audio/1795698690384-de541230-a588-4903-9b62-0256f6775d13.mp3"
 
 permissions:
   contents: read
@@ -71,15 +72,34 @@ jobs:
       - name: Install VieNeu-TTS
         run: python -m pip install -r scripts/requirements-tts.txt
 
+      - name: Download and prepare approved inhale sample
+        if: ${{ inputs.breath_sample_url != '' }}
+        env:
+          BREATH_SAMPLE_URL: ${{ inputs.breath_sample_url }}
+        run: |
+          set -euo pipefail
+          case "$BREATH_SAMPLE_URL" in
+            https://www.image2url.com/r2/default/audio/*.mp3) ;;
+            *) echo "Rejected breath URL: only the approved image2url audio path is allowed."; exit 1 ;;
+          esac
+          curl --fail --location --silent --show-error --retry 2 --max-time 90 --max-filesize 25000000 \
+            --output "$RUNNER_TEMP/adam-breath-source.mp3" "$BREATH_SAMPLE_URL"
+          test -s "$RUNNER_TEMP/adam-breath-source.mp3"
+          ffmpeg -nostdin -hide_banner -loglevel error -y \
+            -i "$RUNNER_TEMP/adam-breath-source.mp3" -vn -ac 1 -ar 48000 -c:a pcm_s16le \
+            "$RUNNER_TEMP/adam-breath-source.wav"
+          python scripts/prepare-breath-sample.py \
+            --input "$RUNNER_TEMP/adam-breath-source.wav" \
+            --output "$RUNNER_TEMP/adam-inhale.wav"
+
       - name: Generate FP32 Adam voice tracks
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
-          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
         run: |
           cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/fp32/story-props.json
           args=(--props template/out/adam-voiceover-pilot/fp32/story-props.json --output-dir template/out/adam-voiceover-pilot/fp32/audio --voice Adam --precision fp32)
-          if [ -n "$BREATH_SAMPLE_PATH" ]; then
-            test -f "$BREATH_SAMPLE_PATH"
+          if [ -f "$BREATH_SAMPLE_PATH" ]; then
             args+=(--breath-sample "$BREATH_SAMPLE_PATH")
           fi
           python scripts/generate-voiceover.py "${args[@]}"
@@ -88,12 +108,11 @@ jobs:
         if: ${{ github.event_name == 'push' || inputs.compare_int8 }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
-          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
         run: |
           cp template/out/adam-pilot-props.json template/out/adam-voiceover-pilot/int8/story-props.json
           args=(--props template/out/adam-voiceover-pilot/int8/story-props.json --output-dir template/out/adam-voiceover-pilot/int8/audio --voice Adam --precision int8)
-          if [ -n "$BREATH_SAMPLE_PATH" ]; then
-            test -f "$BREATH_SAMPLE_PATH"
+          if [ -f "$BREATH_SAMPLE_PATH" ]; then
             args+=(--breath-sample "$BREATH_SAMPLE_PATH")
           fi
           python scripts/generate-voiceover.py "${args[@]}"
@@ -102,7 +121,7 @@ jobs:
         env:
           MODE: ${{ inputs.mode || 'test' }}
           COMPARE_INT8: ${{ github.event_name == 'push' || inputs.compare_int8 }}
-          BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
+          BREATH_SAMPLE_PATH: ${{ runner.temp }}/adam-inhale.wav
         run: |
           {
             echo "# Adam voiceover pilot"
@@ -110,7 +129,11 @@ jobs:
             echo "- Mode: $MODE"
             echo "- Primary output: FP32"
             echo "- INT8 comparison: $COMPARE_INT8"
-            echo "- Breath recording: ${BREATH_SAMPLE_PATH:-not supplied}"
+            if [ -f "$BREATH_SAMPLE_PATH" ]; then
+              echo "- Breath recording: downloaded from the approved public URL and converted/cropped to 48 kHz mono WAV"
+            else
+              echo "- Breath recording: not supplied"
+            fi
             echo "- Voice: Adam / VieNeu-TTS 3.3.0 / ONNX / 48 kHz"
             echo "- TTS cues are limited to documented non-verbal cues; see VOICEOVER.md."
             echo "- This artifact is for listening review, not a final film render."
