@@ -10,6 +10,86 @@ WINDOW_SECONDS = 0.01
 ABSOLUTE_RMS_FLOOR = 0.0025
 RELATIVE_RMS_FLOOR = 0.012
 
+
+EMOTION_TAGS = {
+    "chuckle": "[chuckle]",
+    "sigh": "[sigh]",
+    "clear_throat": "[clear throat]",
+}
+SAMPLE_RATE = 48_000
+
+
+def apply_tts_cue(narration: str, cue_spec: str) -> str:
+    """Insert one documented VieNeu non-verbal cue after an exact narration anchor."""
+    if not cue_spec:
+        return narration
+    cue, separator, anchor = cue_spec.partition("|")
+    cue = cue.strip().lower()
+    anchor = anchor.strip()
+    if not separator or cue not in EMOTION_TAGS or not anchor:
+        raise ValueError("TTS cue must be '<chuckle|sigh|clear_throat>|<exact narration phrase>'.")
+    start = narration.casefold().find(anchor.casefold())
+    if start < 0:
+        raise ValueError(f"TTS cue anchor was not found in narration: {anchor!r}")
+    end = start + len(anchor)
+    return narration[:end] + " " + EMOTION_TAGS[cue] + narration[end:]
+
+
+def split_after_anchor(text: str, anchor: str) -> tuple[str, str]:
+    """Split narration at an exact phrase so a recorded inhale can occupy that pause."""
+    anchor = (anchor or "").strip()
+    start = text.casefold().find(anchor.casefold())
+    if not anchor or start < 0:
+        raise ValueError(f"Breath anchor was not found in narration: {anchor!r}")
+    end = start + len(anchor)
+    before, after = text[:end].strip(), text[end:].strip()
+    if not before or not after:
+        raise ValueError("Breath anchor must leave spoken text on both sides.")
+    return before, after
+
+
+def load_breath_sample(path: Path, gain_db: float):
+    """Load a short, clean 48 kHz breath recording without fabricating breath noise."""
+    try:
+        import numpy as np
+        import soundfile as sf
+    except ImportError as exc:
+        raise RuntimeError("Breath insertion requires numpy and soundfile from the VieNeu install.") from exc
+    audio, sample_rate = sf.read(str(path), dtype="float32", always_2d=True)
+    if sample_rate != SAMPLE_RATE:
+        raise ValueError(f"Breath sample must be {SAMPLE_RATE} Hz; got {sample_rate} Hz.")
+    audio = audio.mean(axis=1)
+    active = np.flatnonzero(np.abs(audio) > 0.0005)
+    if active.size == 0:
+        raise ValueError("Breath sample is silent.")
+    start = max(0, int(active[0]) - int(0.02 * sample_rate))
+    end = min(len(audio), int(active[-1]) + int(0.04 * sample_rate))
+    audio = audio[start:end]
+    duration = len(audio) / sample_rate
+    if duration < 0.12 or duration > 2.5:
+        raise ValueError(f"Breath sample must be 0.12–2.5 seconds after trimming; got {duration:.2f}s.")
+    audio = audio * (10 ** (gain_db / 20))
+    return audio.astype("float32")
+
+
+def synthesize_scene(tts, narration: str, voice: str, cue_spec: str = "",
+                     breath_after: str = "", breath_sample: Path | None = None,
+                     breath_gain_db: float = -24.0):
+    """Synthesize Adam with optional supported emotion cue and recorded inhale."""
+    import numpy as np
+    tts_text = apply_tts_cue(narration, cue_spec)
+    if breath_after and breath_sample is not None:
+        before, after = split_after_anchor(tts_text, breath_after)
+        inhale = load_breath_sample(breath_sample, breath_gain_db)
+        left = np.asarray(tts.infer(before, voice=voice), dtype="float32").reshape(-1)
+        right = np.asarray(tts.infer(after, voice=voice), dtype="float32").reshape(-1)
+        short_gap = np.zeros(int(SAMPLE_RATE * 0.10), dtype="float32")
+        return np.concatenate((left, short_gap, inhale, short_gap, right))
+    if breath_after and breath_sample is None:
+        print("WARNING: scene requests a breath, but no --breath-sample was supplied; leaving the pause natural.")
+    return tts.infer(tts_text, voice=voice)
+
+
 def sample_values(raw: bytes, width: int):
     if width == 1: return [b - 128 for b in raw]
     if width == 2:
@@ -108,6 +188,12 @@ def main():
     parser.add_argument("--props",required=True)
     parser.add_argument("--output-dir",required=True)
     parser.add_argument("--voice",default="Adam")
+    parser.add_argument("--precision", choices=("fp32", "int8"), default="fp32",
+                        help="VieNeu ONNX precision; fp32 prioritizes fidelity.")
+    parser.add_argument("--breath-sample", type=Path, default=None,
+                        help="Optional clean 48 kHz mono human inhale WAV; never synthesized from noise.")
+    parser.add_argument("--breath-gain-db", type=float, default=-24.0,
+                        help="Breath sample gain relative to full scale (default: -24 dB).")
     args=parser.parse_args()
     props_path=Path(args.props)
     output_dir=Path(args.output_dir)
@@ -115,7 +201,10 @@ def main():
     scenes=props.get("scenes") or []
     if not scenes: raise SystemExit("No scenes found in story props.")
     from vieneu import Vieneu
-    tts=Vieneu(backend="onnx")
+    if args.breath_sample is not None and not args.breath_sample.is_file():
+        raise SystemExit("Breath sample not found: " + str(args.breath_sample))
+    tts=Vieneu(backend="onnx", precision=args.precision)
+    print(f"VieNeu-TTS: backend=onnx, precision={args.precision}, voice={args.voice}")
     output_dir.mkdir(parents=True,exist_ok=True)
     for old in output_dir.glob("scene-*.wav"): old.unlink()
     for scene in scenes:
@@ -123,7 +212,18 @@ def main():
         if not narration: raise SystemExit("Scene "+str(scene.get("number"))+" has no narration.")
         number=int(scene["number"])
         target=output_dir/("scene-%02d.wav"%number)
-        audio=tts.infer(narration,voice=args.voice)
+        try:
+            audio=synthesize_scene(
+                tts,
+                narration,
+                args.voice,
+                cue_spec=scene.get("ttsCue", ""),
+                breath_after=scene.get("breathAfter", ""),
+                breath_sample=args.breath_sample,
+                breath_gain_db=args.breath_gain_db,
+            )
+        except ValueError as exc:
+            raise SystemExit(f"Scene {number:02d}: {exc}") from exc
         tts.save(audio,str(target))
         if not target.is_file() or target.stat().st_size<1024: raise SystemExit("TTS did not produce a valid WAV for scene %d."%number)
         try:
@@ -145,6 +245,8 @@ def main():
     props["voiceover"]=""
     props["totalFrames"]=sum(int(s["durationInFrames"]) for s in scenes)
     props_path.write_text(json.dumps(props,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("Generated %d Adam voice tracks; internal pauses preserved; only trailing silence trimmed."%len(scenes))
+    print("Generated %d Adam voice tracks; FP32 selected; internal pauses preserved; only trailing silence trimmed."%len(scenes))
+    if any(scene.get("breathAfter") for scene in scenes) and args.breath_sample is None:
+        print("NOTE: recorded inhale insertion is wired but not activated; supply --breath-sample after approving a clean licensed recording.")
 
 if __name__=="__main__": main()
