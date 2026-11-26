@@ -176,10 +176,10 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
  const items=[
-  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',photo:'https://then-plum-el39utcz.edgeone.dev/'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa',photo:'https://aware-rose-aec8adoj.edgeone.dev/'},
-  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',photo:'https://nursing-coral-yq1hzjed.edgeone.dev/'},
-  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',photo:'https://fit-tan-zvotansr.edgeone.dev/'},
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',kind:'unverified',photo:'https://then-plum-el39utcz.edgeone.dev/'},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa',kind:'unverified',photo:'https://aware-rose-aec8adoj.edgeone.dev/'},
+  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified',photo:'https://nursing-coral-yq1hzjed.edgeone.dev/'},
+  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified',photo:'https://fit-tan-zvotansr.edgeone.dev/'},
  ];
  return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
   {items.map((item,index)=>{
