@@ -79,9 +79,9 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /bong bóng thoại/.test(propText)?'pitch':
   /phễu tuyển thành viên/.test(propText)?'funnel':
   /khung gia đình/.test(propText)?'faith':
-  /bảng checklist/.test(propText)?'checklist':
+  /bảng checklist|checklist|bốn mục/.test(propText)?'checklist':
   /dòng thời gian/.test(propText)?'timeline':
-  /bữa ăn|bàn ăn|bữa cơm|ghế trống/.test(propText)?'family-table':
+  /bữa ăn|bàn ăn|bữa cơm|ghế trống|hai chiếc ghế|bàn trà/.test(propText)?'family-table':
   /bảng số liệu|họp báo|12 vụ|85 người/.test(propText)?'stats-board':
   /có được hỏi|có được từ chối|có được rời đi|quyền tự quyết/.test(propText)?'rights-board':
   /bản đồ bình chánh|bản đồ gia lai|bản đồ kon tum|bản đồ.*long an/.test(propText)?'route-map':
@@ -89,7 +89,7 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /lời kể|lời đồn|thông điệp thiêng|tờ giấy ghi/.test(propText)?'testimony':
   /vụ án|bị cáo|tòa án|xét xử|điều 331|bản án/.test(propText)?'legal-case':
   /bản làng|nhà sàn|người mông|miền núi phía bắc/.test(propText)?'village-house':
-  /tài liệu nghiên cứu|viện hàn lâm|trích dẫn nguồn|nghiên cứu/.test(propText)?'research-stack':
+  /tài liệu nghiên cứu|viện hàn lâm|trích dẫn nguồn|nghiên cứu|bốn thẻ nguồn|biểu tượng tài liệu/.test(propText)?'research-stack':
   /màn hình bình luận|mạng xã hội|bình luận|video clip/.test(propText)?'social-feed':
   /hai cột|châm biếm|niềm tin cá nhân|hành vi cụ thể/.test(propText)?'two-column':
   /nhà đòn|tang lễ|nghi lễ/.test(propText)?'funeral-house':
