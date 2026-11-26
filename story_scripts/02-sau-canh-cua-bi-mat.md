@@ -84,14 +84,12 @@
 ## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI VÀ TRẠI CÔ NHI THÁNH ĐỨC
 
 ### 08. Từ những video gây chú ý
-**Bối cảnh:** Nền trắng; ảnh tư liệu được chỉ định bên phải, MainBoy bên trái.
-**Hành động:** Ảnh xuất hiện; MainBoy chỉ vào ảnh rồi nhìn khán giả.
-**Đạo cụ:** Ảnh báo chí đúng chú thích, ghi công K.Q.
+**Bối cảnh:** Nền trắng; thẻ tư liệu minh họa trung tính bên phải, MainBoy bên trái.
+**Hành động:** Thẻ tư liệu xuất hiện; MainBoy chỉ vào thẻ rồi nhìn khán giả.
+**Đạo cụ:** Thẻ nhận diện chủ đề Tịnh thất Bồng Lai; không dùng ảnh người khi chưa xác nhận quyền sử dụng và chú thích gốc.
 **Lời dẫn:** “Câu chuyện thứ hai chắc nhiều người từng nghe qua: Tịnh thất Bồng Lai, sau này còn được gọi là Thiền am bên bờ vũ trụ. Có thời điểm, những video về các em nhỏ và người sống tại đây thu hút lượng xem rất lớn. Người xem tò mò, người thương cảm, người đặt câu hỏi. Mạng xã hội thì vốn vậy, một video vừa lên là bình luận chạy nhanh hơn cả người trong cuộc giải thích.”
 **Âm thanh/Chữ:** Tiếng thông báo mạng xã hội, sau đó hạ âm.
 **Sân khấu:** white-photo
-**Ảnh tư liệu:** https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg
-**Chú thích ảnh:** Ông Lê Tùng Vân cùng những “chú tiểu” từng gây chú ý trong chương trình “Thách thức danh hài”. Ảnh: K.Q. Ảnh dùng cho preview; cần xác nhận quyền trước khi phát hành.
 **Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
