@@ -127,17 +127,70 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
  return [...new Set(labels)].filter(label=>label.toLowerCase()!==cardTitle).slice(0,3);
 };
 
+
+type ReferenceArtworkKind = 'building'|'unverified'|'communique';
+const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
+ if(kind==='building') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <rect width="820" height="610" fill="#dce7df"/><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
+  <path d="M0 430Q180 390 360 430T820 410V610H0Z" fill="#9bb48e"/>
+  <path d="M95 450V235L410 95L725 235V450Z" fill="#d7c8ac" stroke="#685846" strokeWidth="14"/>
+  <path d="M65 245L410 75L755 245" fill="none" stroke="#5c5144" strokeWidth="22" strokeLinejoin="round"/>
+  <rect x="145" y="265" width="530" height="185" fill="#eee5d4" stroke="#75634d" strokeWidth="10"/>
+  <rect x="335" y="300" width="150" height="150" fill="#758d78" stroke="#4e5b4c" strokeWidth="10"/>
+  <path d="M145 450H675" stroke="#5d4b3a" strokeWidth="14"/><rect x="105" y="468" width="610" height="55" rx="8" fill="#6f8e72"/>
+  <text x="410" y="565" textAnchor="middle" fontSize="24" fontWeight="800" fill="#514536">TÁI HIỆN ĐỊA ĐIỂM · KHÔNG PHẢI ẢNH CHỤP</text>
+ </svg>;
+ if(kind==='communique') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <rect width="820" height="610" fill="#e8e3d8"/><rect x="105" y="28" width="610" height="554" rx="8" fill="#fffdf7" stroke="#9b8b72" strokeWidth="5"/>
+  <text x="410" y="92" textAnchor="middle" fontSize="25" fontWeight="800" fill="#33312d">HỘI ĐỒNG GIÁM MỤC VIỆT NAM</text>
+  <text x="410" y="128" textAnchor="middle" fontSize="19" fontWeight="700" fill="#625a4e">ỦY BAN GIÁO LÝ ĐỨC TIN</text>
+  <path d="M185 153H635" stroke="#9a8b72" strokeWidth="2"/><text x="410" y="225" textAnchor="middle" fontSize="48" fontWeight="900" fill="#33312d">THÔNG CÁO</text>
+  <text x="410" y="278" textAnchor="middle" fontSize="26" fontWeight="800" fill="#514638">VỀ “NHÓM TRỪ QUỶ</text><text x="410" y="315" textAnchor="middle" fontSize="26" fontWeight="800" fill="#514638">BẢO LỘC”</text>
+  {[0,1,2,3,4,5,6].map(i=><path key={i} d={'M190 '+(365+i*22)+'H630'} stroke="#b8ad9a" strokeWidth="5" strokeLinecap="round"/>)}
+  <text x="410" y="545" textAnchor="middle" fontSize="21" fontWeight="700" fill="#665b4b">30.05.2022 · VĂN BẢN CHÍNH THỨC</text>
+ </svg>;
+ return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <rect width="820" height="610" fill="#e4e7e5"/><rect x="100" y="55" width="620" height="500" rx="24" fill="#f7f7f2" stroke="#87918d" strokeWidth="5"/>
+  <circle cx="410" cy="205" r="78" fill="#d6dfda" stroke="#7b8982" strokeWidth="8"/><path d="M365 205h90M410 160v90" stroke="#718178" strokeWidth="12" strokeLinecap="round"/>
+  <text x="410" y="355" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">CHƯA CÓ ẢNH</text>
+  <text x="410" y="398" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38423d">ĐƯỢC XÁC MINH</text>
+  <text x="410" y="465" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">Không dùng ảnh nhóm khác</text>
+  <text x="410" y="497" textAnchor="middle" fontSize="22" fontWeight="600" fill="#68736d">để đại diện cho tổ chức này</text>
+ </svg>;
+};
+const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
+ const items=[
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Trụ sở tại Singapore · 2025',photo:'reference/church-of-god-singapore.jpg'},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tái hiện địa điểm · không phải ảnh chụp',kind:'building' as const},
+  {title:'THIÊN TRIỀU ÂM PHỦ',note:'Chưa có ảnh độc lập xác minh',kind:'unverified' as const},
+  {title:'NHÓM TRỪ QUỶ BẢO LỘC',note:'Thông cáo chính thức · 30.05.2022',kind:'communique' as const},
+  {title:'THANH HẢI VÔ THƯỢNG SƯ',note:'Ảnh tư liệu tại Sydney · 1993',photo:'reference/ching-hai-sydney-1993.jpg'},
+  {title:'PHÁP LUÂN CÔNG',note:'Người tập tại Đài Loan · 2025',photo:'reference/falun-gong-taiwan-2025.jpg'},
+ ];
+ return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
+  {items.map((item,index)=>{
+   const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+   return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
+    <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
+     {item.photo?<Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>:<ReferenceArtwork kind={item.kind!}/>}
+    </div>
+    <div style={{flex:1,minHeight:0,padding:'9px 12px 7px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
+     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28'}}>{item.title}</div>
+     <div style={{fontSize:14,fontWeight:650,lineHeight:1.15,color:'#71695d',marginTop:5}}>{item.note}</div>
+    </div>
+   </div>;
+  })}
+ </div>;
+};
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;fps:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,fps,whiteStage,characterOnLeft})=>{
- const labels=extractSceneLabels(scene);
+ const labels=scene.stage==='white-intro'?[]:extractSceneLabels(scene);
  const elapsed=Math.max(0,Math.floor(((scene.startTimeInFrames||0)+frame)/fps));
  const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
  return <>
-  <div style={{position:'absolute',top:34,left:48,zIndex:9,padding:'9px 15px',borderRadius:8,background:whiteStage?'rgba(35,35,35,.08)':'rgba(12,17,21,.58)',color:whiteStage?'#34302b':'#fff8e8',fontSize:19,fontWeight:800,letterSpacing:1.1,textShadow:whiteStage?'0 1px 2px rgba(0,0,0,.12)':'0 2px 5px rgba(0,0,0,.5)',pointerEvents:'none'}}>
-   CẢNH {String(scene.number).padStart(2,'0')} · {timecode}
-  </div>
-  {labels.length>0?<div style={{position:'absolute',top:88,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
+  {labels.length>0?<div style={{position:'absolute',top:72,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
    {labels.map((label,index)=><div key={label} style={{maxWidth:'100%',fontSize:labels.length===1?42:index===0?36:29,lineHeight:1.16,fontWeight:850,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',textShadow:whiteStage?'0 2px 0 rgba(255,255,255,.8),0 5px 14px rgba(0,0,0,.22)':'0 2px 0 rgba(0,0,0,.55),0 6px 16px rgba(0,0,0,.7)'}}>{label}</div>)}
   </div>:null}
+  <div style={{position:'absolute',right:28,bottom:18,zIndex:9,fontSize:16,fontWeight:700,letterSpacing:1,color:whiteStage?'rgba(48,45,40,.55)':'rgba(255,248,232,.68)',textShadow:whiteStage?'none':'0 2px 5px rgba(0,0,0,.4)',pointerEvents:'none'}}>{timecode}</div>
  </>;
 };
 
@@ -168,13 +221,18 @@ const facing=characterOnLeft?'right':'left';
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
 
+ const fallbackKind:ReferenceArtworkKind|undefined=whiteStage?(scene.number===3?'building':scene.number===4?'unverified':scene.number===5?'communique':undefined):undefined;
+ const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
+ const characterScale=scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
-  {whiteStage && scene.cardTitle ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
-  {whiteStage && scene.photoCaption ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'0 2px 5px rgba(0,0,0,.12)'}}>{scene.photoCaption}</div> : null}
+  {scene.stage==='white-intro'?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'0 2px 0 #fff,0 6px 12px rgba(0,0,0,.12)'}}>SÁU CÁNH CỬA GÂY TRANH CÃI</div><IntroSixReferenceGrid frame={frame}/></>:null}
+  {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
+  {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
+  {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'0 2px 5px rgba(0,0,0,.12)'}}>{scene.photoCaption}</div> : null}
    <SceneInfoCaptions scene={scene} frame={frame} fps={fps} whiteStage={whiteStage} characterOnLeft={characterOnLeft}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+entranceScale+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
 };
