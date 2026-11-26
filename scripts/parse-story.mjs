@@ -59,6 +59,8 @@ const scenes = headings.map((match, index) => {
     photoCaption: field('Chú thích ảnh'),
     cardTitle: field('Tiêu đề ảnh'),
     expression: field('Biểu cảm').toLowerCase(),
+    ttsCue: field('TTS cue'),
+    breathAfter: field('Hơi thở sau'),
   };
 }).filter((scene) => scene.heading);
 
@@ -74,6 +76,11 @@ for (const scene of scenes) {
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
+  if (scene.ttsCue) {
+    const cue = scene.ttsCue.match(/^(chuckle|sigh|clear_throat)\s*\|\s*(.+)$/i);
+    if (!cue || !scene.narration.toLowerCase().includes(cue[2].trim().toLowerCase())) throw new Error('Scene ' + scene.number + ' **TTS cue:** must be chuckle|, sigh|, or clear_throat| followed by an exact phrase from **Lời dẫn:**.');
+  }
+  if (scene.breathAfter && !scene.narration.toLowerCase().includes(scene.breathAfter.toLowerCase())) throw new Error('Scene ' + scene.number + ' **Hơi thở sau:** must be an exact phrase from **Lời dẫn:**.');
 }
 const parseDuration = (value, narration = '') => {
   if (!value) {
