@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Fetch only the three pre-reviewed, public-domain archival images used by the
- * starter episode. URLs are fixed allow-listed Wikimedia Commons originals.
+ * Fetch only the six fixed, pre-reviewed archival reference images used by the
+ * story renderer. URLs are fixed allow-listed Wikimedia Commons originals.
  * No user script or external input can choose an arbitrary download URL.
  */
 import fs from 'node:fs/promises';
