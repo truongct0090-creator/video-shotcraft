@@ -5,7 +5,7 @@ Nguyên tắc: ảnh phải đúng chủ thể và địa điểm; không dùng 
 | Mục | Hình dùng trong video | Cơ sở xác minh và giới hạn |
 |---|---|---|
 | 1. Hội Thánh Đức Chúa Trời Mẹ | Ảnh cơ sở của World Mission Society Church of God tại Singapore năm 2025 (church-of-god-singapore.jpg). | Đúng tổ chức, nhưng không phải cơ sở ở Việt Nam. Wikimedia Commons, Chainwit., CC BY 4.0. Chú thích địa điểm/năm bắt buộc. |
-| 2. Tịnh thất Bồng Lai | Đồ họa tái hiện kiến trúc địa điểm, ghi rõ “tái hiện minh họa – không phải ảnh chụp”. | Báo Người Lao Động, bài và ảnh Hà Long, 22/09/2020 và bài 09/08/2025 mô tả địa điểm; ảnh báo chí chưa có giấy phép tái sử dụng xác nhận nên không nhúng vào repo. Không dùng ảnh trẻ em. |
+| 2. Tịnh thất Bồng Lai | Ảnh tư liệu ông Lê Tùng Vân cùng các “chú tiểu” từng xuất hiện trong “Thách thức danh hài”; dùng đúng ảnh người dùng chỉ định. | Chú thích ảnh được đối chiếu: “Ông Lê Tùng Vân cùng những ‘chú tiểu’ từng gây ‘bão’ trong chương trình ‘Thách thức danh hài’. Ảnh: K.Q”. Nguồn bài Lao Động do người dùng cung cấp; ảnh đối chiếu cùng chú thích được tìm thấy trong bài Techz. Ảnh có trẻ vị thành niên, mặt đã được làm mờ. Chỉ dùng trong bản dựng/preview nội bộ; quyền tái sử dụng và bản gốc độ phân giải cao cần được xác nhận trước khi phát hành công khai. |
 | 3. Thiên Triều Âm Phủ / Đức Chúa Trời Bốn Phương | Thẻ tư liệu “Chưa có ảnh độc lập xác minh”. | Chưa có nguồn độc lập đáng tin cậy xác minh hình ảnh, địa điểm hoặc danh tính nhóm. Đã loại bỏ ảnh Group Discussion 1 vì đó là ảnh cuộc họp của cộng đồng Wikimedia tại Delhi, Ấn Độ, hoàn toàn không liên quan. |
 | 4. Nhóm Trừ Quỷ Bảo Lộc | Đồ họa trích yếu thông cáo chính thức ngày 30/05/2022, không phải ảnh chụp nhóm. | Nội dung đối chiếu thông cáo của Ủy ban Giáo lý Đức Tin thuộc Hội đồng Giám mục Việt Nam. Không có ảnh nhóm/địa điểm có quyền tái sử dụng được xác minh. |
 | 5. Thanh Hải Vô Thượng Sư | Ảnh tư liệu tại Sydney năm 1993 (ching-hai-sydney-1993.jpg). | Wikimedia Commons, Truthexplorer (re-upload Rico Shen); CC BY-SA 3.0 và GFDL. Ghi công và tuân thủ điều khoản giấy phép. |
@@ -13,7 +13,7 @@ Nguyên tắc: ảnh phải đúng chủ thể và địa điểm; không dùng 
 
 ## Nguồn biên tập cho các thẻ không dùng ảnh chụp
 
-- Tịnh thất Bồng Lai: Báo Người Lao Động – Lộ thêm sự thật về “Tịnh thất bồng lai”, “Thiền am bên bờ vũ trụ” (22/09/2020): https://tuoitre.vn/nld/thoi-su/lo-them-su-that-ve-tinh-that-bong-lai-thien-am-ben-bo-vu-tru-20200922173226525.htm. Ảnh bài báo chỉ dùng để kiểm chứng biên tập; không tái xuất bản khi chưa có quyền.
+- Tịnh thất Bồng Lai: Báo Lao Động – “Công khai kết quả điều tra về Tịnh thất Bồng Lai” (đường dẫn do người dùng cung cấp): https://laodong.vn/xa-hoi/cong-khai-ket-qua-dieu-tra-ve-tinh-that-bong-lai-838527.ldo. Chú thích ảnh được đối chiếu qua bản đăng lại có cùng caption tại Techz: https://www.techz.vn/187-525-5-nguoi-vo-sap-chet-van-bi-le-tung-van-loi-dung-lo-bang-chung-thep-trong-vu-thay-ong-noi-loan-luan-ylt649739.html. Ảnh xem được: https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg. Ghi công theo caption: K.Q. Chưa xác minh giấy phép tái sử dụng; chỉ dùng cho preview nội bộ cho đến khi có quyền.
 - Nhóm Trừ Quỷ Bảo Lộc: Thông cáo Ủy ban Giáo lý Đức Tin (30/05/2022): https://www.tonggiaophanhue.net/tin-tuc/tin-giao-hoi-viet-nam/uy-ban-giao-ly-duc-tin-thong-cao-ve-nhom-tru-quy-bao-loc/.
 - Thiên Triều Âm Phủ: chưa có ảnh độc lập xác minh; tuyệt đối không gắn ảnh một nhóm khác vào mục này.
 
@@ -22,4 +22,5 @@ Nguyên tắc: ảnh phải đúng chủ thể và địa điểm; không dùng 
 - Cảnh mở đầu phải hiện đủ sáu thẻ hình cùng lúc, đúng thứ tự sáu mục trong kịch bản.
 - Mọi ảnh ngoài Việt Nam phải ghi đúng địa điểm và năm.
 - Đồ họa tái hiện phải có nhãn “tái hiện minh họa”; không được trình bày như ảnh tư liệu.
+- Ảnh Tịnh thất Bồng Lai do báo chí đăng phải giữ ghi công “Ảnh: K.Q”; không xóa watermark/ghi công. Không phát hành công khai nếu chưa xác nhận quyền sử dụng.
 - Không dùng ảnh trẻ em hoặc ảnh người vô can để minh họa cho cáo buộc/tổ chức.
