@@ -7,7 +7,7 @@ import {SceneSupportingCast} from './SceneSupportingCast';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
-  audio:string; durationInFrames:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
+  audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
   stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; cardTitle?:string;
 };
 
@@ -81,7 +81,16 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /bảng checklist/.test(propText)?'checklist':
   /dòng thời gian/.test(propText)?'timeline':
   /cánh cửa mở/.test(propText)?'open-door':'generic';
- const label=(_x:number,_y:number,_value:string,_color='#594b3a')=>null;
+ // Text belongs to the object/card that it describes. Keep it compact and
+  // scale the type down for longer labels so it never spills outside its panel.
+  const label=(x:number,y:number,value:string,color='#594b3a')=>{
+   const fontSize=value.length>18?17:value.length>12?19:22;
+   const estimatedWidth=Math.min(value.length*fontSize*0.58,260);
+   return <text x={x} y={y} fill={color} fontFamily="Be Vietnam Pro, Arial, sans-serif"
+    fontSize={fontSize} fontWeight="800" letterSpacing=".2" dominantBaseline="middle"
+    textAnchor="start" textLength={estimatedWidth} lengthAdjust="spacingAndGlyphs"
+    paintOrder="stroke" stroke="#fff4df" strokeWidth="2.5" strokeLinejoin="round">{value}</text>;
+  };
  const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><g><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/><rect x={x+9} y={y+9} width={w-18} height={h-18} rx="6" fill="none" stroke="#fff6df" strokeOpacity=".38" strokeWidth="4"/><path d={`M${x+18} ${y+17}H${x+w-18}`} stroke="#fff8e9" strokeOpacity=".28" strokeWidth="4" strokeLinecap="round"/><path d={`M${x+18} ${y+h-15}H${x+w-18}`} stroke="#3f3024" strokeOpacity=".16" strokeWidth="3" strokeLinecap="round"/></g>;
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="contact-blur"/><feOffset in="contact-blur" dx="0" dy="7" result="contact-offset"/><feComponentTransfer in="contact-offset" result="contact-shadow"><feFuncA type="linear" slope="0.30"/></feComponentTransfer><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="ambient-blur"/><feOffset in="ambient-blur" dx="12" dy="24" result="ambient-offset"/><feComponentTransfer in="ambient-offset" result="ambient-shadow"><feFuncA type="linear" slope="0.24"/></feComponentTransfer><feMerge><feMergeNode in="ambient-shadow"/><feMergeNode in="contact-shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
@@ -110,6 +119,28 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  </svg>;
 };
 
+const extractSceneLabels=(scene:FilmSceneData):string[]=>{
+ const source=[scene.audio||'',scene.props||''].join(' ');
+ const quoted=[...source.matchAll(/[“"‘']([^”"’']{2,})[”"’']/g)].map(match=>match[1].trim());
+ const labels=quoted.length?quoted:(/nhãn ảnh minh họa/i.test(source)?['ẢNH MINH HỌA']:[]);
+ const cardTitle=(scene.cardTitle||'').trim().toLowerCase();
+ return [...new Set(labels)].filter(label=>label.toLowerCase()!==cardTitle).slice(0,3);
+};
+
+const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;fps:number;whiteStage:boolean;characterOnLeft:boolean}> = ({scene,frame,fps,whiteStage,characterOnLeft})=>{
+ const labels=extractSceneLabels(scene);
+ const elapsed=Math.max(0,Math.floor(((scene.startTimeInFrames||0)+frame)/fps));
+ const timecode=String(Math.floor(elapsed/60)).padStart(2,'0')+':'+String(elapsed%60).padStart(2,'0');
+ return <>
+  <div style={{position:'absolute',top:34,left:48,zIndex:9,padding:'9px 15px',borderRadius:8,background:whiteStage?'rgba(35,35,35,.08)':'rgba(12,17,21,.58)',color:whiteStage?'#34302b':'#fff8e8',fontSize:19,fontWeight:800,letterSpacing:1.1,textShadow:whiteStage?'0 1px 2px rgba(0,0,0,.12)':'0 2px 5px rgba(0,0,0,.5)',pointerEvents:'none'}}>
+   CẢNH {String(scene.number).padStart(2,'0')} · {timecode}
+  </div>
+  {labels.length>0?<div style={{position:'absolute',top:88,...(characterOnLeft?{right:78}:{left:78}),width:'min(820px, 48%)',zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:12,pointerEvents:'none'}}>
+   {labels.map((label,index)=><div key={label} style={{maxWidth:'100%',fontSize:labels.length===1?42:index===0?36:29,lineHeight:1.16,fontWeight:850,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'anywhere',textShadow:whiteStage?'0 2px 0 rgba(255,255,255,.8),0 5px 14px rgba(0,0,0,.22)':'0 2px 0 rgba(0,0,0,.55),0 6px 16px rgba(0,0,0,.7)'}}>{label}</div>)}
+  </div>:null}
+ </>;
+};
+
 export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const frame=useCurrentFrame();
  const {fps}=useVideoConfig();
@@ -118,17 +149,20 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const expression:BoyExpression=/bạo lực|đàn áp|đe dọa|cảnh báo|nguy|áp bức|bắt/i.test(actionText)?'worried':/bất ngờ|nhướng mày|rơi xuống|hé cửa|bí mật/i.test(actionText)?'surprised':/châm biếm|quảng cáo|siêu giảm|mua một|mập mờ/i.test(actionText)?'angry':/chào|mỉm cười|kết|cứ hỏi/i.test(actionText)?'happy':'neutral';
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  const referencePhoto=scene.photo || (!whiteStage ? (/Nam Kỳ đầu thế kỷ/.test(scene.heading)?'reference/cochinchina-map.jpg':/Khám Lớn Sài Gòn/.test(scene.heading)?'reference/saigon-maison-centrale.jpg':/Thanh niên Cao vọng/.test(scene.heading)?'reference/nguyen-an-ninh-1929.jpg':null) : null);
- // Match the original ChibiDemo entrance: spring up from below, then a small settling bounce.
+ // Use the original ChibiDemo entrance: spring up from below and scale from zero,
+ // followed by one short settling bounce. Do not add idle bobbing after entrance.
  const entrance=scene.number===1?spring({frame,fps,config:{damping:12,stiffness:95}}):1;
  const bounce=scene.number===1&&frame<30?Math.sin((frame/12)*Math.PI*2)*9*(1-frame/30):0;
- const entranceY=scene.number===1?(1-entrance)*210-bounce:0;
- const entranceScale=scene.number===1?interpolate(entrance,[0,1],[0.82,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}):1;
- const points=/chỉ|đánh dấu|dán|gắn|mở|dùng kính|gạch chân|soi|đặt|kéo|kiểm tra|phóng to|giơ tấm bảng|từng câu hỏi|xếp|đóng dấu|checklist|di chuyển trên bản đồ/i.test(actionText+' '+(scene.props||''));
- const waves=/vẫy|chào|quay sang camera|giơ tấm bảng/i.test(actionText);
+ const entranceY=scene.number===1?(1-entrance)*180+bounce:0;
+ const entranceScale=scene.number===1?entrance:1;
+ // Gesture intent comes from the action, not narration or props; merely opening,
+ // moving, or handling an object must not make MainBoy point at empty space.
+ const points=/chỉ|trỏ|hướng tay|đánh dấu|gạch chân|đặt dấu hỏi|lần lượt chỉ/i.test(scene.action);
+ const waves=/vẫy|chào|giơ tay chào/i.test(scene.action);
  const characterOnLeft=whiteStage || scene.number%2===0 || Boolean(referencePhoto);
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const gesture:BoyGesture=whiteStage?'point-right':waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
- const facing=characterOnLeft?'right':'left';
+ const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
+const facing=characterOnLeft?'right':'left';
  const characterPosition:React.CSSProperties=whiteStage?{left:55,bottom:55}:referencePhoto?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
 
  const mouthFrames=scene.mouthFrames||[];
@@ -139,7 +173,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><Img src={staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/></div> : null}
   {whiteStage && scene.cardTitle ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:scene.stage==='white-title'?62:48,lineHeight:1.16,fontWeight:850,color:'#282828',textShadow:'0 2px 0 #ffffff,0 4px 0 rgba(40,40,40,.16),0 9px 16px rgba(0,0,0,.20)'}}>{scene.cardTitle}</div> : null}
   {whiteStage && scene.photoCaption ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:20,lineHeight:1.3,fontWeight:600,color:'#555',textShadow:'0 2px 5px rgba(0,0,0,.12)'}}>{scene.photoCaption}</div> : null}
-  <div style={{position:'absolute',left:whiteStage?'28%':'10%',right:whiteStage?'4%':'10%',bottom:whiteStage?28:42,zIndex:8,margin:'0 auto',maxWidth:1600,padding:whiteStage?'10px 18px':'18px 30px',boxSizing:'border-box',background:whiteStage?'transparent':'rgba(16,20,24,.72)',borderRadius:18,color:whiteStage?'#252525':'#fffaf0',fontSize:whiteStage?29:34,lineHeight:1.35,fontWeight:650,textAlign:'center',whiteSpace:'normal',overflowWrap:'anywhere',textShadow:whiteStage?'0 1px 0 #fff,0 3px 7px rgba(0,0,0,.22)':'0 2px 0 rgba(0,0,0,.55),0 5px 12px rgba(0,0,0,.68)',opacity:interpolate(frame,[0,8],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>{scene.narration}</div>
+   <SceneInfoCaptions scene={scene} frame={frame} fps={fps} whiteStage={whiteStage} characterOnLeft={characterOnLeft}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
   {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+entranceScale+')',transformOrigin:'center bottom'}}><div style={{width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
  </div>;
