@@ -186,7 +186,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
    const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
     <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
-     {item.photo?<div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>:<ReferenceArtwork kind={item.kind!}/>
+     {item.photo?<div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>:<ReferenceArtwork kind={item.kind!}/>}
     </div>
     <div style={{flex:1,minHeight:0,padding:'5px 12px 6px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
      <div style={{fontFamily:'Be Vietnam Pro, sans-serif',fontSize:14,fontWeight:900,lineHeight:1.05,letterSpacing:.8,textTransform:'uppercase',color:'#282522',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,0 4px 8px rgba(0,0,0,.18)'}}>ẢNH MINH HỌA</div>
