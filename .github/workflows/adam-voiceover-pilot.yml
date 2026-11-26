@@ -1,6 +1,15 @@
 name: Adam voiceover pilot
 
 on:
+  push:
+    branches:
+      - feat/adam-voiceover-naturalness-pilot
+    paths:
+      - scripts/generate-voiceover.py
+      - scripts/parse-story.mjs
+      - scripts/test_voiceover_trim.py
+      - story_scripts/02-sau-canh-cua-bi-mat.md
+      - .github/workflows/adam-voiceover-pilot.yml
   workflow_dispatch:
     inputs:
       mode:
@@ -76,7 +85,7 @@ jobs:
           python scripts/generate-voiceover.py "${args[@]}"
 
       - name: Generate INT8 comparison tracks
-        if: ${{ inputs.compare_int8 }}
+        if: ${{ github.event_name == 'push' || inputs.compare_int8 }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
           BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
@@ -92,7 +101,7 @@ jobs:
       - name: Write pilot notes
         env:
           MODE: ${{ inputs.mode || 'test' }}
-          COMPARE_INT8: ${{ inputs.compare_int8 }}
+          COMPARE_INT8: ${{ github.event_name == 'push' || inputs.compare_int8 }}
           BREATH_SAMPLE_PATH: ${{ inputs.breath_sample_path }}
         run: |
           {
