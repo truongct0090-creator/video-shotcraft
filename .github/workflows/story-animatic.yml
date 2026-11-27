@@ -61,6 +61,12 @@ jobs:
           # This workflow is manual-only; respect the selected render mode.
           RENDER_MODE: ${{ inputs.mode || 'full' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
+      - name: Download and validate user-supplied Dropbox reference images
+        run: node scripts/fetch-story-reference-images.mjs
+      - name: Verify every scene and opening photo is present
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: node scripts/validate-story-reference-coverage.mjs
       - name: Setup Python for free local TTS
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
         uses: actions/setup-python@v5
@@ -82,12 +88,6 @@ jobs:
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
-      - name: Download and validate user-supplied Dropbox reference images
-        run: node scripts/fetch-story-reference-images.mjs
-      - name: Verify every scene and opening photo is present
-        env:
-          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
-        run: node scripts/validate-story-reference-coverage.mjs
       - name: Commit validated user-supplied reference images to this branch
         if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
         run: |
