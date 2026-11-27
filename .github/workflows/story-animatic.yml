@@ -76,7 +76,7 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: |
-          if grep -q '^\\*\\*Hơi thở sau:\\*\\*' "$STORY_SCRIPT"; then
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
             test -s assets/audio/pixabay-long-single-breath-male-01.mp3 || {
               echo "::error::The approved Pixabay inhale is missing at assets/audio/pixabay-long-single-breath-male-01.mp3. Add the selected MP3 before running TTS or Remotion."
               exit 1
@@ -103,7 +103,7 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: |
-          if grep -q '^\\*\\*Hơi thở sau:\\*\\*' "$STORY_SCRIPT"; then
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
             python -m pip install scipy soundfile
             mkdir -p template/public/audio
             ffmpeg -y -i assets/audio/pixabay-long-single-breath-male-01.mp3 -vn -ac 1 -ar 48000 -c:a pcm_s16le "$RUNNER_TEMP/adam-breath-source.wav"

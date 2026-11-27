@@ -26,7 +26,8 @@ export const ChibiSupportingCharacter: React.FC<{
   facing?: 'left'|'right';
   scale?: number;
   variant?: string;
-}> = ({facing='right', scale=1, variant='supporting-a'}) => {
+  pose?: 'standing'|'seated'|'turning';
+}> = ({facing='right', scale=1, variant='supporting-a', pose='standing'}) => {
   const outfit=outfitFor(variant);
   const ink='#111111';
   const skin='#f5c9a8';
@@ -38,10 +39,17 @@ export const ChibiSupportingCharacter: React.FC<{
         <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round"/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round"/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round"/>
-        <path d="M-58 -160 Q-70 -88 -65 -34 M58 -160 Q70 -88 65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
-        <path d="M-58 -160 Q-70 -88 -65 -34 M58 -160 Q70 -88 65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
-        <ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
-        <ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+        {pose==='seated' ? <g>
+          <path d="M-58 -160Q-100 -130 -108 -92L-38 -72M58 -160Q100 -130 108 -92L38 -72" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M-58 -160Q-100 -130 -108 -92L-38 -72M58 -160Q100 -130 108 -92L38 -72" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M-38 -72H-112M38 -72H112" fill="none" stroke={ink} strokeWidth="38" strokeLinecap="round"/>
+          <path d="M-38 -72H-112M38 -72H112" fill="none" stroke={outfit.shoes} strokeWidth="27" strokeLinecap="round"/>
+        </g> : <g>
+          <path d="M-58 -160Q-70 -88 -65 -34 M58 -160Q70 -88 65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
+          <path d="M-58 -160Q-70 -88 -65 -34 M58 -160Q70 -88 65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
+          <ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+          <ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+        </g>}
         <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
         <path d="M-48 -330 Q0 -300 48 -330" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round"/>
         <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round"/>

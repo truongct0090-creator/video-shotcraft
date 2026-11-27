@@ -57,7 +57,7 @@ const allPaths = [...new Set(['assets','template/public','template/src','demos',
 const media = allPaths.filter((p)=>/\.(png|jpe?g|webp|gif|mp4|mov|mp3|wav|ogg|svg)$/i.test(p));
 const characterSources = allPaths.filter((p)=>/(character|chibi|avatar|puppet|rig)/i.test(p) && /\.(tsx?|json|svg|png|webp)$/i.test(p));
 const chooseSceneTemplate = (scene) => {
-  if (['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) return scene.world;
+  if (['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media'].includes(scene.world)) return scene.world;
   const s = [scene.setting, scene.action, scene.title].join(' ').toLowerCase();
   if (/tòa án|phòng xử|xét xử|thẩm phán|bị cáo|luật sư|phiên tòa/.test(s)) return 'courtroom';
   if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';

@@ -64,7 +64,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Thử tưởng tượng nhé: đang ăn cơm, cả nhà hỏi hôm nay con đi đâu, con trả lời đi sinh hoạt. Ban đầu có thể chẳng ai nghĩ gì. Nhưng rồi lịch sinh hoạt dày lên, quan điểm trong nhà khác nhau, những cuộc trò chuyện bắt đầu căng thẳng. Có gia đình phản ánh rằng người thân thay đổi nếp sinh hoạt hoặc xa cách họ. Đây là những phản ánh cần được kiểm tra theo từng trường hợp, chứ không thể mặc định ai tham gia cũng gặp chuyện như vậy. Điều đáng hỏi là: người tham gia có còn thoải mái giữ liên hệ với gia đình và tự quyết định cuộc sống của mình không?”
 **Âm thanh/Chữ:** “NIỀM TIN – GIA ĐÌNH – QUYỀN TỰ QUYẾT”.
-**Loại cảnh:** interior
+**Loại cảnh:** family-home
 **Biểu cảm:** worried
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -75,7 +75,7 @@
 **Đạo cụ:** Bảng số liệu, tài liệu họp báo.
 **Lời dẫn:** “Đến đây có một con số thường được nhắc lại. Tại họp báo ngày 30 tháng 6 năm 2023, đại diện Cục An ninh nội địa cho biết trong sáu tháng đầu năm, lực lượng chức năng phát hiện và xử lý 12 vụ, với 85 người hoạt động, sinh hoạt theo nhóm này. Nhớ nhé, đây là số liệu trong sáu tháng đầu năm 2023, không phải con số đại diện cho mọi người từng tham gia từ trước tới nay. Nghe một con số thì dễ giật mình, nhưng đọc số liệu phải đọc cả chú thích bên cạnh.”
 **Âm thanh/Chữ:** “12 VỤ – 85 NGƯỜI – 6 THÁNG ĐẦU NĂM 2023”; ghi nguồn và ngày.
-**Loại cảnh:** modern
+**Loại cảnh:** statistics-room
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -86,7 +86,7 @@
 **Đạo cụ:** Bảng “Có được hỏi?”, “Có được từ chối?”, “Có được rời đi?”.
 **Lời dẫn:** “Vậy rốt cuộc, câu hỏi quan trọng không phải là người ta gọi buổi sinh hoạt ấy bằng cái tên gì. Mà là: bạn có được quyền hỏi lại không? Có được từ chối đóng góp hay tham gia một hoạt động nào đó không? Có được rời đi mà không bị đe dọa, gây áp lực? Một môi trường lành mạnh phải chịu được những câu hỏi bình thường như thế. Chứ cứ hỏi một câu mà bị xem là có vấn đề thì… nghe đã thấy cần xem xét rồi.”
 **Âm thanh/Chữ:** Ba câu hỏi xuất hiện từng nhịp.
-**Loại cảnh:** community
+**Loại cảnh:** community-room
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -186,7 +186,7 @@
 **Đạo cụ:** Bản đồ, tờ giấy ghi “lời kể”, nhãn “tái hiện minh họa”.
 **Lời dẫn:** “Thử đặt mình vào hoàn cảnh một người dân ở vùng xa, thông tin ít, cuộc sống nhiều khó khăn, và có người nói rằng họ nhận được một thông điệp thiêng liêng. Có người tin vì hy vọng, có người tin vì cộng đồng xung quanh cùng tin, cũng có người có thể nghi ngờ. Chúng ta không nên coi thường người dân hay biến họ thành trò cười. Câu hỏi cần đặt ra là: lời khẳng định ấy có được kiểm chứng không, và ai đang sử dụng nó để kêu gọi người khác làm theo?”
 **Âm thanh/Chữ:** “LỜI KỂ KHÔNG TỰ ĐỘNG LÀ CHỨNG CỨ”.
-**Loại cảnh:** meeting
+**Loại cảnh:** community-room
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 **Bóng đen:** adult-seated-left, adult-seated-right
@@ -224,7 +224,7 @@
 **Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
 **Hơi thở sau:** Nhưng ở đây, mình muốn chậm lại một chút.
 **Âm thanh/Chữ:** “TỪ KHOẢNG NĂM 1989 – MIỀN NÚI PHÍA BẮC”.
-**Loại cảnh:** map
+**Loại cảnh:** mountain-village
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -237,7 +237,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Có lẽ bạn đang thắc mắc: nhà đòn là gì? Trong các tài liệu nghiên cứu về hiện tượng này, nhà đòn được mô tả là nơi lưu giữ một số vật dụng, biểu tượng liên quan đến nghi lễ tang ma của những người đi theo. Một số nghi thức truyền thống cũng thay đổi. Với người ngoài, chuyện này có thể nghe lạ. Nhưng với một cộng đồng, thay đổi nghi lễ tang ma là chuyện rất sâu sắc, vì nó chạm tới cách họ tiễn biệt người thân và gìn giữ bản sắc.”
 **Âm thanh/Chữ:** “TANG LỄ – PHONG TỤC – CỘNG ĐỒNG”.
-**Loại cảnh:** historic
+**Loại cảnh:** funeral-house
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -250,7 +250,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Đây mới là câu hỏi đáng suy nghĩ: vì sao có người tin theo? Nghiên cứu về các hiện tượng tôn giáo mới ở vùng dân tộc thiểu số cho thấy cần nhìn cả bối cảnh xã hội: đời sống khó khăn, nhu cầu được nâng đỡ, thay đổi văn hóa, nhu cầu cộng đồng và niềm hy vọng vào một tương lai tốt đẹp hơn. Nói cách khác, nếu chỉ gọi người ta là nhẹ dạ thì mình chẳng hiểu được gì cả. Muốn hiểu một hiện tượng, phải nhìn cả hoàn cảnh khiến nó có đất để phát triển.”
 **Âm thanh/Chữ:** “MUỐN HIỂU – PHẢI NHÌN CẢ BỐI CẢNH”.
-**Loại cảnh:** countryside
+**Loại cảnh:** mountain-village
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 **Bóng đen:** adult-standing-left, adult-turning-center, adult-standing-right
@@ -261,7 +261,7 @@
 **Đạo cụ:** Trích dẫn nguồn công khai, tài liệu nghiên cứu của Viện Hàn lâm Khoa học Xã hội Việt Nam.
 **Lời dẫn:** “Các cơ quan chức năng ở một số địa phương từng gọi đây là tổ chức bất hợp pháp và đưa ra nhận định về hoạt động ly khai, tự trị. Đó là quan điểm và kết luận được nêu trong các văn bản của cơ quan chức năng. Trong khi đó, nghiên cứu học thuật tiếp cận hiện tượng này như một hiện tượng tôn giáo mới, phân tích nguồn gốc, nghi lễ và bối cảnh cộng đồng. Hai loại tài liệu có mục đích khác nhau, nên mình không trộn chúng thành một kết luận duy nhất. Người xem cần biết ai đang nói, nói trong tư cách nào và dựa trên loại chứng cứ gì.”
 **Âm thanh/Chữ:** “PHÂN BIỆT NGUỒN – PHÂN BIỆT GÓC NHÌN”.
-**Loại cảnh:** printing
+**Loại cảnh:** research-room
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -274,7 +274,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Dương Văn Mình qua đời năm 2021. Nhưng một hiện tượng tồn tại hơn ba mươi năm không biến mất khỏi đời sống cộng đồng chỉ vì người đứng đầu không còn. Những thay đổi trong quan hệ gia đình, phong tục, niềm tin và cách tổ chức cộng đồng có thể còn để lại dấu vết lâu dài. Và đó là lý do khi kể câu chuyện này, mình không muốn chỉ dừng ở một cái tên. Điều cần nhìn là con người và cộng đồng đã trải qua những gì.”
 **Âm thanh/Chữ:** “2021 – NGƯỜI ĐỨNG ĐẦU QUA ĐỜI; DI SẢN XÃ HỘI CÒN CẦN TÌM HIỂU”.
-**Loại cảnh:** community
+**Loại cảnh:** mountain-village
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -320,7 +320,7 @@
 **Đạo cụ:** Hai chiếc ghế, bàn trà, điện thoại đặt úp.
 **Lời dẫn:** “Nếu người thân của bạn đang tham gia một nhóm khiến bạn lo lắng, đừng vội mở đầu bằng câu ‘con bị dụ rồi’. Nói vậy thường chỉ khiến người ta đóng cửa lòng. Thử hỏi xem họ đang tìm kiếm điều gì, có điều gì khiến họ vui, có điều gì làm họ bất an. Mình có thể không đồng ý, nhưng vẫn nên giữ một con đường để trò chuyện. Và nếu có dấu hiệu đe dọa, ép buộc hay nguy hiểm, hãy tìm sự hỗ trợ phù hợp.”
 **Âm thanh/Chữ:** “LẮNG NGHE TRƯỚC – TRAO ĐỔI SAU”.
-**Loại cảnh:** teahouse
+**Loại cảnh:** family-home
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
 **Bóng đen:** adult-seated-left, adult-seated-right
@@ -342,7 +342,7 @@
 **Đạo cụ:** Điện thoại, màn hình bình luận, hồ sơ.
 **Lời dẫn:** “Còn một thói quen rất dễ mắc: thấy một bài đăng nhiều lượt chia sẻ rồi nghĩ chắc chắn đúng. Nhưng đông người nói không biến một cáo buộc thành sự thật. Một đoạn clip ngắn không thay thế được hồ sơ. Và bình luận dữ dội cũng không thay thế được phán quyết của tòa. Trước khi chia sẻ, thử dừng lại vài giây, tìm nguồn gốc thông tin. Mất thêm chút thời gian, nhưng tránh được việc làm tổn thương người vô can.”
 **Âm thanh/Chữ:** “NHIỀU LƯỢT CHIA SẺ ≠ CHỨNG CỨ”.
-**Loại cảnh:** modern
+**Loại cảnh:** social-media
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
 **Bóng đen:** none
@@ -375,7 +375,7 @@
 **Đạo cụ:** Bốn thẻ chủ đề, biểu tượng bình luận.
 **Lời dẫn:** “Đến lượt bạn rồi. Trong bốn câu chuyện này, có chi tiết nào bạn muốn mình đào sâu hơn? Có tài liệu gốc nào bạn nghĩ nên đối chiếu? Cứ để lại bình luận và nguồn nếu có nhé. Mình sẽ ưu tiên những thông tin kiểm chứng được, chứ không chạy theo lời đồn cho đủ kịch tính.”
 **Âm thanh/Chữ:** “BÌNH LUẬN KÈM NGUỒN – CÙNG KIỂM CHỨNG”.
-**Loại cảnh:** modern
+**Loại cảnh:** social-media
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
 **Bóng đen:** none
