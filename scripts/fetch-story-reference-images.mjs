@@ -15,7 +15,7 @@ const publicDir = path.resolve('template/public/reference');
 await fs.mkdir(canonicalDir, {recursive: true});
 await fs.mkdir(publicDir, {recursive: true});
 
-const assets = manifest.assets.filter(asset => asset.source_url && asset.file && asset.status === 'download-on-render');
+const assets = manifest.assets.filter(asset => asset.source_url && asset.file && ['download-on-render', 'downloaded-jpeg-validated'].includes(asset.status));
 if (assets.length !== 9) {
   throw new Error('Expected exactly nine allow-listed Dropbox reference images; found ' + assets.length);
 }
@@ -41,8 +41,17 @@ for (const asset of assets) {
   url.searchParams.set('dl', '1');
 
   let bytes = null;
+  try {
+    const cached = await fs.readFile(canonicalPath);
+    validateJpeg(cached, asset.file);
+    bytes = cached;
+    console.log('Reused validated ' + asset.file + ' (' + cached.length + ' bytes)');
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+
   let lastError = null;
-  for (let attempt = 0; attempt < 5; attempt++) {
+  for (let attempt = 0; !bytes && attempt < 5; attempt++) {
     try {
       const response = await fetch(url, {
         headers: {'user-agent': 'video-shotcraft-reference-import/1.0'},
