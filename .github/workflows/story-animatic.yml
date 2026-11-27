@@ -1,7 +1,7 @@
 name: Story animatic
 
-# Full renders are manual-only during normal editing to avoid duplicate and wasteful runs.
-# PR checks remain in the separate PR workflow.
+# Full renders require an explicit PR title marker or a manual workflow dispatch.
+# Ordinary PR updates only run the lightweight PR checks.
 on:
   pull_request:
     types:
@@ -92,7 +92,7 @@ jobs:
             test -s assets/audio/pixabay-long-single-breath-male-01.mp3
           fi
       - name: Require the selected human inhale before spending TTS or render resources
-        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: |
@@ -119,7 +119,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         run: python -m pip install -r scripts/requirements-tts.txt
       - name: Prepare the approved Pixabay inhale sample
-        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: |
