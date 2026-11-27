@@ -6,18 +6,25 @@ This folder is the canonical, version-controlled home for documentary/reference 
 
 - Keep each episode in `episodes/<episode-slug>/`.
 - Store original image bytes here; do not hotlink EdgeOne, CDN, or temporary upload URLs from Remotion scenes.
-- Use descriptive, stable filenames such as `scene-04-topic-name.jpg`.
+- Use descriptive, stable filenames such as `scene-04-reference.jpg`.
 - Keep original files unchanged. Put edited/archival treatments in the render pipeline so the same source can be reused.
 - Add every image to that episode's `manifest.json` with its scene, subject, source URL or publication, credit, rights/permission status, and verification notes.
-- Use `status: "pending-file"` until the actual image file has been committed. Do not point a render at a missing file.
-- When replacing an image, retain the old source in Git history and update the manifest with the reason/date.
-
-## Supported formats
-
-Prefer JPEG or WebP for photographs. Use PNG only when transparency or lossless artwork is required. Keep filenames lowercase and use hyphens.
+- Keep `status: "download-on-render"` until the manual render workflow downloads and validates the actual image bytes. The workflow then records the byte count and SHA-256.
+- Opening montage entries should reuse the relevant scene image rather than duplicate the same bytes.
+- Do not invent documentary images for a subject with no supplied/verified source.
 
 ## Episode: 02-sau-canh-cua-bi-mat
 
-See [episode manifest](episodes/02-sau-canh-cua-bi-mat/manifest.json).
+The nine user-supplied Dropbox JPEGs are mapped in the episode manifest to scenes 04, 05, 08, 11, 14, 18, 19, 20, and 22. The story script now references local paths under `template/public/reference/`; it no longer points at the broken EdgeOne URLs.
 
-The original EdgeOne links recorded in the manifest currently return HTML or 404 in the render environment, so their image bytes must be re-uploaded before they can be committed here. The renderer must use local files under this folder, never those remote URLs.
+Run the **Story animatic** workflow manually on branch `fix/full-render-edgeone-image-fallback` with mode **full**. Its download step:
+
+1. Fetches only the nine Dropbox links explicitly listed in the manifest.
+2. Rejects HTML/error pages and truncated/non-JPEG files by checking JPEG markers and file size.
+3. Stores original bytes under this folder and copies render-ready files into `template/public/reference/`.
+4. Records byte counts and SHA-256 hashes in the manifest.
+5. Commits the validated source images back to the selected branch before rendering.
+
+The Dropbox links were supplied by the repository owner. The workflow verifies file integrity, not copyright ownership or the truth of any caption; confirm that you have permission to publish each image before making the repository public.
+
+The Dương Văn Mình opening card has no verified source photo among the nine supplied files and must remain a clearly labeled illustrative graphic rather than a fabricated documentary photograph.
