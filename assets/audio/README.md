@@ -1,17 +1,23 @@
 # Approved narration audio sources
 
-The episode 02 voice pipeline uses the exact user-selected Pixabay sound:
+The episode 02 narration uses the exact sound selected by the user:
 
 - **Title:** Long single breath trough mouth (male) 01
-- **Pixabay page:** https://pixabay.com/vi/sound-effects/m%E1%BB%8Di-ng%C6%B0%E1%BB%9Di-long-single-breath-trough-mouth-male-01-30375/
-- **Required source filename:** `pixabay-long-single-breath-male-01.mp3`
+- **Artist:** thomasXkiteXforXlife (Freesound)
+- **Pixabay page:** https://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/
+- **Source ID:** 30375
+- **Required filename:** `pixabay-long-single-breath-male-01.mp3`
 
-Place the downloaded MP3 at this path before starting a voiceover render:
+The Story Animatic workflow reads the public Pixabay page's AudioObject metadata,
+extracts its direct MP3 content URL, downloads the selected source, and validates
+that the response is an MP3 before starting TTS. It does not substitute another
+breath recording or fabricate breath noise.
 
-`assets/audio/pixabay-long-single-breath-male-01.mp3`
+The workflow converts the MP3 to 48 kHz mono WAV, extracts one clean active inhale
+with `scripts/prepare-breath-sample.py`, and passes the prepared sample to Adam
+at -24 dB. If the page cannot supply the MP3 or the file fails validation, the
+workflow stops before TTS and Remotion. Room tone is not a substitute for the
+recorded inhale.
 
-The workflow converts it to 48 kHz mono, extracts one clean active inhale with
-`scripts/prepare-breath-sample.py`, and passes the prepared WAV to Adam at
--24 dB. If the story contains a `Hơi thở sau` cue and the source MP3 is missing,
-the workflow stops before installing TTS or starting Remotion. Room tone is not
-a substitute for the recorded inhale.
+The source is listed as free for use under the Pixabay Content License on the
+asset page. Retain this source note with the episode assets.

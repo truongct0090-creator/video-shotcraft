@@ -43,8 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - name: Checkout
+      - name: Checkout the PR head for comment-triggered renders
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || github.ref }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -71,6 +73,17 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: node scripts/validate-story-reference-coverage.mjs
+      - name: Download the exact user-selected Pixabay inhale when required
+        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
+            if [ ! -s assets/audio/pixabay-long-single-breath-male-01.mp3 ]; then
+              python3 scripts/download-pixabay-breath.py --output assets/audio/pixabay-long-single-breath-male-01.mp3
+            fi
+            test -s assets/audio/pixabay-long-single-breath-male-01.mp3
+          fi
       - name: Require the selected human inhale before spending TTS or render resources
         if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
@@ -114,17 +127,30 @@ jobs:
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam --breath-sample template/public/audio/adam-breath.wav --breath-gain-db -24
-      - name: Commit validated user-supplied reference images to this branch
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
+      - name: Commit validated reference photos and approved inhale to the source branch
+        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event_name == 'issue_comment' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
+          if [ "$EVENT_NAME" = "issue_comment" ]; then
+            PR_BRANCH=$(gh pr view "$PR_NUMBER" --json headRefName --jq .headRefName)
+          else
+            PR_BRANCH="$GITHUB_REF_NAME"
+          fi
+          git checkout -B "$PR_BRANCH"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg
+          if [ -s assets/audio/pixabay-long-single-breath-male-01.mp3 ]; then
+            git add assets/audio/pixabay-long-single-breath-male-01.mp3
+          fi
           if git diff --cached --quiet; then
-            echo "No new reference image files to commit."
+            echo "No new validated source assets to commit."
           else
-            git commit -m "Add validated episode 02 reference photos"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            git commit -m "Add validated episode 02 reference and inhale assets"
+            git push origin "HEAD:$PR_BRANCH"
           fi
       - name: Inventory reusable assets and motion recipes
         env:
