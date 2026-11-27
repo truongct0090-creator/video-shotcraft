@@ -57,6 +57,7 @@ const scenes = headings.map((match, index) => {
     stage: field('Sân khấu').toLowerCase(),
     photo: field('Ảnh tư liệu'),
     photoCaption: field('Chú thích ảnh'),
+    photoLabel: field('Nhãn ảnh'),
     cardTitle: field('Tiêu đề ảnh'),
     expression: field('Biểu cảm').toLowerCase(),
     ttsCue: field('TTS cue'),
@@ -71,7 +72,9 @@ for (const scene of scenes) {
   if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
   const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
   const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com|upload\.wikimedia\.org)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);
-  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
+  const safeUserReferencePhoto = /^https:\/\/[a-z0-9-]+\.edgeone\.dev\/?$/i.test(scene.photo);
+  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto && !safeUserReferencePhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
+  if (scene.photoLabel && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Nhãn ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');

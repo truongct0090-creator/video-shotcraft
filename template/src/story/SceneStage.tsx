@@ -8,7 +8,7 @@ import {SceneSupportingCast} from './SceneSupportingCast';
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
   audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
-  stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; cardTitle?:string;
+  stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; photoLabel?:string; cardTitle?:string;
   expression?:BoyExpression;
 };
 
@@ -175,11 +175,11 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  </svg>;
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
- const items=[
-  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',photo:'reference/church-of-god-singapore.jpg'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu báo chí · Ảnh: K.Q',photo:tinhThatPhotoUrl},
-  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified' as const},
-  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified' as const},
+ const items: Array<{title:string;note:string;kind:ReferenceArtworkKind;photo:string}>=[
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',kind:'unverified',photo:'https://then-plum-el39utcz.edgeone.dev/'},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa',kind:'unverified',photo:'https://aware-rose-aec8adoj.edgeone.dev/'},
+  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified',photo:'https://nursing-coral-yq1hzjed.edgeone.dev/'},
+  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified',photo:'https://fit-tan-zvotansr.edgeone.dev/'},
  ];
  return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
   {items.map((item,index)=>{
@@ -188,9 +188,10 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
     <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
      {item.photo?<div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={item.photo.startsWith('http')?item.photo:staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>:<ReferenceArtwork kind={item.kind!}/>}
     </div>
-    <div style={{flex:1,minHeight:0,padding:'9px 12px 7px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
-     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28'}}>{item.title}</div>
-     <div style={{fontSize:14,fontWeight:650,lineHeight:1.15,color:'#71695d',marginTop:5}}>{item.note}</div>
+    <div style={{flex:1,minHeight:0,padding:'5px 12px 6px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
+     <div style={{fontFamily:'Be Vietnam Pro, sans-serif',fontSize:9.5,fontWeight:700,lineHeight:1.05,letterSpacing:.2,color:'#282522',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,0 4px 8px rgba(0,0,0,.18)'}}>Ảnh minh hoạ</div>
+     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28',marginTop:4}}>{item.title}</div>
+     <div style={{fontSize:14,fontWeight:650,lineHeight:1.1,color:'#71695d',marginTop:3}}>{item.note}</div>
     </div>
    </div>;
   })}
@@ -250,6 +251,7 @@ const facing=characterOnLeft?'right':'left';
  return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><div style={{position:'absolute',inset:0,opacity:propOpacity,transform:'translateY('+(1-propEntrance)*42+'px) scale('+(0.94+propEntrance*0.06)+')',transformOrigin:'center center'}}><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></div></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div></div> : null}
+  {referencePhoto && scene.photoLabel ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?744:620,width:whiteStage?820:680,zIndex:7,textAlign:'center',fontFamily:'Be Vietnam Pro, sans-serif',fontSize:11,lineHeight:1.2,fontWeight:700,letterSpacing:.2,color:whiteStage?'#282522':'#fff8e8',textShadow:whiteStage?'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{'Ảnh minh hoạ'}</div> : null}
   {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>4 CÁNH CỬA NIỀM TIN</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><ReferenceArtwork kind={fallbackKind}/></div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:54,lineHeight:1.08,fontWeight:900,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
