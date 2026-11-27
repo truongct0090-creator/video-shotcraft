@@ -1,7 +1,15 @@
 name: Story animatic
 
-# Rendering is intentionally manual only. PR checks remain in the separate PR workflow.
+# The approved PR branch gets one automatic full render when pipeline files change.
+# Binary asset/manifest commits made by the render job are ignored to prevent a loop.
+# PR checks remain in the separate PR workflow.
 on:
+  push:
+    branches:
+      - fix/full-render-edgeone-image-fallback
+    paths-ignore:
+      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg'
+      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json'
   workflow_dispatch:
     inputs:
       script:
@@ -61,7 +69,7 @@ jobs:
           RENDER_MODE: ${{ inputs.mode || 'full' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
       - name: Setup Python for free local TTS
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -84,7 +92,7 @@ jobs:
       - name: Download verified public-domain historical reference images
         run: node scripts/fetch-story-reference-images.mjs
       - name: Commit validated user-supplied reference images to this branch
-        if: ${{ github.event_name == 'workflow_dispatch' }}
+        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -117,7 +125,7 @@ jobs:
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
-          name: story-animatic-${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
+          name: story-animatic-${{ (github.event_name == 'pull_request' || github.event_name == 'push') && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-film.mp4
             template/out/story-animatic.mp4
