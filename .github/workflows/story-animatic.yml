@@ -76,20 +76,20 @@ jobs:
           cache: pip
           cache-dependency-path: scripts/requirements-tts.txt
       - name: Cache VieNeu model files
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
         uses: actions/cache@v4
         with:
           path: ${{ runner.temp }}/hf-home
           key: vieneu-v3.3.0-${{ runner.os }}
       - name: Install VieNeu-TTS CPU engine
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
         run: python -m pip install -r scripts/requirements-tts.txt
       - name: Generate Adam Southern Vietnamese narration
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
-      - name: Download verified public-domain historical reference images
+      - name: Download and validate user-supplied Dropbox reference images
         run: node scripts/fetch-story-reference-images.mjs
       - name: Commit validated user-supplied reference images to this branch
         if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
