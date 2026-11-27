@@ -1,17 +1,8 @@
 name: Story animatic
 
-# One controlled full render is triggered by the visual-QA marker commit below.
-# Ignore workflow and image-manifest changes to prevent duplicate renders.
+# Full renders are manual-only during normal editing to avoid duplicate and wasteful runs.
+# PR checks remain in the separate PR workflow.
 on:
-  pull_request:
-    types:
-      - synchronize
-    branches:
-      - main
-    paths-ignore:
-      - '.github/workflows/story-animatic.yml'
-      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg'
-      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json'
   workflow_dispatch:
     inputs:
       script:
