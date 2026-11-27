@@ -7,9 +7,9 @@
 ## MỞ ĐẦU – MỘT CÂU HỎI KHÔNG DỄ TRẢ LỜI
 
 ### 01. Có những lời hứa nghe rất dễ tin
-**Bối cảnh:** Nền trắng; MainBoy bật lên từ dưới khung hình, tiếp đất, đứng yên nhìn thẳng khán giả.
-**Hành động:** MainBoy hơi nghiêng đầu, đưa tay như muốn hỏi chuyện người xem.
-**Đạo cụ:** Bốn khung hình lần lượt xuất hiện: Hội Thánh Đức Chúa Trời Mẹ; Tịnh thất Bồng Lai; Đạo Hà Mòn; hiện tượng Dương Văn Mình.
+**Bối cảnh:** Nền giấy trắng ngà; bên phải là bốn tấm ảnh minh họa tư liệu đặt như ảnh in trên mặt bàn, bố cục collage lệch tự nhiên, mỗi tấm xoay một góc nhỏ và có viền giấy cùng bóng đổ mềm. MainBoy bật lên từ dưới khung hình ở bên trái, tiếp đất rồi đứng yên nhìn thẳng khán giả.
+**Hành động:** Bốn tấm ảnh lần lượt trượt vào, hơi chồng mép và dừng ở các góc lệch khác nhau; MainBoy hơi nghiêng đầu, đưa tay như muốn hỏi chuyện người xem.
+**Đạo cụ:** Bốn ảnh minh họa được vẽ riêng, ghi nhãn rõ ràng “Ảnh minh họa”: mặt tiền một địa điểm sinh hoạt cộng đồng; kiến trúc Tịnh thất Bồng Lai tái hiện; bản đồ địa hình Hà Mòn – Kon Tum; bản làng miền núi phía Bắc. Không dùng ảnh người thật chưa xác minh.
 **Lời dẫn:** “Bạn có bao giờ nghe một lời hứa mà thoạt đầu thấy… cũng có lý không? Rằng chỉ cần tin theo, cuộc sống sẽ tốt hơn. Rằng có người nắm giữ một bí mật mà người ngoài không biết. Hoặc rằng, chỉ cần làm theo một vài điều, mọi rắc rối sẽ được giải quyết. À thì… nghe cũng hấp dẫn đấy. Nhưng khoan đã. Nếu đằng sau lời hứa ấy là tiền bạc, quyền lực, sự sợ hãi, hay việc phải cắt đứt với gia đình thì sao?”
 **TTS cue:** chuckle|nghe cũng hấp dẫn đấy.
 **Âm thanh/Chữ:** Nhạc mở đầu tăng nhẹ; chữ lớn “KHI LỜI HỨA TRỞ THÀNH DẤU HỎI”.
@@ -18,9 +18,9 @@
 **Nhân vật:** main-boy
 
 ### 02. Hôm nay mình sẽ nhìn vào điều gì?
-**Bối cảnh:** Bốn khung hình đứng phía sau MainBoy.
-**Hành động:** MainBoy chỉ lần lượt vào bốn khung, rồi quay lại khán giả.
-**Đạo cụ:** Bốn thẻ tên chủ đề.
+**Bối cảnh:** Nền giấy sáng có chiều sâu; MainBoy đứng chính giữa khung hình. Bốn thẻ tư liệu minh họa đặt cân bằng hai bên, hai thẻ trên và hai thẻ dưới, tạo bố cục mở, không che nhân vật.
+**Hành động:** MainBoy lần lượt chỉ sang bốn thẻ tư liệu ở hai bên, sau đó quay lại nhìn khán giả; các thẻ xuất hiện lần lượt với chuyển động nhẹ và bóng đổ.
+**Đạo cụ:** Bốn thẻ ảnh minh họa có tiêu đề lớn, mỗi thẻ có hình vẽ riêng: địa điểm sinh hoạt cộng đồng, công trình kiến trúc, bản đồ Kon Tum và bản làng miền núi. Dòng chữ chính “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM” đặt ở vùng trống, không đè lên MainBoy.
 **Lời dẫn:** “Hôm nay mình cùng nhìn lại bốn câu chuyện từng gây nhiều tranh cãi ở Việt Nam. Có câu chuyện gắn với những lời kêu gọi sinh hoạt tôn giáo; có câu chuyện bắt đầu từ hình ảnh nuôi trẻ, làm từ thiện; có câu chuyện lan truyền lời đồn về hiện tượng Đức Mẹ hiện hình; và có một hiện tượng tôn giáo mới trong cộng đồng người Mông. Mình không ở đây để cười nhạo người có niềm tin. Mình muốn cùng bạn hỏi một điều đơn giản hơn: đâu là điều đã được chứng minh, đâu là lời kể, và ai phải chịu trách nhiệm khi có người bị tổn hại?”
 **Âm thanh/Chữ:** “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM”.
 **Sân khấu:** white-photo
