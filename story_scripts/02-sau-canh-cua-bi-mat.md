@@ -177,12 +177,12 @@
 **Nhân vật:** main-boy
 
 ### 16. Vụ án năm 2013 – đọc đúng nội dung bản án
-**Bối cảnh:** Phòng hồ sơ pháp lý, mốc 28–29/05/2013.
+**Bối cảnh:** Phòng xử án TAND tỉnh Gia Lai, mốc 28–29/05/2013. Có bục thẩm phán ở phía sau, bàn hội đồng xét xử, bàn luật sư và khu vực bị cáo phía trước; không dùng phòng lưu trữ làm nền cho cảnh xét xử.
 **Hành động:** MainBoy mở hồ sơ, chỉ vào tên vụ án và điều luật được báo chí nêu.
-**Đạo cụ:** Hồ sơ, lịch thời gian, bản đồ Gia Lai – Kon Tum.
+**Đạo cụ:** Bục thẩm phán, bàn hội đồng xét xử, bàn luật sư, ghế bị cáo, búa thẩm phán, hồ sơ vụ án và bảng mốc thời gian; bản đồ Gia Lai – Kon Tum đặt nhỏ ở khu vực phụ.
 **Lời dẫn:** “Đến tháng 5 năm 2013, TAND tỉnh Gia Lai mở phiên tòa xét xử tám bị cáo trong vụ án được báo chí gọi là vụ Hà Mòn. Các bản tin thời điểm đó cho biết những người này bị xét xử về tội danh liên quan đến phá hoại chính sách đoàn kết dân tộc. Mình nhắc rõ: đây là nội dung của vụ án và bản án đối với các bị cáo cụ thể. Không thể từ đó suy ra mọi người từng nghe theo lời đồn Đức Mẹ hiện hình đều phạm tội.”
 **Âm thanh/Chữ:** “THÁNG 5.2013 – XÉT XỬ 8 BỊ CÁO”; nguồn báo chí.
-**Loại cảnh:** historic
+**Loại cảnh:** courtroom
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
