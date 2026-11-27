@@ -1,23 +1,23 @@
 # Approved narration audio sources
 
-The episode 02 narration uses the exact sound selected by the user:
+The episode 02 narration uses the exact recording selected by the user:
 
 - **Title:** Long single breath trough mouth (male) 01
-- **Artist:** thomasXkiteXforXlife (Freesound)
-- **Pixabay page:** https://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/
-- **Source ID:** 30375
+- **Creator:** thomasXkiteXforXlife (Freesound)
+- **Pixabay listing:** https://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/
+- **Original Freesound sound:** https://freesound.org/people/thomasXkiteXforXlife/sounds/410865/
 - **Required filename:** `pixabay-long-single-breath-male-01.mp3`
 
-The Story Animatic workflow reads the public Pixabay page's AudioObject metadata,
-extracts its direct MP3 content URL, downloads the selected source, and validates
-that the response is an MP3 before starting TTS. It does not substitute another
-breath recording or fabricate breath noise.
+The workflow first reads the Pixabay AudioObject metadata and downloads that
+listing's MP3. If automated access to Pixabay is blocked, it uses only the
+identical original Freesound recording (same title, creator and source sound
+410865) and its public MP3 preview. It does not substitute another recording
+or synthesize a fake breath.
 
 The workflow converts the MP3 to 48 kHz mono WAV, extracts one clean active inhale
 with `scripts/prepare-breath-sample.py`, and passes the prepared sample to Adam
-at -24 dB. If the page cannot supply the MP3 or the file fails validation, the
-workflow stops before TTS and Remotion. Room tone is not a substitute for the
-recorded inhale.
+at -24 dB. If neither exact source exposes a valid MP3, the workflow stops before
+TTS and Remotion. Room tone is not a substitute for the recorded inhale.
 
-The source is listed as free for use under the Pixabay Content License on the
-asset page. Retain this source note with the episode assets.
+The Pixabay listing is free under the Pixabay Content License. The original
+Freesound recording is marked Creative Commons 0 on its source page.
