@@ -3,6 +3,9 @@ name: Story animatic
 # Full renders are manual-only during normal editing to avoid duplicate and wasteful runs.
 # PR checks remain in the separate PR workflow.
 on:
+  pull_request:
+    types:
+      - synchronize
   issue_comment:
     types:
       - created
@@ -39,14 +42,14 @@ concurrency:
 
 jobs:
   render:
-    if: ${{ github.event_name != 'issue_comment' || (github.event.issue.pull_request && contains(github.event.comment.body, '/run-story-animatic')) }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '/run-story-animatic')) || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[RENDER-STORY-ANIMATIC]')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - name: Checkout the PR head for comment-triggered renders
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || github.ref }}
+          ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || (github.event_name == 'pull_request' && github.event.pull_request.head.sha) || github.ref }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -78,7 +81,7 @@ jobs:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: node scripts/validate-scene-design.mjs
       - name: Download the exact user-selected Pixabay inhale when required
-        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: |
