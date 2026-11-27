@@ -178,7 +178,7 @@ jobs:
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
-          name: story-animatic-${{ (github.event_name == 'pull_request' || github.event_name == 'push') && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
+          name: story-animatic-${{ (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment') && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-film.mp4
             template/out/story-animatic.mp4

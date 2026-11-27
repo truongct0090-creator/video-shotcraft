@@ -17,6 +17,7 @@ on:
       - 'assets/lib/**'
       - 'assets/scripts/**'
       - 'scripts/validate-animation-workshop.mjs'
+      - 'scripts/parse-story.mjs'
       - 'scripts/validate-scene-design.mjs'
       - 'scripts/download-pixabay-breath.py'
       - 'scripts/validate-rendered-film.mjs'
@@ -32,6 +33,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/pr-checks.yml'
+      - '.github/workflows/story-animatic.yml'
 
 concurrency:
   group: pr-checks-${{ github.event.pull_request.number || github.ref }}
