@@ -71,6 +71,17 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: node scripts/validate-story-reference-coverage.mjs
+      - name: Require the selected human inhale before spending TTS or render resources
+        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -q '^\\*\\*Hơi thở sau:\\*\\*' "$STORY_SCRIPT"; then
+            test -s assets/audio/pixabay-long-single-breath-male-01.mp3 || {
+              echo "::error::The approved Pixabay inhale is missing at assets/audio/pixabay-long-single-breath-male-01.mp3. Add the selected MP3 before running TTS or Remotion."
+              exit 1
+            }
+          fi
       - name: Setup Python for free local TTS
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         uses: actions/setup-python@v5
@@ -87,11 +98,22 @@ jobs:
       - name: Install VieNeu-TTS CPU engine
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         run: python -m pip install -r scripts/requirements-tts.txt
+      - name: Prepare the approved Pixabay inhale sample
+        if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -q '^\\*\\*Hơi thở sau:\\*\\*' "$STORY_SCRIPT"; then
+            python -m pip install scipy soundfile
+            mkdir -p template/public/audio
+            ffmpeg -y -i assets/audio/pixabay-long-single-breath-male-01.mp3 -vn -ac 1 -ar 48000 -c:a pcm_s16le "$RUNNER_TEMP/adam-breath-source.wav"
+            python scripts/prepare-breath-sample.py --input "$RUNNER_TEMP/adam-breath-source.wav" --output template/public/audio/adam-breath.wav
+          fi
       - name: Generate Adam Southern Vietnamese narration
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
-        run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
+        run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam --breath-sample template/public/audio/adam-breath.wav --breath-gain-db -24
       - name: Commit validated user-supplied reference images to this branch
         if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' }}
         run: |
