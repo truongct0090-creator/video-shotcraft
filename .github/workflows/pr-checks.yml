@@ -18,6 +18,7 @@ on:
       - 'assets/scripts/**'
       - 'scripts/validate-animation-workshop.mjs'
       - 'scripts/validate-scene-design.mjs'
+      - 'scripts/download-pixabay-breath.py'
       - 'scripts/validate-rendered-film.mjs'
       - 'scripts/fetch-story-reference-images.mjs'
       - 'scripts/qa-rendered-film.mjs'
@@ -86,6 +87,9 @@ jobs:
 
       - name: Voiceover tail-trim regression tests
         run: python3 scripts/test_voiceover_trim.py -v
+
+      - name: Validate selected Pixabay audio downloader syntax
+        run: python3 -m py_compile scripts/download-pixabay-breath.py
 
       - name: Asset-first animation workshop inventory
         run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json

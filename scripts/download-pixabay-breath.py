@@ -75,7 +75,7 @@ def main():
         except (json.JSONDecodeError, TypeError):
             continue
     if not urls:
-        urls = re.findall(r'https?://cdn\.pixabay\.com/audio/[^\\s"\'<>]+?\.mp3(?:\\?[^\\s"\'<>]*)?', page)
+        urls = re.findall(r"""https?://cdn\.pixabay\.com/audio/[^\s"'<>]+?\.mp3(?:\?[^\s"'<>]*)?""", page)
     urls = list(dict.fromkeys(html.unescape(url) for url in urls))
     if not urls:
         raise SystemExit("Pixabay did not expose an AudioObject contentUrl; refusing to substitute another sound.")
