@@ -27,4 +27,4 @@ Run the **Story animatic** workflow manually on branch `fix/full-render-edgeone-
 
 The Dropbox links were supplied by the repository owner. The workflow verifies file integrity, not copyright ownership or the truth of any caption; confirm that you have permission to publish each image before making the repository public.
 
-The Dương Văn Mình opening card has no verified source photo among the nine supplied files and must remain a clearly labeled illustrative graphic rather than a fabricated documentary photograph.
+The opening montage reuses four supplied photos from scenes 04, 08, 14, and 22. The Dương Văn Mình card reuses the supplied scene-22 image; do not replace it with generated artwork.
