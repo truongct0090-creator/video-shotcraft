@@ -9,7 +9,7 @@ export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
   audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
   stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; photoLabel?:string; cardTitle?:string;
-  expression?:BoyExpression;
+  expression?:BoyExpression; supportingCast?:string;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'courtroom'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';

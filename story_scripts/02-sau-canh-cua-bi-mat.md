@@ -16,6 +16,7 @@
 **Sân khấu:** white-intro
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 02. Hôm nay mình sẽ nhìn vào điều gì?
 **Bối cảnh:** Nền giấy sáng có chiều sâu; MainBoy đứng chính giữa khung hình. Bốn thẻ ảnh tư liệu gốc từ thư viện người dùng, đặt cân bằng hai bên theo lưới hai hàng, không che nhân vật.
@@ -26,6 +27,7 @@
 **Sân khấu:** white-photo
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 03. Một lưu ý trước khi bắt đầu
 **Bối cảnh:** Bảng chia hai cột “Đã được xác nhận” và “Còn tranh luận”.
@@ -36,6 +38,7 @@
 **Loại cảnh:** investigation
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ## CHƯƠNG 1 – HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 
@@ -51,6 +54,7 @@
 **Tiêu đề ảnh:** HỘI THÁNH ĐỨC CHÚA TRỜI MẸ
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 05. Khi niềm tin bước vào bữa cơm gia đình
 **Bối cảnh:** Phòng khách gia đình Việt Nam; bàn ăn có vài chiếc ghế trống, điện thoại đặt trên bàn.
@@ -63,6 +67,7 @@
 **Loại cảnh:** interior
 **Biểu cảm:** worried
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 06. Con số phải đi kèm thời gian và nguồn
 **Bối cảnh:** Bàn hồ sơ; bảng số liệu hiện ra rõ ràng.
@@ -73,6 +78,7 @@
 **Loại cảnh:** modern
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 07. Điều gì nên được hỏi?
 **Bối cảnh:** MainBoy trước bảng ba câu hỏi.
@@ -83,6 +89,7 @@
 **Loại cảnh:** community
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ## CHƯƠNG 2 – TỊNH THẤT BỒNG LAI VÀ TRẠI CÔ NHI THÁNH ĐỨC
 
@@ -98,6 +105,7 @@
 **Tiêu đề ảnh:** TỊNH THẤT BỒNG LAI
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 09. Nhưng câu chuyện bắt đầu sớm hơn
 **Bối cảnh:** Dòng thời gian từ năm 1990 đến 2007; bản đồ Bình Chánh, TP.HCM.
@@ -108,6 +116,7 @@
 **Loại cảnh:** map
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 10. Năm 2007 – cơ sở Thánh Đức chấm dứt hoạt động
 **Bối cảnh:** Bàn hồ sơ; văn bản hành chính cách điệu, không giả làm bản gốc.
@@ -118,6 +127,7 @@
 **Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 11. Từ Thánh Đức đến Tịnh thất Bồng Lai
 **Bối cảnh:** Dòng thời gian nối Bình Chánh với Đức Hòa, Long An.
@@ -130,6 +140,7 @@
 **Loại cảnh:** timeline
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 12. Điều đã được xét xử và điều không nên nói quá
 **Bối cảnh:** Hai ngăn hồ sơ: “Nội dung đã xét xử” và “Thông tin cần kiểm chứng riêng”.
@@ -140,6 +151,7 @@
 **Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 13. Trẻ em không phải đạo cụ truyền thông
 **Bối cảnh:** Khung hình tối giản với chiếc cặp học sinh, quyển vở và biểu tượng quyền riêng tư; không dùng ảnh trẻ em thật.
@@ -150,6 +162,7 @@
 **Loại cảnh:** checklist
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
+**Bóng đen:** child-standing-center
 
 ## CHƯƠNG 3 – ĐẠO HÀ MÒN
 
@@ -165,6 +178,7 @@
 **Loại cảnh:** map
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 15. Khi một lời khẳng định trở thành niềm tin
 **Bối cảnh:** Bàn sinh hoạt cộng đồng tái hiện; không dựng nghi lễ như tư liệu thật.
@@ -175,6 +189,7 @@
 **Loại cảnh:** meeting
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** adult-seated-left, adult-seated-right
 
 ### 16. Vụ án năm 2013 – đọc đúng nội dung bản án
 **Bối cảnh:** Phòng xử án TAND tỉnh Gia Lai, mốc 28–29/05/2013. Có bục thẩm phán ở phía sau, bàn hội đồng xét xử, bàn luật sư và khu vực bị cáo phía trước; không dùng phòng lưu trữ làm nền cho cảnh xét xử.
@@ -185,6 +200,7 @@
 **Loại cảnh:** courtroom
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** adult-standing-center, adult-seated-left, adult-seated-right
 
 ### 17. Đừng đánh đồng đức tin với hành vi vi phạm
 **Bối cảnh:** Khung hình chia đôi: biểu tượng sinh hoạt tôn giáo bình thường và hồ sơ vụ án.
@@ -195,6 +211,7 @@
 **Loại cảnh:** checklist
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ## CHƯƠNG 4 – HIỆN TƯỢNG DƯƠNG VĂN MÌNH
 
@@ -210,6 +227,7 @@
 **Loại cảnh:** map
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 19. Nhà đòn và những thay đổi trong nghi lễ
 **Bối cảnh:** Mô hình nhà đòn được vẽ cách điệu, không tái hiện nghi thức như ảnh tư liệu.
@@ -222,6 +240,7 @@
 **Loại cảnh:** historic
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 20. Vì sao người ta đi theo?
 **Bối cảnh:** Bản làng, con đường núi, bàn sinh hoạt; nhân vật phụ đại diện người dân được vẽ trung tính.
@@ -234,6 +253,7 @@
 **Loại cảnh:** countryside
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
+**Bóng đen:** adult-standing-left, adult-turning-center, adult-standing-right
 
 ### 21. Những nhận định của cơ quan chức năng và góc nhìn nghiên cứu
 **Bối cảnh:** Hai cột tài liệu: “Nhận định của cơ quan chức năng” và “Nghiên cứu học thuật”.
@@ -244,6 +264,7 @@
 **Loại cảnh:** printing
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 22. Khi người đứng đầu không còn, điều gì ở lại?
 **Bối cảnh:** Dòng thời gian kết thúc ở năm 2021, sau đó là hình ảnh bản làng bình yên.
@@ -256,6 +277,7 @@
 **Loại cảnh:** community
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ## KẾT – ĐỪNG VỘI TIN, CŨNG ĐỪNG VỘI KẾT TỘI
 
@@ -268,6 +290,7 @@
 **Sân khấu:** white-intro
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 24. Ba câu hỏi nên giữ lại
 **Bối cảnh:** Không gian phòng họp màu ấm, ba thẻ câu hỏi lớn đặt thành một vòng cung quanh MainBoy, có chiều sâu và vật thể minh họa riêng.
@@ -278,6 +301,7 @@
 **Loại cảnh:** meeting
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 25. Một lời hứa đẹp chưa chắc là lời hứa đúng
 **Bối cảnh:** Bảng quảng cáo cách điệu với các lời hứa chung chung, phía sau là tập hồ sơ.
@@ -288,6 +312,7 @@
 **Loại cảnh:** modern
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 26. Người thân tham gia thì nên nói chuyện thế nào?
 **Bối cảnh:** Phòng khách gia đình; hai chiếc ghế đặt đối diện, không khí bình tĩnh.
@@ -298,6 +323,7 @@
 **Loại cảnh:** teahouse
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
+**Bóng đen:** adult-seated-left, adult-seated-right
 
 ### 27. Dấu hiệu nào cần đặc biệt lưu ý?
 **Bối cảnh:** Bảng kiểm tra với các biểu tượng tiền bạc, liên lạc gia đình, quyền từ chối và chăm sóc sức khỏe.
@@ -308,6 +334,7 @@
 **Loại cảnh:** checklist
 **Biểu cảm:** worried
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 28. Đừng để mạng xã hội xử án thay tòa
 **Bối cảnh:** Màn hình mạng xã hội cách điệu với các bình luận chạy nhanh, bên cạnh là hồ sơ pháp lý.
@@ -318,6 +345,7 @@
 **Loại cảnh:** modern
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 29. Bốn câu chuyện không phải bốn bản sao
 **Bối cảnh:** Bốn thẻ chủ đề được đặt cạnh bốn loại tư liệu khác nhau.
@@ -328,6 +356,7 @@
 **Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 30. Châm biếm điều gì, và không châm biếm ai?
 **Bối cảnh:** MainBoy đứng cạnh bảng “Hành vi / lời hứa / quyền lực” và “Con người / cộng đồng”.
@@ -338,6 +367,7 @@
 **Loại cảnh:** meeting
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 31. Bạn muốn mình kiểm chứng câu chuyện nào tiếp?
 **Bối cảnh:** Nền trắng; bốn thẻ chủ đề thu nhỏ thành các thẻ bình luận.
@@ -348,6 +378,7 @@
 **Loại cảnh:** modern
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ### 32. Lời chào của MainBoy
 **Bối cảnh:** Khung kết xanh rêu đậm, một bảng giấy lớn màu kem chiếm phần trái, các thẻ lời nhắn xếp lớp bên phải; MainBoy đứng bên phải. Toàn bộ khung hình có chiều sâu, không để nền trắng trống.
@@ -358,6 +389,7 @@
 **Sân khấu:** white-intro
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
+**Bóng đen:** none
 
 ## NGÂN HÀNG CÂU NÓI ĐỜI THƯỜNG CHO GIỌNG DẪN
 Dùng có chọn lọc, không nhồi vào mọi câu. Mỗi cảnh chỉ nên có 1–3 cụm tạo sắc thái.

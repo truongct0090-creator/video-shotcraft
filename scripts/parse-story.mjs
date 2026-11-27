@@ -53,6 +53,7 @@ const scenes = headings.map((match, index) => {
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
     world: field('Loại cảnh').toLowerCase(),
     character: field('Nhân vật').toLowerCase() || 'main-boy',
+    supportingCast: field('Bóng đen').toLowerCase() || 'none',
     duration: field('Thời lượng'),
     stage: field('Sân khấu').toLowerCase(),
     photo: field('Ảnh tư liệu'),
@@ -78,6 +79,13 @@ for (const scene of scenes) {
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
+  if (scene.supportingCast !== 'none') {
+    const actors = scene.supportingCast.split(',').map((actor) => actor.trim());
+    const allowedActor = /^(adult|child)-(standing|seated|turning)-(left|center|right)$/;
+    if (actors.length > 5 || actors.some((actor) => !allowedActor.test(actor)) || new Set(actors).size !== actors.length) {
+      throw new Error('Scene ' + scene.number + ' **Bóng đen:** must be none or a comma-separated list of up to five adult/child standing, seated, or turning actors at left/center/right.');
+    }
+  }
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
   if (scene.ttsCue) {
     const cue = scene.ttsCue.match(/^(chuckle|sigh|clear-throat)\s*\|\s*(.+)$/i);
