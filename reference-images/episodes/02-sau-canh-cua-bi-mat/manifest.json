@@ -1,0 +1,136 @@
+{
+  "episode": "02-sau-canh-cua-bi-mat",
+  "root": "reference-images/episodes/02-sau-canh-cua-bi-mat",
+  "assets": [
+    {
+      "id": "scene-04",
+      "file": "scene-04-reference.jpg",
+      "scenes": [
+        "04"
+      ],
+      "source_url": "https://then-plum-el39utcz.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image URL returned HTML in the FULL render."
+    },
+    {
+      "id": "scene-05",
+      "file": "scene-05-reference.jpg",
+      "scenes": [
+        "05"
+      ],
+      "source_url": "https://grand-gray-xrrla1bu.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "scene-08",
+      "file": "scene-08-reference.jpg",
+      "scenes": [
+        "08"
+      ],
+      "source_url": "https://aware-rose-aec8adoj.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Also used in opening montage for Tịnh thất Bồng Lai; URL returned HTML."
+    },
+    {
+      "id": "scene-11",
+      "file": "scene-11-reference.jpg",
+      "scenes": [
+        "11"
+      ],
+      "source_url": "https://tall-aquamarine-rcksu8mn.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "scene-14",
+      "file": "scene-14-reference.jpg",
+      "scenes": [
+        "14"
+      ],
+      "source_url": "https://nursing-coral-yq1hzjed.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Also used in opening montage for Đạo Hà Mòn; URL returned HTML."
+    },
+    {
+      "id": "scene-18",
+      "file": "scene-18-reference.jpg",
+      "scenes": [
+        "18"
+      ],
+      "source_url": "https://decisive-green-hpvpei9m.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "scene-19",
+      "file": "scene-19-reference.jpg",
+      "scenes": [
+        "19"
+      ],
+      "source_url": "https://dull-coffee-1l75po2w.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "scene-20",
+      "file": "scene-20-reference.jpg",
+      "scenes": [
+        "20"
+      ],
+      "source_url": "https://frantic-black-abjfen2u.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "scene-22",
+      "file": "scene-22-reference.jpg",
+      "scenes": [
+        "22"
+      ],
+      "source_url": "https://lexical-azure-uszr13sy.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Original image file needs to be re-uploaded."
+    },
+    {
+      "id": "opening-hoi-thanh-duc-chua-troi-me",
+      "file": "opening-hoi-thanh-duc-chua-troi-me.jpg",
+      "scenes": [
+        "01"
+      ],
+      "source_url": "https://then-plum-el39utcz.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Opening montage reuse of scene-04 source; do not duplicate bytes."
+    },
+    {
+      "id": "opening-tinh-that-bong-lai",
+      "file": "opening-tinh-that-bong-lai.jpg",
+      "scenes": [
+        "01"
+      ],
+      "source_url": "https://aware-rose-aec8adoj.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Opening montage reuse of scene-08 source; do not duplicate bytes."
+    },
+    {
+      "id": "opening-dao-ha-mon",
+      "file": "opening-dao-ha-mon.jpg",
+      "scenes": [
+        "01"
+      ],
+      "source_url": "https://nursing-coral-yq1hzjed.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "Opening montage reuse of scene-14 source; do not duplicate bytes."
+    },
+    {
+      "id": "opening-duong-van-minh",
+      "file": "opening-duong-van-minh.jpg",
+      "scenes": [
+        "01"
+      ],
+      "source_url": "https://fit-tan-zvotansr.edgeone.dev/",
+      "status": "pending-file",
+      "notes": "No confirmed original image file was present in the project materials; URL returned 404. Must be supplied and verified before use. If unavailable, keep a clearly illustrative graphic instead."
+    }
+  ]
+}
