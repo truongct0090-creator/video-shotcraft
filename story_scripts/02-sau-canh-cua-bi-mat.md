@@ -325,7 +325,7 @@
 **Đạo cụ:** Bốn thẻ nguồn, bốn biểu tượng tài liệu.
 **Lời dẫn:** “Mình cũng muốn nhắc lại: bốn câu chuyện hôm nay không giống nhau. Có số liệu từ họp báo; có quyết định hành chính; có bản án; có lời kể và nghiên cứu học thuật. Mỗi loại tài liệu trả lời một câu hỏi khác nhau. Nếu trộn tất cả lại rồi gọi chung bằng một nhãn, câu chuyện có thể nghe kịch tính hơn, nhưng sẽ kém chính xác hơn.”
 **Âm thanh/Chữ:** “MỖI NGUỒN – MỘT GIỚI HẠN”.
-**Loại cảnh:** meeting
+**Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
