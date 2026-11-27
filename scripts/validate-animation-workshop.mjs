@@ -77,9 +77,9 @@ const chooseSceneTemplate = (scene) => {
   return 'generic';
 };
 const sceneStageSource = fs.readFileSync(safe('template/src/story/SceneStage.tsx'), 'utf8');
-const selector = sceneStageSource.match(/const visualKey=([\\s\\S]*?);\\s*\\/\\/ Text belongs/);
+const selector = sceneStageSource.match(/const visualKey=([\s\S]*?);\s*\/\/ Text belongs/);
 if (!selector) throw new Error('Could not inspect SceneObjects visual-key selector.');
-const mappedVisualKeys = [...selector[1].matchAll(/\\?'([^']+)'/g)].map((match) => match[1]);
+const mappedVisualKeys = [...selector[1].matchAll(/\?'([^']+)'/g)].map((match) => match[1]);
 const renderedVisualKeys = new Set([...sceneStageSource.matchAll(/visualKey==='([^']+)'/g)].map((match) => match[1]));
 const missingVisualKeys = [...new Set(mappedVisualKeys)].filter((key) => !renderedVisualKeys.has(key));
 if (missingVisualKeys.length) {
