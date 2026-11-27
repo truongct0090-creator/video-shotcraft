@@ -11,7 +11,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 PAGE = "https://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/"
-USER_AGENT = "Mozilla/5.0 (compatible; VideoShotcraftAudioAsset/1.0)"
+USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 class JsonLdParser(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -46,7 +46,7 @@ def find_audio_url(node):
     return found
 
 def request_bytes(url, referer=None):
-    headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
+    headers = {"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9,vi;q=0.8", "Upgrade-Insecure-Requests": "1"}
     if referer:
         headers["Referer"] = referer
     request = urllib.request.Request(url, headers=headers)
@@ -64,8 +64,28 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
-    page_bytes, _ = request_bytes(PAGE)
-    page = page_bytes.decode("utf-8", errors="replace")
+    page_urls = [
+        PAGE,
+        "https://www.pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/",
+        "https://pixabay.com/vi/sound-effects/m%E1%BB%8Di-ng%C6%B0%E1%BB%9Di-long-single-breath-trough-mouth-male-01-30375/",
+        "https://pixabay-com.translate.goog/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en",
+        "https://r.jina.ai/http://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/",
+    ]
+    page = ""
+    failures = []
+    for page_url in page_urls:
+        try:
+            page_bytes, _ = request_bytes(page_url, "https://pixabay.com/")
+            candidate = page_bytes.decode("utf-8", errors="replace")
+            if "30375" in candidate or "Long single breath" in candidate:
+                page = candidate
+                print("Read selected Pixabay page through: " + page_url.split("/")[2])
+                break
+            failures.append(page_url.split("/")[2] + ": response did not identify asset 30375")
+        except Exception as exc:
+            failures.append(page_url.split("/")[2] + ": " + str(exc))
+    if not page:
+        raise SystemExit("Could not read the selected Pixabay page from any public route: " + " | ".join(failures))
     ld = JsonLdParser()
     ld.feed(page)
     urls = []
