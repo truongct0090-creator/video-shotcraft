@@ -7,7 +7,7 @@ import {SceneSupportingCast} from './SceneSupportingCast';
 
 export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
-  audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; shot?:string; mouthFrames?:number[];
+  audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; objectKey?:string; shot?:string; mouthFrames?:number[];
   stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; photoLabel?:string; cardTitle?:string;
   expression?:BoyExpression; supportingCast?:string;
 };
@@ -80,7 +80,7 @@ const Backdrop:React.FC<{world:World}> = ({world}) => {
 const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
  const propText=[scene.props||'',scene.setting||'',scene.action||'',scene.heading||''].join(' ').toLowerCase();
- const visualKey=scene.number===12?'compare':scene.number===16?'legal-case':scene.number===18?'mountain-timeline':scene.number===21?'research-stack':scene.number===22?'community-legacy':scene.number===24?'three-questions':scene.number===25?'pitch':scene.number===29?'source-library':scene.number===30?'satire-boundary':scene.number===31?'social-feed':/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
+ const inferredVisualKey=scene.number===12?'compare':scene.number===16?'legal-case':scene.number===18?'mountain-timeline':scene.number===21?'research-stack':scene.number===22?'community-legacy':scene.number===24?'three-questions':scene.number===25?'pitch':scene.number===29?'source-library':scene.number===30?'satire-boundary':scene.number===31?'social-feed':/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
   /bảng ghim|ba thẻ màu/.test(propText)?'categories':
   /bản đồ nam kỳ/.test(propText)?'south-map':
   /ấm trà|chén trà/.test(propText)?'teahouse':
@@ -112,14 +112,17 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
   /hai cột|châm biếm|niềm tin cá nhân|hành vi cụ thể/.test(propText)?'two-column':
   /nhà đòn|tang lễ|nghi lễ/.test(propText)?'funeral-house':
   /cánh cửa mở/.test(propText)?'open-door':'generic';
+ const visualKey=scene.objectKey&&scene.objectKey!=='auto'?scene.objectKey:inferredVisualKey;
  // Text belongs to the object/card that it describes. Keep it compact and
   // scale the type down for longer labels so it never spills outside its panel.
   // Object artwork stays clean: labels are presented separately as animated scene captions.
+ if(scene.objectKey==='none') return null;
  const label=(_x:number,_y:number,_value:string,_color='#594b3a')=>null;
  const card=(x:number,y:number,w:number,h:number,fill='#e7d8b8')=><g><rect x={x} y={y} width={w} height={h} rx="10" fill={fill} stroke="#68563f" strokeWidth="9"/><rect x={x+9} y={y+9} width={w-18} height={h-18} rx="6" fill="none" stroke="#fff6df" strokeOpacity=".38" strokeWidth="4"/><path d={`M${x+18} ${y+17}H${x+w-18}`} stroke="#fff8e9" strokeOpacity=".28" strokeWidth="4" strokeLinecap="round"/><path d={`M${x+18} ${y+h-15}H${x+w-18}`} stroke="#3f3024" strokeOpacity=".16" strokeWidth="3" strokeLinecap="round"/></g>;
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><filter id="story-prop-depth" x="-35%" y="-35%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="contact-blur"/><feOffset in="contact-blur" dx="0" dy="7" result="contact-offset"/><feComponentTransfer in="contact-offset" result="contact-shadow"><feFuncA type="linear" slope="0.30"/></feComponentTransfer><feGaussianBlur in="SourceAlpha" stdDeviation="18" result="ambient-blur"/><feOffset in="ambient-blur" dx="12" dy="24" result="ambient-offset"/><feComponentTransfer in="ambient-offset" result="ambient-shadow"><feFuncA type="linear" slope="0.24"/></feComponentTransfer><feMerge><feMergeNode in="ambient-shadow"/><feMergeNode in="contact-shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
   <g filter="url(#story-prop-depth)">
+   {visualKey==='evidence-board'&&<g>{card(360,205,1040,570,'#b9a783')}{card(430,280,250,190,'#e9dfc8')}{card(770,280,250,190,'#d7e0d9')}{card(1110,280,220,190,'#e5c8b7')}<path d="M680 375H770M1020 375H1110M555 470V575H1220V470" fill="none" stroke="#9c5145" strokeWidth="13" strokeDasharray="18 12"/><circle cx="850" cy="625" r="58" fill="none" stroke="#8b6b47" strokeWidth="16"/><path d="M892 667L975 750" stroke="#8b6b47" strokeWidth="22" strokeLinecap="round"/>{card(1000,600,260,110,'#e9dfc8')}</g>}
    {visualKey==='invitation'&&<g>{card(720,250,330,430,'#76543b')}<rect x="770" y="330" width="225" height="150" fill="#f1dfb8" stroke="#6b543e" strokeWidth="8"/>{label(790,390,'BUỔI SINH HOẠT')}{label(820,435,'ĐẶC BIỆT')}<path d="M1040 500q95-45 145 12l-15 60q-70 30-125-5" fill="#f2d1bd" stroke="#59433f" strokeWidth="12"/>{card(1110,510,190,110,'#f5e8c8')}{label(1130,560,'NGƯỜI ĐƯỢC')}{label(1160,594,'CHỌN')}</g>}
    {visualKey==='categories'&&<g>{card(470,235,760,490,'#bba987')}{[0,1,2].map(i=><g key={i}><path d={'M850 340V'+(420+i*110)+'H'+(590+i*260)} fill="none" stroke={['#a84f43','#567c91','#69865c'][i]} strokeWidth="12"/>{card(490+i*260,420+i*110,220,105,['#d9a28e','#a9c1cb','#b7c89f'][i])}{label(515+i*260,482,['YÊU NƯỚC','CỘNG ĐỒNG','TÔN GIÁO'][i])}</g>)}{card(785,270,150,75,'#e7d6ae')}{label(805,318,'PHÂN BIỆT')}</g>}
    {visualKey==='south-map'&&<g><path d="M430 240l180-85 250 65 175-25 160 120-80 175-185 80-170-55-190 45-160-145z" fill="#e9d8b5" stroke="#77664b" strokeWidth="12"/><path d="M520 330q190-100 310 30t320-20M500 480q190-90 350 10t300-10" fill="none" stroke="#b39b70" strokeWidth="9" strokeDasharray="18 15"/>{[[570,350],[850,405],[1120,330],[960,550],[650,545]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="23" fill="#b54e43" stroke="#fff2d6" strokeWidth="7"/>)}<circle cx="1225" cy="500" r="55" fill="none" stroke="#5b5549" strokeWidth="13"/><path d="M1265 540l60 60" stroke="#5b5549" strokeWidth="18" strokeLinecap="round"/></g>}

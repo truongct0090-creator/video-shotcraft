@@ -73,6 +73,10 @@ jobs:
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: node scripts/validate-story-reference-coverage.mjs
+      - name: Validate scene-specific backgrounds, objects, typography, and silhouettes
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: node scripts/validate-scene-design.mjs
       - name: Download the exact user-selected Pixabay inhale when required
         if: ${{ github.event_name == 'issue_comment' || inputs.voiceover }}
         env:

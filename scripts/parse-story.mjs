@@ -48,6 +48,7 @@ const scenes = headings.map((match, index) => {
     setting: field('Bối cảnh'),
     action: field('Hành động'),
     props: field('Đạo cụ'),
+    objectKey: field('Mã vật thể').toLowerCase() || 'auto',
     shot: field('Shot'),
     narration: field('Lời dẫn'),
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
@@ -70,6 +71,8 @@ if (scenes.length === 0) throw new Error('No scenes found. Expected headings lik
 for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
   if (!scene.props) throw new Error('Scene ' + scene.number + ' is missing **Đạo cụ:**; each scene needs concrete visual objects.');
+  const allowedObjectKeys = new Set(["documents","route-map","compare","school-protection","testimony","legal-case","two-column","mountain-timeline","funeral-house","village-house","research-stack","community-legacy","three-questions","pitch","family-table","checklist","social-feed","source-library","satire-boundary","evidence-board","stats-board","rights-board","none"]);
+  if (!allowedObjectKeys.has(scene.objectKey)) throw new Error('Scene ' + scene.number + ' needs a valid explicit **Mã vật thể:**.');
   if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
   const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
   const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com|upload\.wikimedia\.org)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);

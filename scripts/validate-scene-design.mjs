@@ -15,8 +15,10 @@ const counts=new Map(),photos=new Map();
 for(let i=0;i<heads.length;i++){
  const h=heads[i],n=h.number,block=lines.slice(h.line+1,heads[i+1]?.line??lines.length);
  const get=name=>{const prefix='**'+name+':**';const row=block.find(x=>x.startsWith(prefix));return row?row.slice(prefix.length).trim():'';};
- const setting=get('Bối cảnh'),action=get('Hành động'),props=get('Đạo cụ'),narration=get('Lời dẫn'),world=get('Loại cảnh').toLowerCase(),cast=get('Bóng đen').toLowerCase()||'none',photo=get('Ảnh tư liệu');
- if(!setting||!action||!props||!narration) throw new Error('Scene '+n+' is missing setting/action/props/narration.');
+ const setting=get('Bối cảnh'),action=get('Hành động'),props=get('Đạo cụ'),objectKey=get('Mã vật thể').toLowerCase(),narration=get('Lời dẫn'),world=get('Loại cảnh').toLowerCase(),cast=get('Bóng đen').toLowerCase()||'none',photo=get('Ảnh tư liệu');
+ if(!setting||!action||!props||!narration||!objectKey) throw new Error('Scene '+n+' is missing setting/action/props/object key/narration.');
+ const objectRenderers=new Set(['none','evidence-board','family-table','stats-board','rights-board','route-map','documents','compare','school-protection','testimony','legal-case','two-column','mountain-timeline','funeral-house','village-house','research-stack','community-legacy','three-questions','pitch','checklist','social-feed','source-library','satire-boundary']);
+ if(!objectRenderers.has(objectKey)) throw new Error('Scene '+n+' has no approved object renderer: '+objectKey);
  if(!special.has(n)){if(!allowed.has(world)) throw new Error('Scene '+n+' needs a specific backdrop type.');counts.set(world,(counts.get(world)||0)+1);}
  if(setting.toLowerCase().includes('phòng xử')&&world!=='courtroom') throw new Error('Scene '+n+' must use a courtroom backdrop.');
  if(photo){if(photos.has(photo)) throw new Error('Scene-level photo reused in scenes '+photos.get(photo)+' and '+n+': '+photo);photos.set(photo,n);}
@@ -39,4 +41,6 @@ for(const w of ['courtroom','family-home','statistics-room','community-room','mo
 if(!cast.includes('child?112:165')||!cast.includes("scene.supportingCast==='none'")||!cast.includes("pose==='seated'")) throw new Error('Silhouette size/opt-in/pose logic is missing.');
 if(!chibi.includes("pose==='seated'")) throw new Error('Seated character rig is missing.');
 if(!stage.includes("scene.number===2?'radial-gradient")) throw new Error('Scene 2 still has a blank white stage.');
+if(!stage.includes("visualKey=scene.objectKey&&scene.objectKey!=='auto'?scene.objectKey:inferredVisualKey")) throw new Error('Scene-specific object keys are not authoritative.');
+if(!stage.includes("visualKey==='evidence-board'")) throw new Error('Scene 03 evidence board renderer is missing.');
 console.log('Scene design QA passed: 32 scenes, specific backdrops, no unintended scene-photo reuse, explicit silhouettes, uppercase captions, and four-word line wrapping.');
