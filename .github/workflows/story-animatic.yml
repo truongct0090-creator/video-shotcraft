@@ -3,6 +3,9 @@ name: Story animatic
 # Full renders are manual-only during normal editing to avoid duplicate and wasteful runs.
 # PR checks remain in the separate PR workflow.
 on:
+  issue_comment:
+    types:
+      - created
   workflow_dispatch:
     inputs:
       script:
@@ -36,6 +39,7 @@ concurrency:
 
 jobs:
   render:
+    if: ${{ github.event_name != 'issue_comment' || (github.event.issue.pull_request && contains(github.event.comment.body, '/run-story-animatic')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -68,23 +72,23 @@ jobs:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
         run: node scripts/validate-story-reference-coverage.mjs
       - name: Setup Python for free local TTS
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
           cache-dependency-path: scripts/requirements-tts.txt
       - name: Cache VieNeu model files
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         uses: actions/cache@v4
         with:
           path: ${{ runner.temp }}/hf-home
           key: vieneu-v3.3.0-${{ runner.os }}
       - name: Install VieNeu-TTS CPU engine
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         run: python -m pip install -r scripts/requirements-tts.txt
       - name: Generate Adam Southern Vietnamese narration
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
