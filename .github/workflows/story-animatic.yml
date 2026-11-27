@@ -1,15 +1,8 @@
 name: Story animatic
 
-# The approved PR branch gets one automatic full render when pipeline files change.
-# Binary asset/manifest commits made by the render job are ignored to prevent a loop.
+# Full renders are manual-only so a multi-file visual correction consumes one render.
 # PR checks remain in the separate PR workflow.
 on:
-  push:
-    branches:
-      - fix/full-render-edgeone-image-fallback
-    paths-ignore:
-      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg'
-      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json'
   workflow_dispatch:
     inputs:
       script:
