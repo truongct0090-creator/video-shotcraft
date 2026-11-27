@@ -43,7 +43,7 @@
 **Bối cảnh:** Nền trắng, MainBoy bên trái; ảnh đúng tổ chức hoặc đồ họa bản đồ Hàn Quốc bên phải.
 **Hành động:** MainBoy chỉ vào tên gọi, rồi chuyển sang bản đồ.
 **Đạo cụ:** Thẻ tên tổ chức; bản đồ Hàn Quốc.
-**Ảnh tư liệu:** https://then-plum-el39utcz.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-04-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Bắt đầu với cái tên khá quen trên mặt báo: Hội Thánh Đức Chúa Trời Mẹ. Nghe tên thôi, có người tò mò, có người thấy khó hiểu, cũng có gia đình lo lắng khi người thân tham gia sinh hoạt. Nhưng trước khi bàn đúng sai, ta cần biết mình đang nói về tổ chức nào. Theo tài liệu được cơ quan chức năng Việt Nam công bố, tổ chức này có nguồn gốc từ Hàn Quốc, được thành lập năm 1964. Đó là thông tin về lịch sử tổ chức; còn trải nghiệm của từng người tham gia thì không thể gom thành một câu chuyện duy nhất.”
 **Âm thanh/Chữ:** “HÀN QUỐC – 1964”.
@@ -56,7 +56,7 @@
 **Bối cảnh:** Phòng khách gia đình Việt Nam; bàn ăn có vài chiếc ghế trống, điện thoại đặt trên bàn.
 **Hành động:** MainBoy nhìn chiếc ghế trống, sau đó nhìn khán giả.
 **Đạo cụ:** Bàn ăn, điện thoại, lịch.
-**Ảnh tư liệu:** https://grand-gray-xrrla1bu.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-05-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Thử tưởng tượng nhé: đang ăn cơm, cả nhà hỏi hôm nay con đi đâu, con trả lời đi sinh hoạt. Ban đầu có thể chẳng ai nghĩ gì. Nhưng rồi lịch sinh hoạt dày lên, quan điểm trong nhà khác nhau, những cuộc trò chuyện bắt đầu căng thẳng. Có gia đình phản ánh rằng người thân thay đổi nếp sinh hoạt hoặc xa cách họ. Đây là những phản ánh cần được kiểm tra theo từng trường hợp, chứ không thể mặc định ai tham gia cũng gặp chuyện như vậy. Điều đáng hỏi là: người tham gia có còn thoải mái giữ liên hệ với gia đình và tự quyết định cuộc sống của mình không?”
 **Âm thanh/Chữ:** “NIỀM TIN – GIA ĐÌNH – QUYỀN TỰ QUYẾT”.
@@ -90,7 +90,7 @@
 **Bối cảnh:** Nền trắng; thẻ tư liệu minh họa trung tính bên phải, MainBoy bên trái.
 **Hành động:** Thẻ tư liệu xuất hiện; MainBoy chỉ vào thẻ rồi nhìn khán giả.
 **Đạo cụ:** Thẻ nhận diện chủ đề Tịnh thất Bồng Lai; không dùng ảnh người khi chưa xác nhận quyền sử dụng và chú thích gốc.
-**Ảnh tư liệu:** https://aware-rose-aec8adoj.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-08-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Câu chuyện thứ hai chắc nhiều người từng nghe qua: Tịnh thất Bồng Lai, sau này còn được gọi là Thiền am bên bờ vũ trụ. Có thời điểm, những video về các em nhỏ và người sống tại đây thu hút lượng xem rất lớn. Người xem tò mò, người thương cảm, người đặt câu hỏi. Mạng xã hội thì vốn vậy, một video vừa lên là bình luận chạy nhanh hơn cả người trong cuộc giải thích.”
 **Âm thanh/Chữ:** Tiếng thông báo mạng xã hội, sau đó hạ âm.
@@ -123,7 +123,7 @@
 **Bối cảnh:** Dòng thời gian nối Bình Chánh với Đức Hòa, Long An.
 **Hành động:** MainBoy nối hai mốc địa điểm bằng một đường chỉ.
 **Đạo cụ:** Bản đồ, mốc 2007 và giai đoạn sau 2015.
-**Ảnh tư liệu:** https://tall-aquamarine-rcksu8mn.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-11-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Rồi nhiều năm sau, cái tên Tịnh thất Bồng Lai xuất hiện ở Long An. Hai địa điểm, hai giai đoạn, nhưng có một nhân vật trung tâm được báo chí và hồ sơ điều tra nhắc tới là ông Lê Tùng Vân. Điều mình muốn nhấn mạnh ở đây không phải cứ cơ sở sau giống cơ sở trước. Mà là khi một nơi tự giới thiệu hoạt động vì trẻ em, vì người yếu thế, thì sự minh bạch càng phải cao. Tiền từ thiện đi đâu? Trẻ em được chăm sóc, học hành thế nào? Ai chịu trách nhiệm?”
 **Âm thanh/Chữ:** “MINH BẠCH – TRÁCH NHIỆM – AN TOÀN TRẺ EM”.
@@ -157,7 +157,7 @@
 **Bối cảnh:** Bản đồ Kon Tum và Tây Nguyên; phong cảnh làng được tái hiện trung tính.
 **Hành động:** MainBoy chỉ vào khu vực Hà Mòn, sau đó mở hồ sơ.
 **Đạo cụ:** Bản đồ, mốc cuối thập niên 1990 – đầu những năm 2000.
-**Ảnh tư liệu:** https://nursing-coral-yq1hzjed.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-14-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Tiêu đề ảnh:** KON TUM – TƯ LIỆU LỊCH SỬ
 **Lời dẫn:** “Rời miền Nam, mình đưa bạn lên Tây Nguyên. Câu chuyện thứ ba là Hà Mòn, còn được một số nguồn gọi là hiện tượng Đức Mẹ Hà Mòn. Các tài liệu báo chí cho biết hiện tượng này xuất hiện ở khu vực Kon Tum vào khoảng cuối thập niên 1990, gắn với lời đồn Đức Mẹ hiện hình. Và như thường thấy, khi một lời đồn chạm vào niềm tin sâu sắc của con người, nó có thể lan rất nhanh.”
@@ -202,7 +202,7 @@
 **Bối cảnh:** Bản đồ các tỉnh miền núi phía Bắc; phong cảnh bản làng Mông được tái hiện tôn trọng, không khuôn mẫu.
 **Hành động:** MainBoy chỉ vào Cao Bằng, Tuyên Quang và các địa bàn được nguồn nghiên cứu nhắc tới.
 **Đạo cụ:** Bản đồ, dòng thời gian bắt đầu năm 1989.
-**Ảnh tư liệu:** https://decisive-green-hpvpei9m.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-18-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
 **Hơi thở sau:** Nhưng ở đây, mình muốn chậm lại một chút.
@@ -215,7 +215,7 @@
 **Bối cảnh:** Mô hình nhà đòn được vẽ cách điệu, không tái hiện nghi thức như ảnh tư liệu.
 **Hành động:** MainBoy quan sát mô hình, chỉ vào các biểu tượng được mô tả trong tài liệu.
 **Đạo cụ:** Đồ họa “nhà đòn”, biểu tượng tang lễ; nhãn “tái hiện theo tài liệu”.
-**Ảnh tư liệu:** https://dull-coffee-1l75po2w.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-19-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Có lẽ bạn đang thắc mắc: nhà đòn là gì? Trong các tài liệu nghiên cứu về hiện tượng này, nhà đòn được mô tả là nơi lưu giữ một số vật dụng, biểu tượng liên quan đến nghi lễ tang ma của những người đi theo. Một số nghi thức truyền thống cũng thay đổi. Với người ngoài, chuyện này có thể nghe lạ. Nhưng với một cộng đồng, thay đổi nghi lễ tang ma là chuyện rất sâu sắc, vì nó chạm tới cách họ tiễn biệt người thân và gìn giữ bản sắc.”
 **Âm thanh/Chữ:** “TANG LỄ – PHONG TỤC – CỘNG ĐỒNG”.
@@ -227,7 +227,7 @@
 **Bối cảnh:** Bản làng, con đường núi, bàn sinh hoạt; nhân vật phụ đại diện người dân được vẽ trung tính.
 **Hành động:** MainBoy nhìn các nhân vật phụ, không chỉ trỏ buộc tội.
 **Đạo cụ:** Đồ họa về đời sống cộng đồng, tài liệu nghiên cứu.
-**Ảnh tư liệu:** https://frantic-black-abjfen2u.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-20-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Đây mới là câu hỏi đáng suy nghĩ: vì sao có người tin theo? Nghiên cứu về các hiện tượng tôn giáo mới ở vùng dân tộc thiểu số cho thấy cần nhìn cả bối cảnh xã hội: đời sống khó khăn, nhu cầu được nâng đỡ, thay đổi văn hóa, nhu cầu cộng đồng và niềm hy vọng vào một tương lai tốt đẹp hơn. Nói cách khác, nếu chỉ gọi người ta là nhẹ dạ thì mình chẳng hiểu được gì cả. Muốn hiểu một hiện tượng, phải nhìn cả hoàn cảnh khiến nó có đất để phát triển.”
 **Âm thanh/Chữ:** “MUỐN HIỂU – PHẢI NHÌN CẢ BỐI CẢNH”.
@@ -249,7 +249,7 @@
 **Bối cảnh:** Dòng thời gian kết thúc ở năm 2021, sau đó là hình ảnh bản làng bình yên.
 **Hành động:** MainBoy khép tập hồ sơ, nhìn về phía cộng đồng.
 **Đạo cụ:** Mốc năm 2021; tài liệu nghiên cứu và báo chí.
-**Ảnh tư liệu:** https://lexical-azure-uszr13sy.edgeone.dev/
+**Ảnh tư liệu:** reference/scene-22-reference.jpg
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Dương Văn Mình qua đời năm 2021. Nhưng một hiện tượng tồn tại hơn ba mươi năm không biến mất khỏi đời sống cộng đồng chỉ vì người đứng đầu không còn. Những thay đổi trong quan hệ gia đình, phong tục, niềm tin và cách tổ chức cộng đồng có thể còn để lại dấu vết lâu dài. Và đó là lý do khi kể câu chuyện này, mình không muốn chỉ dừng ở một cái tên. Điều cần nhìn là con người và cộng đồng đã trải qua những gì.”
 **Âm thanh/Chữ:** “2021 – NGƯỜI ĐỨNG ĐẦU QUA ĐỜI; DI SẢN XÃ HỘI CÒN CẦN TÌM HIỂU”.
