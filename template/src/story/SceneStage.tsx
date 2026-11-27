@@ -309,7 +309,7 @@ const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
    const p=interpolate(frame,[index*5,index*5+16],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{position:'absolute',left:item.left,top:item.top,width:'54%',height:'54%',minWidth:0,minHeight:0,overflow:'hidden',padding:13,boxSizing:'border-box',borderRadius:3,background:'#faf7ef',border:'1px solid #b9ad98',boxShadow:'0 5px 9px rgba(28,24,20,.20),0 18px 28px rgba(28,24,20,.25),0 32px 48px rgba(28,24,20,.13)',opacity:p,transform:'translateY('+(1-p)*28+'px) rotate('+item.angle+'deg)',transformOrigin:'center center',zIndex:item.z,display:'flex',flexDirection:'column'}}>
     <div style={{position:'relative',flex:'1 1 70%',minHeight:0,overflow:'hidden',background:'#d8d2c4',border:'1px solid #d0c5b1'}}>
-     <Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'cover',display:'block',...archivalPhotoStyle}}/>
+     <Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/>
      <div style={archivalOverlayStyle}/>
     </div>
     <div style={{flex:'0 0 auto',minHeight:0,padding:'7px 8px 3px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center',background:'#faf7ef'}}>
@@ -334,7 +334,7 @@ const SceneTwoOverview:React.FC<{frame:number}> = ({frame}) => {
   {items.map((item,index)=>{
    const p=interpolate(frame,[index*5,index*5+16],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
    return <div key={item.title} style={{position:'absolute',left:item.left,top:item.top,width:430,height:270,padding:10,boxSizing:'border-box',background:'#faf7ef',border:'1px solid #b9ad98',boxShadow:'0 7px 14px rgba(28,24,20,.18),0 18px 30px rgba(28,24,20,.16)',opacity:p,transform:'translateY('+(1-p)*22+'px) rotate('+item.angle+'deg)',display:'flex',flexDirection:'column'}}>
-    <div style={{flex:1,minHeight:0,overflow:'hidden',background:'#d8d2c4'}}><Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'cover',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>
+    <div style={{flex:1,minHeight:0,overflow:'hidden',background:'#d8d2c4'}}><Img src={staticFile(item.photo)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div>
     <div style={{padding:'7px 4px 2px',fontSize:18,fontWeight:900,lineHeight:1.05,textAlign:'center',color:'#514638'}}>{item.title}</div>
    </div>;
   })}
