@@ -475,7 +475,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  // moving, or handling an object must not make MainBoy point at empty space.
  const points=/chỉ|trỏ|hướng tay|đánh dấu|gạch chân|đặt dấu hỏi|lần lượt chỉ/i.test(scene.action);
  const waves=/vẫy|chào|giơ tay chào/i.test(scene.action);
- const characterOnLeft=whiteStage || scene.number%2===0 || Boolean(referencePhoto) || unavailableUserPhoto;
+ const characterOnLeft=scene.number===15 ? true : whiteStage || scene.number%2===0 || Boolean(referencePhoto) || unavailableUserPhoto;
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
 const facing=characterOnLeft?'right':'left';

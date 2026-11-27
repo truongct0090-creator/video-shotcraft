@@ -3,7 +3,7 @@ import {interpolate, useCurrentFrame} from 'remotion';
 import {ChibiSupportingCharacter} from '../chibi/ChibiSupportingCharacter';
 type SceneCastData={character?:string;supportingCast?:string};
 type ActorSpec={id:string;size:'adult'|'child';pose:'standing'|'seated'|'turning';position:'left'|'center'|'right'};
-const POSITIONS:Record<ActorSpec['position'],{x:number;bottom:number}>={left:{x:330,bottom:88},center:{x:875,bottom:88},right:{x:1420,bottom:88}};
+const POSITIONS:Record<ActorSpec['position'],{x:number;bottom:number}>={left:{x:520,bottom:88},center:{x:900,bottom:88},right:{x:1260,bottom:88}};
 const actor=(spec:ActorSpec,frame:number)=>{
  const child=spec.size==='child',width=child?112:165,height=child?174:250;
  const {x,bottom}=POSITIONS[spec.position],facing=spec.position==='right'?'left':'right';
