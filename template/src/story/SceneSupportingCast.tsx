@@ -39,11 +39,11 @@ export const SceneSupportingCast:React.FC<{scene:SceneCastData}> = ({scene}) => 
   if (kind==='courtroom') return <>
     <div style={{position:'absolute',left:760,bottom:330,width:400,height:170,background:'linear-gradient(180deg,#795638,#493324)',border:'12px solid #30251e',borderRadius:'14px 14px 4px 4px',zIndex:3,boxShadow:'0 14px 22px #0005'}}/>
     {actor({id:'judge-a',x:875,bottom:390})}
-    {seat(400,95,-3)}{seat(1360,95,3)}
+    {seat(400,95,-3)}{seat(1080,95,3)}
     {actor({id:'lawyer-a',x:405,bottom:105,pose:'seated',facing:'right'})}
-    {actor({id:'lawyer-b',x:1370,bottom:105,pose:'seated',facing:'left'})}
-    {actor({id:'defendant-a',x:930,bottom:105,pose:'seated',facing:'left'})}
-    {hasChildren?actor({id:'child-court-a',x:1120,bottom:95,size:'child',pose:'seated',facing:'left'}):null}
+    {actor({id:'lawyer-b',x:1090,bottom:105,pose:'seated',facing:'left'})}
+    {actor({id:'defendant-a',x:700,bottom:105,pose:'seated',facing:'left'})}
+    {hasChildren?actor({id:'child-court-a',x:900,bottom:95,size:'child',pose:'seated',facing:'left'}):null}
   </>;
   if (kind==='meeting') return <>
     <div style={{position:'absolute',left:650,bottom:145,width:620,height:105,zIndex:3,pointerEvents:'none',background:'linear-gradient(180deg,#896747,#60452f)',border:'10px solid #493729',borderRadius:'50%',boxShadow:'0 18px 24px #0005'}}/>
