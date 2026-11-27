@@ -76,7 +76,7 @@ for (const scene of scenes) {
   if (scene.photo && !safeReferencePhoto && !safeExternalPhoto && !safeUserReferencePhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
   if (scene.photoLabel && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Nhãn ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
-  if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
+  if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
   if (scene.ttsCue) {
