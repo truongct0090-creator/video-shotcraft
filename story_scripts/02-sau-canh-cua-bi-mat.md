@@ -70,7 +70,7 @@
 **Đạo cụ:** Bảng số liệu, tài liệu họp báo.
 **Lời dẫn:** “Đến đây có một con số thường được nhắc lại. Tại họp báo ngày 30 tháng 6 năm 2023, đại diện Cục An ninh nội địa cho biết trong sáu tháng đầu năm, lực lượng chức năng phát hiện và xử lý 12 vụ, với 85 người hoạt động, sinh hoạt theo nhóm này. Nhớ nhé, đây là số liệu trong sáu tháng đầu năm 2023, không phải con số đại diện cho mọi người từng tham gia từ trước tới nay. Nghe một con số thì dễ giật mình, nhưng đọc số liệu phải đọc cả chú thích bên cạnh.”
 **Âm thanh/Chữ:** “12 VỤ – 85 NGƯỜI – 6 THÁNG ĐẦU NĂM 2023”; ghi nguồn và ngày.
-**Loại cảnh:** investigation
+**Loại cảnh:** modern
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -137,7 +137,7 @@
 **Đạo cụ:** Hồ sơ pháp lý, nhãn phân loại.
 **Lời dẫn:** “Đến phần pháp lý, mình cần nói thật chính xác. Năm 2022, một số người liên quan đến cơ sở này bị xét xử theo Điều 331 Bộ luật Hình sự. Những cáo buộc khác từng lan truyền trên mạng phải được xem theo từng hồ sơ và kết luận cụ thể. Đừng lấy một lời đồn rồi kể như bản án. Mà cũng đừng vì có người bênh vực mà phủ nhận những gì tòa án đã tuyên. Hai việc đó đều không ổn.”
 **Âm thanh/Chữ:** “BẢN ÁN KHÁC VỚI LỜI ĐỒN”.
-**Loại cảnh:** investigation
+**Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -147,7 +147,7 @@
 **Đạo cụ:** Cặp sách, vở, biểu tượng bảo vệ danh tính.
 **Lời dẫn:** “Có một điều mình nghĩ cần nói riêng. Trong mọi câu chuyện có trẻ em, các em không phải đạo cụ để người lớn chứng minh mình đúng, cũng không phải nhân vật để mạng xã hội đem ra tranh cãi mãi mãi. Dù câu chuyện thuộc phe nào, trẻ em vẫn cần được bảo vệ danh tính, quyền học tập, sức khỏe và sự an toàn. Người lớn có thể tranh luận. Nhưng đừng bắt trẻ con phải gánh hậu quả thay người lớn.”
 **Âm thanh/Chữ:** “BẢO VỆ TRẺ EM – TRƯỚC HẾT”.
-**Loại cảnh:** interior
+**Loại cảnh:** checklist
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 
@@ -182,7 +182,7 @@
 **Đạo cụ:** Hồ sơ, lịch thời gian, bản đồ Gia Lai – Kon Tum.
 **Lời dẫn:** “Đến tháng 5 năm 2013, TAND tỉnh Gia Lai mở phiên tòa xét xử tám bị cáo trong vụ án được báo chí gọi là vụ Hà Mòn. Các bản tin thời điểm đó cho biết những người này bị xét xử về tội danh liên quan đến phá hoại chính sách đoàn kết dân tộc. Mình nhắc rõ: đây là nội dung của vụ án và bản án đối với các bị cáo cụ thể. Không thể từ đó suy ra mọi người từng nghe theo lời đồn Đức Mẹ hiện hình đều phạm tội.”
 **Âm thanh/Chữ:** “THÁNG 5.2013 – XÉT XỬ 8 BỊ CÁO”; nguồn báo chí.
-**Loại cảnh:** investigation
+**Loại cảnh:** historic
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -192,7 +192,7 @@
 **Đạo cụ:** Bảng “niềm tin cá nhân” và “hành vi cụ thể”.
 **Lời dẫn:** “Đây là đoạn rất dễ bị kể lệch. Một người có quyền thực hành đức tin của mình; còn hành vi vi phạm pháp luật, nếu có, phải được chứng minh và xử lý theo đúng người, đúng việc. Không thể lấy một vụ án để quy chụp cả cộng đồng tôn giáo. Và cũng không thể lấy danh nghĩa đức tin để miễn trừ trách nhiệm cho bất kỳ ai. Hai nguyên tắc này phải đi cùng nhau.”
 **Âm thanh/Chữ:** “ĐÚNG NGƯỜI – ĐÚNG HÀNH VI – ĐÚNG CHỨNG CỨ”.
-**Loại cảnh:** community
+**Loại cảnh:** checklist
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -207,7 +207,7 @@
 **Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
 **Hơi thở sau:** Nhưng ở đây, mình muốn chậm lại một chút.
 **Âm thanh/Chữ:** “TỪ KHOẢNG NĂM 1989 – MIỀN NÚI PHÍA BẮC”.
-**Loại cảnh:** countryside
+**Loại cảnh:** map
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 
@@ -241,7 +241,7 @@
 **Đạo cụ:** Trích dẫn nguồn công khai, tài liệu nghiên cứu của Viện Hàn lâm Khoa học Xã hội Việt Nam.
 **Lời dẫn:** “Các cơ quan chức năng ở một số địa phương từng gọi đây là tổ chức bất hợp pháp và đưa ra nhận định về hoạt động ly khai, tự trị. Đó là quan điểm và kết luận được nêu trong các văn bản của cơ quan chức năng. Trong khi đó, nghiên cứu học thuật tiếp cận hiện tượng này như một hiện tượng tôn giáo mới, phân tích nguồn gốc, nghi lễ và bối cảnh cộng đồng. Hai loại tài liệu có mục đích khác nhau, nên mình không trộn chúng thành một kết luận duy nhất. Người xem cần biết ai đang nói, nói trong tư cách nào và dựa trên loại chứng cứ gì.”
 **Âm thanh/Chữ:** “PHÂN BIỆT NGUỒN – PHÂN BIỆT GÓC NHÌN”.
-**Loại cảnh:** archive
+**Loại cảnh:** printing
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -253,7 +253,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Dương Văn Mình qua đời năm 2021. Nhưng một hiện tượng tồn tại hơn ba mươi năm không biến mất khỏi đời sống cộng đồng chỉ vì người đứng đầu không còn. Những thay đổi trong quan hệ gia đình, phong tục, niềm tin và cách tổ chức cộng đồng có thể còn để lại dấu vết lâu dài. Và đó là lý do khi kể câu chuyện này, mình không muốn chỉ dừng ở một cái tên. Điều cần nhìn là con người và cộng đồng đã trải qua những gì.”
 **Âm thanh/Chữ:** “2021 – NGƯỜI ĐỨNG ĐẦU QUA ĐỜI; DI SẢN XÃ HỘI CÒN CẦN TÌM HIỂU”.
-**Loại cảnh:** countryside
+**Loại cảnh:** community
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 
@@ -295,7 +295,7 @@
 **Đạo cụ:** Hai chiếc ghế, bàn trà, điện thoại đặt úp.
 **Lời dẫn:** “Nếu người thân của bạn đang tham gia một nhóm khiến bạn lo lắng, đừng vội mở đầu bằng câu ‘con bị dụ rồi’. Nói vậy thường chỉ khiến người ta đóng cửa lòng. Thử hỏi xem họ đang tìm kiếm điều gì, có điều gì khiến họ vui, có điều gì làm họ bất an. Mình có thể không đồng ý, nhưng vẫn nên giữ một con đường để trò chuyện. Và nếu có dấu hiệu đe dọa, ép buộc hay nguy hiểm, hãy tìm sự hỗ trợ phù hợp.”
 **Âm thanh/Chữ:** “LẮNG NGHE TRƯỚC – TRAO ĐỔI SAU”.
-**Loại cảnh:** interior
+**Loại cảnh:** teahouse
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
 
@@ -325,7 +325,7 @@
 **Đạo cụ:** Bốn thẻ nguồn, bốn biểu tượng tài liệu.
 **Lời dẫn:** “Mình cũng muốn nhắc lại: bốn câu chuyện hôm nay không giống nhau. Có số liệu từ họp báo; có quyết định hành chính; có bản án; có lời kể và nghiên cứu học thuật. Mỗi loại tài liệu trả lời một câu hỏi khác nhau. Nếu trộn tất cả lại rồi gọi chung bằng một nhãn, câu chuyện có thể nghe kịch tính hơn, nhưng sẽ kém chính xác hơn.”
 **Âm thanh/Chữ:** “MỖI NGUỒN – MỘT GIỚI HẠN”.
-**Loại cảnh:** investigation
+**Loại cảnh:** meeting
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
