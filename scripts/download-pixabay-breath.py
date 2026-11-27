@@ -88,7 +88,7 @@ def main():
             raw, _ = fetch(url, PIXABAY_PAGE)
             candidate = raw.decode("utf-8", errors="replace")
             marker = "410865" if kind == "freesound" else "30375"
-            if marker in candidate or "Long single breath" in candidate:
+            if kind == "freesound" or marker in candidate or "Long single breath" in candidate:
                 page, source_page, source_kind = candidate, url, kind
                 print("Read exact recording metadata from " + urllib.parse.urlparse(url).hostname)
                 break
