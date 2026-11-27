@@ -59,6 +59,18 @@ def fetch(url, referer=None):
     with urllib.request.urlopen(request, timeout=45) as response:
         return response.read(), response.headers.get("Content-Type", "")
 
+def select_audio_url(urls, source_kind):
+    for url in urls:
+        parsed = urllib.parse.urlparse(url)
+        pixabay_match = parsed.hostname == "cdn.pixabay.com" and parsed.path.startswith("/audio/")
+        freesound_match = parsed.hostname == "cdn.freesound.org" and parsed.path.startswith("/previews/410/410865_")
+        if parsed.scheme == "https" and parsed.path.lower().endswith(".mp3"):
+            if source_kind == "pixabay" and pixabay_match:
+                return url
+            if source_kind == "freesound" and freesound_match:
+                return url
+    return None
+
 def is_mp3(data):
     if len(data) < 10_000:
         return False
@@ -113,14 +125,7 @@ def main():
         urls.extend(re.findall(r"""https?://cdn\.pixabay\.com/audio/[^\s"'<>]+?\.mp3(?:\?[^\s"'<>]*)?""", page))
     urls = list(dict.fromkeys(html.unescape(url) for url in urls))
 
-    selected = None
-    for url in urls:
-        parsed = urllib.parse.urlparse(url)
-        pixabay_match = parsed.hostname == "cdn.pixabay.com" and parsed.path.startswith("/audio/")
-        freesound_match = parsed.hostname == "cdn.freesound.org" and parsed.path.startswith("/previews/410/410865_")
-        if parsed.scheme == "https" and parsed.path.lower().endswith(".mp3") and (pixabay_match or freesound_match):
-            selected = url
-            break
+    selected = select_audio_url(urls, source_kind)
     if not selected:
         raise SystemExit("The exact Pixabay/Freesound page did not expose its own approved MP3 preview URL.")
 

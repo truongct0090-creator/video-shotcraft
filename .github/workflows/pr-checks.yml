@@ -20,6 +20,7 @@ on:
       - 'scripts/parse-story.mjs'
       - 'scripts/validate-scene-design.mjs'
       - 'scripts/download-pixabay-breath.py'
+      - 'scripts/test_download_pixabay_breath.py'
       - 'scripts/validate-rendered-film.mjs'
       - 'scripts/fetch-story-reference-images.mjs'
       - 'scripts/qa-rendered-film.mjs'
@@ -92,6 +93,9 @@ jobs:
 
       - name: Validate selected Pixabay audio downloader syntax
         run: python3 -m py_compile scripts/download-pixabay-breath.py
+
+      - name: Exact selected breath source regression tests
+        run: python3 scripts/test_download_pixabay_breath.py -v
 
       - name: Asset-first animation workshop inventory
         run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
