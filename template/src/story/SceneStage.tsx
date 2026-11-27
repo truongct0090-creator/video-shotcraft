@@ -61,8 +61,8 @@ const Backdrop:React.FC<{world:World}> = ({world}) => {
 
 const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
- const propText=(scene.props||[scene.setting,scene.action,scene.heading].join(' ')).toLowerCase();
- const visualKey=/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
+ const propText=[scene.props||'',scene.setting||'',scene.action||'',scene.heading||''].join(' ').toLowerCase();
+ const visualKey=scene.number===12?'compare':scene.number===16?'legal-case':scene.number===21?'research-stack':scene.number===25?'pitch':scene.number===30?'two-column':scene.number===31?'social-feed':/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
   /bảng ghim|ba thẻ màu/.test(propText)?'categories':
   /bản đồ nam kỳ/.test(propText)?'south-map':
   /ấm trà|chén trà/.test(propText)?'teahouse':
