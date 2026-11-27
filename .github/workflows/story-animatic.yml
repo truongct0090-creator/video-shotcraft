@@ -26,7 +26,7 @@ on:
         type: boolean
 
 permissions:
-  contents: read
+  contents: write
 
 # A new manual render for the same script supersedes an older one.
 concurrency:
@@ -83,6 +83,18 @@ jobs:
         run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
       - name: Download verified public-domain historical reference images
         run: node scripts/fetch-story-reference-images.mjs
+      - name: Commit validated user-supplied reference images to this branch
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg
+          if git diff --cached --quiet; then
+            echo "No new reference image files to commit."
+          else
+            git commit -m "Add validated episode 02 reference photos"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
       - name: Inventory reusable assets and motion recipes
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
