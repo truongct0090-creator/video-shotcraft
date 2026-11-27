@@ -7,9 +7,9 @@
 ## MỞ ĐẦU – MỘT CÂU HỎI KHÔNG DỄ TRẢ LỜI
 
 ### 01. Có những lời hứa nghe rất dễ tin
-**Bối cảnh:** Nền giấy trắng ngà; bên phải là bốn tấm ảnh minh họa tư liệu đặt như ảnh in trên mặt bàn, bố cục collage lệch tự nhiên, mỗi tấm xoay một góc nhỏ và có viền giấy cùng bóng đổ mềm. MainBoy bật lên từ dưới khung hình ở bên trái, tiếp đất rồi đứng yên nhìn thẳng khán giả.
+**Bối cảnh:** Nền giấy trắng ngà; bên phải là bốn ảnh tư liệu gốc do người dùng cung cấp, đặt như ảnh in trên mặt bàn theo bố cục collage lệch tự nhiên, có viền giấy và bóng đổ mềm. MainBoy bật lên từ dưới khung hình ở bên trái, tiếp đất rồi đứng yên nhìn thẳng khán giả.
 **Hành động:** Bốn tấm ảnh lần lượt trượt vào, hơi chồng mép và dừng ở các góc lệch khác nhau; MainBoy hơi nghiêng đầu, đưa tay như muốn hỏi chuyện người xem.
-**Đạo cụ:** Bốn ảnh minh họa được vẽ riêng, ghi nhãn rõ ràng “Ảnh minh họa”: mặt tiền một địa điểm sinh hoạt cộng đồng; kiến trúc Tịnh thất Bồng Lai tái hiện; bản đồ địa hình Hà Mòn – Kon Tum; bản làng miền núi phía Bắc. Không dùng ảnh người thật chưa xác minh.
+**Đạo cụ:** Bốn ảnh tư liệu gốc, không thay bằng hình vẽ: scene-04-reference.jpg cho Hội Thánh Đức Chúa Trời Mẹ; scene-08-reference.jpg cho Tịnh thất Bồng Lai; scene-14-reference.jpg cho Hà Mòn; scene-22-reference.jpg cho hiện tượng Dương Văn Mình. Mỗi ảnh có nhãn “Ảnh minh hoạ”.
 **Lời dẫn:** “Bạn có bao giờ nghe một lời hứa mà thoạt đầu thấy… cũng có lý không? Rằng chỉ cần tin theo, cuộc sống sẽ tốt hơn. Rằng có người nắm giữ một bí mật mà người ngoài không biết. Hoặc rằng, chỉ cần làm theo một vài điều, mọi rắc rối sẽ được giải quyết. À thì… nghe cũng hấp dẫn đấy. Nhưng khoan đã. Nếu đằng sau lời hứa ấy là tiền bạc, quyền lực, sự sợ hãi, hay việc phải cắt đứt với gia đình thì sao?”
 **TTS cue:** chuckle|nghe cũng hấp dẫn đấy.
 **Âm thanh/Chữ:** Nhạc mở đầu tăng nhẹ; chữ lớn “KHI LỜI HỨA TRỞ THÀNH DẤU HỎI”.
@@ -18,9 +18,9 @@
 **Nhân vật:** main-boy
 
 ### 02. Hôm nay mình sẽ nhìn vào điều gì?
-**Bối cảnh:** Nền giấy sáng có chiều sâu; MainBoy đứng chính giữa khung hình. Bốn thẻ tư liệu minh họa đặt cân bằng hai bên, hai thẻ trên và hai thẻ dưới, tạo bố cục mở, không che nhân vật.
+**Bối cảnh:** Nền giấy sáng có chiều sâu; MainBoy đứng chính giữa khung hình. Bốn thẻ ảnh tư liệu gốc từ thư viện người dùng, đặt cân bằng hai bên theo lưới hai hàng, không che nhân vật.
 **Hành động:** MainBoy lần lượt chỉ sang bốn thẻ tư liệu ở hai bên, sau đó quay lại nhìn khán giả; các thẻ xuất hiện lần lượt với chuyển động nhẹ và bóng đổ.
-**Đạo cụ:** Bốn thẻ ảnh minh họa có tiêu đề lớn, mỗi thẻ có hình vẽ riêng: địa điểm sinh hoạt cộng đồng, công trình kiến trúc, bản đồ Kon Tum và bản làng miền núi. Dòng chữ chính “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM” đặt ở vùng trống, không đè lên MainBoy.
+**Đạo cụ:** Bốn thẻ dùng đúng ảnh scene-04, scene-08, scene-14 và scene-22 đã cung cấp, không vẽ thay thế. Dòng chữ chính “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM” đặt ở vùng trống, không đè lên MainBoy.
 **Lời dẫn:** “Hôm nay mình cùng nhìn lại bốn câu chuyện từng gây nhiều tranh cãi ở Việt Nam. Có câu chuyện gắn với những lời kêu gọi sinh hoạt tôn giáo; có câu chuyện bắt đầu từ hình ảnh nuôi trẻ, làm từ thiện; có câu chuyện lan truyền lời đồn về hiện tượng Đức Mẹ hiện hình; và có một hiện tượng tôn giáo mới trong cộng đồng người Mông. Mình không ở đây để cười nhạo người có niềm tin. Mình muốn cùng bạn hỏi một điều đơn giản hơn: đâu là điều đã được chứng minh, đâu là lời kể, và ai phải chịu trách nhiệm khi có người bị tổn hại?”
 **Âm thanh/Chữ:** “SỰ KIỆN – CHỨNG CỨ – TRÁCH NHIỆM”.
 **Sân khấu:** white-photo
@@ -33,7 +33,7 @@
 **Đạo cụ:** Bảng kiểm chứng, hồ sơ, kính lúp.
 **Lời dẫn:** “Có một chuyện mình muốn nói trước. Một tổ chức gây tranh cãi không có nghĩa là tất cả người từng tham gia đều xấu. Một cá nhân phạm pháp cũng không biến cả cộng đồng thành người có tội. Ngược lại, mình cũng không nên bỏ qua sai phạm chỉ vì nó được khoác lên một chiếc áo rất đẹp. Nói ngắn gọn: có gì nói nấy, có nguồn thì dẫn nguồn, chưa rõ thì nói chưa rõ. Chơi vậy mới công bằng, đúng không?”
 **Âm thanh/Chữ:** “KHÔNG ĐÁNH ĐỒNG – KHÔNG SUY DIỄN”.
-**Loại cảnh:** checklist
+**Loại cảnh:** investigation
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -80,7 +80,7 @@
 **Đạo cụ:** Bảng “Có được hỏi?”, “Có được từ chối?”, “Có được rời đi?”.
 **Lời dẫn:** “Vậy rốt cuộc, câu hỏi quan trọng không phải là người ta gọi buổi sinh hoạt ấy bằng cái tên gì. Mà là: bạn có được quyền hỏi lại không? Có được từ chối đóng góp hay tham gia một hoạt động nào đó không? Có được rời đi mà không bị đe dọa, gây áp lực? Một môi trường lành mạnh phải chịu được những câu hỏi bình thường như thế. Chứ cứ hỏi một câu mà bị xem là có vấn đề thì… nghe đã thấy cần xem xét rồi.”
 **Âm thanh/Chữ:** Ba câu hỏi xuất hiện từng nhịp.
-**Loại cảnh:** checklist
+**Loại cảnh:** community
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 
@@ -127,7 +127,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Rồi nhiều năm sau, cái tên Tịnh thất Bồng Lai xuất hiện ở Long An. Hai địa điểm, hai giai đoạn, nhưng có một nhân vật trung tâm được báo chí và hồ sơ điều tra nhắc tới là ông Lê Tùng Vân. Điều mình muốn nhấn mạnh ở đây không phải cứ cơ sở sau giống cơ sở trước. Mà là khi một nơi tự giới thiệu hoạt động vì trẻ em, vì người yếu thế, thì sự minh bạch càng phải cao. Tiền từ thiện đi đâu? Trẻ em được chăm sóc, học hành thế nào? Ai chịu trách nhiệm?”
 **Âm thanh/Chữ:** “MINH BẠCH – TRÁCH NHIỆM – AN TOÀN TRẺ EM”.
-**Loại cảnh:** map
+**Loại cảnh:** timeline
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -172,7 +172,7 @@
 **Đạo cụ:** Bản đồ, tờ giấy ghi “lời kể”, nhãn “tái hiện minh họa”.
 **Lời dẫn:** “Thử đặt mình vào hoàn cảnh một người dân ở vùng xa, thông tin ít, cuộc sống nhiều khó khăn, và có người nói rằng họ nhận được một thông điệp thiêng liêng. Có người tin vì hy vọng, có người tin vì cộng đồng xung quanh cùng tin, cũng có người có thể nghi ngờ. Chúng ta không nên coi thường người dân hay biến họ thành trò cười. Câu hỏi cần đặt ra là: lời khẳng định ấy có được kiểm chứng không, và ai đang sử dụng nó để kêu gọi người khác làm theo?”
 **Âm thanh/Chữ:** “LỜI KỂ KHÔNG TỰ ĐỘNG LÀ CHỨNG CỨ”.
-**Loại cảnh:** community
+**Loại cảnh:** meeting
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 
@@ -182,7 +182,7 @@
 **Đạo cụ:** Hồ sơ, lịch thời gian, bản đồ Gia Lai – Kon Tum.
 **Lời dẫn:** “Đến tháng 5 năm 2013, TAND tỉnh Gia Lai mở phiên tòa xét xử tám bị cáo trong vụ án được báo chí gọi là vụ Hà Mòn. Các bản tin thời điểm đó cho biết những người này bị xét xử về tội danh liên quan đến phá hoại chính sách đoàn kết dân tộc. Mình nhắc rõ: đây là nội dung của vụ án và bản án đối với các bị cáo cụ thể. Không thể từ đó suy ra mọi người từng nghe theo lời đồn Đức Mẹ hiện hình đều phạm tội.”
 **Âm thanh/Chữ:** “THÁNG 5.2013 – XÉT XỬ 8 BỊ CÁO”; nguồn báo chí.
-**Loại cảnh:** archive
+**Loại cảnh:** investigation
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -192,7 +192,7 @@
 **Đạo cụ:** Bảng “niềm tin cá nhân” và “hành vi cụ thể”.
 **Lời dẫn:** “Đây là đoạn rất dễ bị kể lệch. Một người có quyền thực hành đức tin của mình; còn hành vi vi phạm pháp luật, nếu có, phải được chứng minh và xử lý theo đúng người, đúng việc. Không thể lấy một vụ án để quy chụp cả cộng đồng tôn giáo. Và cũng không thể lấy danh nghĩa đức tin để miễn trừ trách nhiệm cho bất kỳ ai. Hai nguyên tắc này phải đi cùng nhau.”
 **Âm thanh/Chữ:** “ĐÚNG NGƯỜI – ĐÚNG HÀNH VI – ĐÚNG CHỨNG CỨ”.
-**Loại cảnh:** checklist
+**Loại cảnh:** community
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -207,7 +207,7 @@
 **Lời dẫn:** “Câu chuyện cuối cùng đưa chúng ta lên các tỉnh miền núi phía Bắc, nơi có cộng đồng người Mông sinh sống. Hiện tượng gắn với tên Dương Văn Mình được các tài liệu nghiên cứu và báo chí ghi nhận từ khoảng năm 1989. Nhưng ở đây, mình muốn chậm lại một chút. Bởi đây không chỉ là câu chuyện về một cá nhân hay một nhóm. Nó còn liên quan đến đời sống, phong tục, tang lễ và những thay đổi trong cộng đồng.”
 **Hơi thở sau:** Nhưng ở đây, mình muốn chậm lại một chút.
 **Âm thanh/Chữ:** “TỪ KHOẢNG NĂM 1989 – MIỀN NÚI PHÍA BẮC”.
-**Loại cảnh:** map
+**Loại cảnh:** countryside
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 
@@ -219,7 +219,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Có lẽ bạn đang thắc mắc: nhà đòn là gì? Trong các tài liệu nghiên cứu về hiện tượng này, nhà đòn được mô tả là nơi lưu giữ một số vật dụng, biểu tượng liên quan đến nghi lễ tang ma của những người đi theo. Một số nghi thức truyền thống cũng thay đổi. Với người ngoài, chuyện này có thể nghe lạ. Nhưng với một cộng đồng, thay đổi nghi lễ tang ma là chuyện rất sâu sắc, vì nó chạm tới cách họ tiễn biệt người thân và gìn giữ bản sắc.”
 **Âm thanh/Chữ:** “TANG LỄ – PHONG TỤC – CỘNG ĐỒNG”.
-**Loại cảnh:** archive
+**Loại cảnh:** historic
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -231,7 +231,7 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Đây mới là câu hỏi đáng suy nghĩ: vì sao có người tin theo? Nghiên cứu về các hiện tượng tôn giáo mới ở vùng dân tộc thiểu số cho thấy cần nhìn cả bối cảnh xã hội: đời sống khó khăn, nhu cầu được nâng đỡ, thay đổi văn hóa, nhu cầu cộng đồng và niềm hy vọng vào một tương lai tốt đẹp hơn. Nói cách khác, nếu chỉ gọi người ta là nhẹ dạ thì mình chẳng hiểu được gì cả. Muốn hiểu một hiện tượng, phải nhìn cả hoàn cảnh khiến nó có đất để phát triển.”
 **Âm thanh/Chữ:** “MUỐN HIỂU – PHẢI NHÌN CẢ BỐI CẢNH”.
-**Loại cảnh:** community
+**Loại cảnh:** countryside
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 
@@ -241,7 +241,7 @@
 **Đạo cụ:** Trích dẫn nguồn công khai, tài liệu nghiên cứu của Viện Hàn lâm Khoa học Xã hội Việt Nam.
 **Lời dẫn:** “Các cơ quan chức năng ở một số địa phương từng gọi đây là tổ chức bất hợp pháp và đưa ra nhận định về hoạt động ly khai, tự trị. Đó là quan điểm và kết luận được nêu trong các văn bản của cơ quan chức năng. Trong khi đó, nghiên cứu học thuật tiếp cận hiện tượng này như một hiện tượng tôn giáo mới, phân tích nguồn gốc, nghi lễ và bối cảnh cộng đồng. Hai loại tài liệu có mục đích khác nhau, nên mình không trộn chúng thành một kết luận duy nhất. Người xem cần biết ai đang nói, nói trong tư cách nào và dựa trên loại chứng cứ gì.”
 **Âm thanh/Chữ:** “PHÂN BIỆT NGUỒN – PHÂN BIỆT GÓC NHÌN”.
-**Loại cảnh:** investigation
+**Loại cảnh:** archive
 **Biểu cảm:** neutral
 **Nhân vật:** main-boy
 
@@ -253,16 +253,16 @@
 **Nhãn ảnh:** Ảnh minh hoạ
 **Lời dẫn:** “Dương Văn Mình qua đời năm 2021. Nhưng một hiện tượng tồn tại hơn ba mươi năm không biến mất khỏi đời sống cộng đồng chỉ vì người đứng đầu không còn. Những thay đổi trong quan hệ gia đình, phong tục, niềm tin và cách tổ chức cộng đồng có thể còn để lại dấu vết lâu dài. Và đó là lý do khi kể câu chuyện này, mình không muốn chỉ dừng ở một cái tên. Điều cần nhìn là con người và cộng đồng đã trải qua những gì.”
 **Âm thanh/Chữ:** “2021 – NGƯỜI ĐỨNG ĐẦU QUA ĐỜI; DI SẢN XÃ HỘI CÒN CẦN TÌM HIỂU”.
-**Loại cảnh:** archive
+**Loại cảnh:** countryside
 **Biểu cảm:** sad
 **Nhân vật:** main-boy
 
 ## KẾT – ĐỪNG VỘI TIN, CŨNG ĐỪNG VỘI KẾT TỘI
 
 ### 23. Bốn câu chuyện, bốn bối cảnh khác nhau
-**Bối cảnh:** Bốn thẻ chủ đề xuất hiện sau MainBoy.
-**Hành động:** MainBoy nhìn từng thẻ rồi quay lại khán giả.
-**Đạo cụ:** Bốn thẻ chủ đề.
+**Bối cảnh:** Bố cục tổng kết nền xanh rêu, bốn thẻ lớn chia hai hàng ở bên phải MainBoy, mỗi thẻ có biểu tượng và thông điệp riêng; phủ kín khung hình, không để khoảng trắng trống.
+**Hành động:** MainBoy đứng bên trái, lần lượt hướng tay về bốn thẻ rồi quay lại khán giả.
+**Đạo cụ:** Bốn thẻ tổng kết với biểu tượng hồ sơ, ngôi nhà, bản đồ và cộng đồng.
 **Lời dẫn:** “Vậy là mình vừa đi qua bốn câu chuyện. Có câu chuyện được nhắc tới trong các báo cáo về sinh hoạt tôn giáo. Có câu chuyện gắn với hoạt động nuôi trẻ, từ thiện và những vụ việc pháp lý. Có vụ án liên quan đến lời đồn Đức Mẹ hiện hình. Và có một hiện tượng kéo dài trong cộng đồng người Mông, gắn với những thay đổi sâu sắc về phong tục. Bốn câu chuyện không giống nhau, nên không thể dùng một chiếc khuôn để giải thích tất cả.”
 **Âm thanh/Chữ:** Bốn tên chủ đề hiện lần lượt.
 **Sân khấu:** white-intro
@@ -270,12 +270,12 @@
 **Nhân vật:** main-boy
 
 ### 24. Ba câu hỏi nên giữ lại
-**Bối cảnh:** Nền trắng; ba câu hỏi lớn hiện phía sau MainBoy.
+**Bối cảnh:** Không gian phòng họp màu ấm, ba thẻ câu hỏi lớn đặt thành một vòng cung quanh MainBoy, có chiều sâu và vật thể minh họa riêng.
 **Hành động:** MainBoy giơ tay đếm ba câu hỏi.
 **Đạo cụ:** Bảng “Có được hỏi?”, “Có được từ chối?”, “Có minh bạch và chịu trách nhiệm?”.
 **Lời dẫn:** “Nếu sau video này bạn chỉ nhớ ba điều, mình mong đó là ba câu hỏi này. Một: mình có được quyền đặt câu hỏi không? Hai: mình có được quyền từ chối hoặc rời đi không? Ba: người đứng đầu có minh bạch và chịu trách nhiệm khi có sai phạm không? À, nghe thì đơn giản nhỉ. Nhưng đôi khi chính những câu hỏi đơn giản lại giúp mình tránh được những quyết định rất lớn.”
 **Âm thanh/Chữ:** Ba câu hỏi lần lượt hiện.
-**Loại cảnh:** checklist
+**Loại cảnh:** meeting
 **Biểu cảm:** surprised
 **Nhân vật:** main-boy
 
@@ -285,7 +285,7 @@
 **Đạo cụ:** Bảng lời hứa, hồ sơ, kính lúp.
 **Lời dẫn:** “Đi qua bốn câu chuyện, có một điểm chung đáng để suy nghĩ: lời hứa thường rất dễ nghe. Nhưng lời hứa càng lớn thì câu hỏi về trách nhiệm càng phải rõ. Ai nói? Nói dựa trên điều gì? Nếu lời hứa không thành sự thật, ai chịu trách nhiệm? Nghe hơi khô khan nhỉ, nhưng đây chính là cách tự bảo vệ mình.”
 **Âm thanh/Chữ:** “LỜI HỨA LỚN – TRÁCH NHIỆM PHẢI RÕ”.
-**Loại cảnh:** checklist
+**Loại cảnh:** modern
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
 
@@ -335,7 +335,7 @@
 **Đạo cụ:** Bảng hai cột, bút.
 **Lời dẫn:** “Mình có thể châm biếm một lời hứa vô căn cứ, một cách làm thiếu minh bạch, hay một người tự đặt mình lên trên mọi câu hỏi. Nhưng không nên chế giễu người dân chỉ vì họ tin, không nên biến trẻ em thành trò đùa, càng không nên lấy bản sắc của một cộng đồng làm punchline. Châm biếm đúng chỗ thì sắc; châm biếm nhầm người thì chỉ thành ác ý.”
 **Âm thanh/Chữ:** “CHẤT VẤN HÀNH VI – TÔN TRỌNG CON NGƯỜI”.
-**Loại cảnh:** checklist
+**Loại cảnh:** meeting
 **Biểu cảm:** angry
 **Nhân vật:** main-boy
 
@@ -345,14 +345,14 @@
 **Đạo cụ:** Bốn thẻ chủ đề, biểu tượng bình luận.
 **Lời dẫn:** “Đến lượt bạn rồi. Trong bốn câu chuyện này, có chi tiết nào bạn muốn mình đào sâu hơn? Có tài liệu gốc nào bạn nghĩ nên đối chiếu? Cứ để lại bình luận và nguồn nếu có nhé. Mình sẽ ưu tiên những thông tin kiểm chứng được, chứ không chạy theo lời đồn cho đủ kịch tính.”
 **Âm thanh/Chữ:** “BÌNH LUẬN KÈM NGUỒN – CÙNG KIỂM CHỨNG”.
-**Loại cảnh:** community
+**Loại cảnh:** modern
 **Biểu cảm:** happy
 **Nhân vật:** main-boy
 
 ### 32. Lời chào của MainBoy
-**Bối cảnh:** Nền trắng tối giản, MainBoy đứng giữa khung hình.
+**Bối cảnh:** Khung kết xanh rêu đậm, một bảng giấy lớn màu kem chiếm phần trái, các thẻ lời nhắn xếp lớp bên phải; MainBoy đứng bên phải. Toàn bộ khung hình có chiều sâu, không để nền trắng trống.
 **Hành động:** MainBoy chỉ nhẹ về phía khán giả, mỉm cười, hạ tay.
-**Đạo cụ:** Không.
+**Đạo cụ:** Bảng lời chào, ba thẻ thông điệp, các bong bóng hội thoại và vòng sáng trang trí.
 **Lời dẫn:** “Cảm ơn bạn đã xem đến đây. Hẹn gặp lại ở câu chuyện tiếp theo. Và nhớ nhé: đừng tin chỉ vì người ta nói rất chắc; cũng đừng kết tội chỉ vì người khác kể rất nhiều. Mình cùng tìm hiểu, kiểm chứng rồi hãy kết luận.”
 **Âm thanh/Chữ:** Nhạc kết; “TÌM HIỂU – KIỂM CHỨNG – KHÔNG ĐÁNH ĐỒNG”.
 **Sân khấu:** white-intro
