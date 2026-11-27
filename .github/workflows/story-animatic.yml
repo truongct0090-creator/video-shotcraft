@@ -1,11 +1,13 @@
 name: Story animatic
 
 # One controlled full render is triggered by the visual-QA marker commit below.
-# Ignore workflow and image-manifest commits so neither can start duplicate renders.
+# Ignore workflow and image-manifest changes to prevent duplicate renders.
 on:
-  push:
+  pull_request:
+    types:
+      - synchronize
     branches:
-      - fix/full-render-edgeone-image-fallback
+      - main
     paths-ignore:
       - '.github/workflows/story-animatic.yml'
       - 'reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg'
