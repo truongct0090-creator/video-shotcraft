@@ -135,7 +135,7 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
 };
 
 
-type ReferenceArtworkKind = 'building'|'unverified'|'communique';
+type ReferenceArtworkKind = 'building'|'unverified'|'communique'|'community-hall'|'hamon-map'|'hmong-village';
 const tinhThatPhotoUrl = 'https://media.techz.vn/resize_x700x/media2019/source/myphan/2025/thang-5/12-5/tinh-that-bong-lai-7.jpg';
 const archivalPhotoStyle:React.CSSProperties = {
  filter:'grayscale(1) sepia(.34) contrast(.92) brightness(.91)',
@@ -146,6 +146,32 @@ const archivalOverlayStyle:React.CSSProperties = {
  mixBlendMode:'multiply',
 };
 const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
+  if(kind==='community-hall') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+   <rect width="820" height="610" fill="#d8ded9"/><path d="M0 430Q180 390 360 435T820 410V610H0Z" fill="#9da996"/>
+   <path d="M95 450V240L410 105L725 240V450Z" fill="#b9b4a7" stroke="#4d514d" strokeWidth="15"/>
+   <path d="M65 248L410 78L755 248" fill="none" stroke="#414642" strokeWidth="22" strokeLinejoin="round"/>
+   <rect x="155" y="270" width="510" height="180" fill="#e8e2d4" stroke="#625f55" strokeWidth="11"/>
+   <rect x="340" y="305" width="140" height="145" fill="#647b78" stroke="#4a514c" strokeWidth="10"/>
+   <rect x="210" y="310" width="85" height="75" fill="#9aa9a1" stroke="#5b625b" strokeWidth="8"/><rect x="525" y="310" width="85" height="75" fill="#9aa9a1" stroke="#5b625b" strokeWidth="8"/>
+   <path d="M110 468H710" stroke="#5d5142" strokeWidth="14"/><path d="M190 500h440" stroke="#e4d7bd" strokeWidth="8"/>
+  </svg>;
+  if(kind==='hamon-map') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+   <rect width="820" height="610" fill="#d9dfd8"/>
+   <path d="M0 420Q130 340 245 410T470 390T820 370V610H0Z" fill="#a4b29a"/>
+   <path d="M30 345L175 135L285 310L410 95L560 320L690 155L820 355" fill="#8b9d8b" stroke="#657767" strokeWidth="12" strokeLinejoin="round"/>
+   <path d="M80 445Q200 365 310 430T540 420T790 400" fill="none" stroke="#e9dfc9" strokeWidth="18"/>
+   <path d="M125 500Q260 420 385 475T690 455" fill="none" stroke="#8c9c80" strokeWidth="12"/>
+   <path d="M410 190L410 300" stroke="#a94e43" strokeWidth="12" strokeLinecap="round"/><circle cx="410" cy="170" r="42" fill="#b24f43" stroke="#f4ead8" strokeWidth="12"/>
+   <circle cx="410" cy="170" r="12" fill="#f4ead8"/>
+   <rect x="520" y="455" width="220" height="72" rx="8" fill="#eee6d6" stroke="#786c59" strokeWidth="6"/><path d="M545 480h170M545 503h115" stroke="#9b8c73" strokeWidth="7" strokeLinecap="round"/>
+  </svg>;
+  if(kind==='hmong-village') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+   <rect width="820" height="610" fill="#d9e0df"/><circle cx="650" cy="125" r="58" fill="#e9d5a9"/>
+   <path d="M0 380L155 180L300 365L470 120L650 365L790 205L900 410V610H0Z" fill="#87998e"/>
+   <path d="M0 455Q190 365 350 455T820 430V610H0Z" fill="#9caa8d"/>
+   {[130,345,565].map((x,i)=><g key={x} transform={'translate('+x+' '+(i===1?0:18)+')'}><path d="M-70 385V300L0 245L70 300V385Z" fill="#c5b79d" stroke="#5d5a4f" strokeWidth="9"/><path d="M-86 300L0 225L86 300" fill="none" stroke="#514b42" strokeWidth="15" strokeLinejoin="round"/><rect x="-18" y="325" width="36" height="60" fill="#65756c"/><path d="M-90 390H90" stroke="#5e6d59" strokeWidth="12"/></g>)}
+   <path d="M0 500Q210 440 410 510T820 485" fill="none" stroke="#e7dfca" strokeWidth="13"/>
+  </svg>;
  if(kind==='building') return <svg viewBox="0 0 820 610" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
   <rect width="820" height="610" fill="#dce7df"/><text x="410" y="52" textAnchor="middle" fontSize="30" fontWeight="900" fill="#514536">TỊNH THẤT BỒNG LAI</text><circle cx="690" cy="110" r="58" fill="#f4dca6"/>
   <path d="M0 430Q180 390 360 430T820 410V610H0Z" fill="#9bb48e"/>
@@ -175,30 +201,51 @@ const ReferenceArtwork:React.FC<{kind:ReferenceArtworkKind}> = ({kind}) => {
  </svg>;
 };
 const IntroSixReferenceGrid:React.FC<{frame:number}> = ({frame}) => {
- const items: Array<{title:string;note:string;kind:ReferenceArtworkKind}>=[
-  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',kind:'unverified'},
-  {title:'TỊNH THẤT BỒNG LAI',note:'Tư liệu minh họa · không phải ảnh chụp',kind:'building'},
-  {title:'ĐẠO HÀ MÒN',note:'Lời đồn và vụ án · Kon Tum',kind:'unverified'},
-  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Hiện tượng tôn giáo mới · từ 1989',kind:'unverified'},
+ const items: Array<{title:string;note:string;kind:ReferenceArtworkKind;left:string;top:string;angle:number;z:number}>=[
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',note:'Nguồn gốc Hàn Quốc · 1964',kind:'community-hall',left:'0%',top:'1%',angle:-3.2,z:2},
+  {title:'TỊNH THẤT BỒNG LAI',note:'Tái hiện địa điểm · minh họa',kind:'building',left:'47%',top:'0%',angle:2.4,z:4},
+  {title:'ĐẠO HÀ MÒN',note:'Kon Tum · lời đồn và vụ án',kind:'hamon-map',left:'3%',top:'45%',angle:2.1,z:5},
+  {title:'HIỆN TƯỢNG DƯƠNG VĂN MÌNH',note:'Miền núi phía Bắc · từ 1989',kind:'hmong-village',left:'48%',top:'43%',angle:-2.6,z:3},
  ];
- return <div style={{position:'absolute',left:555,right:48,top:150,bottom:42,zIndex:4,display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gridTemplateRows:'repeat(2,minmax(0,1fr))',gap:16}}>
+ return <div style={{position:'absolute',left:530,right:22,top:145,bottom:24,zIndex:4}}>
   {items.map((item,index)=>{
-   const p=interpolate(frame,[index*4,index*4+14],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-   return <div key={item.title} style={{minWidth:0,minHeight:0,overflow:'hidden',borderRadius:12,background:'#f4f0e8',border:'2px solid #d1c8b9',boxShadow:'0 8px 18px rgba(35,31,26,.12)',opacity:p,transform:'translateY('+(1-p)*24+'px)',display:'flex',flexDirection:'column'}}>
-    <div style={{height:'72%',minHeight:0,overflow:'hidden',background:'#e2e4df',display:'flex',alignItems:'center',justifyContent:'center'}}>
-     <div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden',...archivalPhotoStyle}}><ReferenceArtwork kind={item.kind}/><div style={archivalOverlayStyle}/></div>
+   const p=interpolate(frame,[index*5,index*5+16],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+   return <div key={item.title} style={{position:'absolute',left:item.left,top:item.top,width:'54%',height:'54%',minWidth:0,minHeight:0,overflow:'hidden',padding:13,boxSizing:'border-box',borderRadius:3,background:'#faf7ef',border:'1px solid #b9ad98',boxShadow:'0 5px 9px rgba(28,24,20,.20),0 18px 28px rgba(28,24,20,.25),0 32px 48px rgba(28,24,20,.13)',opacity:p,transform:'translateY('+(1-p)*28+'px) rotate('+item.angle+'deg)',transformOrigin:'center center',zIndex:item.z,display:'flex',flexDirection:'column'}}>
+    <div style={{position:'relative',flex:'1 1 70%',minHeight:0,overflow:'hidden',background:'#d8d2c4',border:'1px solid #d0c5b1'}}>
+     <div style={{width:'100%',height:'100%',...archivalPhotoStyle}}><ReferenceArtwork kind={item.kind}/></div><div style={archivalOverlayStyle}/>
     </div>
-    <div style={{flex:1,minHeight:0,padding:'5px 12px 6px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center'}}>
-     <div style={{fontFamily:'Be Vietnam Pro, sans-serif',fontSize:9.5,fontWeight:700,lineHeight:1.05,letterSpacing:.2,color:'#282522',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,0 4px 8px rgba(0,0,0,.18)'}}>Ảnh minh hoạ</div>
-     <div style={{fontSize:19,fontWeight:900,lineHeight:1.1,color:'#302d28',marginTop:4}}>{item.title}</div>
-     <div style={{fontSize:14,fontWeight:650,lineHeight:1.1,color:'#71695d',marginTop:3}}>{item.note}</div>
+    <div style={{flex:'0 0 auto',minHeight:0,padding:'7px 8px 3px',display:'flex',flexDirection:'column',justifyContent:'center',textAlign:'center',background:'#faf7ef'}}>
+     <div style={{fontFamily:'Be Vietnam Pro, sans-serif',fontSize:15,fontWeight:800,lineHeight:1.05,letterSpacing:.35,color:'#514638'}}>ẢNH MINH HỌA</div>
+     <div style={{fontSize:22,fontWeight:900,lineHeight:1.08,color:'#302d28',marginTop:4}}>{item.title}</div>
+     <div style={{fontSize:16,fontWeight:650,lineHeight:1.08,color:'#71695d',marginTop:3}}>{item.note}</div>
     </div>
    </div>;
   })}
  </div>;
 };
+
+const SceneTwoOverview:React.FC<{frame:number}> = ({frame}) => {
+ const items=[
+  {title:'HỘI THÁNH ĐỨC CHÚA TRỜI MẸ',kind:'community-hall' as ReferenceArtworkKind,left:54,top:190,angle:-2.5},
+  {title:'TỊNH THẤT BỒNG LAI',kind:'building' as ReferenceArtworkKind,left:1436,top:190,angle:2.2},
+  {title:'ĐẠO HÀ MÒN',kind:'hamon-map' as ReferenceArtworkKind,left:54,top:635,angle:2.1},
+  {title:'DƯƠNG VĂN MÌNH',kind:'hmong-village' as ReferenceArtworkKind,left:1436,top:635,angle:-2.4},
+ ];
+ return <div style={{position:'absolute',inset:0,zIndex:4,pointerEvents:'none'}}>
+  <div style={{position:'absolute',top:42,left:400,right:400,textAlign:'center',fontSize:48,fontWeight:850,letterSpacing:1.1,lineHeight:1.08,color:'#514638',textShadow:'0 2px 0 #fffaf0,0 5px 12px rgba(60,48,32,.15)'}}>BỐN CÂU CHUYỆN · MỘT CÂU HỎI</div>
+  {items.map((item,index)=>{
+   const p=interpolate(frame,[index*5,index*5+16],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+   return <div key={item.title} style={{position:'absolute',left:item.left,top:item.top,width:430,height:270,padding:10,boxSizing:'border-box',background:'#faf7ef',border:'1px solid #b9ad98',boxShadow:'0 7px 14px rgba(28,24,20,.18),0 18px 30px rgba(28,24,20,.16)',opacity:p,transform:'translateY('+(1-p)*22+'px) rotate('+item.angle+'deg)',display:'flex',flexDirection:'column'}}>
+    <div style={{flex:1,minHeight:0,overflow:'hidden',background:'#d8d2c4'}}><div style={{width:'100%',height:'100%',...archivalPhotoStyle}}><ReferenceArtwork kind={item.kind}/></div><div style={archivalOverlayStyle}/></div>
+    <div style={{padding:'7px 4px 2px',fontSize:18,fontWeight:900,lineHeight:1.05,textAlign:'center',color:'#514638'}}>{item.title}</div>
+   </div>;
+  })}
+  <div style={{position:'absolute',bottom:28,left:500,right:500,textAlign:'center',fontSize:26,fontWeight:900,letterSpacing:2,color:'#514638',textShadow:'0 2px 0 #fffaf0,0 4px 10px rgba(60,48,32,.18)'}}>SỰ KIỆN  ·  CHỨNG CỨ  ·  TRÁCH NHIỆM</div>
+ </div>;
+};
+
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
- const labels=scene.stage==='white-intro'&&scene.number===1?[]:extractSceneLabels(scene);
+ const labels=(scene.number===1||scene.number===2)?[]:extractSceneLabels(scene);
  const labelWidth=hasPhoto?'min(680px, 42%)':'min(760px, 44%)';
  const labelSide=hasPhoto
   ? (characterOnLeft?{left:72}:{right:72})
@@ -243,19 +290,20 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
 const facing=characterOnLeft?'right':'left';
- const characterPosition:React.CSSProperties=whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
+ const characterPosition:React.CSSProperties=scene.number===2?{left:757,bottom:42}:whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
 
  const fallbackKind:ReferenceArtworkKind|undefined=unavailableUserPhoto?'unverified':whiteStage?(scene.number===4?'unverified':scene.number===5?'communique':scene.number===8?'unverified':undefined):undefined;
  const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
- const characterScale=scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
- return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?'#ffffff':'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
+ const characterScale=scene.number===2?1.32:scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
+ return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?(scene.number===2?'#f1eee6':'#ffffff'):'#20252b',fontFamily:'Be Vietnam Pro, sans-serif'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><div style={{position:'absolute',inset:0,opacity:propOpacity,transform:'translateY('+(1-propEntrance)*42+'px) scale('+(0.94+propEntrance*0.06)+')',transformOrigin:'center center'}}><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></div></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div></div> : null}
   {referencePhoto && scene.photoLabel ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?744:620,width:whiteStage?820:680,zIndex:7,textAlign:'center',fontFamily:'Be Vietnam Pro, sans-serif',fontSize:11,lineHeight:1.2,fontWeight:700,letterSpacing:.2,color:whiteStage?'#282522':'#fff8e8',textShadow:whiteStage?'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{'Ảnh minh hoạ'}</div> : null}
-  {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>4 CÁNH CỬA NIỀM TIN</div><IntroSixReferenceGrid frame={frame}/></>:null}
+  {scene.number===2?<SceneTwoOverview frame={frame}/>:null}
+   {scene.stage==='white-intro'&&scene.number===1?<><div style={{position:'absolute',left:555,right:48,top:48,zIndex:5,textAlign:'center',fontSize:48,fontWeight:900,letterSpacing:.5,lineHeight:1.1,color:'#282522',textShadow:'1px 1px 0 #e4d8c6,2px 2px 0 #c7b69c,3px 3px 0 #9d896d,4px 5px 0 rgba(67,51,34,.25),0 9px 18px rgba(0,0,0,.22)'}}>4 CÁNH CỬA NIỀM TIN</div><IntroSixReferenceGrid frame={frame}/></>:null}
   {fallbackKind?<div style={{position:'absolute',right:105,top:125,width:820,height:610,padding:12,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))'}}><div style={{width:'100%',height:'100%',...archivalPhotoStyle}}><ReferenceArtwork kind={fallbackKind}/></div>{unavailableUserPhoto?<div style={{position:'absolute',left:12,right:12,bottom:12,textAlign:'center',fontSize:11,fontWeight:700,color:'#282522',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70'}}>Ảnh minh hoạ</div>:null}</div>:null}
   {whiteStage && scene.cardTitle && !fallbackKind ? <div style={{position:'absolute',right:95,top:referencePhoto?800:270,width:820,zIndex:7,textAlign:'center',fontSize:54,lineHeight:1.08,fontWeight:900,color:'#282828',textShadow:'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)'}}>{scene.cardTitle}</div> : null}
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:24,lineHeight:1.22,fontWeight:700,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{scene.photoCaption}</div> : null}
