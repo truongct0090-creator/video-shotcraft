@@ -91,53 +91,51 @@ def main():
         ("https://r.jina.ai/http://pixabay.com/sound-effects/people-long-single-breath-trough-mouth-male-01-30375/", "pixabay"),
         (FREESOUND_PAGE, "freesound"),
     ]
-    page = ""
-    source_page = ""
-    source_kind = ""
     failures = []
-    for url, kind in pages:
+    for source_page, source_kind in pages:
+        host = urllib.parse.urlparse(source_page).hostname
         try:
-            raw, _ = fetch(url, PIXABAY_PAGE)
-            candidate = raw.decode("utf-8", errors="replace")
-            marker = "410865" if kind == "freesound" else "30375"
-            if kind == "freesound" or marker in candidate or "Long single breath" in candidate:
-                page, source_page, source_kind = candidate, url, kind
-                print("Read exact recording metadata from " + urllib.parse.urlparse(url).hostname)
-                break
-            failures.append(urllib.parse.urlparse(url).hostname + ": source ID not present")
+            raw, _ = fetch(source_page, PIXABAY_PAGE)
+            page = raw.decode("utf-8", errors="replace")
+            if source_kind == "pixabay" and "30375" not in page and "Long single breath" not in page:
+                failures.append(host + ": page did not identify Pixabay sound 30375")
+                continue
+
+            ld = JsonLdParser()
+            ld.feed(page)
+            urls = []
+            for document in ld.documents:
+                try:
+                    urls.extend(audio_objects(json.loads(html.unescape(document))))
+                except (json.JSONDecodeError, TypeError):
+                    continue
+
+            if source_kind == "freesound":
+                urls.extend(re.findall(r"""https?://cdn\\.freesound\\.org/previews/410/410865_[^\\s"'<>]+?\\.mp3""", page))
+            else:
+                urls.extend(re.findall(r"""https?://cdn\\.pixabay\\.com/audio/[^\\s"'<>]+?\\.mp3(?:\\?[^\\s"'<>]*)?""", page))
+            selected = select_audio_url(list(dict.fromkeys(html.unescape(url) for url in urls)), source_kind)
+            if not selected:
+                failures.append(host + ": page loaded but did not expose its matching public MP3 preview")
+                continue
+
+            data, content_type = fetch(selected, source_page)
+            if not is_mp3(data):
+                failures.append(host + ": media URL returned non-MP3 data (" + content_type + ")")
+                continue
+
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_bytes(data)
+            print("Downloaded the exact selected recording to " + str(args.output) + " (" + str(len(data)) + " bytes)")
+            print("Pixabay listing: " + PIXABAY_PAGE)
+            print("Matched source page: " + source_page)
+            print("Direct media host: " + urllib.parse.urlparse(selected).hostname)
+            return
+
         except Exception as exc:
-            failures.append(urllib.parse.urlparse(url).hostname + ": " + str(exc))
-    if not page:
-        raise SystemExit("Could not access the exact user-selected recording: " + " | ".join(failures))
+            failures.append(host + ": " + str(exc))
 
-    ld = JsonLdParser()
-    ld.feed(page)
-    urls = []
-    for raw in ld.documents:
-        try:
-            urls.extend(audio_objects(json.loads(html.unescape(raw))))
-        except (json.JSONDecodeError, TypeError):
-            continue
-
-    if source_kind == "freesound":
-        urls.extend(re.findall(r"""https?://cdn\.freesound\.org/previews/410/410865_[^\s"'<>]+?\.mp3""", page))
-    else:
-        urls.extend(re.findall(r"""https?://cdn\.pixabay\.com/audio/[^\s"'<>]+?\.mp3(?:\?[^\s"'<>]*)?""", page))
-    urls = list(dict.fromkeys(html.unescape(url) for url in urls))
-
-    selected = select_audio_url(urls, source_kind)
-    if not selected:
-        raise SystemExit("The exact Pixabay/Freesound page did not expose its own approved MP3 preview URL.")
-
-    data, content_type = fetch(selected, source_page)
-    if not is_mp3(data):
-        raise SystemExit("The selected recording response is not a valid MP3 (content-type: " + content_type + ").")
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_bytes(data)
-    print("Downloaded the exact selected recording to " + str(args.output) + " (" + str(len(data)) + " bytes)")
-    print("Pixabay listing: " + PIXABAY_PAGE)
-    print("Matched source page: " + source_page)
-    print("Direct media host: " + urllib.parse.urlparse(selected).hostname)
+    raise SystemExit("Could not retrieve the exact selected recording; no alternate sound was used. " + " | ".join(failures))
 
 if __name__ == "__main__":
     main()
