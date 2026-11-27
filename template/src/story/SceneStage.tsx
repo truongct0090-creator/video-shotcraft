@@ -374,9 +374,9 @@ const normalizeVisualText=(value:string)=>value
 
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
  const labels=(scene.number===1||scene.number===2)?[]:extractSceneLabels(scene).map(normalizeVisualText).filter(Boolean);
- const labelWidth=hasPhoto?440:'min(760px, 44%)';
+ const labelWidth=hasPhoto?420:'min(760px, 44%)';
  const labelSide=hasPhoto
-  ? (characterOnLeft?{left:510}:{right:510})
+  ? (characterOnLeft?{left:600}:{right:600})
   : (characterOnLeft?{right:72}:{left:72});
  return <>
   {!whiteStage && hasPhoto && scene.photoCaption ? <div style={{position:'absolute',right:150,top:620,width:680,maxWidth:'42%',zIndex:8,padding:'9px 14px',boxSizing:'border-box',background:'rgba(28,31,32,.82)',color:'#fff8e8',fontSize:18,fontWeight:700,lineHeight:1.25,textAlign:'center',textShadow:'0 2px 4px rgba(0,0,0,.55)',borderRadius:5}}>{normalizeVisualText(scene.photoCaption)}</div> : null}
@@ -418,7 +418,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
 const facing=characterOnLeft?'right':'left';
- const characterPosition:React.CSSProperties=scene.number===2?{left:757,bottom:42}:scene.number===32?{right:100,bottom:45}:whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:650,bottom:105}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
+ const characterPosition:React.CSSProperties=scene.number===2?{left:757,bottom:42}:scene.number===32?{right:100,bottom:45}:whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:55,bottom:45}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
 
  const mouthFrames=scene.mouthFrames||[];
  const speakingLevel=mouthFrames.length?mouthFrames[Math.min(frame,mouthFrames.length-1)]:undefined;
