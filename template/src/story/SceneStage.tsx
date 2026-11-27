@@ -12,10 +12,11 @@ export type FilmSceneData = {
   expression?:BoyExpression;
 };
 
-type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';
+type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'courtroom'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic';
 const chooseWorld = (text:string, preferred?:string):World => {
   const s=text.toLowerCase();
-  if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(preferred)) return preferred as World;
+  if (preferred && ['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic'].includes(preferred)) return preferred as World;
+  if (/tòa án|phòng xử|xét xử|thẩm phán|bị cáo|luật sư|phiên tòa/.test(s)) return 'courtroom';
   if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị/.test(s)) return 'meeting';
   if (/bản đồ|map|địa danh|đường dây|mốc thời gian/.test(s)) return 'map';
   if (/hồ sơ|phòng hồ sơ|bảng ghim|tài liệu|văn bản|báo chí|bàn làm việc/.test(s)) return 'archive';
@@ -29,8 +30,8 @@ const chooseWorld = (text:string, preferred?:string):World => {
 };
 
 const Backdrop:React.FC<{world:World}> = ({world}) => {
- const sky:Record<World,string>={alley:'#25283b',archive:'#28303a',map:'#e6d9b8',teahouse:'#30251e',historic:'#d8c7a5',countryside:'#d9ebd2',modern:'#b9d9df',interior:'#ded2bf',meeting:'#d7d0c1',investigation:'#29343a',printing:'#b99d7a',community:'#d9e0cb',checklist:'#d8dfdc',timeline:'#c8b99d',generic:'#d8d1c3'};
- const ground:Record<World,string>={alley:'#393746',archive:'#46505a',map:'#c3ae83',teahouse:'#57402e',historic:'#9e9b78',countryside:'#83ad79',modern:'#78999a',interior:'#9a8067',meeting:'#8c7964',investigation:'#46504c',printing:'#76583d',community:'#8e9b7c',checklist:'#7e8c86',timeline:'#8c775e',generic:'#9d947f'};
+ const sky:Record<World,string>={alley:'#25283b',archive:'#28303a',map:'#e6d9b8',teahouse:'#30251e',historic:'#d8c7a5',countryside:'#d9ebd2',modern:'#b9d9df',interior:'#ded2bf',meeting:'#d7d0c1',courtroom:'#d9d1c4',investigation:'#29343a',printing:'#b99d7a',community:'#d9e0cb',checklist:'#d8dfdc',timeline:'#c8b99d',generic:'#d8d1c3'};
+ const ground:Record<World,string>={alley:'#393746',archive:'#46505a',map:'#c3ae83',teahouse:'#57402e',historic:'#9e9b78',countryside:'#83ad79',modern:'#78999a',interior:'#9a8067',meeting:'#8c7964',courtroom:'#5d4636',investigation:'#46504c',printing:'#76583d',community:'#8e9b7c',checklist:'#7e8c86',timeline:'#8c775e',generic:'#9d947f'};
  return <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" style={{position:'absolute',inset:0,width:'100%',height:'100%'}}>
   <defs><linearGradient id="film-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={sky[world]}/><stop offset="1" stopColor={ground[world]}/></linearGradient><linearGradient id="film-glow" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff3cb" stopOpacity=".65"/><stop offset="1" stopColor="#fff3cb" stopOpacity="0"/></linearGradient></defs>
   <rect width="1920" height="1080" fill="url(#film-sky)"/>
@@ -48,6 +49,16 @@ const Backdrop:React.FC<{world:World}> = ({world}) => {
   {world==='modern'&&<g>{Array.from({length:8},(_,i)=><g key={i}><rect x={100+i*230} y={220+(i%3)*65} width="170" height={500-(i%3)*65} fill="#526b75" stroke="#354c55" strokeWidth="9"/>{Array.from({length:6},(_,j)=><rect key={j} x={120+i*230+(j%2)*70} y={250+(i%3)*65+Math.floor(j/2)*65} width="42" height="38" fill="#f0d49a"/> )}</g>)}</g>}
   {world==='interior'&&<g><rect x="120" y="110" width="1680" height="820" fill="#d6c5a8" stroke="#735d48" strokeWidth="18"/><rect x="230" y="220" width="520" height="420" fill="#9ab0b1" stroke="#6b5948" strokeWidth="16"/><path d="M490 220V640M230 430H750" stroke="#6b5948" strokeWidth="12"/><rect x="900" y="520" width="700" height="220" rx="14" fill="#78553a"/></g>}
   {world==='meeting'&&<g><rect x="170" y="120" width="1580" height="650" rx="16" fill="#d9cbb0" stroke="#665442" strokeWidth="18"/><rect x="760" y="190" width="400" height="210" rx="8" fill="#9aafaa" stroke="#655644" strokeWidth="12"/><path d="M960 190V400M760 295H1160" stroke="#655644" strokeWidth="9"/><rect x="780" y="510" width="360" height="95" rx="12" fill="#70523a" stroke="#473729" strokeWidth="12"/>{[300,520,1400,1620].map((x,i)=><g key={i} transform={'translate('+x+' 0)'}><path d="M-48 620v110m96-110v110" stroke="#493c31" strokeWidth="16"/><rect x="-70" y="500" width="140" height="120" rx="18" fill="#8a6045" stroke="#493c31" strokeWidth="10"/></g>)}<circle cx="1510" cy="235" r="52" fill="#f2e6cb" stroke="#655644" strokeWidth="10"/><path d="M1510 235v-30m0 30l25 18" stroke="#655644" strokeWidth="8" strokeLinecap="round"/><path d="M0 850H1920" stroke="#685b4b" strokeWidth="30"/></g>}
+  {world==='courtroom'&&<g>
+   <path d="M120 170H1800V850H120Z" fill="#d7c7ad" stroke="#4a382b" strokeWidth="22"/>
+   <path d="M120 170H1800V285H120Z" fill="#76513a" stroke="#3b2b21" strokeWidth="18"/>
+   <path d="M210 300V760M1710 300V760" stroke="#5a4030" strokeWidth="24"/>
+   {[280,470,1450,1640].map((x,i)=><g key={i}><rect x={x} y="335" width="135" height="260" fill="#9b7957" stroke="#4a382b" strokeWidth="12"/><path d={`M${x+20} 380H${x+115}M${x+20} 430H${x+115}M${x+20} 480H${x+115}`} stroke="#d9c29b" strokeWidth="8"/></g>)}
+   <rect x="720" y="300" width="480" height="250" rx="10" fill="#795638" stroke="#3b2b21" strokeWidth="18"/>
+   <rect x="780" y="550" width="360" height="90" fill="#503725" stroke="#33251c" strokeWidth="12"/>
+   <path d="M0 900H1920" stroke="#4a3528" strokeWidth="38"/>
+   <path d="M450 760H690V850H450ZM1230 760H1470V850H1230Z" fill="#795638" stroke="#3b2b21" strokeWidth="14"/>
+  </g>}
   {world==='investigation'&&<g><rect x="150" y="130" width="1620" height="700" rx="18" fill="#45534f" stroke="#1f292b" strokeWidth="18"/><rect x="270" y="220" width="1380" height="470" fill="#c6b38f" stroke="#594d3d" strokeWidth="14"/><rect x="340" y="300" width="135" height="155" fill="#e7d8b8" stroke="#6b5844" strokeWidth="8"/><rect x="760" y="445" width="135" height="155" fill="#b8c8c0" stroke="#6b5844" strokeWidth="8"/><rect x="1190" y="300" width="135" height="155" fill="#d9b6a2" stroke="#6b5844" strokeWidth="8"/><path d="M410 350L760 470L1190 350M830 520L1260 600" fill="none" stroke="#b34e43" strokeWidth="8" strokeDasharray="18 12"/></g>}
   {world==='printing'&&<g><rect x="120" y="160" width="1680" height="670" fill="#d0b48a" stroke="#5b4632" strokeWidth="18"/><path d="M250 720V390H730V720M300 390V280H680V390" fill="#79583b" stroke="#3f3024" strokeWidth="18"/><rect x="360" y="300" width="250" height="80" fill="#b88b55" stroke="#4b3828" strokeWidth="12"/><path d="M485 380V560M395 560H575" stroke="#493729" strokeWidth="22"/><rect x="900" y="330" width="470" height="350" fill="#e9dfc9" stroke="#6d5943" strokeWidth="14"/><path d="M960 390H1310M960 435H1310M960 480H1310M960 525H1310M960 570H1310" stroke="#8c7b61" strokeWidth="8"/></g>}
   {world==='community'&&<g><rect x="130" y="130" width="1660" height="700" rx="24" fill="#e3ddc9" stroke="#76664e" strokeWidth="16"/><rect x="250" y="220" width="420" height="310" fill="#a8c3c2" stroke="#6d604c" strokeWidth="14"/><path d="M460 220V530M250 375H670" stroke="#6d604c" strokeWidth="12"/><rect x="850" y="480" width="620" height="160" rx="18" fill="#8a6548" stroke="#4e3a2a" strokeWidth="12"/><rect x="285" y="580" width="130" height="90" rx="18" fill="#9a7958" stroke="#554735" strokeWidth="9"/><rect x="1500" y="580" width="130" height="90" rx="18" fill="#9a7958" stroke="#554735" strokeWidth="9"/></g>}
