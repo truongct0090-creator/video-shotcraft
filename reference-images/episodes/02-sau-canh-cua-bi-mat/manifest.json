@@ -148,12 +148,12 @@
     },
     {
       "id": "opening-duong-van-minh",
-      "file": null,
+      "file": "scene-22-reference.jpg",
       "scenes": [
         "01"
       ],
-      "status": "illustrative-only",
-      "notes": "No user-supplied photo for this subject among the nine files. Keep a clearly labeled illustrative graphic; do not invent a documentary photo."
+      "status": "reuse",
+      "notes": "Reuses the user-supplied scene 22 reference photo for Dương Văn Mình; use the original bytes, not generated replacement artwork."
     }
   ]
 }
