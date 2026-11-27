@@ -225,7 +225,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  // EdgeOne links in the approved script currently resolve to HTML/404, not image bytes.
  // Never pass these URLs to Remotion: use the built-in, clearly illustrative artwork instead.
- const unavailableUserPhoto=Boolean(scene.photo && /\\.edgeone\\.dev\\/?$/i.test(scene.photo));
+ const unavailableUserPhoto=Boolean(scene.photo && /\.edgeone\.dev\/?$/i.test(scene.photo));
  const referencePhoto=(unavailableUserPhoto?null:scene.photo) || (!whiteStage ? (/Nam Kỳ đầu thế kỷ/.test(scene.heading)?'reference/cochinchina-map.jpg':/Khám Lớn Sài Gòn/.test(scene.heading)?'reference/saigon-maison-centrale.jpg':/Thanh niên Cao vọng/.test(scene.heading)?'reference/nguyen-an-ninh-1929.jpg':null) : null);
  // Use the original ChibiDemo entrance: spring up from below and scale from zero,
  // followed by one short settling bounce. Do not add idle bobbing after entrance.
