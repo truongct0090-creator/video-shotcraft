@@ -63,7 +63,7 @@ def select_audio_url(urls, source_kind):
     for url in urls:
         parsed = urllib.parse.urlparse(url)
         pixabay_match = parsed.hostname == "cdn.pixabay.com" and parsed.path.startswith("/audio/")
-        freesound_match = parsed.hostname == "cdn.freesound.org" and parsed.path.startswith("/previews/410/410865_")
+        freesound_match = ((parsed.hostname == "cdn.freesound.org" and parsed.path.startswith("/previews/410/410865_")) or (parsed.hostname == "freesound.org" and parsed.path.startswith("/data/previews/410/410865_")))
         if parsed.scheme == "https" and parsed.path.lower().endswith(".mp3"):
             if source_kind == "pixabay" and pixabay_match:
                 return url
@@ -111,7 +111,7 @@ def main():
                     continue
 
             if source_kind == "freesound":
-                urls.extend(re.findall(r"""https?://cdn\\.freesound\\.org/previews/410/410865_[^\\s"'<>]+?\\.mp3""", page))
+                urls.extend(re.findall(r"""https?://(?:cdn\.freesound\.org/previews/410|freesound\.org/data/previews/410)/410865_[^\s"'<>]+?\.mp3""", page))
             else:
                 urls.extend(re.findall(r"""https?://cdn\\.pixabay\\.com/audio/[^\\s"'<>]+?\\.mp3(?:\\?[^\\s"'<>]*)?""", page))
             selected = select_audio_url(list(dict.fromkeys(html.unescape(url) for url in urls)), source_kind)
