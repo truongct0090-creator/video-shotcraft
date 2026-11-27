@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
+"""Regression tests for the exact user-selected breath recording source."""
+import importlib.util
 import unittest
-from download_pixabay_breath import is_mp3, select_audio_url
+from pathlib import Path
+
+# The production downloader intentionally uses a hyphenated CLI filename.
+# Load it by file path instead of importing a non-existent underscore module.
+_DOWNLOADER_PATH = Path(__file__).with_name("download-pixabay-breath.py")
+_SPEC = importlib.util.spec_from_file_location("download_pixabay_breath", _DOWNLOADER_PATH)
+if _SPEC is None or _SPEC.loader is None:
+    raise ImportError(f"Cannot load breath downloader from {_DOWNLOADER_PATH}")
+_DOWNLOADER = importlib.util.module_from_spec(_SPEC)
+_SPEC.loader.exec_module(_DOWNLOADER)
+
+is_mp3 = _DOWNLOADER.is_mp3
+select_audio_url = _DOWNLOADER.select_audio_url
+
 
 class ExactBreathSourceTests(unittest.TestCase):
     def test_accepts_the_selected_pixabay_asset_host(self):
@@ -30,6 +45,7 @@ class ExactBreathSourceTests(unittest.TestCase):
     def test_validates_mp3_signature(self):
         self.assertTrue(is_mp3(b"ID3" + b"0" * 12000))
         self.assertFalse(is_mp3(b"not an audio file"))
+
 
 if __name__ == "__main__":
     unittest.main()
