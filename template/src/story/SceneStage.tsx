@@ -255,8 +255,10 @@ const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:bo
   {labels.length>0?<div style={{position:'absolute',top:hasPhoto?70:76,...labelSide,width:labelWidth,zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-end':'flex-start',gap:10,pointerEvents:'none'}}>
    {labels.map((label,index)=>{
     const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-    const fontSize=label.length>34?32:label.length>24?36:label.length>15?40:46;
-    return <div key={label} style={{maxWidth:'100%',padding:'5px 9px',boxSizing:'border-box',fontSize,lineHeight:1.12,fontWeight:900,letterSpacing:.1,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',overflowWrap:'break-word',textWrap:'pretty',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.97+reveal*0.03)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{label}</div>;
+     const words=label.trim().split(/\s+/).filter(Boolean);
+     const wrapped=Array.from({length:Math.ceil(words.length/4)},(_,line)=>words.slice(line*4,line*4+4).join(' ')).join('\n');
+     const fontSize=label.length>58?52:label.length>38?58:64;
+     return <div key={label} style={{maxWidth:'100%',padding:'10px 12px',boxSizing:'border-box',fontSize,lineHeight:1.04,fontWeight:900,letterSpacing:.2,textAlign:characterOnLeft?'right':'left',color:whiteStage?'#282522':'#fff8e8',whiteSpace:'pre-line',overflowWrap:'break-word',textWrap:'pretty',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.97+reveal*0.03)+')',transformOrigin:characterOnLeft?'right center':'left center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{wrapped}</div>;
    })}
   </div>:null}
  </>;
