@@ -73,7 +73,7 @@ const Backdrop:React.FC<{world:World}> = ({world}) => {
 const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
 
  const propText=[scene.props||'',scene.setting||'',scene.action||'',scene.heading||''].join(' ').toLowerCase();
- const visualKey=scene.number===12?'compare':scene.number===16?'legal-case':scene.number===21?'research-stack':scene.number===25?'pitch':scene.number===30?'two-column':scene.number===31?'social-feed':/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
+ const visualKey=scene.number===12?'compare':scene.number===16?'legal-case':scene.number===18?'mountain-timeline':scene.number===21?'research-stack':scene.number===22?'community-legacy':scene.number===24?'three-questions':scene.number===25?'pitch':scene.number===29?'source-library':scene.number===30?'satire-boundary':scene.number===31?'social-feed':/cánh cửa|tấm giấy mời/.test(propText)?'invitation':
   /bảng ghim|ba thẻ màu/.test(propText)?'categories':
   /bản đồ nam kỳ/.test(propText)?'south-map':
   /ấm trà|chén trà/.test(propText)?'teahouse':
@@ -217,6 +217,36 @@ const SceneObjects:React.FC<{scene:FilmSceneData}> = ({scene}) => {
     <path d="M950 480v240" stroke="#d4c6ad" strokeWidth="8"/>
     <path d="M450 770h1000" stroke="#4f6257" strokeWidth="22"/>
     {[520,650,1250,1380].map(x=><g key={x}><path d={'M'+x+' 750v-80'} stroke="#5f795f" strokeWidth="10"/><circle cx={x} cy="655" r="28" fill="#d4b99a"/><circle cx={x-20} cy="645" r="20" fill="#a65a4d"/><circle cx={x+20} cy="645" r="20" fill="#a65a4d"/></g>)}
+   </g>}
+   {visualKey==='mountain-timeline'&&<g>
+    <path d="M0 760L260 390L470 650L760 260L1030 640L1320 330L1620 690L1920 420V1080H0Z" fill="#81978b"/>
+    <path d="M0 870Q380 700 760 870T1520 850T1920 830V1080H0Z" fill="#a7b58f"/>
+    <path d="M260 540H1640" stroke="#6b5841" strokeWidth="20" strokeLinecap="round"/>
+    {[390,790,1190,1530].map((x,i)=><g key={x}><circle cx={x} cy="540" r="42" fill={['#a84e43','#688477','#c29a5e','#59718a'][i]} stroke="#f4e8d0" strokeWidth="10"/><rect x={x-92} y="360" width="184" height="95" rx="12" fill="#efe3ca" stroke="#76634a" strokeWidth="8"/><path d={'M'+(x-55)+' 405h110'} stroke="#a18e70" strokeWidth="8"/></g>)}
+    <path d="M330 760V640l100-70 100 70v120zM1390 760V640l100-70 100 70v120z" fill="#bca989" stroke="#5b5143" strokeWidth="12"/>
+   </g>}
+   {visualKey==='community-legacy'&&<g>
+    <path d="M0 730Q350 590 700 730T1400 710T1920 720V1080H0Z" fill="#879b7d"/>
+    {[250,520,1430,1680].map((x,i)=><g key={x}><path d={'M'+(x-85)+' 710V'+(580+(i%2)*35)+'l85-75 85 75v130z'} fill={['#c9b797','#b6c5b5','#d0b99a','#b7c6b8'][i]} stroke="#5d584b" strokeWidth="10"/><path d={'M'+(x-105)+' '+(590+(i%2)*35)+'l105-95 105 95'} fill="none" stroke="#514b42" strokeWidth="15"/></g>)}
+    <rect x="710" y="310" width="500" height="330" rx="18" fill="#e8dfca" stroke="#6e5b43" strokeWidth="14"/>
+    <path d="M960 310v330M760 390h160m-160 55h160m-160 55h160m280-110h160m-160 55h160m-160 55h160" stroke="#9b8a6d" strokeWidth="9"/>
+    <circle cx="1450" cy="280" r="120" fill="#d7c49e" stroke="#7c674b" strokeWidth="14"/><path d="M1450 210v140m-70-70h140" stroke="#a64e43" strokeWidth="18" strokeLinecap="round"/>
+    <path d="M1340 460H1570" stroke="#f1e7d3" strokeWidth="16" strokeLinecap="round"/>
+   </g>}
+   {visualKey==='three-questions'&&<g>
+    <path d="M250 770Q960 80 1670 770" fill="none" stroke="#7a6449" strokeWidth="28"/>
+    {[0,1,2].map(i=><g key={i} transform={'translate('+(330+i*470)+' 0)'}><rect x="0" y="300" width="390" height="420" rx="24" fill={['#e7d7b8','#c6d6cb','#d9b9a8'][i]} stroke="#675944" strokeWidth="12"/><circle cx="195" cy="440" r="82" fill="#f6efdf" stroke="#857257" strokeWidth="10"/><text x="195" y="475" textAnchor="middle" fontSize="100" fontWeight="900" fill={['#9e4d42','#5c7e70','#9b7650'][i]}>?</text><path d="M80 590h230m-230 42h180" stroke="#8e7c60" strokeWidth="12" strokeLinecap="round"/></g>)}
+   </g>}
+   {visualKey==='source-library'&&<g>
+    {[0,1,2,3].map(i=><g key={i} transform={'translate('+(300+i*350)+' '+(260+(i%2)*100)+') rotate('+(i-1.5)*4+')'}><rect width="270" height="430" rx="12" fill={['#e8dcc4','#c7d4cb','#d9c0a8','#c5cce0'][i]} stroke="#665743" strokeWidth="12"/><rect x="26" y="35" width="218" height="78" rx="8" fill={['#a64f43','#597f79','#b38a56','#687997'][i]}/><path d="M45 165h180m-180 52h165m-165 52h180m-180 52h135" stroke="#8e7e64" strokeWidth="10" strokeLinecap="round"/><circle cx="210" cy="370" r="25" fill="#8c9a80"/></g>)}
+   </g>}
+   {visualKey==='satire-boundary'&&<g>
+    <path d="M300 820L600 250H1320L1620 820Z" fill="#e4d5b8" stroke="#6d5940" strokeWidth="14"/>
+    <circle cx="960" cy="410" r="165" fill="#f4e7c9" stroke="#aa8c5c" strokeWidth="16"/>
+    <path d="M820 430q140-130 280 0" fill="none" stroke="#a64e43" strokeWidth="22" strokeLinecap="round"/><path d="M870 490h180" stroke="#5d776a" strokeWidth="18" strokeLinecap="round"/>
+    <rect x="420" y="650" width="430" height="150" rx="20" fill="#d7b39e" stroke="#8f5c4c" strokeWidth="12"/><rect x="1070" y="650" width="430" height="150" rx="20" fill="#c8d5ca" stroke="#5c7b6d" strokeWidth="12"/>
+    <path d="M625 695l70 70m0-70l-70 70" stroke="#a64e43" strokeWidth="18" strokeLinecap="round"/><path d="M1200 735l40 40 90-110" fill="none" stroke="#5f826c" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M960 610v180" stroke="#6d5940" strokeWidth="16" strokeDasharray="16 16"/>
    </g>}
    {visualKey==='open-door'&&<g><rect x="650" y="210" width="380" height="500" rx="10" fill="#75563d" stroke="#30251e" strokeWidth="18"/><path d="M840 210v500" stroke="#4b3729" strokeWidth="12"/><circle cx="990" cy="475" r="13" fill="#e7c47f"/>{card(1090,320,340,280,'#e7d8b8')}{label(1140,400,'THÔNG TIN')}{label(1140,455,'CÔNG KHAI')}{label(1140,535,'CỨ HỎI RÕ')}</g>}
   </g>
