@@ -28,3 +28,11 @@ Run the **Story animatic** workflow manually on branch `fix/full-render-edgeone-
 The Dropbox links were supplied by the repository owner. The workflow verifies file integrity, not copyright ownership or the truth of any caption; confirm that you have permission to publish each image before making the repository public.
 
 The opening montage reuses four supplied photos from scenes 04, 08, 14, and 22. The Dương Văn Mình card reuses the supplied scene-22 image; do not replace it with generated artwork.
+
+
+## Visual QA and render-cost policy
+
+- Keep full Story animatic renders manual during normal editing; do not render after every file update.
+- Run one deliberate full render only after the approved visual changes and PR checks are ready.
+- The reference-image download and integrity preflight runs before VieNeu-TTS, so missing or invalid source photos stop the job before narration generation.
+- Workflow-file and reference-image commits are excluded from the temporary push trigger to prevent duplicate runs and commit loops.
