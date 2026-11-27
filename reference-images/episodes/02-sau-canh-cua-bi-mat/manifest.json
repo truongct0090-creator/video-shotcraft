@@ -8,9 +8,10 @@
       "scenes": [
         "04"
       ],
-      "source_url": "https://then-plum-el39utcz.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image URL returned HTML in the FULL render."
+      "source_url": "https://www.dropbox.com/scl/fi/n3s60z8grp67x8kbn4kzu/IMG_4020.jpeg?rlkey=n5tgtyoncyfe4kq77jkh5cwmt&st=xrhlft1m&dl=0",
+      "source_file": "IMG_4020.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 1; opening montage reuse for Hội Thánh Đức Chúa Trời Mẹ. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-05",
@@ -18,9 +19,10 @@
       "scenes": [
         "05"
       ],
-      "source_url": "https://grand-gray-xrrla1bu.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/ybvhxnvoqihizuucc8urt/IMG_4025.jpeg?rlkey=79bqfe7gr2dqks3szxdengu7w&st=uoeqzdg5&dl=0",
+      "source_file": "IMG_4025.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 2. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-08",
@@ -28,9 +30,10 @@
       "scenes": [
         "08"
       ],
-      "source_url": "https://aware-rose-aec8adoj.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Also used in opening montage for Tịnh thất Bồng Lai; URL returned HTML."
+      "source_url": "https://www.dropbox.com/scl/fi/7tq66dj7yws6jfkvgbw5a/IMG_4021.jpeg?rlkey=xhgz2peby0ylm8ua8i7lstx6l&st=iax6accv&dl=0",
+      "source_file": "IMG_4021.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 3; opening montage reuse for Tịnh thất Bồng Lai. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-11",
@@ -38,9 +41,10 @@
       "scenes": [
         "11"
       ],
-      "source_url": "https://tall-aquamarine-rcksu8mn.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/4e0snrfo9v8v3w2vqbd2n/IMG_4022.jpeg?rlkey=vfg6ngy6klcqjszput9mngwh2&st=b8fxbw5i&dl=0",
+      "source_file": "IMG_4022.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 4. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-14",
@@ -48,9 +52,10 @@
       "scenes": [
         "14"
       ],
-      "source_url": "https://nursing-coral-yq1hzjed.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Also used in opening montage for Đạo Hà Mòn; URL returned HTML."
+      "source_url": "https://www.dropbox.com/scl/fi/wbao6z13h8kd6d24nq4sa/IMG_4027.jpeg?rlkey=up2gooo0gl6of9vsggfgfxqwz&st=1kmrnka2&dl=0",
+      "source_file": "IMG_4027.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 5; opening montage reuse for Đạo Hà Mòn. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-18",
@@ -58,9 +63,10 @@
       "scenes": [
         "18"
       ],
-      "source_url": "https://decisive-green-hpvpei9m.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/vbcknv0pvxpj7psiqkemj/IMG_4026.jpeg?rlkey=8ysco9khsbx8frafpbo6i3krf&st=jqmpzfn6&dl=0",
+      "source_file": "IMG_4026.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 6. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-19",
@@ -68,9 +74,10 @@
       "scenes": [
         "19"
       ],
-      "source_url": "https://dull-coffee-1l75po2w.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/3z6rgb7o1182g63ku1otw/IMG_4028.jpeg?rlkey=f7jxzvudsb2vozts7t9m447dn&st=3psixoq8&dl=0",
+      "source_file": "IMG_4028.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 7. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-20",
@@ -78,9 +85,10 @@
       "scenes": [
         "20"
       ],
-      "source_url": "https://frantic-black-abjfen2u.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/16rrm585m3yx6ytqjbgn4/IMG_4029.jpeg?rlkey=14uejfzgh6u9q234c04p2cxlq&st=q8z3oxaa&dl=0",
+      "source_file": "IMG_4029.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 8. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "scene-22",
@@ -88,49 +96,46 @@
       "scenes": [
         "22"
       ],
-      "source_url": "https://lexical-azure-uszr13sy.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Original image file needs to be re-uploaded."
+      "source_url": "https://www.dropbox.com/scl/fi/78sbuhjn5znkm0fb8ifsu/IMG_4030.jpeg?rlkey=10wpk0rp7atogzgdgcmgpckyd&st=2f45nhee&dl=0",
+      "source_file": "IMG_4030.jpeg",
+      "status": "download-on-render",
+      "notes": "User supplied image 9. Download script validates JPEG signature and records SHA-256."
     },
     {
       "id": "opening-hoi-thanh-duc-chua-troi-me",
-      "file": "opening-hoi-thanh-duc-chua-troi-me.jpg",
+      "file": "scene-04-reference.jpg",
       "scenes": [
         "01"
       ],
-      "source_url": "https://then-plum-el39utcz.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Opening montage reuse of scene-04 source; do not duplicate bytes."
+      "status": "reuse",
+      "notes": "Reuses scene-04 source bytes; no duplicate file."
     },
     {
       "id": "opening-tinh-that-bong-lai",
-      "file": "opening-tinh-that-bong-lai.jpg",
+      "file": "scene-08-reference.jpg",
       "scenes": [
         "01"
       ],
-      "source_url": "https://aware-rose-aec8adoj.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Opening montage reuse of scene-08 source; do not duplicate bytes."
+      "status": "reuse",
+      "notes": "Reuses scene-08 source bytes; no duplicate file."
     },
     {
       "id": "opening-dao-ha-mon",
-      "file": "opening-dao-ha-mon.jpg",
+      "file": "scene-14-reference.jpg",
       "scenes": [
         "01"
       ],
-      "source_url": "https://nursing-coral-yq1hzjed.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "Opening montage reuse of scene-14 source; do not duplicate bytes."
+      "status": "reuse",
+      "notes": "Reuses scene-14 source bytes; no duplicate file."
     },
     {
       "id": "opening-duong-van-minh",
-      "file": "opening-duong-van-minh.jpg",
+      "file": null,
       "scenes": [
         "01"
       ],
-      "source_url": "https://fit-tan-zvotansr.edgeone.dev/",
-      "status": "pending-file",
-      "notes": "No confirmed original image file was present in the project materials; URL returned 404. Must be supplied and verified before use. If unavailable, keep a clearly illustrative graphic instead."
+      "status": "illustrative-only",
+      "notes": "No user-supplied photo for this subject among the nine files. Keep a clearly labeled illustrative graphic; do not invent a documentary photo."
     }
   ]
 }
