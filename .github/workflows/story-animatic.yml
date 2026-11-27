@@ -1,8 +1,15 @@
 name: Story animatic
 
-# Full renders are manual-only so a multi-file visual correction consumes one render.
-# PR checks remain in the separate PR workflow.
+# One controlled full render is triggered by the visual-QA marker commit below.
+# Ignore workflow and image-manifest commits so neither can start duplicate renders.
 on:
+  push:
+    branches:
+      - fix/full-render-edgeone-image-fallback
+    paths-ignore:
+      - '.github/workflows/story-animatic.yml'
+      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg'
+      - 'reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json'
   workflow_dispatch:
     inputs:
       script:
