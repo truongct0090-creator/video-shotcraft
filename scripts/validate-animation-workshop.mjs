@@ -76,6 +76,31 @@ const chooseSceneTemplate = (scene) => {
   if (/phòng|buổi họp|cuộc gặp|nhà|nội thất/.test(s)) return 'interior';
   return 'generic';
 };
+const sceneStageSource = fs.readFileSync(safe('template/src/story/SceneStage.tsx'), 'utf8');
+const selector = sceneStageSource.match(/const visualKey=([\\s\\S]*?);\\s*\\/\\/ Text belongs/);
+if (!selector) throw new Error('Could not inspect SceneObjects visual-key selector.');
+const mappedVisualKeys = [...selector[1].matchAll(/\\?'([^']+)'/g)].map((match) => match[1]);
+const renderedVisualKeys = new Set([...sceneStageSource.matchAll(/visualKey==='([^']+)'/g)].map((match) => match[1]));
+const missingVisualKeys = [...new Set(mappedVisualKeys)].filter((key) => !renderedVisualKeys.has(key));
+if (missingVisualKeys.length) {
+  throw new Error('Scene prop categories have no renderer: ' + missingVisualKeys.join(', '));
+}
+if (!sceneStageSource.includes("textTransform:'uppercase'") ||
+    !sceneStageSource.includes(".replace(/[;；]/g,' ')") ||
+    !sceneStageSource.includes("textTransform:'none'") ||
+    !sceneStageSource.includes('Ảnh minh hoạ')) {
+  throw new Error('Scene text policy is incomplete: require uppercase labels, semicolon removal, and the exact-case Ảnh minh hoạ exception.');
+}
+const requiredOpeningPhotos = ['scene-04-reference.jpg','scene-08-reference.jpg','scene-14-reference.jpg','scene-22-reference.jpg'];
+for (const file of requiredOpeningPhotos) {
+  if (!sceneStageSource.includes('reference/' + file)) {
+    throw new Error('Opening collage is missing supplied reference photo ' + file);
+  }
+}
+if (!sceneStageSource.includes('const SceneRecapOverview') || !sceneStageSource.includes('const SceneClosingOverview')) {
+  throw new Error('Dedicated recap and closing layouts are required for scenes 23 and 32.');
+}
+
 const sceneResults = scenes.map((scene) => {
   const candidates = ranked(scene);
   const explicit = scene.shot ? cards.find((c)=>c.name === scene.shot || c.styles?.some((s)=>s.key===scene.shot)) : null;
@@ -127,4 +152,5 @@ const report = {
 fs.mkdirSync(path.dirname(safe(output)), {recursive:true});
 fs.writeFileSync(safe(output), JSON.stringify(report,null,2)+'\n');
 console.log(`Audited ${scenes.length} scenes; ${cards.length} motion recipes; ${media.length} media files. Wrote ${output}`);
+console.log('Validated ' + new Set(mappedVisualKeys).size + ' prop renderers, uppercase text, punctuation cleanup, all four supplied opening photos, and dedicated recap/closing layouts.');
 for (const s of sceneResults) console.log(`#${s.number} ${s.title}: ${s.reuseDecision}${s.selectedShot ? ' → '+s.selectedShot : s.candidateShots[0] ? ' (top candidate: '+s.candidateShots[0].name+')' : ''}`);
