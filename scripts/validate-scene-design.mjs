@@ -35,6 +35,8 @@ for(const [world,count] of counts) if(count>4) throw new Error('Backdrop '+world
 const stage=fs.readFileSync('template/src/story/SceneStage.tsx','utf8');
 const cast=fs.readFileSync('template/src/story/SceneSupportingCast.tsx','utf8');
 const chibi=fs.readFileSync('template/src/chibi/ChibiSupportingCharacter.tsx','utf8');
+const rig=fs.readFileSync('template/src/chibi/CharacterRig.tsx','utf8');
+const mainBoy=fs.readFileSync('template/src/chibi/MainBoy.tsx','utf8');
 if(!stage.includes(".toLocaleUpperCase('vi-VN')")||!stage.includes('wrapVisualText(label,captionMaxChars)')) throw new Error('Captions must be uppercase and wrapped to their available width.');
 if(!stage.includes('lineHeight:1.24')||!stage.includes('captionFontSize=hasPhoto?44:56')) throw new Error('Caption line spacing and font sizing must remain consistent.');
 if(!stage.includes('!/tái'+String.fromCharCode(92)+'s*hiện|lời'+String.fromCharCode(92)+'s*kể/i.test(label)')) throw new Error('Editorial reconstruction labels must not appear as viewer captions.');
@@ -44,6 +46,9 @@ if(!stage.includes("textTransform:'none'")||!stage.includes("'Ảnh minh hoạ'"
 for(const w of ['courtroom','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media']) if(!stage.includes("world==='"+w+"'")) throw new Error('Missing scene-specific backdrop '+w);
 if(!cast.includes('child?112:165')||!cast.includes("scene.supportingCast==='none'")||!cast.includes("pose==='seated'")) throw new Error('Silhouette size/opt-in/pose logic is missing.');
 if(!chibi.includes("pose==='seated'")) throw new Error('Seated character rig is missing.');
+if(!rig.includes('export type CharacterRigPose')||!rig.includes('leftShoulder')||!rig.includes('leftHip')||!rig.includes('visible = false')) throw new Error('Reusable hidden skeleton rig foundation is missing.');
+if(!mainBoy.includes('resolveRigPose(rig)')||!mainBoy.includes('rigPose.leftKnee')||!mainBoy.includes('rigPose.leftElbow')||!mainBoy.includes('RigSkeleton visible={debugRig}')) throw new Error('MainBoy joints are not connected to the hidden rig.');
+if(!chibi.includes('resolveRigPose(rig)')||!chibi.includes('rigPose.leftShoulder')||!chibi.includes('rigPose.rightHip')||!chibi.includes('RigSkeleton visible={debugRig}')) throw new Error('Supporting character joints are not connected to the hidden rig.');
 if(!stage.includes("visualKey=scene.objectKey&&scene.objectKey!=='auto'?scene.objectKey:inferredVisualKey")) throw new Error('Scene-specific object keys are not authoritative.');
 if(!stage.includes("visualKey==='evidence-board'")) throw new Error('Scene 03 evidence board renderer is missing.');
 console.log('Scene design QA passed: 32 scenes, specific backdrops, no unintended scene-photo reuse, explicit silhouettes, uppercase captions, and four-word line wrapping.');
