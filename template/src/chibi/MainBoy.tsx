@@ -140,16 +140,18 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         {/* Legs, shorts and shoes: stable shapes, independent from upper-body motion. */}
         <g>
           <g transform={`rotate(${rigPose.leftHip} 270 566)`}>
-            <path d="M250 566 Q246 620 244 686 L287 686 L294 570Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
-            <g transform={`rotate(${rigPose.leftKnee} 266 680)`}>
+            <path d="M250 566 Q246 606 244 642 L287 642 L294 570Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
+            <g transform={`rotate(${rigPose.leftKnee} 266 642)`}>
+              <path d="M244 642 Q242 663 248 686 L287 686 L287 642Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
               <path d="M232 681 Q257 670 288 685 Q300 706 284 727 L207 727 Q192 718 204 699Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
               <path d="M210 709 Q248 717 287 709" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
               <path d="M245 686 l24 14" stroke="#6C9CCB" strokeWidth="7" strokeLinecap="round"/>
             </g>
           </g>
           <g transform={`rotate(${rigPose.rightHip} 330 566)`}>
-            <path d="M306 570 L313 686 L356 686 L350 566Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
-            <g transform={`rotate(${rigPose.rightKnee} 334 680)`}>
+            <path d="M306 570 L313 642 L356 642 L350 566Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
+            <g transform={`rotate(${rigPose.rightKnee} 334 642)`}>
+              <path d="M313 642 L313 686 L356 686 L356 642Z" fill={skinTone} stroke={outline} strokeWidth="8" strokeLinejoin="round"/>
               <path d="M312 685 Q343 670 373 681 L399 700 Q410 717 394 727 L316 727 Q301 713 312 685Z" fill={shoeTone} stroke={outline} strokeWidth="9" strokeLinejoin="round"/>
               <path d="M319 709 Q357 717 396 709" fill="none" stroke="#6C9CCB" strokeWidth="9" strokeLinecap="round"/>
               <path d="M338 686 l24 14" stroke="#6C9CCB" strokeWidth="7" strokeLinecap="round"/>
@@ -159,8 +161,9 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           <path d="M300 543 L300 628" stroke={outline} strokeWidth="8" strokeLinecap="round"/>
         </g>
 
+        <g transform={`rotate(${rigPose.torso} 300 470)`}>
         {/* Torso first; the neck is layered above the shirt and below the head. */}
-        <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={shirtTone} stroke={outline} strokeWidth="10" strokeLinejoin="round" transform={`rotate(${rigPose.torso} 300 470)`}/>
+        <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={shirtTone} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
 
         {/* Short, anatomically placed neck joining the jaw to the collar. */}
         <path d="M273 357 Q278 350 286 350 L314 350 Q322 350 327 357 L327 425 Q300 440 273 425Z" fill={skinTone} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
@@ -231,6 +234,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
           {mouthShape === 'open' && <ellipse cx="300" cy="338" rx="19" ry="25" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
           {mouthShape === 'wide' && <path d="M270 325 Q300 380 330 325 Q300 350 270 325Z" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
           {mouthShape === 'small-o' && <ellipse cx="300" cy="337" rx="13" ry="17" fill="#7E3540" stroke={outline} strokeWidth="6"/>}
+        </g>
         </g>
         <RigSkeleton visible={debugRig} segments={[[300,385,300,535],[222,420,184,460],[184,460,171,523],[378,420,416,460],[416,460,431,523],[270,566,266,680],[266,680,246,710],[330,566,334,680],[334,680,356,710]]} joints={[[300,385],[222,420],[184,460],[171,523],[378,420],[416,460],[431,523],[270,566],[266,680],[330,566],[334,680]]}/>
       </g>
