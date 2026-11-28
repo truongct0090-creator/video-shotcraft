@@ -76,8 +76,11 @@ for (const scene of scenes) {
   if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
   const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
   const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com|upload\.wikimedia\.org)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);
-  const safeUserReferencePhoto = /^https:\/\/[a-z0-9-]+\.edgeone\.dev\/?$/i.test(scene.photo);
-  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto && !safeUserReferencePhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
+  // Temporary EdgeOne preview hosts are not durable image sources. They can
+  // return HTML/404 while still looking like an approved URL, which makes
+  // Chromium/Remotion fail during rendering. Documentary photos must be local
+  // validated assets or stable allow-listed archival sources.
+  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must use a local validated reference/ image path or an approved archival image URL. EdgeOne preview URLs are not accepted.');
   if (scene.photoLabel && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Nhãn ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
