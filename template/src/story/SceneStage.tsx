@@ -2,6 +2,7 @@ import React from 'react';
 import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
 import type {CharacterRigPose} from '../chibi/CharacterRig';
+import {buildMainBoyPerformance} from '../chibi/CharacterMotion';
 import {SceneAssetLayer} from './SceneAssetLayer';
 import {SceneSupportingCast} from './SceneSupportingCast';
 
@@ -471,6 +472,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const inferredExpression:BoyExpression=/tức giận|phẫn nộ|châm biếm|mỉa mai|vô lý|thiếu minh bạch|lừa dối|ép buộc/i.test(actionText)?'angry':/thắc mắc|tò mò|vì sao|tại sao|câu hỏi|điều gì|bạn có bao giờ|bạn sẽ hỏi/i.test(actionText)?'surprised':/đau lòng|buồn|mất mát|qua đời|trẻ em|tổn thương/i.test(actionText)?'sad':/đe dọa|nguy hiểm|lo lắng|cảnh báo|áp lực|sợ hãi|bạo lực|đàn áp/i.test(actionText)?'worried':/bất ngờ|phát hiện|hé lộ|bí mật|đột ngột/i.test(actionText)?'surprised':/chào|mỉm cười|cảm ơn|hẹn gặp|hy vọng|tốt đẹp/i.test(actionText)?'happy':'neutral';
  const expression:BoyExpression=scene.expression||inferredExpression;
+ const performanceRig=buildMainBoyPerformance({frame,fps:useVideoConfig().fps,durationInFrames:scene.durationInFrames,action:scene.action,narration:scene.narration,heading:scene.heading});
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  // EdgeOne links in the approved script currently resolve to HTML/404, not image bytes.
  // Never pass these URLs to Remotion: use the built-in, clearly illustrative artwork instead.
@@ -513,6 +515,6 @@ const facing=characterOnLeft?'right':'left';
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:24,lineHeight:1.22,fontWeight:700,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{normalizeVisualText(scene.photoCaption)}</div> : null}
    <SceneInfoCaptions scene={scene} frame={frame} whiteStage={whiteStage} characterOnLeft={characterOnLeft} hasPhoto={Boolean(referencePhoto)||unavailableUserPhoto}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109} rig={scene.rig} debugRig={scene.debugRig}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109} rig={{...performanceRig,...(scene.rig||{})}} debugRig={scene.debugRig}/></div></div> : null}
  </div>;
 };
