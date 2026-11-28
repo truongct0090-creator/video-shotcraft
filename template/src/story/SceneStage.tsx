@@ -373,7 +373,7 @@ const SceneTwoOverview:React.FC<{frame:number}> = ({frame}) => {
   {title:'ĐẠO HÀ MÒN',photo:'reference/scene-14-reference.jpg',left:54,top:635,angle:2.1},
   {title:'DƯƠNG VĂN MÌNH',photo:'reference/scene-22-reference.jpg',left:1436,top:635,angle:-2.4},
  ];
- return <div style={{position:'absolute',inset:0,zIndex:4,pointerEvents:'none',background:'radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.28),rgba(120,101,72,.08)),repeating-linear-gradient(0deg,rgba(104,87,61,.025) 0px,rgba(104,87,61,.025) 1px,transparent 1px,transparent 5px)'}}>
+ return <div style={{position:'absolute',inset:0,zIndex:4,pointerEvents:'none',background:'transparent'}}>
   <div style={{position:'absolute',top:38,left:360,right:360,textAlign:'center',fontSize:56,fontWeight:850,letterSpacing:1.1,lineHeight:1.08,color:'#514638',textShadow:'0 2px 0 #fffaf0,0 5px 12px rgba(60,48,32,.15)'}}>BỐN CÂU CHUYỆN · MỘT CÂU HỎI</div>
   {items.map((item,index)=>{
    const p=interpolate(frame,[index*5,index*5+16],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
