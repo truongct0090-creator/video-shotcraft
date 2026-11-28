@@ -67,7 +67,7 @@ export const buildSupportingPose=(frame:number,fps:number,index:number,motion:Su
   return {rootY:-jump*52,leftHip:-s*10-8,rightHip:s*10-8,leftKnee:jump*18,rightKnee:jump*18,
    leftShoulder:-28*jump,rightShoulder:-28*jump,leftElbow:-12*jump,rightElbow:12*jump,torso:-2*jump,head:2*jump};
  }
- if(motion==='kneeling'){\n  const bow=Math.max(0,Math.sin(phase*.42));\n  return {rootY:0,torso:8+10*bow,head:8+15*bow,leftHip:-55,rightHip:55,leftKnee:70,rightKnee:-70,leftShoulder:-18-8*bow,rightShoulder:-18-8*bow,leftElbow:20+8*bow,rightElbow:-20-8*bow};\n }
+ if(motion==='kneeling'){\n  const bow=Math.max(0,Math.sin(phase*.42));\n  return {rootY:0,torso:8+10*bow,head:8+15*bow,leftHip:0,rightHip:0,leftKnee:0,rightKnee:0,leftShoulder:-18-8*bow,rightShoulder:-18-8*bow,leftElbow:20+8*bow,rightElbow:-20-8*bow};\n }
  if(motion==='bowing') return {torso:10+Math.max(0,Math.sin(phase*.35))*10,head:12,leftShoulder:-18,rightShoulder:-18,leftElbow:26,rightElbow:-26};
  return {torso:Math.sin(phase*.35)*.5,head:Math.sin(phase*.28)*.7};
 };
