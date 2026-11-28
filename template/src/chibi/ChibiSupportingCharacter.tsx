@@ -39,10 +39,9 @@ export const ChibiSupportingCharacter: React.FC<{
     <svg viewBox="-230 0 460 800" role="img" aria-label="Nhân vật phụ chibi theo mẫu gốc của repo" style={{width:'100%',height:'100%',overflow:'visible'}}>
       <g transform={`translate(${rigPose.rootX} ${790+rigPose.rootY}) rotate(${rigPose.rootRotation} 0 -400) scale(${scale*rigPose.rootScale}) ${facing==='left'?'scale(-1 1)':''}`}>
         <ellipse cx="0" cy="5" rx="150" ry="25" fill="#7f9b83" opacity=".18"/>
-        <g transform={`rotate(${rigPose.torso} 0 -350)`}>
-        <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352)`}/>
+        <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.torso} 0 -350) rotate(${rigPose.leftShoulder} -91 -352)`}/>
         <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352)`}/>
-        <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352)`}/>
+        <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.torso} 0 -350) rotate(${rigPose.rightShoulder} 91 -352)`}/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352)`}/>
         {pose==='kneeling' ? <g>
           <g transform={`rotate(${rigPose.leftHip} -58 -160)`}>
@@ -90,6 +89,7 @@ export const ChibiSupportingCharacter: React.FC<{
             </g>
           </g>
         </g>}
+        <g transform={`rotate(${rigPose.torso} 0 -350)`}>
         <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
         <path d="M-48 -330 Q0 -300 48 -330" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round"/>
         <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352) rotate(${rigPose.leftElbow} -145 -276)`}/>
