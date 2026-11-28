@@ -488,10 +488,8 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const propOpacity=interpolate(frame,[2,15],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  // Gesture intent comes from the action, not narration or props; merely opening,
  // moving, or handling an object must not make MainBoy point at empty space.
- const points=/chỉ|trỏ|hướng tay|đánh dấu|gạch chân|đặt dấu hỏi|lần lượt chỉ/i.test(scene.action);
  const waves=/vẫy|chào|giơ tay chào/i.test(scene.action);
  const characterOnLeft=scene.number===15 ? true : whiteStage || scene.number%2===0 || Boolean(referencePhoto) || unavailableUserPhoto;
- const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
  const gesture:BoyGesture=waves?'wave':'rest';
 const facing=characterOnLeft?'right':'left';
  const characterPosition:React.CSSProperties=scene.number===2?{left:757,bottom:42}:scene.number===32?{right:100,bottom:45}:whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:55,bottom:45}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
