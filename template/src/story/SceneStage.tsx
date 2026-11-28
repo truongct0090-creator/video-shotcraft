@@ -472,7 +472,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const actionText=(scene.action+' '+scene.heading+' '+scene.setting+' '+scene.narration).toLowerCase();
  const inferredExpression:BoyExpression=/tức giận|phẫn nộ|châm biếm|mỉa mai|vô lý|thiếu minh bạch|lừa dối|ép buộc/i.test(actionText)?'angry':/thắc mắc|tò mò|vì sao|tại sao|câu hỏi|điều gì|bạn có bao giờ|bạn sẽ hỏi/i.test(actionText)?'surprised':/đau lòng|buồn|mất mát|qua đời|trẻ em|tổn thương/i.test(actionText)?'sad':/đe dọa|nguy hiểm|lo lắng|cảnh báo|áp lực|sợ hãi|bạo lực|đàn áp/i.test(actionText)?'worried':/bất ngờ|phát hiện|hé lộ|bí mật|đột ngột/i.test(actionText)?'surprised':/chào|mỉm cười|cảm ơn|hẹn gặp|hy vọng|tốt đẹp/i.test(actionText)?'happy':'neutral';
  const expression:BoyExpression=scene.expression||inferredExpression;
- const performanceRig=buildMainBoyPerformance({frame,fps:useVideoConfig().fps,durationInFrames:scene.durationInFrames,action:scene.action,narration:scene.narration,heading:scene.heading});
+ const performanceRig=buildMainBoyPerformance({frame,fps,durationInFrames:scene.durationInFrames,action:scene.action,narration:scene.narration,heading:scene.heading});
  const whiteStage=Boolean(scene.stage && scene.stage.startsWith('white-'));
  // EdgeOne links in the approved script currently resolve to HTML/404, not image bytes.
  // Never pass these URLs to Remotion: use the built-in, clearly illustrative artwork instead.
@@ -492,7 +492,7 @@ export const SceneStage:React.FC<{scene:FilmSceneData}> = ({scene}) => {
  const waves=/vẫy|chào|giơ tay chào/i.test(scene.action);
  const characterOnLeft=scene.number===15 ? true : whiteStage || scene.number%2===0 || Boolean(referencePhoto) || unavailableUserPhoto;
  const actionPhase=interpolate(frame,[8,24,42],[0,1,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const gesture:BoyGesture=waves?'wave':points&&actionPhase>.15&&frame<scene.durationInFrames*.88?(characterOnLeft?'point-right':'point-left'):'rest';
+ const gesture:BoyGesture=waves?'wave':'rest';
 const facing=characterOnLeft?'right':'left';
  const characterPosition:React.CSSProperties=scene.number===2?{left:757,bottom:42}:scene.number===32?{right:100,bottom:45}:whiteStage?{left:55,bottom:55}:(referencePhoto||unavailableUserPhoto)?{left:55,bottom:45}:world==='meeting'?{right:190,bottom:105}:characterOnLeft?{left:62,bottom:45}:{right:62,bottom:45};
 
