@@ -1,6 +1,7 @@
 import React from 'react';
 import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MainBoy, type BoyExpression, type BoyGesture} from '../chibi/MainBoy';
+import type {CharacterRigPose} from '../chibi/CharacterRig';
 import {SceneAssetLayer} from './SceneAssetLayer';
 import {SceneSupportingCast} from './SceneSupportingCast';
 
@@ -9,7 +10,7 @@ export type FilmSceneData = {
   number:number; heading:string; setting:string; action:string; narration:string;
   audio:string; durationInFrames:number; startTimeInFrames?:number; world?:string; character?:string; voiceover?:string; props?:string; objectKey?:string; shot?:string; mouthFrames?:number[];
   stage?:'white-intro'|'white-photo'|'white-title'|'normal'; photo?:string; photoCaption?:string; photoLabel?:string; cardTitle?:string;
-  expression?:BoyExpression; supportingCast?:string;
+  expression?:BoyExpression; supportingCast?:string; rig?:CharacterRigPose; supportingRigs?:CharacterRigPose[]; debugRig?:boolean;
 };
 
 type World = 'alley'|'archive'|'map'|'teahouse'|'historic'|'countryside'|'modern'|'interior'|'meeting'|'courtroom'|'investigation'|'printing'|'community'|'checklist'|'timeline'|'generic'|'family-home'|'statistics-room'|'community-room'|'mountain-village'|'funeral-house'|'research-room'|'social-media';
@@ -512,6 +513,6 @@ const facing=characterOnLeft?'right':'left';
   {whiteStage && scene.photoCaption && !fallbackKind ? <div style={{position:'absolute',right:105,top:referencePhoto?744:690,width:800,zIndex:7,textAlign:'center',fontSize:24,lineHeight:1.22,fontWeight:700,color:'#555',textShadow:'1px 1px 0 rgba(255,255,255,.75),2px 2px 0 rgba(115,98,76,.14),0 5px 10px rgba(0,0,0,.16)'}}>{normalizeVisualText(scene.photoCaption)}</div> : null}
    <SceneInfoCaptions scene={scene} frame={frame} whiteStage={whiteStage} characterOnLeft={characterOnLeft} hasPhoto={Boolean(referencePhoto)||unavailableUserPhoto}/>
   {!whiteStage ? <SceneSupportingCast scene={scene}/> : null}
-  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109}/></div></div> : null}
+  {scene.character !== 'none' ? <div style={{position:'absolute',...characterPosition,width:405,height:540,overflow:'visible',zIndex:6,pointerEvents:'none',filter:whiteStage?'drop-shadow(0 12px 14px rgba(0,0,0,.16))':'drop-shadow(0 18px 20px rgba(0,0,0,.34))',transform:'translateY('+entranceY+'px) scale('+(entranceScale*characterScale)+')',transformOrigin:'center bottom'}}><div style={{position:'relative',width:405,height:540}}><MainBoy facing={facing} expression={expression} gesture={gesture} speaking={Boolean(scene.voiceover)} speakingLevel={speakingLevel} mouth={expression==='happy'?'smile':'closed'} blink={frame%112>104&&frame%112<109} rig={scene.rig} debugRig={scene.debugRig}/></div></div> : null}
  </div>;
 };
