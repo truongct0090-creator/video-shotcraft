@@ -39,6 +39,7 @@ if(!stage.includes(".toLocaleUpperCase('vi-VN')")||!stage.includes('wrapVisualTe
 if(!stage.includes('lineHeight:1.24')||!stage.includes('captionFontSize=hasPhoto?44:56')) throw new Error('Caption line spacing and font sizing must remain consistent.');
 if(!stage.includes('!/tái'+String.fromCharCode(92)+'s*hiện|lời'+String.fromCharCode(92)+'s*kể/i.test(label)')) throw new Error('Editorial reconstruction labels must not appear as viewer captions.');
 if(!stage.includes("background:whiteStage?((scene.number===23||scene.number===32)?'#243b3b':'#ffffff')")) throw new Error('White-stage scenes must use a pure white background.');
+if(!stage.includes("background:'transparent'")) throw new Error('Scene 2 must not overlay a warm tint on its white stage.');
 if(!stage.includes("textTransform:'none'")||!stage.includes("'Ảnh minh hoạ'")) throw new Error('Exact-case photo-label exception is missing.');
 for(const w of ['courtroom','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media']) if(!stage.includes("world==='"+w+"'")) throw new Error('Missing scene-specific backdrop '+w);
 if(!cast.includes('child?112:165')||!cast.includes("scene.supportingCast==='none'")||!cast.includes("pose==='seated'")) throw new Error('Silhouette size/opt-in/pose logic is missing.');
