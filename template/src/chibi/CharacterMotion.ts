@@ -7,7 +7,7 @@ const wave=(frame:number,fps:number,rate:number,phase=0)=>Math.sin((frame/fps)*M
 
 /** Speech-aware, deterministic motion: each gesture has an anticipation, action and recovery. */
 export const buildMainBoyPerformance=(args:{
- frame:number; fps:number; durationInFrames:number; action:string; narration:string; heading:string;
+ frame:number; fps:number; durationInFrames:number; action:string; narration:string; heading:string; speakingLevel?:number;
 }):CharacterRigPose=>{
  const {frame,fps,durationInFrames}=args;
  const t=clamp(frame/Math.max(1,durationInFrames));
@@ -23,7 +23,7 @@ export const buildMainBoyPerformance=(args:{
  const breathe=wave(frame,fps,.28,.6);
  // Two restrained gesture beats keep longer narration from becoming a static pose.
  const beatA=pulse(t,.27,.20),beatB=pulse(t,.68,.19);
- const beat=Math.max(beatA,beatB);
+ const voice=args.speakingLevel===undefined?1:clamp((args.speakingLevel-.08)/.52);\n const beat=Math.max(beatA,beatB)*voice;
  const phase=wave(frame,fps,.72);
  let left=idle*1.8,right=-idle*1.8,el=0,er=0,torso=breathe*.8,head=wave(frame,fps,.34)*1.2;
  if(ask){left+=-30*beat;right+=-24*beat;el+=-12*beat;er+=14*beat;head+=-5*beat;torso+=-1.8*beat;}
