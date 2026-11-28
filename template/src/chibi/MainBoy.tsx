@@ -160,7 +160,7 @@ export const MainBoy: React.FC<MainBoyProps> = ({
         </g>
 
         {/* Torso first; the neck is layered above the shirt and below the head. */}
-        <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={shirtTone} stroke={outline} strokeWidth="10" strokeLinejoin="round"/>
+        <path d="M220 405 Q247 382 276 382 L324 382 Q353 382 380 405 L408 535 Q300 568 192 535Z" fill={shirtTone} stroke={outline} strokeWidth="10" strokeLinejoin="round" transform={`rotate(${rigPose.torso} 300 470)`}/>
 
         {/* Short, anatomically placed neck joining the jaw to the collar. */}
         <path d="M273 357 Q278 350 286 350 L314 350 Q322 350 327 357 L327 425 Q300 440 273 425Z" fill={skinTone} stroke={outline} strokeWidth="7" strokeLinejoin="round"/>
