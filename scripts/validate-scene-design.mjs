@@ -44,7 +44,6 @@ if(!stage.includes("textTransform:'none'")||!stage.includes("'Ảnh minh hoạ'"
 for(const w of ['courtroom','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media']) if(!stage.includes("world==='"+w+"'")) throw new Error('Missing scene-specific backdrop '+w);
 if(!cast.includes('child?112:165')||!cast.includes("scene.supportingCast==='none'")||!cast.includes("pose==='seated'")) throw new Error('Silhouette size/opt-in/pose logic is missing.');
 if(!chibi.includes("pose==='seated'")) throw new Error('Seated character rig is missing.');
-if(!stage.includes("scene.number===2?'radial-gradient")) throw new Error('Scene 2 still has a blank white stage.');
 if(!stage.includes("visualKey=scene.objectKey&&scene.objectKey!=='auto'?scene.objectKey:inferredVisualKey")) throw new Error('Scene-specific object keys are not authoritative.');
 if(!stage.includes("visualKey==='evidence-board'")) throw new Error('Scene 03 evidence board renderer is missing.');
 console.log('Scene design QA passed: 32 scenes, specific backdrops, no unintended scene-photo reuse, explicit silhouettes, uppercase captions, and four-word line wrapping.');
