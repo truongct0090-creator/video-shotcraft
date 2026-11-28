@@ -17,6 +17,10 @@ on:
       - 'assets/lib/**'
       - 'assets/scripts/**'
       - 'scripts/validate-animation-workshop.mjs'
+      - 'scripts/parse-story.mjs'
+      - 'scripts/validate-scene-design.mjs'
+      - 'scripts/download-pixabay-breath.py'
+      - 'scripts/test_download_pixabay_breath.py'
       - 'scripts/validate-rendered-film.mjs'
       - 'scripts/fetch-story-reference-images.mjs'
       - 'scripts/qa-rendered-film.mjs'
@@ -30,6 +34,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/pr-checks.yml'
+      - '.github/workflows/story-animatic.yml'
 
 concurrency:
   group: pr-checks-${{ github.event.pull_request.number || github.ref }}
@@ -86,8 +91,17 @@ jobs:
       - name: Voiceover tail-trim regression tests
         run: python3 scripts/test_voiceover_trim.py -v
 
+      - name: Validate selected Pixabay audio downloader syntax
+        run: python3 -m py_compile scripts/download-pixabay-breath.py
+
+      - name: Exact selected breath source regression tests
+        run: python3 scripts/test_download_pixabay_breath.py -v
+
       - name: Asset-first animation workshop inventory
         run: node scripts/validate-animation-workshop.mjs --output=/tmp/animation-asset-audit.json
+
+      - name: Validate scene-specific visual design before any render
+        run: node scripts/validate-scene-design.mjs --script=story_scripts/02-sau-canh-cua-bi-mat.md
 
       - name: Parse and validate all story scene props
         run: |

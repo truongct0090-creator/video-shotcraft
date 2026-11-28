@@ -1,7 +1,14 @@
 name: Story animatic
 
-# Rendering is intentionally manual only. PR checks remain in the separate PR workflow.
+# Full renders require an explicit PR title marker or a manual workflow dispatch.
+# Ordinary PR updates only run the lightweight PR checks.
 on:
+  pull_request:
+    types:
+      - synchronize
+  issue_comment:
+    types:
+      - created
   workflow_dispatch:
     inputs:
       script:
@@ -26,7 +33,7 @@ on:
         type: boolean
 
 permissions:
-  contents: read
+  contents: write
 
 # A new manual render for the same script supersedes an older one.
 concurrency:
@@ -35,11 +42,14 @@ concurrency:
 
 jobs:
   render:
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '/run-story-animatic')) || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[RENDER-STORY-ANIMATIC]')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - name: Checkout
+      - name: Checkout the PR head for comment-triggered renders
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'issue_comment' && format('refs/pull/{0}/head', github.event.issue.number) || (github.event_name == 'pull_request' && github.event.pull_request.head.sha) || github.ref }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -60,29 +70,95 @@ jobs:
           # This workflow is manual-only; respect the selected render mode.
           RENDER_MODE: ${{ inputs.mode || 'full' }}
         run: node scripts/parse-story.mjs --script="$STORY_SCRIPT" --mode="$RENDER_MODE" --output=template/out/story-props.json
+      - name: Download and validate user-supplied Dropbox reference images
+        run: node scripts/fetch-story-reference-images.mjs
+      - name: Verify every scene and opening photo is present
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: node scripts/validate-story-reference-coverage.mjs
+      - name: Validate scene-specific backgrounds, objects, typography, and silhouettes
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: node scripts/validate-scene-design.mjs
+      - name: Download the exact user-selected Pixabay inhale when required
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
+            if [ ! -s assets/audio/pixabay-long-single-breath-male-01.mp3 ]; then
+              python3 scripts/download-pixabay-breath.py --output assets/audio/pixabay-long-single-breath-male-01.mp3
+            fi
+            test -s assets/audio/pixabay-long-single-breath-male-01.mp3
+          fi
+      - name: Require the selected human inhale before spending TTS or render resources
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
+            test -s assets/audio/pixabay-long-single-breath-male-01.mp3 || {
+              echo "::error::The approved Pixabay inhale is missing at assets/audio/pixabay-long-single-breath-male-01.mp3. Add the selected MP3 before running TTS or Remotion."
+              exit 1
+            }
+          fi
       - name: Setup Python for free local TTS
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
           cache-dependency-path: scripts/requirements-tts.txt
       - name: Cache VieNeu model files
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         uses: actions/cache@v4
         with:
           path: ${{ runner.temp }}/hf-home
           key: vieneu-v3.3.0-${{ runner.os }}
       - name: Install VieNeu-TTS CPU engine
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         run: python -m pip install -r scripts/requirements-tts.txt
+      - name: Prepare the approved Pixabay inhale sample
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'issue_comment' || inputs.voiceover }}
+        env:
+          STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
+        run: |
+          if grep -Fq '**Hơi thở sau:**' "$STORY_SCRIPT"; then
+            python -m pip install scipy soundfile
+            mkdir -p template/public/audio
+            ffmpeg -y -i assets/audio/pixabay-long-single-breath-male-01.mp3 -vn -ac 1 -ar 48000 -c:a pcm_s16le "$RUNNER_TEMP/adam-breath-source.wav"
+            python scripts/prepare-breath-sample.py --input "$RUNNER_TEMP/adam-breath-source.wav" --output template/public/audio/adam-breath.wav
+          fi
       - name: Generate Adam Southern Vietnamese narration
-        if: ${{ github.event_name == 'pull_request' || inputs.voiceover }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment' || inputs.voiceover }}
         env:
           HF_HOME: ${{ runner.temp }}/hf-home
-        run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam
-      - name: Download verified public-domain historical reference images
-        run: node scripts/fetch-story-reference-images.mjs
+        run: python scripts/generate-voiceover.py --props template/out/story-props.json --output-dir template/public/voiceover --voice Adam --breath-sample template/public/audio/adam-breath.wav --breath-gain-db -24
+      - name: Commit validated reference photos and approved inhale to the source branch
+        if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event_name == 'issue_comment' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "issue_comment" ]; then
+            PR_BRANCH=$(gh pr view "$PR_NUMBER" --json headRefName --jq .headRefName)
+          else
+            PR_BRANCH="$GITHUB_REF_NAME"
+          fi
+          git checkout -B "$PR_BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json reference-images/episodes/02-sau-canh-cua-bi-mat/*.jpg
+          if [ -s assets/audio/pixabay-long-single-breath-male-01.mp3 ]; then
+            git add assets/audio/pixabay-long-single-breath-male-01.mp3
+          fi
+          if git diff --cached --quiet; then
+            echo "No new validated source assets to commit."
+          else
+            git commit -m "Add validated episode 02 reference and inhale assets"
+            git push origin "HEAD:$PR_BRANCH"
+          fi
       - name: Inventory reusable assets and motion recipes
         env:
           STORY_SCRIPT: ${{ inputs.script || 'story_scripts/02-sau-canh-cua-bi-mat.md' }}
@@ -105,7 +181,7 @@ jobs:
       - name: Upload MP4 and render props
         uses: actions/upload-artifact@v4
         with:
-          name: story-animatic-${{ github.event_name == 'pull_request' && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
+          name: story-animatic-${{ (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'issue_comment') && 'full' || inputs.mode || 'test' }}-${{ github.run_number }}
           path: |
             template/out/story-film.mp4
             template/out/story-animatic.mp4

@@ -1,73 +1,94 @@
 #!/usr/bin/env node
 /**
- * Fetch only the pre-reviewed archival reference image used by the
- * currently approved 32-scene episode. Add another entry only when a script uses it. URLs are fixed allow-listed Wikimedia Commons originals.
- * No user script or external input can choose an arbitrary download URL.
+ * Download the nine user-supplied documentary reference photos from Dropbox.
+ * The source list is allow-listed in the episode manifest. Files are validated
+ * as JPEGs before they are copied into the Remotion public directory.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 
-const outputDir = path.resolve('template/public/reference');
-const assets = [
-  {
-    file: 'kon-tum-city-1972.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Kon_Tum_City%2C_Viet_Nam_1972.jpg',
-    minBytes: 350_000,
-    maxBytes: 550_000,
-  },
-  {
-    file: 'church-of-god-singapore.jpg',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/World_Mission_Society_Church_of_God%2C_Singapore_%282025%29_-_img_01.jpg',
-    minBytes: 1_000_000,
-    maxBytes: 3_500_000,
-    sha1: 'be5d04c6ac94141ca0548c51ca0126052827532a',
-  },
-];
+const manifestPath = path.resolve('reference-images/episodes/02-sau-canh-cua-bi-mat/manifest.json');
+const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
+const canonicalDir = path.resolve(manifest.root);
+const publicDir = path.resolve('template/public/reference');
+await fs.mkdir(canonicalDir, {recursive: true});
+await fs.mkdir(publicDir, {recursive: true});
 
-await fs.mkdir(outputDir, {recursive: true});
-const isValidImage = (bytes, asset) => {
-  if (bytes.length < asset.minBytes || bytes.length > asset.maxBytes) return false;
-  if (bytes.subarray(0, 3).toString('hex') !== 'ffd8ff') return false;
-  const sha1 = createHash('sha1').update(bytes).digest('hex');
-  return !asset.sha1 || sha1 === asset.sha1;
+const assets = manifest.assets.filter(asset => asset.source_url && asset.file && ['download-on-render', 'downloaded-jpeg-validated'].includes(asset.status));
+if (assets.length !== 9) {
+  throw new Error('Expected exactly nine allow-listed Dropbox reference images; found ' + assets.length);
+}
+const validateJpeg = (bytes, file) => {
+  if (bytes.length < 8_000 || bytes.length > 20 * 1024 * 1024) {
+    throw new Error(file + ' has an implausible size (' + bytes.length + ' bytes).');
+  }
+  if (bytes[0] !== 0xff || bytes[1] !== 0xd8 || bytes[2] !== 0xff) {
+    throw new Error(file + ' is not a JPEG (invalid file signature; Dropbox may have returned HTML).');
+  }
+  if (bytes[bytes.length - 2] !== 0xff || bytes[bytes.length - 1] !== 0xd9) {
+    throw new Error(file + ' is a truncated JPEG (missing end marker).');
+  }
 };
+
 for (const asset of assets) {
-  const target = path.join(outputDir, asset.file);
+  const canonicalPath = path.join(canonicalDir, asset.file);
+  const publicPath = path.join(publicDir, asset.file);
+  const url = new URL(asset.source_url);
+  if (url.hostname !== 'www.dropbox.com' || !url.pathname.includes('/scl/fi/')) {
+    throw new Error('Refusing non-Dropbox source for ' + asset.file);
+  }
+  url.searchParams.set('dl', '1');
+
+  let bytes = null;
   try {
-    const cached = await fs.readFile(target);
-    if (isValidImage(cached, asset)) {
-      console.log('Reused verified ' + asset.file + ' (' + cached.length + ' bytes)');
-      continue;
-    }
+    const cached = await fs.readFile(canonicalPath);
+    validateJpeg(cached, asset.file);
+    bytes = cached;
+    console.log('Reused validated ' + asset.file + ' (' + cached.length + ' bytes)');
   } catch (error) {
     if (error?.code !== 'ENOENT') throw error;
   }
 
-  let bytes = null;
-  for (let attempt = 0; attempt < 5; attempt++) {
-    const response = await fetch(asset.url, {
-      headers: {'user-agent': 'video-shotcraft-story-render/1.0 (+https://github.com/truongct0090-creator/video-shotcraft; archival image attribution in repository)'},
-      redirect: 'follow',
-    });
-    if ((response.status === 429 || response.status >= 500) && attempt < 4) {
-      const retryAfter = Number(response.headers.get('retry-after'));
-      const delayMs = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 1500 * (2 ** attempt);
-      console.warn('Wikimedia returned HTTP ' + response.status + ' for ' + asset.file + '; retrying in ' + delayMs + 'ms');
-      await new Promise(resolve => setTimeout(resolve, delayMs));
-      continue;
+  let lastError = null;
+  for (let attempt = 0; !bytes && attempt < 5; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers: {'user-agent': 'video-shotcraft-reference-import/1.0'},
+        redirect: 'follow',
+      });
+      if ((response.status === 429 || response.status >= 500) && attempt < 4) {
+        const retryAfter = Number(response.headers.get('retry-after'));
+        const delay = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 1200 * (2 ** attempt);
+        console.warn('Dropbox returned HTTP ' + response.status + ' for ' + asset.file + '; retrying in ' + delay + 'ms');
+        await new Promise(resolve => setTimeout(resolve, delay));
+        continue;
+      }
+      if (!response.ok) throw new Error('Dropbox returned HTTP ' + response.status + ' for ' + asset.file);
+      const candidate = Buffer.from(await response.arrayBuffer());
+      validateJpeg(candidate, asset.file);
+      bytes = candidate;
+      break;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 4) break;
+      if (/invalid file signature|truncated JPEG|implausible size|Refusing non-Dropbox/.test(String(error))) throw error;
+      const delay = 1000 * (attempt + 1);
+      console.warn('Download attempt ' + (attempt + 1) + ' failed for ' + asset.file + ': ' + error.message);
+      await new Promise(resolve => setTimeout(resolve, delay));
     }
-    if (!response.ok) throw new Error('Could not fetch ' + asset.file + ': HTTP ' + response.status);
-    const contentType = response.headers.get('content-type') || '';
-    if (!contentType.toLowerCase().includes('image/jpeg')) {
-      throw new Error('Unexpected content type for ' + asset.file + ': ' + contentType);
-    }
-    bytes = Buffer.from(await response.arrayBuffer());
-    break;
   }
-  if (!bytes) throw new Error('Could not download ' + asset.file + ' after retrying Wikimedia rate limits.');
-  if (!isValidImage(bytes, asset)) throw new Error('Downloaded image failed size, JPEG signature or SHA-1 validation: ' + asset.file);
-  const sha1 = createHash('sha1').update(bytes).digest('hex');
-  await fs.writeFile(target, bytes);
-  console.log('Verified ' + asset.file + ' (' + bytes.length + ' bytes; SHA-1 ' + sha1 + ')');
+  if (!bytes) throw new Error('Could not download ' + asset.file + ': ' + (lastError?.message || 'unknown error'));
+
+  const sha256 = createHash('sha256').update(bytes).digest('hex');
+  await fs.writeFile(canonicalPath, bytes);
+  await fs.copyFile(canonicalPath, publicPath);
+  asset.status = 'downloaded-jpeg-validated';
+  asset.bytes = bytes.length;
+  asset.sha256 = sha256;
+  console.log('Verified ' + asset.file + ' (' + bytes.length + ' bytes; SHA-256 ' + sha256 + ')');
 }
+
+await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
+console.log('Imported ' + assets.length + ' JPEG reference images into ' + manifest.root);
+console.log('Copied render-ready images into template/public/reference/');

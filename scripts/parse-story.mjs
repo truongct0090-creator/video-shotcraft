@@ -48,11 +48,13 @@ const scenes = headings.map((match, index) => {
     setting: field('Bối cảnh'),
     action: field('Hành động'),
     props: field('Đạo cụ'),
+    objectKey: field('Mã vật thể').toLowerCase() || 'auto',
     shot: field('Shot'),
     narration: field('Lời dẫn'),
     audio: field('Âm thanh/Chữ') || field('Âm thanh/Chữ màn hình'),
     world: field('Loại cảnh').toLowerCase(),
     character: field('Nhân vật').toLowerCase() || 'main-boy',
+    supportingCast: field('Bóng đen').toLowerCase() || 'none',
     duration: field('Thời lượng'),
     stage: field('Sân khấu').toLowerCase(),
     photo: field('Ảnh tư liệu'),
@@ -69,15 +71,27 @@ if (scenes.length === 0) throw new Error('No scenes found. Expected headings lik
 for (const scene of scenes) {
   if (!scene.narration) throw new Error('Scene ' + scene.number + ' is missing **Lời dẫn:**.');
   if (!scene.props) throw new Error('Scene ' + scene.number + ' is missing **Đạo cụ:**; each scene needs concrete visual objects.');
+  const allowedObjectKeys = new Set(["documents","route-map","compare","school-protection","testimony","legal-case","two-column","mountain-timeline","funeral-house","village-house","research-stack","community-legacy","three-questions","pitch","family-table","checklist","social-feed","source-library","satire-boundary","evidence-board","stats-board","rights-board","none"]);
+  if (!allowedObjectKeys.has(scene.objectKey)) throw new Error('Scene ' + scene.number + ' needs a valid explicit **Mã vật thể:**.');
   if (scene.stage && !['white-intro','white-photo','white-title','normal'].includes(scene.stage)) throw new Error('Scene ' + scene.number + ' has an unsupported **Sân khấu:** value.');
   const safeReferencePhoto = scene.photo.startsWith('reference/') && !scene.photo.includes('..') && /^[a-z0-9/_-]+\.(jpg|jpeg|png|webp)$/i.test(scene.photo);
   const safeExternalPhoto = /^https:\/\/(media\.techz\.vn|danviet\.ex-cdn\.com|upload\.wikimedia\.org)\/[a-z0-9/_?=&.%+-]+$/i.test(scene.photo);
-  const safeUserReferencePhoto = /^https:\/\/[a-z0-9-]+\.edgeone\.dev\/?$/i.test(scene.photo);
-  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto && !safeUserReferencePhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must be a safe reference path or an HTTPS URL from an approved image host.');
+  // Temporary EdgeOne preview hosts are not durable image sources. They can
+  // return HTML/404 while still looking like an approved URL, which makes
+  // Chromium/Remotion fail during rendering. Documentary photos must be local
+  // validated assets or stable allow-listed archival sources.
+  if (scene.photo && !safeReferencePhoto && !safeExternalPhoto) throw new Error('Scene ' + scene.number + ' **Ảnh tư liệu:** must use a local validated reference/ image path or an approved archival image URL. EdgeOne preview URLs are not accepted.');
   if (scene.photoLabel && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Nhãn ảnh:** but no **Ảnh tư liệu:**.');
   if (scene.photoCaption && !scene.photo) throw new Error('Scene ' + scene.number + ' has **Chú thích ảnh:** but no **Ảnh tư liệu:**.');
-  if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','investigation','printing','community','checklist','timeline','generic'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
+  if (scene.world && !['alley','archive','map','teahouse','historic','countryside','modern','interior','meeting','courtroom','investigation','printing','community','checklist','timeline','generic','family-home','statistics-room','community-room','mountain-village','funeral-house','research-room','social-media'].includes(scene.world)) throw new Error('Scene ' + scene.number + ' has an unsupported **Loại cảnh:**.');
   if (!['main-boy','none'].includes(scene.character)) throw new Error('Scene ' + scene.number + ' **Nhân vật:** must be main-boy or none.');
+  if (scene.supportingCast !== 'none') {
+    const actors = scene.supportingCast.split(',').map((actor) => actor.trim());
+    const allowedActor = /^(adult|child)-(standing|seated|turning)-(left|center|right)$/;
+    if (actors.length > 5 || actors.some((actor) => !allowedActor.test(actor)) || new Set(actors).size !== actors.length) {
+      throw new Error('Scene ' + scene.number + ' **Bóng đen:** must be none or a comma-separated list of up to five adult/child standing, seated, or turning actors at left/center/right.');
+    }
+  }
   if (scene.expression && !['happy','sad','surprised','angry','worried','neutral'].includes(scene.expression)) throw new Error('Scene ' + scene.number + ' **Biểu cảm:** must be happy, sad, surprised, angry, worried, or neutral.');
   if (scene.ttsCue) {
     const cue = scene.ttsCue.match(/^(chuckle|sigh|clear-throat)\s*\|\s*(.+)$/i);

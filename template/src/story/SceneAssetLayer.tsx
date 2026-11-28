@@ -80,6 +80,16 @@ const Cast: React.FC<{scene:SceneAssetInput}> = () => null;
 
 const Props: React.FC<{scene:SceneAssetInput}> = ({scene}) => {
   const text = [scene.props,scene.action,scene.setting].filter(Boolean).join(' ').toLowerCase();
+  if (/tòa án|phòng xử|xét xử|thẩm phán|bị cáo|luật sư|phiên tòa/.test(text)) return <g transform="translate(1460 790)">
+    <g stroke={ink} strokeWidth="11" strokeLinejoin="round">
+      <path d="M-170 75H170V112H-170Z" fill="#65452f"/><path d="M-125 75V-55H125V75" fill="#8b6342"/>
+      <path d="M-15 -120V-25M-75 -95H75" stroke="#b98d55" strokeWidth="13" fill="none"/>
+      <path d="M-90 -130L-45 -155L45 -155L90 -130L55 -105H-55Z" fill="#b98d55"/>
+      <path d="M-85 -45L-40 -75L10 -45L-35 -15Z" fill="#d7c6a5"/>
+      <path d="M35 -42L100 -42L100 -10L35 -10Z" fill="#d7c6a5"/>
+      <path d="M-10 -20L25 -20L45 5L10 5Z" fill="#76543c"/>
+    </g>
+  </g>;
   if (/ấm trà|chén trà|bàn gỗ/.test(text)) return <g transform="translate(1330 790) scale(.72)"><TeaSet/></g>;
   if (/kính lúp|soi|phóng to|kiểm tra nguồn/.test(text)) return <g transform="translate(1450 780) scale(.72)"><Magnifier/></g>;
   if (/sổ thuế|sổ thu chi|tài chính|đóng góp tiền/.test(text)) return <g transform="translate(1440 790) scale(.72)"><Ledger/></g>;

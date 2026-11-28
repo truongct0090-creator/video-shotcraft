@@ -1,0 +1,159 @@
+{
+  "episode": "02-sau-canh-cua-bi-mat",
+  "root": "reference-images/episodes/02-sau-canh-cua-bi-mat",
+  "assets": [
+    {
+      "id": "scene-04",
+      "file": "scene-04-reference.jpg",
+      "scenes": [
+        "04"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/n3s60z8grp67x8kbn4kzu/IMG_4020.jpeg?rlkey=n5tgtyoncyfe4kq77jkh5cwmt&st=xrhlft1m&dl=0",
+      "source_file": "IMG_4020.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 1; opening montage reuse for Hội Thánh Đức Chúa Trời Mẹ. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 669310,
+      "sha256": "fe79995ab277c8168b6576d2e2713847c3c3bf33c18fd1f7f1a4fc85d144082d"
+    },
+    {
+      "id": "scene-05",
+      "file": "scene-05-reference.jpg",
+      "scenes": [
+        "05"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/ybvhxnvoqihizuucc8urt/IMG_4025.jpeg?rlkey=79bqfe7gr2dqks3szxdengu7w&st=uoeqzdg5&dl=0",
+      "source_file": "IMG_4025.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 2. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 606432,
+      "sha256": "d203f7f58c907da35753025643d77bc62314d20065e0de916679af838db7593c"
+    },
+    {
+      "id": "scene-08",
+      "file": "scene-08-reference.jpg",
+      "scenes": [
+        "08"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/7tq66dj7yws6jfkvgbw5a/IMG_4021.jpeg?rlkey=xhgz2peby0ylm8ua8i7lstx6l&st=iax6accv&dl=0",
+      "source_file": "IMG_4021.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 3; opening montage reuse for Tịnh thất Bồng Lai. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 29036,
+      "sha256": "6416fc38155316209b8a1305ec18d6ea8b37757a0d2f65be9bab9c2dcf057a89"
+    },
+    {
+      "id": "scene-11",
+      "file": "scene-11-reference.jpg",
+      "scenes": [
+        "11"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/4e0snrfo9v8v3w2vqbd2n/IMG_4022.jpeg?rlkey=vfg6ngy6klcqjszput9mngwh2&st=b8fxbw5i&dl=0",
+      "source_file": "IMG_4022.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 4. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 115814,
+      "sha256": "cea8429288ff1ae015b57da6fc3fd6b545d8da25dfa694d08066358d8432ac1f"
+    },
+    {
+      "id": "scene-14",
+      "file": "scene-14-reference.jpg",
+      "scenes": [
+        "14"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/wbao6z13h8kd6d24nq4sa/IMG_4027.jpeg?rlkey=up2gooo0gl6of9vsggfgfxqwz&st=1kmrnka2&dl=0",
+      "source_file": "IMG_4027.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 5; opening montage reuse for Đạo Hà Mòn. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 1212734,
+      "sha256": "0099598a3583148d7c6fb20721cc60a7f52b9038293b9e086850c52e3d836724"
+    },
+    {
+      "id": "scene-18",
+      "file": "scene-18-reference.jpg",
+      "scenes": [
+        "18"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/vbcknv0pvxpj7psiqkemj/IMG_4026.jpeg?rlkey=8ysco9khsbx8frafpbo6i3krf&st=jqmpzfn6&dl=0",
+      "source_file": "IMG_4026.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 6. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 1198267,
+      "sha256": "8c0dd887439a9703622765a256e2d086bbace20bd91b0a11bb6fd77219eb5f67"
+    },
+    {
+      "id": "scene-19",
+      "file": "scene-19-reference.jpg",
+      "scenes": [
+        "19"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/3z6rgb7o1182g63ku1otw/IMG_4028.jpeg?rlkey=f7jxzvudsb2vozts7t9m447dn&st=3psixoq8&dl=0",
+      "source_file": "IMG_4028.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 7. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 83576,
+      "sha256": "78db24d2f2089fe18ea2957f863a4f2bdc1b05cb9e036a595d11622e8c53166d"
+    },
+    {
+      "id": "scene-20",
+      "file": "scene-20-reference.jpg",
+      "scenes": [
+        "20"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/16rrm585m3yx6ytqjbgn4/IMG_4029.jpeg?rlkey=14uejfzgh6u9q234c04p2cxlq&st=q8z3oxaa&dl=0",
+      "source_file": "IMG_4029.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 8. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 244211,
+      "sha256": "36718776a379504de17511793a12c7f953d25acfc263b852e4b7b3f8f4c4114c"
+    },
+    {
+      "id": "scene-22",
+      "file": "scene-22-reference.jpg",
+      "scenes": [
+        "22"
+      ],
+      "source_url": "https://www.dropbox.com/scl/fi/78sbuhjn5znkm0fb8ifsu/IMG_4030.jpeg?rlkey=10wpk0rp7atogzgdgcmgpckyd&st=2f45nhee&dl=0",
+      "source_file": "IMG_4030.jpeg",
+      "status": "downloaded-jpeg-validated",
+      "notes": "User supplied image 9. Download script validates JPEG signature and records SHA-256.",
+      "bytes": 102620,
+      "sha256": "2138f533c4549ecdf6e6c84e68647b32f930c4fcee26f0c1d94c2c1e39b25178"
+    },
+    {
+      "id": "opening-hoi-thanh-duc-chua-troi-me",
+      "file": "scene-04-reference.jpg",
+      "scenes": [
+        "01"
+      ],
+      "status": "reuse",
+      "notes": "Reuses scene-04 source bytes; no duplicate file."
+    },
+    {
+      "id": "opening-tinh-that-bong-lai",
+      "file": "scene-08-reference.jpg",
+      "scenes": [
+        "01"
+      ],
+      "status": "reuse",
+      "notes": "Reuses scene-08 source bytes; no duplicate file."
+    },
+    {
+      "id": "opening-dao-ha-mon",
+      "file": "scene-14-reference.jpg",
+      "scenes": [
+        "01"
+      ],
+      "status": "reuse",
+      "notes": "Reuses scene-14 source bytes; no duplicate file."
+    },
+    {
+      "id": "opening-duong-van-minh",
+      "file": "scene-22-reference.jpg",
+      "scenes": [
+        "01"
+      ],
+      "status": "reuse",
+      "notes": "Reuses the user-supplied scene 22 reference photo for Dương Văn Mình; use the original bytes, not generated replacement artwork."
+    }
+  ]
+}

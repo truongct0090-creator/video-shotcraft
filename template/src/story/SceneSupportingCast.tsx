@@ -1,55 +1,34 @@
 import React from 'react';
+import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {ChibiSupportingCharacter} from '../chibi/ChibiSupportingCharacter';
-
-type SceneCastData = {setting:string;action:string;heading:string;props?:string;character?:string;world?:string};
-
-type CastKind = 'meeting'|'teahouse'|'countryside'|'printing'|'community'|'family'|'general';
-
-const WORLD_KIND:Record<string,CastKind> = {
-  meeting:'meeting',
-  teahouse:'teahouse',
-  countryside:'countryside',
-  printing:'printing',
-  community:'community',
-};
-
-const sceneKind = (scene:SceneCastData):CastKind => {
-  // Use the complete scene description: earlier versions ignored the setting,
-  // so a scene could explicitly describe a gathering yet render no supporting cast.
-  const text=[scene.setting,scene.action,scene.heading,scene.props].join(' ').toLowerCase();
-  const world=(scene.world||'').toLowerCase();
-  if (WORLD_KIND[world]) return WORLD_KIND[world];
-  if (/phòng họp|phòng sinh hoạt|buổi họp|phòng hội nghị|cuộc họp|hội trường|ngồi quanh bàn|người tham dự|các thành viên|thảo luận|họp mặt|đang họp|tòa án|xét xử|bị cáo|hồ sơ pháp lý/.test(text)) return 'meeting';
-  if (/gia đình|người thân|bữa cơm|bàn ăn|trẻ em|cha mẹ|con cái|hai chiếc ghế/.test(text)) return 'family';
-  if (/quán trà|ấm trà|chén trà|rót trà|ngồi uống trà|tiếp khách/.test(text)) return 'teahouse';
-  if (/ruộng|đồng|làng quê|nông dân|người dân|sưu thuế|thu thuế|làm ruộng/.test(text)) return 'countryside';
-  if (/xưởng in|máy in|tiệm sách|nhà in|thợ in|in ấn/.test(text)) return 'printing';
-  if (/đám đông|buổi sinh hoạt cộng đồng|các gia đình|nhóm thành viên|nhiều thành viên|người xem|mạng xã hội|bình luận|buôn làng|bản làng|người mông|cộng đồng/.test(text)) return 'community';
-  return 'general';
-};
-
-const character = (key:string,x:number,bottom:number,width=165) => (
-  <div key={key} style={{position:'absolute',left:x,bottom,width,height:250,zIndex:5,pointerEvents:'none',filter:'brightness(0) saturate(100%) opacity(.86) drop-shadow(0 9px 11px rgba(0,0,0,.24))'}}>
-    <ChibiSupportingCharacter facing={key.endsWith('L')?'left':'right'} variant={key}/>
+import type {CharacterRigPose} from '../chibi/CharacterRig';
+import {buildSupportingPose,inferSupportingMotion} from '../chibi/CharacterMotion';
+type SceneCastData={character?:string;supportingCast?:string;supportingRigs?:CharacterRigPose[];debugRig?:boolean;action?:string;narration?:string;durationInFrames?:number};
+type ActorSpec={id:string;size:'adult'|'child';pose:'standing'|'seated'|'turning';position:'left'|'center'|'right'};
+const POSITIONS:Record<ActorSpec['position'],{x:number;bottom:number}>={left:{x:520,bottom:88},center:{x:900,bottom:88},right:{x:1260,bottom:88}};
+const actor=(spec:ActorSpec,frame:number,fps:number,durationInFrames:number,index:number,motion:'still'|'walking'|'jumping'|'kneeling'|'bowing',rig?:CharacterRigPose,debugRig=false)=>{
+ const child=spec.size==='child',width=child?112:165,height=child?174:250;
+ const {x,bottom}=POSITIONS[spec.position],facing=spec.position==='right'?'left':'right';
+ const activeMotion=spec.pose==='standing'?motion:'still';
+ const visualPose=activeMotion==='kneeling'?'kneeling':spec.pose;
+ const motionRig={...buildSupportingPose(frame,fps,index,activeMotion),...(rig||{})};
+ if(activeMotion==='walking') motionRig.rootX=-72+144*Math.max(0,Math.min(1,frame/Math.max(1,durationInFrames)));
+ const turn=spec.pose==='turning'?interpolate(frame,[0,180],[0,360],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}):0;
+ return <React.Fragment key={spec.id}>
+  {spec.pose==='seated'?<svg viewBox="0 0 220 150" style={{position:'absolute',left:x-20,bottom:bottom-4,width:width+40,height:height*.62,zIndex:3,pointerEvents:'none',overflow:'visible'}}>
+   <path d="M35 140V28Q35 12 52 12H168Q185 12 185 28V140M22 82H198M48 82V145M172 82V145" fill="none" stroke="#25211e" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round"/>
+   <path d="M42 82H178" stroke="#514238" strokeWidth="20" strokeLinecap="round"/>
+  </svg>:null}
+  <div style={{position:'absolute',left:x,bottom,width,height,zIndex:5,pointerEvents:'none',transform:spec.pose==='turning'?'perspective(600px) rotateY('+turn+'deg)':'none',transformOrigin:'center bottom',filter:'brightness(0) saturate(100%) opacity(.88) drop-shadow(0 8px 10px rgba(0,0,0,.28))'}}>
+   <ChibiSupportingCharacter facing={facing} variant={spec.id} pose={visualPose} rig={motionRig} debugRig={debugRig}/>
   </div>
-);
-
-export const SceneSupportingCast:React.FC<{scene:SceneCastData}> = ({scene}) => {
-  if (scene.character === 'none') return null;
-  const kind=sceneKind(scene);
-  if (kind==='meeting') return (
-    <>
-      <div style={{position:'absolute',left:575,bottom:125,width:650,height:110,zIndex:6,pointerEvents:'none',background:'linear-gradient(180deg,#896747 0%,#60452f 100%)',border:'10px solid #493729',borderRadius:'48% 48% 35% 35%',boxShadow:'0 20px 26px rgba(0,0,0,.3)'}}/>
-      {character('meeting-aL',455,320,165)}
-      {character('meeting-bR',650,320,165)}
-      {character('meeting-cL',900,320,165)}
-      {character('meeting-dR',1110,320,165)}
-    </>
-  );
-  if (kind==='teahouse') return <>{character('tea-aR',500,320,175)}{character('tea-bL',690,320,175)}{character('tea-cR',900,320,175)}</>;
-  if (kind==='countryside') return <>{character('field-aR',470,320,175)}{character('field-bL',665,320,175)}{character('field-cR',860,320,175)}</>;
-  if (kind==='printing') return <>{character('print-aR',450,320,175)}{character('print-bL',645,320,175)}{character('print-cR',840,320,175)}</>;
-  if (kind==='community') return <>{character('community-aR',460,320,175)}{character('community-bL',655,320,175)}{character('community-cR',850,320,175)}{character('community-dL',1045,320,175)}</>;
-  if (kind==='family') return <>{character('family-aR',420,320,180)}{character('family-bL',650,320,180)}{character('family-cR',880,320,180)}</>;
-  return null;
+ </React.Fragment>;
+};
+export const SceneSupportingCast:React.FC<{scene:SceneCastData}>=({scene})=>{
+ const frame=useCurrentFrame();
+ const {fps}=useVideoConfig();
+ const motion=inferSupportingMotion((scene.action||'')+' '+(scene.narration||''));
+ if(scene.character==='none'||!scene.supportingCast||scene.supportingCast==='none') return null;
+ const actors=scene.supportingCast.split(',').map((value,index)=>{const [size,pose,position]=value.trim().split('-');return {id:'scene-cast-'+index+'-'+value.trim(),size:size as ActorSpec['size'],pose:pose as ActorSpec['pose'],position:position as ActorSpec['position']};});
+ return <>{actors.map((spec,index)=>actor(spec,frame,fps,scene.durationInFrames||1,index,motion,scene.supportingRigs?.[index],Boolean(scene.debugRig)))}</>;
 };
