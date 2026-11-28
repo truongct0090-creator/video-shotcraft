@@ -271,7 +271,7 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
  // Production notes are not viewer-facing captions.
  return [...new Set(labels)]
   .filter(label=>label.toLowerCase()!==cardTitle)
-  .filter(label=>!/tái\\s*hiện|lời\\s*kể/i.test(label))
+  .filter(label=>!/tái\s*hiện|lời\s*kể/i.test(label))
   .slice(0,3);
 };
 
@@ -443,7 +443,9 @@ const wrapVisualText=(value:string,maxChars:number):string[]=>{
 
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
  const labels=(scene.number===1||scene.number===2)?[]:extractSceneLabels(scene).map(normalizeVisualText).filter(Boolean);
- const labelWidth=hasPhoto?420:'min(760px, 44%)';\n const captionFontSize=hasPhoto?44:56;\n const captionMaxChars=hasPhoto?13:20;
+ const labelWidth=hasPhoto?420:'min(760px, 44%)';
+ const captionFontSize=hasPhoto?44:56;
+ const captionMaxChars=hasPhoto?13:20;
  const labelSide=hasPhoto
   ? (characterOnLeft?{left:600}:{right:600})
   : (characterOnLeft?{right:72}:{left:72});
