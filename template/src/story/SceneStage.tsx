@@ -268,7 +268,11 @@ const extractSceneLabels=(scene:FilmSceneData):string[]=>{
  const quoted=[...source.matchAll(/[“"‘']([^”"’']{2,})[”"’']/g)].map(match=>match[1].trim());
  const labels=quoted.length?quoted:(/nhãn ảnh minh họa/i.test(source)?['ẢNH MINH HỌA']:[]);
  const cardTitle=(scene.cardTitle||'').trim().toLowerCase();
- return [...new Set(labels)].filter(label=>label.toLowerCase()!==cardTitle).slice(0,3);
+ // Production notes are not viewer-facing captions.
+ return [...new Set(labels)]
+  .filter(label=>label.toLowerCase()!==cardTitle)
+  .filter(label=>!/tái\\s*hiện|lời\\s*kể/i.test(label))
+  .slice(0,3);
 };
 
 
@@ -424,16 +428,22 @@ const normalizeVisualText=(value:string)=>value
  .trim()
  .toLocaleUpperCase('vi-VN');
 
-const wrapVisualText=(value:string,maxWords=4):string[]=>{
+const wrapVisualText=(value:string,maxChars:number):string[]=>{
  const words=value.split(/\s+/).filter(Boolean);
  const lines:string[]=[];
- for(let i=0;i<words.length;i+=maxWords) lines.push(words.slice(i,i+maxWords).join(' '));
+ let line='';
+ for(const word of words){
+  const candidate=line?line+' '+word:word;
+  if(line && candidate.length>maxChars){lines.push(line);line=word;}
+  else line=candidate;
+ }
+ if(line) lines.push(line);
  return lines;
 };
 
 const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:boolean;characterOnLeft:boolean;hasPhoto:boolean}> = ({scene,frame,whiteStage,characterOnLeft,hasPhoto})=>{
  const labels=(scene.number===1||scene.number===2)?[]:extractSceneLabels(scene).map(normalizeVisualText).filter(Boolean);
- const labelWidth=hasPhoto?420:'min(760px, 44%)';
+ const labelWidth=hasPhoto?420:'min(760px, 44%)';\n const captionFontSize=hasPhoto?44:56;\n const captionMaxChars=hasPhoto?13:20;
  const labelSide=hasPhoto
   ? (characterOnLeft?{left:600}:{right:600})
   : (characterOnLeft?{right:72}:{left:72});
@@ -442,9 +452,9 @@ const SceneInfoCaptions:React.FC<{scene:FilmSceneData;frame:number;whiteStage:bo
   {labels.length>0?<div style={{position:'absolute',top:hasPhoto?175:76,...labelSide,width:labelWidth,zIndex:9,display:'flex',flexDirection:'column',alignItems:characterOnLeft?'flex-start':'flex-end',gap:16,pointerEvents:'none'}}>
    {labels.map((label,index)=>{
     const reveal=interpolate(frame,[index*6+3,index*6+18],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-    const lines=wrapVisualText(label,4);
-    return <div key={label} style={{width:'100%',maxWidth:'100%',padding:'8px 4px',boxSizing:'border-box',textAlign:characterOnLeft?'left':'right',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.98+reveal*0.02)+')',transformOrigin:characterOnLeft?'left center':'right center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>
-     {lines.map((line,lineIndex)=><div key={lineIndex} style={{fontSize:line.length>42?52:line.length>28?56:64,lineHeight:1.08,fontWeight:900,letterSpacing:.2,color:whiteStage?'#282522':'#fff8e8',whiteSpace:'nowrap',maxWidth:'100%'}}>{line}</div>)}
+    const lines=wrapVisualText(label,captionMaxChars);
+    return <div key={label} style={{width:'100%',maxWidth:'100%',padding:'2px 4px',boxSizing:'border-box',textAlign:characterOnLeft?'left':'right',opacity:reveal,transform:'translateY('+(1-reveal)*18+'px) scale('+(0.98+reveal*0.02)+')',transformOrigin:characterOnLeft?'left center':'right center',textShadow:whiteStage?'1px 1px 0 #d7c8b2,2px 2px 0 #b8a58b,3px 3px 0 #927e64,4px 5px 0 rgba(63,49,34,.24),0 9px 18px rgba(0,0,0,.22)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>
+     {lines.map((line,lineIndex)=><div key={lineIndex} style={{fontSize:captionFontSize,lineHeight:1.24,fontWeight:900,letterSpacing:.2,color:whiteStage?'#282522':'#fff8e8',whiteSpace:'nowrap',maxWidth:'100%',display:'block'}}>{line}</div>)}
     </div>;
    })}
   </div>:null}
@@ -487,7 +497,7 @@ const facing=characterOnLeft?'right':'left';
  const fallbackKind:ReferenceArtworkKind|undefined=unavailableUserPhoto?'unverified':undefined;
  const scaleSteps=[1.22,1.27,1.24,1.30,1.26,1.23];
  const characterScale=scene.number===2?1.32:scene.stage==='white-intro'?1.20:scaleSteps[(scene.number*5+1)%scaleSteps.length];
- return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?(scene.number===1?'radial-gradient(ellipse at 78% 30%,#fffdf7 0%,#f2ecdf 70%,#e8dfcf 100%)':scene.number===2?'radial-gradient(ellipse at 50% 35%,#fffdf7 0%,#f0e8d8 72%,#dfd2bd 100%)':(scene.number===23||scene.number===32)?'#243b3b':'#ffffff'):'#20252b',fontFamily:'Be Vietnam Pro, sans-serif',textTransform:'uppercase'}}>
+ return <div style={{position:'absolute',inset:0,overflow:'hidden',background:whiteStage?((scene.number===23||scene.number===32)?'#243b3b':'#ffffff'):'#20252b',fontFamily:'Be Vietnam Pro, sans-serif',textTransform:'uppercase'}}>
   {!whiteStage ? <><div style={{position:'absolute',inset:0}}><Backdrop world={world}/></div><div style={{position:'absolute',inset:0,opacity:propOpacity,transform:'translateY('+(1-propEntrance)*42+'px) scale('+(0.94+propEntrance*0.06)+')',transformOrigin:'center center'}}><SceneObjects scene={scene}/><SceneAssetLayer scene={scene}/></div></> : null}
   {referencePhoto ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?125:140,width:whiteStage?820:(scene.number===3||scene.number===10?520:680),height:whiteStage?610:(scene.number===3||scene.number===10?700:470),padding:14,boxSizing:'border-box',background:'#f5f0e7',border:'2px solid rgba(72,57,42,.42)',borderRadius:8,zIndex:2,filter:'drop-shadow(0 18px 22px rgba(0,0,0,.22))',transform:whiteStage?'none':'rotate(-1.2deg)'}}><div style={{position:'relative',width:'100%',height:'100%',background:'#d8cdb8',overflow:'hidden'}}><Img src={referencePhoto.startsWith('http')?referencePhoto:staticFile(referencePhoto)} style={{width:'100%',height:'100%',objectFit:'contain',display:'block',...archivalPhotoStyle}}/><div style={archivalOverlayStyle}/></div></div> : null}
   {referencePhoto && scene.photoLabel ? <div style={{position:'absolute',right:whiteStage?105:150,top:whiteStage?744:620,width:whiteStage?820:680,zIndex:7,textAlign:'center',fontFamily:'Be Vietnam Pro, sans-serif',fontSize:11,lineHeight:1.2,fontWeight:700,letterSpacing:.2,color:whiteStage?'#282522':'#fff8e8',textTransform:'none',textShadow:whiteStage?'1px 1px 0 #e5dccd,2px 2px 0 #c9b99f,3px 3px 0 #a18d70,4px 5px 0 rgba(40,32,24,.30),0 9px 18px rgba(0,0,0,.24)':'1px 1px 0 #c8b89c,2px 2px 0 #a39174,3px 3px 0 #77664f,4px 5px 0 rgba(0,0,0,.52),0 9px 18px rgba(0,0,0,.65)'}}>{'Ảnh minh hoạ'}</div> : null}
