@@ -12,7 +12,7 @@ const actor=(spec:ActorSpec,frame:number,fps:number,durationInFrames:number,inde
  const activeMotion=spec.pose==='standing'?motion:'still';
  const visualPose=activeMotion==='kneeling'?'kneeling':spec.pose;
  const motionRig={...buildSupportingPose(frame,fps,index,activeMotion),...(rig||{})};
- if(activeMotion==='walking') motionRig.rootX=-72+144*Math.max(0,Math.min(1,frame/Math.max(1,durationInFrames)));
+ if(activeMotion==='walking'){\n  const travel=Math.max(0,Math.min(1,frame/Math.max(1,durationInFrames)));\n  const easedTravel=travel*travel*(3-2*travel);\n  motionRig.rootX=-72+144*easedTravel;\n }
  const turn=spec.pose==='turning'?interpolate(frame,[0,180],[0,360],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}):0;
  return <React.Fragment key={spec.id}>
   {spec.pose==='seated'?<svg viewBox="0 0 220 150" style={{position:'absolute',left:x-20,bottom:bottom-4,width:width+40,height:height*.62,zIndex:3,pointerEvents:'none',overflow:'visible'}}>
