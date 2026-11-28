@@ -55,6 +55,9 @@ if(!motion.includes('anticipation')||!motion.includes('buildMainBoyPerformance')
 for(const action of ['walking','jumping','kneeling','bowing']) if(!motion.includes(action)) throw new Error('Missing supporting motion: '+action);
 if(!cast.includes('buildSupportingPose')||!cast.includes('inferSupportingMotion')||!cast.includes('durationInFrames')) throw new Error('Contextual supporting-character animation is not wired.');
 if(!chibi.includes("pose==='kneeling'")) throw new Error('Supporting-character kneeling pose is missing.');
+if(!motion.includes('args.speakingLevel')||!stage.includes('speakingLevel}))')) throw new Error('MainBoy gesture intensity must follow the voice track.');
+if(!mainBoy.includes('rotate(${rigPose.leftKnee} 266 642)')||!chibi.includes('rotate(${rigPose.leftKnee} -65 -95)')) throw new Error('Legs must have independent knee pivots, not foot-only rotation.');
+if(!cast.includes("activeMotion==='walking'")||!cast.includes('rootX=-72+144')) throw new Error('Walking motion must travel through the scene, not run in place.');
 if(!stage.includes("visualKey=scene.objectKey&&scene.objectKey!=='auto'?scene.objectKey:inferredVisualKey")) throw new Error('Scene-specific object keys are not authoritative.');
 if(!stage.includes("visualKey==='evidence-board'")) throw new Error('Scene 03 evidence board renderer is missing.');
 console.log('Scene design QA passed: 32 scenes, specific backdrops, no unintended scene-photo reuse, explicit silhouettes, uppercase captions, and four-word line wrapping.');
