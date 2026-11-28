@@ -27,7 +27,7 @@ export const ChibiSupportingCharacter: React.FC<{
   facing?: 'left'|'right';
   scale?: number;
   variant?: string;
-  pose?: 'standing'|'seated'|'turning';
+  pose?: 'standing'|'seated'|'turning'|'kneeling';
   rig?: CharacterRigPose;
   debugRig?: boolean;
 }> = ({facing='right', scale=1, variant='supporting-a', pose='standing', rig, debugRig=false}) => {
@@ -43,7 +43,20 @@ export const ChibiSupportingCharacter: React.FC<{
         <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352)`}/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352)`}/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352)`}/>
-        {pose==='seated' ? <g>
+        {pose==='kneeling' ? <g>
+          <g transform={`rotate(${rigPose.leftHip} -58 -160)`}>
+            <path d="M-58 -160Q-92 -112 -125 -88L-92 -58" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M-58 -160Q-92 -112 -125 -88L-92 -58" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M-92 -58Q-70 -48 -42 -58" fill="none" stroke={ink} strokeWidth="38" strokeLinecap="round"/>
+            <path d="M-92 -58Q-70 -48 -42 -58" fill="none" stroke={outfit.shoes} strokeWidth="27" strokeLinecap="round"/>
+          </g>
+          <g transform={`rotate(${rigPose.rightHip} 58 -160)`}>
+            <path d="M58 -160Q92 -112 125 -88L92 -58" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M58 -160Q92 -112 125 -88L92 -58" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M92 -58Q70 -48 42 -58" fill="none" stroke={ink} strokeWidth="38" strokeLinecap="round"/>
+            <path d="M92 -58Q70 -48 42 -58" fill="none" stroke={outfit.shoes} strokeWidth="27" strokeLinecap="round"/>
+          </g>
+        </g> : pose==='seated' ? <g>
           <g transform={`rotate(${rigPose.leftHip} -58 -160)`}>
             <path d="M-58 -160Q-100 -130 -108 -92L-38 -72" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M-58 -160Q-100 -130 -108 -92L-38 -72" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round" strokeLinejoin="round"/>
