@@ -39,6 +39,7 @@ export const ChibiSupportingCharacter: React.FC<{
     <svg viewBox="-230 0 460 800" role="img" aria-label="Nhân vật phụ chibi theo mẫu gốc của repo" style={{width:'100%',height:'100%',overflow:'visible'}}>
       <g transform={`translate(${rigPose.rootX} ${790+rigPose.rootY}) rotate(${rigPose.rootRotation} 0 -400) scale(${scale*rigPose.rootScale}) ${facing==='left'?'scale(-1 1)':''}`}>
         <ellipse cx="0" cy="5" rx="150" ry="25" fill="#7f9b83" opacity=".18"/>
+        <g transform={`rotate(${rigPose.torso} 0 -350)`}>
         <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352)`}/>
         <path d="M-91 -352 Q-137 -329 -145 -276" fill="none" stroke={outfit.shirt} strokeWidth="36" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352)`}/>
         <path d="M91 -352 Q137 -329 145 -276" fill="none" stroke={ink} strokeWidth="48" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352)`}/>
@@ -71,20 +72,26 @@ export const ChibiSupportingCharacter: React.FC<{
           </g>
         </g> : <g>
           <g transform={`rotate(${rigPose.leftHip} -58 -160)`}>
-            <path d="M-58 -160Q-70 -88 -65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
-            <path d="M-58 -160Q-70 -88 -65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
-            <g transform={`rotate(${rigPose.leftKnee} -65 -34)`}><ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/></g>
+            <path d="M-58 -160Q-70 -128 -65 -95" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
+            <path d="M-58 -160Q-70 -128 -65 -95" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
+            <g transform={`rotate(${rigPose.leftKnee} -65 -95)`}>
+              <path d="M-65 -95Q-62 -62 -65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
+              <path d="M-65 -95Q-62 -62 -65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
+              <ellipse cx="-76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+            </g>
           </g>
           <g transform={`rotate(${rigPose.rightHip} 58 -160)`}>
-            <path d="M58 -160Q70 -88 65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
-            <path d="M58 -160Q70 -88 65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
-            <g transform={`rotate(${rigPose.rightKnee} 65 -34)`}><ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/></g>
+            <path d="M58 -160Q70 -128 65 -95" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
+            <path d="M58 -160Q70 -128 65 -95" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
+            <g transform={`rotate(${rigPose.rightKnee} 65 -95)`}>
+              <path d="M65 -95Q62 -62 65 -34" fill="none" stroke={ink} strokeWidth="42" strokeLinecap="round"/>
+              <path d="M65 -95Q62 -62 65 -34" fill="none" stroke={outfit.trousers} strokeWidth="32" strokeLinecap="round"/>
+              <ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/>
+            </g>
           </g>
         </g>}
-        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round" transform={`rotate(${rigPose.torso} 0 -350)`}/>
-        <g transform={`rotate(${rigPose.torso} 0 -350)`}>
+        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
         <path d="M-48 -330 Q0 -300 48 -330" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round"/>
-        </g>
         <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352) rotate(${rigPose.leftElbow} -145 -276)`}/>
         <path d="M-145 -276 Q-157 -247 -155 -220" fill="none" stroke={skin} strokeWidth="22" strokeLinecap="round" transform={`rotate(${rigPose.leftShoulder} -91 -352) rotate(${rigPose.leftElbow} -145 -276)`}/>
         <path d="M145 -276 Q157 -247 155 -220" fill="none" stroke={ink} strokeWidth="34" strokeLinecap="round" transform={`rotate(${rigPose.rightShoulder} 91 -352) rotate(${rigPose.rightElbow} 145 -276)`}/>
@@ -102,6 +109,7 @@ export const ChibiSupportingCharacter: React.FC<{
         <ellipse cx="112" cy="-445" rx="28" ry="14" fill="#f29c91" opacity=".75"/>
         <path d="M-28 -425 Q0 -395 28 -425" fill="none" stroke="#a85f58" strokeWidth="10" strokeLinecap="round"/>
         <path d="M-8 -457q8 8 16 0" fill="none" stroke="#d99a83" strokeWidth="6" strokeLinecap="round"/>
+        </g>
         </g>
         <RigSkeleton visible={debugRig} segments={[[0,-390,0,-160],[-91,-352,-145,-276],[-145,-276,-155,-207],[91,-352,145,-276],[145,-276,155,-207],[-58,-160,-65,-34],[-65,-34,-76,-27],[58,-160,65,-34],[65,-34,76,-27]]} joints={[[0,-390],[-91,-352],[-145,-276],[-155,-207],[91,-352],[145,-276],[155,-207],[-58,-160],[-65,-34],[58,-160],[65,-34]]}/>
       </g>
