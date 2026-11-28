@@ -130,7 +130,7 @@
 ### 10. Năm 2007 – cơ sở Thánh Đức chấm dứt hoạt động
 **Bối cảnh:** Bàn hồ sơ; văn bản hành chính cách điệu, không giả làm bản gốc.
 **Hành động:** MainBoy đặt mốc 25/07/2007 lên dòng thời gian.
-**Đạo cụ:** Hồ sơ, dòng thời gian, nhãn “tái hiện văn bản”.
+**Đạo cụ:** Hồ sơ và dòng thời gian.
 **Mã vật thể:** documents
 **Lời dẫn:** “Theo thông tin được báo chí dẫn lại, ngày 25 tháng 7 năm 2007, UBND huyện Bình Chánh ra quyết định chấm dứt hoạt động cơ sở Thánh Đức. Những lý do được nêu gồm điều kiện cơ sở vật chất, vệ sinh môi trường, đăng ký tạm trú và thủ tục nhận nuôi con nuôi không đúng quy định. Đây là điều có thể đối chiếu trong các bài báo về vụ việc. Còn những lời tố cáo khác từng xuất hiện quanh cơ sở này thì phải tách riêng, không được tự động kể thành kết luận đã được chứng minh.”
 **Âm thanh/Chữ:** “25.07.2007 – CHẤM DỨT HOẠT ĐỘNG”; ghi nguồn.
@@ -197,7 +197,7 @@
 ### 15. Khi một lời khẳng định trở thành niềm tin
 **Bối cảnh:** Bàn sinh hoạt cộng đồng tái hiện; không dựng nghi lễ như tư liệu thật.
 **Hành động:** MainBoy lắng nghe, sau đó đặt dấu hỏi bên cạnh lời khẳng định.
-**Đạo cụ:** Bản đồ, tờ giấy ghi “lời kể”, nhãn “tái hiện minh họa”.
+**Đạo cụ:** Bản đồ và tài liệu ghi nhận lời kể, không hiển thị nhãn biên tập trên màn hình.
 **Mã vật thể:** testimony
 **Lời dẫn:** “Thử đặt mình vào hoàn cảnh một người dân ở vùng xa, thông tin ít, cuộc sống nhiều khó khăn, và có người nói rằng họ nhận được một thông điệp thiêng liêng. Có người tin vì hy vọng, có người tin vì cộng đồng xung quanh cùng tin, cũng có người có thể nghi ngờ. Chúng ta không nên coi thường người dân hay biến họ thành trò cười. Câu hỏi cần đặt ra là: lời khẳng định ấy có được kiểm chứng không, và ai đang sử dụng nó để kêu gọi người khác làm theo?”
 **Âm thanh/Chữ:** “LỜI KỂ KHÔNG TỰ ĐỘNG LÀ CHỨNG CỨ”.
