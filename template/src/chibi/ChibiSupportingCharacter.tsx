@@ -68,7 +68,7 @@ export const ChibiSupportingCharacter: React.FC<{
             <g transform={`rotate(${rigPose.rightKnee} 65 -34)`}><ellipse cx="76" cy="-27" rx="48" ry="23" fill={outfit.shoes} stroke={ink} strokeWidth="8"/></g>
           </g>
         </g>}
-        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round"/>
+        <path d="M-105 -365 Q-125 -280 -98 -145 Q0 -105 98 -145 Q125 -280 105 -365 Q0 -420 -105 -365Z" fill={outfit.shirt} stroke={ink} strokeWidth="9" strokeLinejoin="round" transform={`rotate(${rigPose.torso} 0 -350)`}/>
         <g transform={`rotate(${rigPose.torso} 0 -350)`}>
         <path d="M-48 -330 Q0 -300 48 -330" fill="none" stroke={outfit.trim} strokeWidth="13" strokeLinecap="round"/>
         </g>
